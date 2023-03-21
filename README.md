@@ -9,6 +9,10 @@
     * UIKit
 * Spring Boot
 * AWS
+
+### 권장 사양
+* ios ver 14 이상
+
 ### :blush: 개발 참여 인원
 * [김소람](https://github.com/piriram)
 * [김주현](https://github.com/JooHyeonKim)
