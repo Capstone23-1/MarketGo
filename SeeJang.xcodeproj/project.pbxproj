@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		214868A929CA02250033FB08 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 214868A829CA02250033FB08 /* .gitignore */; };
 		21BDCCD129C9ABDB001FC9F0 /* SeeJangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */; };
 		21BDCCD329C9ABDB001FC9F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDCCD229C9ABDB001FC9F0 /* ContentView.swift */; };
 		21BDCCD529C9ABDC001FC9F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BDCCD429C9ABDC001FC9F0 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		214868A829CA02250033FB08 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		21BDCCCD29C9ABDB001FC9F0 /* SeeJang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeJang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeJangApp.swift; sourceTree = "<group>"; };
 		21BDCCD229C9ABDB001FC9F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		21BDCCC429C9ABDB001FC9F0 = {
 			isa = PBXGroup;
 			children = (
+				214868A829CA02250033FB08 /* .gitignore */,
 				21BDCCCF29C9ABDB001FC9F0 /* SeeJang */,
 				21BDCCE029C9ABDD001FC9F0 /* SeeJangTests */,
 				21BDCCEA29C9ABDD001FC9F0 /* SeeJangUITests */,
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21BDCCD829C9ABDC001FC9F0 /* Preview Assets.xcassets in Resources */,
+				214868A929CA02250033FB08 /* .gitignore in Resources */,
 				21BDCCD529C9ABDC001FC9F0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
