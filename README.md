@@ -18,6 +18,7 @@
 ### 개발 시 참고하세용
 * [Swift MarkUP Documentation1](https://0urtrees.tistory.com/13)
 * [Swift MarkUP Documentation2](https://blog.naver.com/rlawnguq12/222250260268)
+* [Safari Technology Preview 설치](https://yeony-list.tistory.com/12)
 
 
 ### 권장 사양
