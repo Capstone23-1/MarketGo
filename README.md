@@ -16,7 +16,8 @@
 - push 브런치 대상이 `develop` 맞을까요?
 
 ### 개발 시 참고하세용
-* [Swift MarkUP Documentation](https://blog.naver.com/rlawnguq12/222250260268)
+* [Swift MarkUP Documentation1](https://0urtrees.tistory.com/13)
+* [Swift MarkUP Documentation2](https://blog.naver.com/rlawnguq12/222250260268)
 
 
 ### 권장 사양
