@@ -15,6 +15,10 @@
 - 작업이 끝나고 커밋,푸시 하셨나요?
 - push 브런치 대상이 `develop` 맞을까요?
 
+### 개발 시 참고하세용
+* [Swift MarkUP Documentation](https://blog.naver.com/rlawnguq12/222250260268)
+
+
 ### 권장 사양
 * ios ver 14 이상
 
