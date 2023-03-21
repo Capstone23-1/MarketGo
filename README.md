@@ -19,10 +19,11 @@
 * [Swift MarkUP Documentation1](https://0urtrees.tistory.com/13)
 * [Swift MarkUP Documentation2](https://blog.naver.com/rlawnguq12/222250260268)
 * [Safari Technology Preview 설치](https://yeony-list.tistory.com/12)
+* [앱만드는 방법](https://blog.naver.com/sooyeon7828/222843662880)
 
 
 ### 권장 사양
-* ios ver 14 이상
+* ios 14.0 이상
 
 ### :blush: 개발 참여 인원
 * [김소람](https://github.com/piriram)
