@@ -10,8 +10,9 @@ import SwiftUI
 @main
 struct SeeJangApp: App {
     var body: some Scene {
+        
         WindowGroup {
-            SearchViewPractice1()
+            ContentView()
         }
     }
 }

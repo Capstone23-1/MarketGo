@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2135C7A829CC2AB0003966DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C7A729CC2AB0003966DB /* ContentView.swift */; };
 		214868A929CA02250033FB08 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 214868A829CA02250033FB08 /* .gitignore */; };
 		21AE040E29CB3ED500033B53 /* LocationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AE040D29CB3ED500033B53 /* LocationUIView.swift */; };
 		21BDCCD129C9ABDB001FC9F0 /* SeeJangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2135C7A729CC2AB0003966DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		214868A829CA02250033FB08 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		21AE040D29CB3ED500033B53 /* LocationUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUIView.swift; sourceTree = "<group>"; };
 		21BDCCCD29C9ABDB001FC9F0 /* SeeJang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeJang.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2135C7A629CC2A96003966DB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2135C7A729CC2AB0003966DB /* ContentView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		21BDCCC429C9ABDB001FC9F0 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		21BDCCCF29C9ABDB001FC9F0 /* SeeJang */ = {
 			isa = PBXGroup;
 			children = (
+				2135C7A629CC2A96003966DB /* Search */,
 				21BDCCFE29C9AC75001FC9F0 /* View */,
 				21BDCCFD29C9AC62001FC9F0 /* Network */,
 				21BDCCFC29C9AC5A001FC9F0 /* Utils */,
@@ -297,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21BDCCD329C9ABDB001FC9F0 /* SearchViewPractice1.swift in Sources */,
+				2135C7A829CC2AB0003966DB /* ContentView.swift in Sources */,
 				21BDCCD129C9ABDB001FC9F0 /* SeeJangApp.swift in Sources */,
 				21AE040E29CB3ED500033B53 /* LocationUIView.swift in Sources */,
 			);
