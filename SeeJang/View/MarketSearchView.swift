@@ -26,9 +26,9 @@ struct MarketSearchView: View {
     
     var sortedClasses: [MarketInfo] {
         switch sortOption {
-            case 0: return seoulMarketList.sorted(by: { $0.marketName < $1.marketName })
+            case 0: return seoulMarketList.sorted(by: { $0.distance < $1.distance })
             case 1: return seoulMarketList.sorted(by: { $0.rating > $1.rating })
-            case 2: return seoulMarketList.sorted(by: { $0.distance > $1.distance })
+            case 2: return seoulMarketList.sorted(by: { $0.marketName < $1.marketName })
             case 9: return seoulMarketList.sorted(by: { $0.rating < $1.rating })
             default: return seoulMarketList
         }
@@ -44,9 +44,9 @@ struct MarketSearchView: View {
                 HStack{
                     Spacer()
                     Picker(selection: $sortOption, label: Text("정렬 기준")) {
-                        Text("거리 가까운 순").tag(2)
+                        Text("거리 가까운 순").tag(0)
                         Text("평점 높은순").tag(1)
-                        Text("이름순").tag(0)
+                        Text("이름순").tag(2)
                         //                        Text("Rating Low-High").tag(9)
                     }
                     .padding(.horizontal)
