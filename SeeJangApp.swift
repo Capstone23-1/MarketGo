@@ -12,7 +12,7 @@ struct SeeJangApp: App {
     var body: some Scene {
         
         WindowGroup {
-            ContentView()
+            MarketSearchView()
         }
     }
 }
