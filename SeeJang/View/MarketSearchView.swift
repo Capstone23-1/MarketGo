@@ -97,11 +97,18 @@ struct MarketSearchView: View {
                     
                     
                 }
+                NavigationLink(destination: MainView()) {
+                                    Text("화면 넘기기")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .background(Color.blue)
+                                        .cornerRadius(10.0)
+                                }
                 
                 
             }
-            .navigationBarTitle("시장 찾기",displayMode: .automatic)
-            .font(.title3)
+            
            // .navigationBarTitleDisplayMode(.inline)
             //위에 패딩이 너무 많은 거 같아서 바꾸고 싶다.
             

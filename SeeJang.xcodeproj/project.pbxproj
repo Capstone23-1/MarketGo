@@ -14,6 +14,10 @@
 		2199C69029CDD9EA00E60A4D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C68F29CDD9EA00E60A4D /* SearchBar.swift */; };
 		2199C69329CE05F900E60A4D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C69229CE05F900E60A4D /* MainView.swift */; };
 		2199C69529CE071100E60A4D /* MainViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C69429CE071100E60A4D /* MainViewMode.swift */; };
+		2199C69929CE0E3200E60A4D /* TobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C69829CE0E3200E60A4D /* TobView.swift */; };
+		2199C69F29CE157200E60A4D /* 스크린샷 2023-03-25 오전 2.28.51.png in Resources */ = {isa = PBXBuildFile; fileRef = 2199C69E29CE157200E60A4D /* 스크린샷 2023-03-25 오전 2.28.51.png */; };
+		2199C6A129CE15C600E60A4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C6A029CE15C600E60A4D /* ContentView.swift */; };
+		2199C6A329CE16EF00E60A4D /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C6A229CE16EF00E60A4D /* ProfileImageView.swift */; };
 		21BDCCD129C9ABDB001FC9F0 /* SeeJangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */; };
 		21BDCCD529C9ABDC001FC9F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BDCCD429C9ABDC001FC9F0 /* Assets.xcassets */; };
 		21BDCCD829C9ABDC001FC9F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BDCCD729C9ABDC001FC9F0 /* Preview Assets.xcassets */; };
@@ -47,6 +51,10 @@
 		2199C68F29CDD9EA00E60A4D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		2199C69229CE05F900E60A4D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2199C69429CE071100E60A4D /* MainViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewMode.swift; sourceTree = "<group>"; };
+		2199C69829CE0E3200E60A4D /* TobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TobView.swift; sourceTree = "<group>"; };
+		2199C69E29CE157200E60A4D /* 스크린샷 2023-03-25 오전 2.28.51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "스크린샷 2023-03-25 오전 2.28.51.png"; path = "../../Documents/스크린캡처/스크린샷 2023-03-25 오전 2.28.51.png"; sourceTree = "<group>"; };
+		2199C6A029CE15C600E60A4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2199C6A229CE16EF00E60A4D /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		21BDCCCD29C9ABDB001FC9F0 /* SeeJang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeJang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeJangApp.swift; sourceTree = "<group>"; };
 		21BDCCD429C9ABDC001FC9F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,8 +132,9 @@
 		21BDCCCF29C9ABDB001FC9F0 /* SeeJang */ = {
 			isa = PBXGroup;
 			children = (
-				21BDCCD429C9ABDC001FC9F0 /* Assets.xcassets */,
 				21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */,
+				21BDCCD429C9ABDC001FC9F0 /* Assets.xcassets */,
+				2199C69E29CE157200E60A4D /* 스크린샷 2023-03-25 오전 2.28.51.png */,
 				21BDCCD629C9ABDC001FC9F0 /* Preview Content */,
 				2199C69129CDE0FB00E60A4D /* Model */,
 				21BDCCFE29C9AC75001FC9F0 /* View */,
@@ -165,6 +174,9 @@
 				2135C7A729CC2AB0003966DB /* MarketSearchView.swift */,
 				2199C68F29CDD9EA00E60A4D /* SearchBar.swift */,
 				2199C69229CE05F900E60A4D /* MainView.swift */,
+				2199C69829CE0E3200E60A4D /* TobView.swift */,
+				2199C6A029CE15C600E60A4D /* ContentView.swift */,
+				2199C6A229CE16EF00E60A4D /* ProfileImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -273,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2199C69F29CE157200E60A4D /* 스크린샷 2023-03-25 오전 2.28.51.png in Resources */,
 				21BDCCD829C9ABDC001FC9F0 /* Preview Assets.xcassets in Resources */,
 				214868A929CA02250033FB08 /* .gitignore in Resources */,
 				21BDCCD529C9ABDC001FC9F0 /* Assets.xcassets in Resources */,
@@ -300,10 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2199C69929CE0E3200E60A4D /* TobView.swift in Sources */,
 				2135C7A829CC2AB0003966DB /* MarketSearchView.swift in Sources */,
+				2199C6A329CE16EF00E60A4D /* ProfileImageView.swift in Sources */,
 				2199C68E29CDD74200E60A4D /* MarketInfoModel.swift in Sources */,
 				2199C69329CE05F900E60A4D /* MainView.swift in Sources */,
 				2199C69029CDD9EA00E60A4D /* SearchBar.swift in Sources */,
+				2199C6A129CE15C600E60A4D /* ContentView.swift in Sources */,
 				2199C69529CE071100E60A4D /* MainViewMode.swift in Sources */,
 				21BDCCD129C9ABDB001FC9F0 /* SeeJangApp.swift in Sources */,
 				2199C68B29CDCE6500E60A4D /* SearchViewModel.swift in Sources */,
