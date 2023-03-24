@@ -26,9 +26,9 @@
 * ios 14.0 이상
 
 ### :blush: 개발 참여 인원
-* [김소람](https://github.com/piriram)
-* [김주현](https://github.com/JooHyeonKim)
-* [최영찬](https://github.com/ChoiYeongChan)
+* [김소람](https://github.com/piriram) : Front-End Developer
+* [김주현](https://github.com/JooHyeonKim) : Front-End Developer
+* [최영찬](https://github.com/ChoiYeongChan) : Back-End Developer
 
 
 ## Commit Rule
