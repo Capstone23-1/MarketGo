@@ -10,24 +10,6 @@ import UIKit
 
 
 
-struct SearchBar: View {
-    @Binding var searchText: String
-    @Binding var placeHolder: String
-    
-    var body: some View {
-        HStack {
-            Image(systemName: "magnifyingglass")
-                .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
-            TextField("\(placeHolder)", text: $searchText)
-                .foregroundColor(.primary)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
-        }
-    }
-}
-
-
-
 struct MarketSearchView: View {
     @State private var searchText: String = ""
     //드롭다운바 즉,Picker에서 사용하기 위한 사용자가 선택한 옵션을 저장,이 값을 사용하여 리스트를 정렬 1~3까지의 값이 있음 추가될 수 있음
@@ -118,10 +100,9 @@ struct MarketSearchView: View {
                 
                 
             }
-            .navigationBarTitle( Text("시장찾기")
-                .font(.system(size: 20))
-                                 ,displayMode: .inline)
-            //.navigationBarTitleDisplayMode(.large)
+            .navigationBarTitle("시장 찾기",displayMode: .automatic)
+            .font(.title3)
+           // .navigationBarTitleDisplayMode(.inline)
             //위에 패딩이 너무 많은 거 같아서 바꾸고 싶다.
             
         }
