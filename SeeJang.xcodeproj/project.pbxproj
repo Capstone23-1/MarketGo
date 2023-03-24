@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2135C7A829CC2AB0003966DB /* MarketSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C7A729CC2AB0003966DB /* MarketSearchView.swift */; };
 		214868A929CA02250033FB08 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 214868A829CA02250033FB08 /* .gitignore */; };
-		21AE040E29CB3ED500033B53 /* LocationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AE040D29CB3ED500033B53 /* LocationUIView.swift */; };
+		2199C68B29CDCE6500E60A4D /* MethodSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C68A29CDCE6500E60A4D /* MethodSave.swift */; };
+		2199C68E29CDD74200E60A4D /* MarketInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C68D29CDD74200E60A4D /* MarketInfoModel.swift */; };
 		21BDCCD129C9ABDB001FC9F0 /* SeeJangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */; };
-		21BDCCD329C9ABDB001FC9F0 /* SearchViewPractice1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDCCD229C9ABDB001FC9F0 /* SearchViewPractice1.swift */; };
 		21BDCCD529C9ABDC001FC9F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BDCCD429C9ABDC001FC9F0 /* Assets.xcassets */; };
 		21BDCCD829C9ABDC001FC9F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BDCCD729C9ABDC001FC9F0 /* Preview Assets.xcassets */; };
 		21BDCCE229C9ABDD001FC9F0 /* SeeJangTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDCCE129C9ABDD001FC9F0 /* SeeJangTests.swift */; };
@@ -36,11 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2135C7A729CC2AB0003966DB /* MarketSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketSearchView.swift; sourceTree = "<group>"; };
 		214868A829CA02250033FB08 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		21AE040D29CB3ED500033B53 /* LocationUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUIView.swift; sourceTree = "<group>"; };
+		2199C68A29CDCE6500E60A4D /* MethodSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MethodSave.swift; path = SeeJang/ViewModel/MethodSave.swift; sourceTree = SOURCE_ROOT; };
+		2199C68D29CDD74200E60A4D /* MarketInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfoModel.swift; sourceTree = "<group>"; };
 		21BDCCCD29C9ABDB001FC9F0 /* SeeJang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeJang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeJangApp.swift; sourceTree = "<group>"; };
-		21BDCCD229C9ABDB001FC9F0 /* SearchViewPractice1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewPractice1.swift; sourceTree = "<group>"; };
 		21BDCCD429C9ABDC001FC9F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21BDCCD729C9ABDC001FC9F0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		21BDCCDD29C9ABDD001FC9F0 /* SeeJangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeeJangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,11 +77,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2135C7A629CC2A96003966DB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2135C7A729CC2AB0003966DB /* MarketSearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		2199C68C29CDCF7700E60A4D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2199C68A29CDCE6500E60A4D /* MethodSave.swift */,
+				2199C68D29CDD74200E60A4D /* MarketInfoModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		21BDCCC429C9ABDB001FC9F0 = {
 			isa = PBXGroup;
 			children = (
 				214868A829CA02250033FB08 /* .gitignore */,
 				21BDCCCF29C9ABDB001FC9F0 /* SeeJang */,
+				21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */,
+				21BDCCD429C9ABDC001FC9F0 /* Assets.xcassets */,
 				21BDCCE029C9ABDD001FC9F0 /* SeeJangTests */,
 				21BDCCEA29C9ABDD001FC9F0 /* SeeJangUITests */,
 				21BDCCCE29C9ABDB001FC9F0 /* Products */,
@@ -99,13 +120,13 @@
 		21BDCCCF29C9ABDB001FC9F0 /* SeeJang */ = {
 			isa = PBXGroup;
 			children = (
-				21BDCCFE29C9AC75001FC9F0 /* View */,
-				21BDCCFD29C9AC62001FC9F0 /* Network */,
-				21BDCCFC29C9AC5A001FC9F0 /* Utils */,
 				21BDCCFB29C9AC50001FC9F0 /* Model */,
-				21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */,
-				21BDCCD429C9ABDC001FC9F0 /* Assets.xcassets */,
+				21BDCCFD29C9AC62001FC9F0 /* Network */,
 				21BDCCD629C9ABDC001FC9F0 /* Preview Content */,
+				2135C7A629CC2A96003966DB /* Search */,
+				21BDCCFC29C9AC5A001FC9F0 /* Utils */,
+				21BDCCFE29C9AC75001FC9F0 /* View */,
+				2199C68C29CDCF7700E60A4D /* ViewModel */,
 			);
 			path = SeeJang;
 			sourceTree = "<group>";
@@ -159,8 +180,6 @@
 		21BDCCFE29C9AC75001FC9F0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				21BDCCD229C9ABDB001FC9F0 /* SearchViewPractice1.swift */,
-				21AE040D29CB3ED500033B53 /* LocationUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,9 +315,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21BDCCD329C9ABDB001FC9F0 /* SearchViewPractice1.swift in Sources */,
+				2135C7A829CC2AB0003966DB /* MarketSearchView.swift in Sources */,
+				2199C68E29CDD74200E60A4D /* MarketInfoModel.swift in Sources */,
 				21BDCCD129C9ABDB001FC9F0 /* SeeJangApp.swift in Sources */,
-				21AE040E29CB3ED500033B53 /* LocationUIView.swift in Sources */,
+				2199C68B29CDCE6500E60A4D /* MethodSave.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
