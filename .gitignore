@@ -17,4 +17,7 @@ xcuserdata/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+### custom ###
+.DS_Store
+*.pbxproj
 # End of https://www.toptal.com/developers/gitignore/api/xcode

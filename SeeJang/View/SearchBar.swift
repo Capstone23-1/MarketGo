@@ -15,12 +15,13 @@ struct SearchBar: View {
     var body: some View {
         
         HStack {
-            Image(systemName: "magnifyingglass")
-                .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
-            TextField("\(placeHolder)", text: $searchText)
+           TextField("\(placeHolder)", text: $searchText)
                 .foregroundColor(.primary)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+            Image(systemName: "magnifyingglass")
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
+            
         }
     }
 }
