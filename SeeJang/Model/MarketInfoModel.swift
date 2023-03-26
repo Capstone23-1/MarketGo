@@ -12,3 +12,7 @@ public struct MarketInfo {
     var rating: Float // 평점
     var distance: Float //단위 km
 }
+
+public struct MainInfo{
+    var topTitle: String
+}

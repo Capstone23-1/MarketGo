@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2135C7A829CC2AB0003966DB /* MarketSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C7A729CC2AB0003966DB /* MarketSearchView.swift */; };
 		214868A929CA02250033FB08 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 214868A829CA02250033FB08 /* .gitignore */; };
+		217545F629D0637A00358291 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217545F529D0637A00358291 /* MapView.swift */; };
 		2199C68B29CDCE6500E60A4D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C68A29CDCE6500E60A4D /* SearchViewModel.swift */; };
 		2199C68E29CDD74200E60A4D /* MarketInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C68D29CDD74200E60A4D /* MarketInfoModel.swift */; };
 		2199C69029CDD9EA00E60A4D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C68F29CDD9EA00E60A4D /* SearchBar.swift */; };
@@ -17,6 +18,8 @@
 		2199C69929CE0E3200E60A4D /* TobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C69829CE0E3200E60A4D /* TobView.swift */; };
 		2199C6A129CE15C600E60A4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C6A029CE15C600E60A4D /* ContentView.swift */; };
 		2199C6A329CE16EF00E60A4D /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C6A229CE16EF00E60A4D /* ProfileImageView.swift */; };
+		2199C6A729CEF69D00E60A4D /* Convention.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2199C6A629CEF69D00E60A4D /* Convention.docc */; };
+		2199C6A929CEF6F700E60A4D /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199C6A829CEF6F700E60A4D /* CartView.swift */; };
 		21BDCCD129C9ABDB001FC9F0 /* SeeJangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */; };
 		21BDCCD529C9ABDC001FC9F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BDCCD429C9ABDC001FC9F0 /* Assets.xcassets */; };
 		21BDCCD829C9ABDC001FC9F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BDCCD729C9ABDC001FC9F0 /* Preview Assets.xcassets */; };
@@ -45,6 +48,7 @@
 /* Begin PBXFileReference section */
 		2135C7A729CC2AB0003966DB /* MarketSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketSearchView.swift; sourceTree = "<group>"; };
 		214868A829CA02250033FB08 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		217545F529D0637A00358291 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2199C68A29CDCE6500E60A4D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewModel.swift; path = SeeJang/ViewModel/SearchViewModel.swift; sourceTree = SOURCE_ROOT; };
 		2199C68D29CDD74200E60A4D /* MarketInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfoModel.swift; sourceTree = "<group>"; };
 		2199C68F29CDD9EA00E60A4D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 		2199C69829CE0E3200E60A4D /* TobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TobView.swift; sourceTree = "<group>"; };
 		2199C6A029CE15C600E60A4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2199C6A229CE16EF00E60A4D /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		2199C6A629CEF69D00E60A4D /* Convention.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Convention.docc; sourceTree = "<group>"; };
+		2199C6A829CEF6F700E60A4D /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		21BDCCCD29C9ABDB001FC9F0 /* SeeJang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeJang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BDCCD029C9ABDB001FC9F0 /* SeeJangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeJangApp.swift; sourceTree = "<group>"; };
 		21BDCCD429C9ABDC001FC9F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 				2199C69129CDE0FB00E60A4D /* Model */,
 				21BDCCFE29C9AC75001FC9F0 /* View */,
 				2199C68C29CDCF7700E60A4D /* ViewModel */,
+				2199C6A629CEF69D00E60A4D /* Convention.docc */,
 			);
 			path = SeeJang;
 			sourceTree = "<group>";
@@ -169,11 +176,13 @@
 			isa = PBXGroup;
 			children = (
 				2135C7A729CC2AB0003966DB /* MarketSearchView.swift */,
-				2199C68F29CDD9EA00E60A4D /* SearchBar.swift */,
 				2199C69229CE05F900E60A4D /* MainView.swift */,
+				2199C68F29CDD9EA00E60A4D /* SearchBar.swift */,
 				2199C69829CE0E3200E60A4D /* TobView.swift */,
 				2199C6A029CE15C600E60A4D /* ContentView.swift */,
 				2199C6A229CE16EF00E60A4D /* ProfileImageView.swift */,
+				2199C6A829CEF6F700E60A4D /* CartView.swift */,
+				217545F529D0637A00358291 /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,11 +318,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2199C6A729CEF69D00E60A4D /* Convention.docc in Sources */,
 				2199C69929CE0E3200E60A4D /* TobView.swift in Sources */,
 				2135C7A829CC2AB0003966DB /* MarketSearchView.swift in Sources */,
 				2199C6A329CE16EF00E60A4D /* ProfileImageView.swift in Sources */,
+				217545F629D0637A00358291 /* MapView.swift in Sources */,
 				2199C68E29CDD74200E60A4D /* MarketInfoModel.swift in Sources */,
 				2199C69329CE05F900E60A4D /* MainView.swift in Sources */,
+				2199C6A929CEF6F700E60A4D /* CartView.swift in Sources */,
 				2199C69029CDD9EA00E60A4D /* SearchBar.swift in Sources */,
 				2199C6A129CE15C600E60A4D /* ContentView.swift in Sources */,
 				2199C69529CE071100E60A4D /* MainViewMode.swift in Sources */,
