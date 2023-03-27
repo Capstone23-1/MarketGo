@@ -1,0 +1,663 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5729D1CEBA00B78C6C /* Assets.xcassets */; };
+		2140BC5B29D1CEBA00B78C6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */; };
+		2140BC6529D1CEBA00B78C6C /* MarketGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC6429D1CEBA00B78C6C /* MarketGoTests.swift */; };
+		2140BC6F29D1CEBA00B78C6C /* MarketGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC6E29D1CEBA00B78C6C /* MarketGoUITests.swift */; };
+		2140BC7129D1CEBA00B78C6C /* MarketGoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC7029D1CEBA00B78C6C /* MarketGoUITestsLaunchTests.swift */; };
+		2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC7D29D1CF7D00B78C6C /* Documentation.docc */; };
+		2140BC8029D1CF9400B78C6C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC7F29D1CF9300B78C6C /* README.md */; };
+		2140BC8329D1CFA900B78C6C /* MarketInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC8229D1CFA900B78C6C /* MarketInfoModel.swift */; };
+		2140BC8D29D1CFBB00B78C6C /* MarketSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC8529D1CFBB00B78C6C /* MarketSearchView.swift */; };
+		2140BC8E29D1CFBB00B78C6C /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC8629D1CFBB00B78C6C /* ProfileImageView.swift */; };
+		2140BC8F29D1CFBB00B78C6C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC8729D1CFBB00B78C6C /* MapView.swift */; };
+		2140BC9029D1CFBB00B78C6C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC8829D1CFBB00B78C6C /* SearchBar.swift */; };
+		2140BC9129D1CFBB00B78C6C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC8929D1CFBB00B78C6C /* MainView.swift */; };
+		2140BC9229D1CFBB00B78C6C /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC8A29D1CFBB00B78C6C /* CartView.swift */; };
+		2140BC9329D1CFBB00B78C6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC8B29D1CFBB00B78C6C /* ContentView.swift */; };
+		2140BC9429D1CFBB00B78C6C /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC8C29D1CFBB00B78C6C /* TopView.swift */; };
+		2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */; };
+		2140BC9929D1D01900B78C6C /* MarketGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC9829D1D01900B78C6C /* MarketGoApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2140BC6129D1CEBA00B78C6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2140BC4829D1CEB900B78C6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2140BC4F29D1CEB900B78C6C;
+			remoteInfo = MarketGo;
+		};
+		2140BC6B29D1CEBA00B78C6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2140BC4829D1CEB900B78C6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2140BC4F29D1CEB900B78C6C;
+			remoteInfo = MarketGo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2140BC5029D1CEB900B78C6C /* MarketGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2140BC5729D1CEBA00B78C6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2140BC6029D1CEBA00B78C6C /* MarketGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarketGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2140BC6429D1CEBA00B78C6C /* MarketGoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGoTests.swift; sourceTree = "<group>"; };
+		2140BC6A29D1CEBA00B78C6C /* MarketGoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarketGoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2140BC6E29D1CEBA00B78C6C /* MarketGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGoUITests.swift; sourceTree = "<group>"; };
+		2140BC7029D1CEBA00B78C6C /* MarketGoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2140BC7D29D1CF7D00B78C6C /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
+		2140BC7F29D1CF9300B78C6C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = MarketGo/README.md; sourceTree = "<group>"; };
+		2140BC8229D1CFA900B78C6C /* MarketInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketInfoModel.swift; sourceTree = "<group>"; };
+		2140BC8529D1CFBB00B78C6C /* MarketSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketSearchView.swift; sourceTree = "<group>"; };
+		2140BC8629D1CFBB00B78C6C /* ProfileImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		2140BC8729D1CFBB00B78C6C /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2140BC8829D1CFBB00B78C6C /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		2140BC8929D1CFBB00B78C6C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		2140BC8A29D1CFBB00B78C6C /* CartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		2140BC8B29D1CFBB00B78C6C /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2140BC8C29D1CFBB00B78C6C /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		2140BC9829D1D01900B78C6C /* MarketGoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketGoApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2140BC4D29D1CEB900B78C6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2140BC5D29D1CEBA00B78C6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2140BC6729D1CEBA00B78C6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2140BC4729D1CEB900B78C6C = {
+			isa = PBXGroup;
+			children = (
+				2140BC5229D1CEB900B78C6C /* MarketGo */,
+				2140BC6329D1CEBA00B78C6C /* MarketGoTests */,
+				2140BC7F29D1CF9300B78C6C /* README.md */,
+				2140BC6D29D1CEBA00B78C6C /* MarketGoUITests */,
+				2140BC5129D1CEB900B78C6C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2140BC5129D1CEB900B78C6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2140BC5029D1CEB900B78C6C /* MarketGo.app */,
+				2140BC6029D1CEBA00B78C6C /* MarketGoTests.xctest */,
+				2140BC6A29D1CEBA00B78C6C /* MarketGoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2140BC5229D1CEB900B78C6C /* MarketGo */ = {
+			isa = PBXGroup;
+			children = (
+				2140BC9829D1D01900B78C6C /* MarketGoApp.swift */,
+				2140BC9529D1CFD900B78C6C /* ViewModel */,
+				2140BC8429D1CFBB00B78C6C /* View */,
+				2140BC7D29D1CF7D00B78C6C /* Documentation.docc */,
+				2140BC8129D1CFA900B78C6C /* Model */,
+				2140BC5729D1CEBA00B78C6C /* Assets.xcassets */,
+				2140BC5929D1CEBA00B78C6C /* Preview Content */,
+			);
+			path = MarketGo;
+			sourceTree = "<group>";
+		};
+		2140BC5929D1CEBA00B78C6C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2140BC6329D1CEBA00B78C6C /* MarketGoTests */ = {
+			isa = PBXGroup;
+			children = (
+				2140BC6429D1CEBA00B78C6C /* MarketGoTests.swift */,
+			);
+			path = MarketGoTests;
+			sourceTree = "<group>";
+		};
+		2140BC6D29D1CEBA00B78C6C /* MarketGoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2140BC6E29D1CEBA00B78C6C /* MarketGoUITests.swift */,
+				2140BC7029D1CEBA00B78C6C /* MarketGoUITestsLaunchTests.swift */,
+			);
+			path = MarketGoUITests;
+			sourceTree = "<group>";
+		};
+		2140BC8129D1CFA900B78C6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2140BC8229D1CFA900B78C6C /* MarketInfoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2140BC8429D1CFBB00B78C6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2140BC8529D1CFBB00B78C6C /* MarketSearchView.swift */,
+				2140BC8629D1CFBB00B78C6C /* ProfileImageView.swift */,
+				2140BC8729D1CFBB00B78C6C /* MapView.swift */,
+				2140BC8829D1CFBB00B78C6C /* SearchBar.swift */,
+				2140BC8929D1CFBB00B78C6C /* MainView.swift */,
+				2140BC8A29D1CFBB00B78C6C /* CartView.swift */,
+				2140BC8B29D1CFBB00B78C6C /* ContentView.swift */,
+				2140BC8C29D1CFBB00B78C6C /* TopView.swift */,
+			);
+			name = View;
+			path = Model/View;
+			sourceTree = "<group>";
+		};
+		2140BC9529D1CFD900B78C6C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2140BC4F29D1CEB900B78C6C /* MarketGo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2140BC7429D1CEBA00B78C6C /* Build configuration list for PBXNativeTarget "MarketGo" */;
+			buildPhases = (
+				2140BC4C29D1CEB900B78C6C /* Sources */,
+				2140BC4D29D1CEB900B78C6C /* Frameworks */,
+				2140BC4E29D1CEB900B78C6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarketGo;
+			productName = MarketGo;
+			productReference = 2140BC5029D1CEB900B78C6C /* MarketGo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2140BC5F29D1CEBA00B78C6C /* MarketGoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2140BC7729D1CEBA00B78C6C /* Build configuration list for PBXNativeTarget "MarketGoTests" */;
+			buildPhases = (
+				2140BC5C29D1CEBA00B78C6C /* Sources */,
+				2140BC5D29D1CEBA00B78C6C /* Frameworks */,
+				2140BC5E29D1CEBA00B78C6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2140BC6229D1CEBA00B78C6C /* PBXTargetDependency */,
+			);
+			name = MarketGoTests;
+			productName = MarketGoTests;
+			productReference = 2140BC6029D1CEBA00B78C6C /* MarketGoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2140BC6929D1CEBA00B78C6C /* MarketGoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2140BC7A29D1CEBA00B78C6C /* Build configuration list for PBXNativeTarget "MarketGoUITests" */;
+			buildPhases = (
+				2140BC6629D1CEBA00B78C6C /* Sources */,
+				2140BC6729D1CEBA00B78C6C /* Frameworks */,
+				2140BC6829D1CEBA00B78C6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2140BC6C29D1CEBA00B78C6C /* PBXTargetDependency */,
+			);
+			name = MarketGoUITests;
+			productName = MarketGoUITests;
+			productReference = 2140BC6A29D1CEBA00B78C6C /* MarketGoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2140BC4829D1CEB900B78C6C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					2140BC4F29D1CEB900B78C6C = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					2140BC5F29D1CEBA00B78C6C = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 2140BC4F29D1CEB900B78C6C;
+					};
+					2140BC6929D1CEBA00B78C6C = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 2140BC4F29D1CEB900B78C6C;
+					};
+				};
+			};
+			buildConfigurationList = 2140BC4B29D1CEB900B78C6C /* Build configuration list for PBXProject "MarketGo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2140BC4729D1CEB900B78C6C;
+			productRefGroup = 2140BC5129D1CEB900B78C6C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2140BC4F29D1CEB900B78C6C /* MarketGo */,
+				2140BC5F29D1CEBA00B78C6C /* MarketGoTests */,
+				2140BC6929D1CEBA00B78C6C /* MarketGoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2140BC4E29D1CEB900B78C6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2140BC8029D1CF9400B78C6C /* README.md in Resources */,
+				2140BC5B29D1CEBA00B78C6C /* Preview Assets.xcassets in Resources */,
+				2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2140BC5E29D1CEBA00B78C6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2140BC6829D1CEBA00B78C6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2140BC4C29D1CEB900B78C6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2140BC9229D1CFBB00B78C6C /* CartView.swift in Sources */,
+				2140BC9329D1CFBB00B78C6C /* ContentView.swift in Sources */,
+				2140BC8F29D1CFBB00B78C6C /* MapView.swift in Sources */,
+				2140BC9129D1CFBB00B78C6C /* MainView.swift in Sources */,
+				2140BC8E29D1CFBB00B78C6C /* ProfileImageView.swift in Sources */,
+				2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */,
+				2140BC8D29D1CFBB00B78C6C /* MarketSearchView.swift in Sources */,
+				2140BC8329D1CFA900B78C6C /* MarketInfoModel.swift in Sources */,
+				2140BC9029D1CFBB00B78C6C /* SearchBar.swift in Sources */,
+				2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */,
+				2140BC9429D1CFBB00B78C6C /* TopView.swift in Sources */,
+				2140BC9929D1D01900B78C6C /* MarketGoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2140BC5C29D1CEBA00B78C6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2140BC6529D1CEBA00B78C6C /* MarketGoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2140BC6629D1CEBA00B78C6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2140BC7129D1CEBA00B78C6C /* MarketGoUITestsLaunchTests.swift in Sources */,
+				2140BC6F29D1CEBA00B78C6C /* MarketGoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2140BC6229D1CEBA00B78C6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2140BC4F29D1CEB900B78C6C /* MarketGo */;
+			targetProxy = 2140BC6129D1CEBA00B78C6C /* PBXContainerItemProxy */;
+		};
+		2140BC6C29D1CEBA00B78C6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2140BC4F29D1CEB900B78C6C /* MarketGo */;
+			targetProxy = 2140BC6B29D1CEBA00B78C6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2140BC7229D1CEBA00B78C6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2140BC7329D1CEBA00B78C6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2140BC7529D1CEBA00B78C6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MarketGo/Preview Content\"";
+				DEVELOPMENT_TEAM = F5WP2FDW4U;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MarketGo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2140BC7629D1CEBA00B78C6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MarketGo/Preview Content\"";
+				DEVELOPMENT_TEAM = F5WP2FDW4U;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MarketGo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2140BC7829D1CEBA00B78C6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5WP2FDW4U;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarketGo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MarketGo";
+			};
+			name = Debug;
+		};
+		2140BC7929D1CEBA00B78C6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5WP2FDW4U;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarketGo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MarketGo";
+			};
+			name = Release;
+		};
+		2140BC7B29D1CEBA00B78C6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5WP2FDW4U;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MarketGo;
+			};
+			name = Debug;
+		};
+		2140BC7C29D1CEBA00B78C6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5WP2FDW4U;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MarketGo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2140BC4B29D1CEB900B78C6C /* Build configuration list for PBXProject "MarketGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2140BC7229D1CEBA00B78C6C /* Debug */,
+				2140BC7329D1CEBA00B78C6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2140BC7429D1CEBA00B78C6C /* Build configuration list for PBXNativeTarget "MarketGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2140BC7529D1CEBA00B78C6C /* Debug */,
+				2140BC7629D1CEBA00B78C6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2140BC7729D1CEBA00B78C6C /* Build configuration list for PBXNativeTarget "MarketGoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2140BC7829D1CEBA00B78C6C /* Debug */,
+				2140BC7929D1CEBA00B78C6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2140BC7A29D1CEBA00B78C6C /* Build configuration list for PBXNativeTarget "MarketGoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2140BC7B29D1CEBA00B78C6C /* Debug */,
+				2140BC7C29D1CEBA00B78C6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2140BC4829D1CEB900B78C6C /* Project object */;
+}
