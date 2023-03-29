@@ -15,7 +15,7 @@ struct CartView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(foodItems.indices) { index in
+                ForEach(foodItems.indices, id: \.self) { index in
                     let foodItem = foodItems[index]
                     HStack() {
                         VStack(alignment: .leading){
@@ -25,21 +25,20 @@ struct CartView: View {
                                 .frame(width:80, height: 80)
                         }
                         Spacer()
-                        VStack(alignment: .leading, spacing: 10){
-                            Text(foodItem.storeName)
+                        VStack(alignment: .leading, spacing: 5){
                             Text(foodItem.name)
                                 .fontWeight(.semibold)
+                            Text(foodItem.storeName).font(.system(size: 14))
                             Text("\(foodItem.price)원")
-                                .foregroundColor(.gray)
+                               .foregroundColor(.gray)
                         }
                         
-                        Spacer()
-                       
                         Stepper(value: $foodItems[index].quantity, in: 1...10) {
                             Text("\(foodItem.quantity) 개")
                         }
                     }
                 }
+                .onDelete(perform: deleteItem)
             }
             Spacer()
             HStack {
@@ -49,8 +48,14 @@ struct CartView: View {
             }
         }
         .navigationBarTitle("장바구니")
+        .navigationBarItems(trailing: EditButton())
+    }
+    
+    func deleteItem(at offsets: IndexSet) {
+        foodItems.remove(atOffsets: offsets)
     }
 }
+
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
