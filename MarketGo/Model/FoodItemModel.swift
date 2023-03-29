@@ -13,6 +13,7 @@ public struct FoodItem: Hashable, Identifiable {
     
     let name: String
     let storeName: String
+    let imageName: String
     let price: Int
     var quantity: Int = 1
 }

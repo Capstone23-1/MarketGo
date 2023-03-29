@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "스크린샷 2023-03-29 12.32.01.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "스크린샷 2023-03-29 12.32.01.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

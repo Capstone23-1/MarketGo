@@ -13,9 +13,14 @@ struct TobView: View {
             Text("시장")
                 .font(.headline)
             Spacer()
-            Image(systemName: "cart")
-                .padding(.horizontal)
-                .imageScale(.large)
+            
+            NavigationLink{
+                CartView()
+            } label: {
+                Image(systemName: "cart")
+                    .padding(.horizontal)
+                    .imageScale(.large)
+            }
             ProfileImageView()
                 
         }
