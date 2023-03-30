@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04676630BA41F3F785250F44 /* libPods-MarketGo-MarketGoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DAD2834704D9AC24B3FE67 /* libPods-MarketGo-MarketGoUITests.a */; };
 		2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5729D1CEBA00B78C6C /* Assets.xcassets */; };
 		2140BC5B29D1CEBA00B78C6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */; };
 		2140BC6529D1CEBA00B78C6C /* MarketGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC6429D1CEBA00B78C6C /* MarketGoTests.swift */; };
@@ -25,7 +26,9 @@
 		2140BC9429D1CFBB00B78C6C /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC8C29D1CFBB00B78C6C /* TopView.swift */; };
 		2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */; };
 		2140BC9929D1D01900B78C6C /* MarketGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC9829D1D01900B78C6C /* MarketGoApp.swift */; };
+		4C6BEE22B891D5ECFBAF2C4E /* libPods-MarketGoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 372F27A23E1C53B23134E61D /* libPods-MarketGoTests.a */; };
 		99A26C9329D3DBF500C3EB70 /* FoodItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A26C9229D3DBF500C3EB70 /* FoodItemModel.swift */; };
+		EDBE7B3C03789895972653B6 /* libPods-MarketGo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7A01178B401FD76B245D58 /* libPods-MarketGo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09DAEA41333B3709D63CB182 /* Pods-MarketGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo.release.xcconfig"; path = "Target Support Files/Pods-MarketGo/Pods-MarketGo.release.xcconfig"; sourceTree = "<group>"; };
 		2140BC5029D1CEB900B78C6C /* MarketGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2140BC5729D1CEBA00B78C6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -67,7 +71,15 @@
 		2140BC8C29D1CFBB00B78C6C /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		2140BC9829D1D01900B78C6C /* MarketGoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketGoApp.swift; sourceTree = "<group>"; };
+		219B728162FA63336BA38565 /* Pods-MarketGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGoTests.release.xcconfig"; path = "Target Support Files/Pods-MarketGoTests/Pods-MarketGoTests.release.xcconfig"; sourceTree = "<group>"; };
+		372F27A23E1C53B23134E61D /* libPods-MarketGoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MarketGoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C1F7205BD6E0A5F528CB138 /* Pods-MarketGo-MarketGoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.release.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8DF6845F024FAE32C29AF3C0 /* Pods-MarketGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGoTests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGoTests/Pods-MarketGoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99A26C9229D3DBF500C3EB70 /* FoodItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemModel.swift; sourceTree = "<group>"; };
+		9A7A01178B401FD76B245D58 /* libPods-MarketGo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MarketGo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA771AD355AE3C454FFAFE6F /* Pods-MarketGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo/Pods-MarketGo.debug.xcconfig"; sourceTree = "<group>"; };
+		E5F51F2E736590B109747774 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F7DAD2834704D9AC24B3FE67 /* libPods-MarketGo-MarketGoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MarketGo-MarketGoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDBE7B3C03789895972653B6 /* libPods-MarketGo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6BEE22B891D5ECFBAF2C4E /* libPods-MarketGoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04676630BA41F3F785250F44 /* libPods-MarketGo-MarketGoUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +119,8 @@
 				2140BC6329D1CEBA00B78C6C /* MarketGoTests */,
 				2140BC6D29D1CEBA00B78C6C /* MarketGoUITests */,
 				2140BC5129D1CEB900B78C6C /* Products */,
+				E4DCDE2374360641A06D4343 /* Pods */,
+				7055E87F154BB5B8FDB3C332 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +205,30 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7055E87F154BB5B8FDB3C332 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A7A01178B401FD76B245D58 /* libPods-MarketGo.a */,
+				F7DAD2834704D9AC24B3FE67 /* libPods-MarketGo-MarketGoUITests.a */,
+				372F27A23E1C53B23134E61D /* libPods-MarketGoTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4DCDE2374360641A06D4343 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA771AD355AE3C454FFAFE6F /* Pods-MarketGo.debug.xcconfig */,
+				09DAEA41333B3709D63CB182 /* Pods-MarketGo.release.xcconfig */,
+				E5F51F2E736590B109747774 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */,
+				5C1F7205BD6E0A5F528CB138 /* Pods-MarketGo-MarketGoUITests.release.xcconfig */,
+				8DF6845F024FAE32C29AF3C0 /* Pods-MarketGoTests.debug.xcconfig */,
+				219B728162FA63336BA38565 /* Pods-MarketGoTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,9 +236,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2140BC7429D1CEBA00B78C6C /* Build configuration list for PBXNativeTarget "MarketGo" */;
 			buildPhases = (
+				C9C3006CE7515E50553B42AD /* [CP] Check Pods Manifest.lock */,
 				2140BC4C29D1CEB900B78C6C /* Sources */,
 				2140BC4D29D1CEB900B78C6C /* Frameworks */,
 				2140BC4E29D1CEB900B78C6C /* Resources */,
+				7D9935CDCBF4DD1211C6C033 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,6 +255,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2140BC7729D1CEBA00B78C6C /* Build configuration list for PBXNativeTarget "MarketGoTests" */;
 			buildPhases = (
+				637065F929472B17CDBA6B67 /* [CP] Check Pods Manifest.lock */,
 				2140BC5C29D1CEBA00B78C6C /* Sources */,
 				2140BC5D29D1CEBA00B78C6C /* Frameworks */,
 				2140BC5E29D1CEBA00B78C6C /* Resources */,
@@ -230,9 +274,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2140BC7A29D1CEBA00B78C6C /* Build configuration list for PBXNativeTarget "MarketGoUITests" */;
 			buildPhases = (
+				6FD8543BC3823D0C19DD10C1 /* [CP] Check Pods Manifest.lock */,
 				2140BC6629D1CEBA00B78C6C /* Sources */,
 				2140BC6729D1CEBA00B78C6C /* Frameworks */,
 				2140BC6829D1CEBA00B78C6C /* Resources */,
+				F6355C1216DC86AC342B9FEB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,6 +359,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		637065F929472B17CDBA6B67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MarketGoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FD8543BC3823D0C19DD10C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MarketGo-MarketGoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D9935CDCBF4DD1211C6C033 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarketGo/Pods-MarketGo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarketGo/Pods-MarketGo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarketGo/Pods-MarketGo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9C3006CE7515E50553B42AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MarketGo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6355C1216DC86AC342B9FEB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2140BC4C29D1CEB900B78C6C /* Sources */ = {
@@ -484,6 +633,7 @@
 		};
 		2140BC7529D1CEBA00B78C6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA771AD355AE3C454FFAFE6F /* Pods-MarketGo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -516,6 +666,7 @@
 		};
 		2140BC7629D1CEBA00B78C6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09DAEA41333B3709D63CB182 /* Pods-MarketGo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -548,6 +699,7 @@
 		};
 		2140BC7829D1CEBA00B78C6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DF6845F024FAE32C29AF3C0 /* Pods-MarketGoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -568,6 +720,7 @@
 		};
 		2140BC7929D1CEBA00B78C6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 219B728162FA63336BA38565 /* Pods-MarketGoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -588,6 +741,7 @@
 		};
 		2140BC7B29D1CEBA00B78C6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5F51F2E736590B109747774 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -606,6 +760,7 @@
 		};
 		2140BC7C29D1CEBA00B78C6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C1F7205BD6E0A5F528CB138 /* Pods-MarketGo-MarketGoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
