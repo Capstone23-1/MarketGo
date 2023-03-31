@@ -6,10 +6,24 @@
 //
 
 import SwiftUI
+import NMapsMap
 
-struct MapView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct MapView: UIViewRepresentable {
+    
+    func makeUIView(context: Context) -> NMFNaverMapView {
+        let mapView = NMFNaverMapView()
+        let marker = NMFMarker()
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.541, lng: 126.986))
+        
+        marker.position = NMGLatLng(lat: 37.541, lng: 126.986)
+        marker.mapView = mapView.mapView
+        mapView.mapView.moveCamera(cameraUpdate)
+        
+        return mapView
+    }
+    
+    func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
+        // Nothing to update here
     }
 }
 
