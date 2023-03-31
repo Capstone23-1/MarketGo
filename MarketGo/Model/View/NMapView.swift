@@ -1,14 +1,15 @@
 //
-//  MapView.swift
+//  NMapView.swift
 //  MarketGo
 //
-//  Created by ram on 2023/03/27.
+//  Created by ram on 2023/03/31.
 //
 
 import SwiftUI
 import NMapsMap
 
-struct MapView: UIViewRepresentable {
+
+struct NMapView: UIViewRepresentable {
     let coordinates: [Coordinate]
     
     func makeUIView(context: Context) -> NMFNaverMapView {
@@ -31,8 +32,8 @@ struct MapView: UIViewRepresentable {
     }
 }
 
-struct MapView_Previews: PreviewProvider {
+struct NMapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(coordinates: [Coordinate(lat: 37.541, lng: 126.986), Coordinate(lat: 37.540, lng: 126.986),Coordinate(lat: 37.540, lng: 126.985)])
+        NMapView(coordinates: [Coordinate(lat: 37.541, lng: 126.986), Coordinate(lat: 37.540, lng: 126.986),Coordinate(lat: 37.540, lng: 126.985)])
     }
 }
