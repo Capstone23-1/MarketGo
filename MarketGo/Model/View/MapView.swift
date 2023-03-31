@@ -9,14 +9,18 @@ import SwiftUI
 import NMapsMap
 
 struct MapView: UIViewRepresentable {
+    let coordinates: [Coordinate]
     
     func makeUIView(context: Context) -> NMFNaverMapView {
         let mapView = NMFNaverMapView()
-        let marker = NMFMarker()
-        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.541, lng: 126.986))
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: coordinates[0].lat, lng: coordinates[0].lng))
         
-        marker.position = NMGLatLng(lat: 37.541, lng: 126.986)
-        marker.mapView = mapView.mapView
+        for coordinate in coordinates {
+            let marker = NMFMarker()
+            marker.position = NMGLatLng(lat: coordinate.lat, lng: coordinate.lng)
+            marker.mapView = mapView.mapView
+        }
+        
         mapView.mapView.moveCamera(cameraUpdate)
         
         return mapView
@@ -29,6 +33,6 @@ struct MapView: UIViewRepresentable {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
+        MapView(coordinates: [Coordinate(lat: 37.541, lng: 126.986), Coordinate(lat: 37.540, lng: 126.986),Coordinate(lat: 37.540, lng: 126.985)])
     }
 }
