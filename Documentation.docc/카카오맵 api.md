@@ -3,3 +3,4 @@
 - [참고 블로그2](https://roniruny.tistory.com/171)
 - [2020년 블로그](https://aircook.tistory.com/entry/Kakao-Maps-API-with-Swift)
 - [2020년 블로그2](https://swimme.tistory.com/1)
+- [arm64오류해결블로그](https://velog.io/@yi-sang/Kakao-%EC%A7%80%EB%8F%84-IOS-API-%EA%B0%80%EC%9D%B4%EB%93%9C)
