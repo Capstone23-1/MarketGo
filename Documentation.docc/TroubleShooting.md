@@ -2,7 +2,7 @@
 
 ### 프리뷰 빌드가 안될 때
 - 오류 문구
-<img width="439" alt="image" src="https://user-images.githubusercontent.com/62399318/229097008-9bc4cb56-c42e-4957-84b8-cb182dbb591a.png">
+  <img width="439" alt="image" src="https://user-images.githubusercontent.com/62399318/229097008-9bc4cb56-c42e-4957-84b8-cb182dbb591a.png">
 
 ```
 Xcode can not preview in this file.
