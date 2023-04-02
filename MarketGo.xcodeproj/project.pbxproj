@@ -857,7 +857,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/ram/MarketGoRe/MarketGo/KakaoBridgeHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/MarketGo/KakaoBridgeHeader.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -898,7 +898,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/ram/MarketGoRe/MarketGo/KakaoBridgeHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/MarketGo/KakaoBridgeHeader.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
