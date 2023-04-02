@@ -50,6 +50,7 @@ struct MarketSearchView: View {
                     .padding(.horizontal)
                     .foregroundColor(.gray)
                 }
+                KakaoMapVCWrapper()
                 
                 
                 
