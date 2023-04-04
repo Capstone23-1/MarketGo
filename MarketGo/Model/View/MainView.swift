@@ -17,7 +17,7 @@ struct MainView: View {
                 TabView(selection: $selectedTab) {
                             Text("First View")
                                 .tabItem {
-                                    Image(systemName: "map")
+                                    Image(systemName: "basket")
                                     Text("장보기")
                                 }
                                 .tag(0)
