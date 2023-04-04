@@ -16,3 +16,4 @@ public struct MarketInfo {
 public struct MainInfo{
     var topTitle: String
 }
+

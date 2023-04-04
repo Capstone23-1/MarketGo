@@ -50,7 +50,7 @@ struct MarketSearchView: View {
                     .padding(.horizontal)
                     .foregroundColor(.gray)
                 }
-                KakaoMapVCWrapper()
+                NMapView()
                 
                 
                 
@@ -98,7 +98,7 @@ struct MarketSearchView: View {
                     
                     
                 }
-                NavigationLink(destination: MainView()) {
+                NavigationLink(destination: ContentView2()) {
                                     Text("화면 넘기기")
                                         .font(.headline)
                                         .foregroundColor(.white)

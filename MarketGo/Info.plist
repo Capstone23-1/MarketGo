@@ -6,5 +6,11 @@
 	<string>ljveyyg570</string>
 	<key>KAKAO_APP_KEY</key>
 	<string>b3ba5f89b25656f683939d0c2e3079a7</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>카카오 api</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>카카오 api</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>카카오 api</string>
 </dict>
 </plist>
