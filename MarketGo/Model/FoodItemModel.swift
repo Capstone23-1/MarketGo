@@ -22,9 +22,14 @@ public struct Store: Hashable, Identifiable {
     
     public let id = UUID()
     
-    let name: String
+    let store_name: String //가게이름
+    let address1: String //주소(도로명주소/지번주소)
+    let store_ratings: Double //평점
+    let store_phone_num: String //가게 전화번호
+    let card_avail: Bool //카드결제 가능여부
+    let local_avail: Bool //지역화폐 가능여부
     let reviewCnt: Int //리뷰개수
-    let address: String
-    let storeImage: String
     let products: [FoodItem] //가게에서 파는 물품정보
+    let store_num: Int
+    let store_image: String //가게사진
 }
