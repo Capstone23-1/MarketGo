@@ -32,5 +32,5 @@ public struct Store: Hashable, Identifiable {
     let reviewCnt: Int //리뷰개수
     let products: [FoodItem] //가게에서 파는 물품정보
     let store_num: Int
-    let store_image: String //가게사진
+    let store_image: String//가게사진
 }
