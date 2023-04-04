@@ -290,6 +290,7 @@
 		2140BC8429D1CFBB00B78C6C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				21D84F9429DC581000E52F82 /* Map */,
 				2140BC8529D1CFBB00B78C6C /* MarketSearchView.swift */,
 				2140BC8629D1CFBB00B78C6C /* ProfileImageView.swift */,
 				2140BC8829D1CFBB00B78C6C /* SearchBar.swift */,
@@ -297,10 +298,7 @@
 				2140BC8A29D1CFBB00B78C6C /* CartView.swift */,
 				2140BC8B29D1CFBB00B78C6C /* ContentView.swift */,
 				2140BC8C29D1CFBB00B78C6C /* TopView.swift */,
-				21E7A4B929D6F7EF009EB220 /* NMapView.swift */,
 				99B3C86429DBAA7C001427D8 /* ShopView.swift */,
-				211E9DD129DC1C9800149725 /* LocationManager.swift */,
-				211E9DD729DC21B600149725 /* ContentView2.swift */,
 			);
 			name = View;
 			path = Model/View;
@@ -312,6 +310,16 @@
 				2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		21D84F9429DC581000E52F82 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				211E9DD729DC21B600149725 /* ContentView2.swift */,
+				211E9DD129DC1C9800149725 /* LocationManager.swift */,
+				21E7A4B929D6F7EF009EB220 /* NMapView.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		21EA4F8A29DA001700FB0EE5 /* DaumMap.embeddedframework */ = {

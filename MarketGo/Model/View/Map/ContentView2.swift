@@ -16,8 +16,8 @@ struct ContentView2: View {
     var body: some View {
         VStack {
             Text("Location: \(locationManager.location?.coordinate.latitude ?? 0), \(locationManager.location?.coordinate.longitude ?? 0)")
-            Text("ramLocation: \(locationManager.ramLocation?.lat ?? 0), \(locationManager.ramLocation?.lng ?? 0)")
-            NavigationLink(destination: MarketSearchView()) {
+            Text("ramLocation: \(locationManager.userLocation?.lat ?? 0), \(locationManager.userLocation?.lng ?? 0)")
+            NavigationLink(destination: NMapView()) {
                                 Text("화면 넘기기")
                                     .font(.headline)
                                     .foregroundColor(.white)

@@ -15,7 +15,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     @Published var location: CLLocation? = nil
     @Published var locationStatus: CLAuthorizationStatus? = nil
-    @Published var ramLocation: CoordinateInfo? = nil
+    @Published var userLocation: CoordinateInfo? = nil
     
     override init() {
         super.init()
@@ -31,7 +31,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         
         // CLLocation 객체를 CoordinateInfo 구조체로 변환하여 저장
-        self.ramLocation = CoordinateInfo(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+        self.userLocation = CoordinateInfo(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
     }
     
 }
