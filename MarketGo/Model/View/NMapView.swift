@@ -11,7 +11,7 @@ import NMapsMap
 
 struct NMapView: UIViewRepresentable {
     @ObservedObject var lm = LocationManager()
-    var cauLocation = CoordinateInfo(lat: 37.5050881, lng: 126.9571012)
+    var cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)
     
     
     

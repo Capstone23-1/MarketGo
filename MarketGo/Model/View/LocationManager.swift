@@ -24,18 +24,14 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.locationManager.startUpdatingLocation()
     }
 
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-            self.locationStatus = status
-        }
-        
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         self.location = location
         
+        
+        
         // CLLocation 객체를 CoordinateInfo 구조체로 변환하여 저장
-        let coordinate = CoordinateInfo(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
-        self.ramLocation = coordinate
-        //self.ramLocation?.lng = -(self.ramLocation?.lng ?? 0)
+        self.ramLocation = CoordinateInfo(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
     }
     
 }
