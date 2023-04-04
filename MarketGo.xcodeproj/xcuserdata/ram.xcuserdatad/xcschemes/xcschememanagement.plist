@@ -7,7 +7,25 @@
 		<key>MarketGo.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>2140BC4F29D1CEB900B78C6C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2140BC5F29D1CEBA00B78C6C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2140BC6929D1CEBA00B78C6C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
