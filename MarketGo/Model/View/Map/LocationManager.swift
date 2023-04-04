@@ -32,6 +32,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         // CLLocation 객체를 CoordinateInfo 구조체로 변환하여 저장
         self.userLocation = CoordinateInfo(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+        // 위치 업데이트를 중지
+        self.locationManager.stopUpdatingLocation()
     }
     
 }

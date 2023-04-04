@@ -98,7 +98,7 @@ struct MarketSearchView: View {
                     
                     
                 }
-                NavigationLink(destination: ContentView2()) {
+                NavigationLink(destination: MainView()) {
                                     Text("화면 넘기기")
                                         .font(.headline)
                                         .foregroundColor(.white)
