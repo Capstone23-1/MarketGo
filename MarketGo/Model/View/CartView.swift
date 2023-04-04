@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CartView: View {
-    @State private var foodItems = [FoodItem(name: "사과 ", storeName: "영찬과일", imageName: "apple", price: 12000),
-                                        FoodItem(name: "참외", storeName: "주현싱싱", imageName: "melon", price: 1100),
-                                        FoodItem(name: "수박", storeName: "소람싱싱", imageName: "watermelon", price: 18000)]
+    @State private var foodItems = [FoodItem(name: "사과 ", storeName: "영찬과일", imageName: "apple", price: 12000, store_num: 1),
+                                        FoodItem(name: "참외", storeName: "주현싱싱", imageName: "melon", price: 1100,store_num: 2),
+                                        FoodItem(name: "수박", storeName: "소람싱싱", imageName: "watermelon", price: 18000,store_num: 3)]
     
     var body: some View {
         VStack {

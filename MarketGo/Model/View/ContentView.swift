@@ -23,9 +23,6 @@ struct ContentView: View {
                         .padding()
                     
                     ProfileImageView()
-                        
-                      
-                
                     
                 }
                 .font(.title)
