@@ -17,3 +17,14 @@ public struct FoodItem: Hashable, Identifiable {
     let price: Int
     var quantity: Int = 1
 }
+
+public struct Store: Hashable, Identifiable {
+    
+    public let id = UUID()
+    
+    let name: String
+    let reviewCnt: Int //리뷰개수
+    let address: String
+    let storeImage: String
+    let products: [FoodItem] //가게에서 파는 물품정보
+}

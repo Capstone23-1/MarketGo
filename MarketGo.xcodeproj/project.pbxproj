@@ -64,6 +64,7 @@
 		21EA4FCB29DA001700FB0EE5 /* map_pin_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EA4FAF29DA001700FB0EE5 /* map_pin_shadow.png */; };
 		21EA4FCC29DA001700FB0EE5 /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EA4FB029DA001700FB0EE5 /* DaumMap.framework */; };
 		99A26C9329D3DBF500C3EB70 /* FoodItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A26C9229D3DBF500C3EB70 /* FoodItemModel.swift */; };
+		99B3C86529DBAA7C001427D8 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C86429DBAA7C001427D8 /* ShopView.swift */; };
 		AEC6AFE4A57CD1E7E1E0B310 /* libPods-MarketGo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD43796E872DF5BD291D948 /* libPods-MarketGo.a */; };
 		C1321C8DB9C9AD70C80B8978 /* libPods-MarketGoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B49E4FE25A39961E0AD6073F /* libPods-MarketGoTests.a */; };
 /* End PBXBuildFile section */
@@ -161,6 +162,7 @@
 		5F46EB407DB4F30F4ABA9195 /* Pods-MarketGo-MarketGoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.release.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		725C5ED25F851D0B3E94785A /* libPods-MarketGo-MarketGoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MarketGo-MarketGoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99A26C9229D3DBF500C3EB70 /* FoodItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemModel.swift; sourceTree = "<group>"; };
+		99B3C86429DBAA7C001427D8 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		B49E4FE25A39961E0AD6073F /* libPods-MarketGoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MarketGoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E1540A8396BD0BF889E2A7 /* Pods-MarketGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo.release.xcconfig"; path = "Target Support Files/Pods-MarketGo/Pods-MarketGo.release.xcconfig"; sourceTree = "<group>"; };
 		D6CA2ACBA4F75A9AF49AF4C5 /* Pods-MarketGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGoTests.release.xcconfig"; path = "Target Support Files/Pods-MarketGoTests/Pods-MarketGoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				2140BC8B29D1CFBB00B78C6C /* ContentView.swift */,
 				2140BC8C29D1CFBB00B78C6C /* TopView.swift */,
 				21E7A4B929D6F7EF009EB220 /* NMapView.swift */,
+				99B3C86429DBAA7C001427D8 /* ShopView.swift */,
 			);
 			name = View;
 			path = Model/View;
@@ -671,6 +674,7 @@
 				2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */,
 				21E7A4BA29D6F7EF009EB220 /* NMapView.swift in Sources */,
 				2140BC9429D1CFBB00B78C6C /* TopView.swift in Sources */,
+				99B3C86529DBAA7C001427D8 /* ShopView.swift in Sources */,
 				2140BC9929D1D01900B78C6C /* MarketGoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
