@@ -19,6 +19,22 @@ public struct FoodItem: Hashable, Identifiable {
     var quantity: Int = 1
 }
 
+extension FoodItem {
+    static let foodItems: [FoodItem] = [
+        FoodItem(name: "Apple", storeName: "Store A", imageName: "apple", price: 100, store_num: 1),
+        FoodItem(name: "Banana", storeName: "Store A", imageName: "banana", price: 150, store_num: 1),
+        FoodItem(name: "Carrot", storeName: "Store A", imageName: "carrot", price: 200, store_num: 1),
+        FoodItem(name: "Orange", storeName: "Store B", imageName: "orange", price: 120, store_num: 2),
+        FoodItem(name: "Grape", storeName: "Store B", imageName: "grape", price: 300, store_num: 2),
+        FoodItem(name: "Watermelon", storeName: "Store C", imageName: "watermelon", price: 1000, store_num: 3),
+        FoodItem(name: "Pineapple", storeName: "Store C", imageName: "pineapple", price: 800, store_num: 3),
+        FoodItem(name: "Tomato", storeName: "Store D", imageName: "tomato", price: 150, store_num: 4),
+        FoodItem(name: "Broccoli", storeName: "Store E", imageName: "broccoli", price: 250, store_num: 5),
+        FoodItem(name: "Potato", storeName: "Store E", imageName: "potato", price: 200, store_num: 5),
+    ]
+
+}
+
 public struct Store: Hashable, Identifiable {
     
     public let id = UUID()
@@ -34,3 +50,14 @@ public struct Store: Hashable, Identifiable {
     let store_num: Int
     let store_image: String//가게사진
 }
+
+extension Store{
+    static let stores: [Store] = [
+        Store(store_name: "Store A", address1: "123 Main St", store_ratings: 4.5, store_phone_num: "555-555-1234", card_avail: true, local_avail: false, reviewCnt: 10, products: [], store_num: 1, store_image: "basket"),
+        Store(store_name: "Store B", address1: "456 Elm St", store_ratings: 4.0, store_phone_num: "555-555-5678", card_avail: false, local_avail: true, reviewCnt: 20, products: [], store_num: 2, store_image: "basket"),
+        Store(store_name: "Store C", address1: "789 Maple St", store_ratings: 3.5, store_phone_num: "555-555-9012", card_avail: true, local_avail: true, reviewCnt: 5, products: [], store_num: 3, store_image: "basket"),
+        Store(store_name: "Store D", address1: "321 Oak St", store_ratings: 3.0, store_phone_num: "555-555-3456", card_avail: false, local_avail: false, reviewCnt: 15, products: [], store_num: 4, store_image: "basket"),
+        Store(store_name: "Store E", address1: "654 Cedar St", store_ratings: 2.5, store_phone_num: "555-555-7890", card_avail: true, local_avail: false, reviewCnt: 8, products: [], store_num: 5, store_image: "basket")
+    ]
+}
+
