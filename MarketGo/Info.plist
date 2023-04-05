@@ -11,5 +11,11 @@
 	</array>
 	<key>NMFClientId</key>
 	<string>ljveyyg570</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>정보를 제공하기 위하여 Always</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>정보를 제공하기 위하여 When In Usage</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>정보를 제공하기 위하여 Always and When In Use</string>
 </dict>
 </plist>
