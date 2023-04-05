@@ -1,0 +1,7 @@
+- [공식 ios 문서](https://apis.map.kakao.com/ios/guide/#step1)
+- [참고 블로그1](https://aircook.tistory.com/entry/Kakao-Maps-API-with-Swift)
+- [참고 블로그2](https://roniruny.tistory.com/171)
+- [2020년 블로그](https://aircook.tistory.com/entry/Kakao-Maps-API-with-Swift)
+- [2020년 블로그2](https://swimme.tistory.com/1)
+- [arm64오류해결블로그](https://velog.io/@yi-sang/Kakao-%EC%A7%80%EB%8F%84-IOS-API-%EA%B0%80%EC%9D%B4%EB%93%9C)
+- [위치정보 저장-info.plist](https://velog.io/@yoogail/%EC%9C%84%EC%B9%98-%EA%B6%8C%ED%95%9C-%EC%84%A4%EC%A0%95-info.Plist)
