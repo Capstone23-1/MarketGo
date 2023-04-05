@@ -10,8 +10,9 @@ import SwiftUI
 struct TobView: View {
     var body: some View {
         HStack {
-            Text("흑석시장")
-                .font(.headline)
+            MarketChoicePickerView()
+//            Text("흑석시장")
+//                .font(.headline)
             Spacer()
             
             NavigationLink{

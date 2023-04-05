@@ -29,6 +29,7 @@
 		2144FE7B29DD6B88008913C4 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE7A29DD6B88008913C4 /* ShopView.swift */; };
 		2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE7D29DD6BCF008913C4 /* LocationManager.swift */; };
 		2144FE8029DD6BEC008913C4 /* NMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE7F29DD6BEC008913C4 /* NMapView.swift */; };
+		217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */; };
 		21F1C9BD29DD69870022113A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1C9BC29DD69870022113A /* ContentView.swift */; };
 		AEC6AFE4A57CD1E7E1E0B310 /* libPods-MarketGo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD43796E872DF5BD291D948 /* libPods-MarketGo.a */; };
 		C1321C8DB9C9AD70C80B8978 /* libPods-MarketGoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B49E4FE25A39961E0AD6073F /* libPods-MarketGoTests.a */; };
@@ -77,6 +78,7 @@
 		2144FE7A29DD6B88008913C4 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		2144FE7D29DD6BCF008913C4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2144FE7F29DD6BEC008913C4 /* NMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapView.swift; sourceTree = "<group>"; };
+		217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChoicePickerView.swift; sourceTree = "<group>"; };
 		2198B6DE943CEFFEB56B33D7 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21E7A4B029D6D995009EB220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21F1C9BC29DD69870022113A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,13 +146,13 @@
 		2140BC5229D1CEB900B78C6C /* MarketGo */ = {
 			isa = PBXGroup;
 			children = (
-				21F1C9B929DD68F60022113A /* View */,
 				21E7A4B029D6D995009EB220 /* Info.plist */,
 				2140BC9829D1D01900B78C6C /* MarketGoApp.swift */,
-				2140BC9529D1CFD900B78C6C /* ViewModel */,
-				2140BC8129D1CFA900B78C6C /* Model */,
 				2140BC5729D1CEBA00B78C6C /* Assets.xcassets */,
+				2140BC8129D1CFA900B78C6C /* Model */,
 				2140BC5929D1CEBA00B78C6C /* Preview Content */,
+				21F1C9B929DD68F60022113A /* View */,
+				2140BC9529D1CFD900B78C6C /* ViewModel */,
 			);
 			path = MarketGo;
 			sourceTree = "<group>";
@@ -203,6 +205,7 @@
 			children = (
 				2144FE7D29DD6BCF008913C4 /* LocationManager.swift */,
 				2144FE7F29DD6BEC008913C4 /* NMapView.swift */,
+				217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2144FE8029DD6BEC008913C4 /* NMapView.swift in Sources */,
+				217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */,
 				2144FE7329DD6AAA008913C4 /* CartView.swift in Sources */,
 				2144FE7729DD6B11008913C4 /* MainView.swift in Sources */,
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
