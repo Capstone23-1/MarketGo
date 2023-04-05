@@ -9,18 +9,18 @@ import SwiftUI
 struct MainView: View {
     @State private var selectedTab = 0
     @State public var topTitle = "시장"
-    
+
     var body: some View {
         NavigationView {
             VStack {
                 TobView()
                 TabView(selection: $selectedTab) {
-                            Text("First View")
-                                .tabItem {
-                                    Image(systemName: "basket")
-                                    Text("장보기")
-                                }
-                                .tag(0)
+                        ShopView()
+                          .tabItem {
+                              Image(systemName: "basket")
+                              Text("장보기")
+                          }
+                          .tag(0)
                             
                             Text("Second View")
                                 .tabItem {
