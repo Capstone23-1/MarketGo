@@ -22,7 +22,7 @@ struct TobView: View {
                     .padding(.horizontal)
                     .imageScale(.large)
             }
-            ProfileImageView()
+
                 
         }
         .padding()
