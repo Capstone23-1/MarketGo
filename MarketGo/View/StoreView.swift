@@ -65,7 +65,7 @@ struct StoreView: View {
                         })
                         .frame(width: 30, height: 5)
                         .padding()
-                        .background(Color.green)
+                        .background(Color.gray)
                         .cornerRadius(6)
 
                     }.padding(.leading, 10)
