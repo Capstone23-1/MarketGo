@@ -120,8 +120,7 @@ struct MarketSearchView: View {
                 
             }
             
-           // .navigationBarTitleDisplayMode(.inline)
-            //위에 패딩이 너무 많은 거 같아서 바꾸고 싶다.
+           
             
         }
         
