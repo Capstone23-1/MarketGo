@@ -8,7 +8,7 @@
 
 # 공식 카카오맵 문서
 - [이미지 마커와 커스텀 오버레이](https://apis.map.kakao.com/web/sample/markerWithCustomOverlay/)
-- [닫기가 가능한 커스텀 오버레이]([https://apis.map.kakao.com/web/sample/markerWithCustomOverlay/](https://apis.map.kakao.com/web/sample/removableCustomOverlay/))
+- [닫기가 가능한 커스텀 오버레이]([https://apis.map.kakao.com/web/sample/markerWithCustomOverlay/](https://apis.map.kakao.com/web/sample/removableCustomOverlay/)
 <img width="532" alt="image" src="https://user-images.githubusercontent.com/62399318/230302472-df432f93-8507-48a1-a66a-51fed548abc1.png">
 - [여러개 마커에 이벤트 등록하기2](https://apis.map.kakao.com/web/sample/multipleMarkerEvent2/)
 - [다른 이미지로 마커 생성하기](https://apis.map.kakao.com/web/sample/basicMarkerImage/)
