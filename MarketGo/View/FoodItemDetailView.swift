@@ -27,16 +27,17 @@ struct FoodItemDetailView: View {
                 Spacer().frame(height: 10)
                 
                 Text("\(fooditem.price)원")
-                    .font(.system(size: 25))
+                    .font(.system(size: 24))
                     .padding(.leading, 10)
                 
                 Spacer().frame(height: 10)
                 
                 Text("\(fooditem.storeName) 둘러보기 >")
-                    .font(.system(size: 25))
+                    .font(.system(size: 24))
                     .padding(.leading, 10)
                 
                 Spacer().frame(height: 20)
+                
                 HStack {
                         Spacer()
                         Button(action: {
@@ -67,10 +68,15 @@ struct FoodItemDetailView: View {
                     
                     }
                 
+                Spacer().frame(height: 20)
+
                 Text(" 📉 가격변동추이")
-                    .font(.system(size: 25))
+                    .font(.system(size: 22))
                     .padding(.leading, 10)
             }
+            //가격변동그래프 만들어야함. 가격추이를 저장해서 가져와야함
+            // 장바구니 담기 -> 장바구니에 현재 페이지에 해당하는 상품이 담겨야함
+            // 장바구니에 들어갈 애들은 데이터셋을 따로 저장해야하나..?
 
         }
         
