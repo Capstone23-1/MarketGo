@@ -12,8 +12,10 @@ struct FoodItemDetailView: View {
     
     var body: some View {
         ScrollView{
+            ProductTopView()
             
             VStack(alignment: .leading) {
+                
                 Image(fooditem.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -49,7 +51,7 @@ struct FoodItemDetailView: View {
                         })
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.blue)
+                        .background(Color.green)
                         .cornerRadius(10)
 
                     Button(action: {
