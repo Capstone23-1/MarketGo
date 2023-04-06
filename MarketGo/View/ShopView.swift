@@ -46,12 +46,12 @@ struct ShopView: View {
                         LazyVStack { // LazyVStack 사용
                             ForEach(filteredStores, id: \.store_num) { store in
                                 HStack {
-                                    Image(systemName: store.store_image)
+                                    Image(store.store_image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
                                         .frame(width: 70, height: 70)
                                         .cornerRadius(10)
-                                    Spacer()
+                                    
                                     VStack(alignment: .leading, spacing: 10) {
                                         Text(store.store_name)
                                             .font(.headline)
