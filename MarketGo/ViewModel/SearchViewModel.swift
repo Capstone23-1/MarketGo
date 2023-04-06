@@ -25,7 +25,7 @@ extension View {
     func getTest() {
         let url = "https://jsonplaceholder.typicode.com/" //주소입력
         let target = "posts/1/comments"
-        let targetUrl = url+target
+        var targetUrl = url+target
         
         AF.request("https://jsonplaceholder.typicode.com/comments")
             .responseDecodable(of: [Comment].self) {
