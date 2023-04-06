@@ -29,6 +29,8 @@
 		2144FE7B29DD6B88008913C4 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE7A29DD6B88008913C4 /* ShopView.swift */; };
 		2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE7D29DD6BCF008913C4 /* LocationManager.swift */; };
 		2144FE8029DD6BEC008913C4 /* NMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE7F29DD6BEC008913C4 /* NMapView.swift */; };
+		2150933E29DEF17F0001C788 /* APITestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150933D29DEF17F0001C788 /* APITestModel.swift */; };
+		2150934129DEF1A40001C788 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2150934029DEF1A40001C788 /* Alamofire */; };
 		217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */; };
 		21F1C9BD29DD69870022113A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1C9BC29DD69870022113A /* ContentView.swift */; };
 		993AF1C529DE474F00031A7B /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF1C429DE474F00031A7B /* StoreView.swift */; };
@@ -82,6 +84,7 @@
 		2144FE7A29DD6B88008913C4 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		2144FE7D29DD6BCF008913C4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2144FE7F29DD6BEC008913C4 /* NMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapView.swift; sourceTree = "<group>"; };
+		2150933D29DEF17F0001C788 /* APITestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITestModel.swift; sourceTree = "<group>"; };
 		217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChoicePickerView.swift; sourceTree = "<group>"; };
 		2198B6DE943CEFFEB56B33D7 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21E7A4B029D6D995009EB220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEC6AFE4A57CD1E7E1E0B310 /* libPods-MarketGo.a in Frameworks */,
+				2150934129DEF1A40001C788 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +197,7 @@
 		2140BC8129D1CFA900B78C6C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2150933D29DEF17F0001C788 /* APITestModel.swift */,
 				2140BC8229D1CFA900B78C6C /* MarketInfoModel.swift */,
 				2144FE6C29DD6A32008913C4 /* FoodItemModel.swift */,
 				2144FE6E29DD6A58008913C4 /* LocationModel.swift */,
@@ -279,6 +284,9 @@
 			dependencies = (
 			);
 			name = MarketGo;
+			packageProductDependencies = (
+				2150934029DEF1A40001C788 /* Alamofire */,
+			);
 			productName = MarketGo;
 			productReference = 2140BC5029D1CEB900B78C6C /* MarketGo.app */;
 			productType = "com.apple.product-type.application";
@@ -354,6 +362,9 @@
 				Base,
 			);
 			mainGroup = 2140BC4729D1CEB900B78C6C;
+			packageReferences = (
+				2150933F29DEF1A40001C788 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 2140BC5129D1CEB900B78C6C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -516,6 +527,7 @@
 				21F1C9BD29DD69870022113A /* ContentView.swift in Sources */,
 				2140BC8329D1CFA900B78C6C /* MarketInfoModel.swift in Sources */,
 				2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */,
+				2150933E29DEF17F0001C788 /* APITestModel.swift in Sources */,
 				99CD749829DD97B300D2D782 /* FoodItemDetailView.swift in Sources */,
 				2144FE7129DD6A79008913C4 /* TopView.swift in Sources */,
 				2144FE7529DD6AF6008913C4 /* SearchBar.swift in Sources */,
@@ -859,6 +871,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2150933F29DEF1A40001C788 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2150934029DEF1A40001C788 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2150933F29DEF1A40001C788 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2140BC4829D1CEB900B78C6C /* Project object */;
 }
