@@ -54,6 +54,13 @@ struct StoreView: View {
                             .font(.system(size: 20))
                             .padding(.leading, 10)
                     }.padding(.leading, 10)
+                    
+                    Spacer().frame(height: 30)
+                    
+                    Text(" 📜 메뉴판")
+                        .font(.system(size: 20))
+                        .padding(.leading, 10)
+
                 }
 
             }

@@ -20,7 +20,7 @@ struct ShopView: View {
     ]
 
         var topStores: [Store] {
-            Array(stores.sorted { $0.reviewCnt > $1.reviewCnt }.prefix(5))
+            Array(stores.sorted { $0.reviewCnt > $1.reviewCnt }.prefix(3))
         }
 
         var filteredStores: [Store] {
@@ -39,7 +39,7 @@ struct ShopView: View {
                     
                     ScrollView { // ScrollView 추가
                         Spacer()
-                        Text("가게 랭킹 top5(리뷰 많은 순) ")
+                        Text("가게 랭킹 top3 (리뷰 많은 순) ")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal)
                         
