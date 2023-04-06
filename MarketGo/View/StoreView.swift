@@ -1,14 +1,15 @@
 //
-//  FoodItemDetailView.swift
+//  StoreView.swift
 //  MarketGo
 //
-//  Created by 김주현 on 2023/04/05.
+//  Created by 김주현 on 2023/04/06.
 //
 
 import SwiftUI
 
-struct FoodItemDetailView: View {
-    var fooditem: FoodItem
+struct StoreView: View {
+    
+    var store: FoodItem
     
     var body: some View {
         ScrollView{
@@ -82,13 +83,11 @@ struct FoodItemDetailView: View {
             // 장바구니에 들어갈 애들은 데이터셋을 따로 저장해야하나..?
 
         }
-        
-        
     }
 }
 
-struct FoodItemDetailView_Previews: PreviewProvider {
+struct StoreView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodItemDetailView(fooditem: FoodItem.foodItems[0])
+        StoreView()
     }
 }
