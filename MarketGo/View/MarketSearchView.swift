@@ -98,6 +98,16 @@ struct MarketSearchView: View {
                     
                     
                 }
+                Button(action: {
+                    getTest()
+                }) {
+                    Text("GET API 호출")
+                        .padding(.vertical, 10)
+                        .frame(width: 200.0)
+                        .background(Color.blue)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
+                }
                 NavigationLink(destination: MainView()) {
                                     Text("화면 넘기기")
                                         .font(.headline)
