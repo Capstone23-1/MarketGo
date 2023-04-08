@@ -69,10 +69,7 @@ struct StoreView: View {
                         .cornerRadius(6)
 
                     }.padding(.leading, 10)
-                    
-                    
-                    
-                    
+
                     Spacer().frame(height: 30)
                     
                     
