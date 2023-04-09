@@ -7,14 +7,48 @@
 
 import SwiftUI
 
+
 struct MenuItemRow: View {
+    var fooditem:FoodItem
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        
+        HStack {
+            Image("\(fooditem.imageName)")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 70, height: 70)
+            
+            Spacer().frame(width:20)
+            
+            VStack(alignment: .leading, spacing: 10) {
+                Text("\(fooditem.name)")
+                    .font(.system(size: 17))
+                
+                HStack {
+                    Text("\(fooditem.price) 원")
+                        .font(.system(size: 15))
+                        .foregroundColor(.gray)
+                }
+            }
+            
+            Spacer()
+            
+            Image(systemName: "heart.fill")
+                .resizable()
+                .renderingMode(.template)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 30, height: 30)
+                .foregroundColor(.gray)
+                
+        }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
 }
 
 struct MenuItemRow_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemRow()
+        MenuItemRow(fooditem: Store.stores[0].products[0])
     }
 }

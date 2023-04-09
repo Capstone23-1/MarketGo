@@ -3,7 +3,7 @@
 //  MarketGo
 //
 //  Created by 김주현 on 2023/03/29.
-// 장바구니에 넣을 상품정보
+//  상품정보와 가게정보
 
 import Foundation
 
@@ -56,7 +56,7 @@ extension Store{
     static let foods: [FoodItem] = FoodItem.foodItems
     
     static let stores: [Store] = [
-        Store(store_name: "영찬과일", address1: "123 Main St", store_ratings: 4.5, store_phone_num: "555-555-1234", card_avail: true, local_avail: false, reviewCnt: 10, products: [Self.foods[0]], store_num: 1, store_image: "영찬과일"),
+        Store(store_name: "영찬과일", address1: "123 Main St", store_ratings: 4.5, store_phone_num: "555-555-1234", card_avail: true, local_avail: false, reviewCnt: 10, products: [Self.foods[0], Self.foods[1]], store_num: 1, store_image: "영찬과일"),
         Store(store_name: "Store B", address1: "456 Elm St", store_ratings: 4.0, store_phone_num: "555-555-5678", card_avail: false, local_avail: true, reviewCnt: 20, products: [], store_num: 2, store_image: "소람과일"),
         Store(store_name: "Store C", address1: "789 Maple St", store_ratings: 3.5, store_phone_num: "555-555-9012", card_avail: true, local_avail: true, reviewCnt: 5, products: [], store_num: 3, store_image: "소람과일"),
         Store(store_name: "Store D", address1: "321 Oak St", store_ratings: 3.0, store_phone_num: "555-555-3456", card_avail: false, local_avail: false, reviewCnt: 15, products: [], store_num: 4, store_image: "소람과일"),
