@@ -38,7 +38,7 @@ struct MenuItemRow: View {
                 .resizable()
                 .renderingMode(.template)
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 30, height: 30)
+                .frame(width: 25, height: 25)
                 .foregroundColor(.gray)
                 
         }

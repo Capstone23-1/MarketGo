@@ -87,7 +87,7 @@ struct StoreView: View {
                         .font(.system(size: 16))
                         .padding(.leading, 10)
                     
-                    LazyVStack{
+                    LazyVStack(spacing: 5){
                         ForEach(menuitem) { item in
                             MenuItemRow(fooditem: item)
                                 .listRowInsets(EdgeInsets(top:0, leading: 0, bottom:0, trailing: 0))
