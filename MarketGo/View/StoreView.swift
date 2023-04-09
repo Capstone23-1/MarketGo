@@ -10,11 +10,21 @@ import SwiftUI
 struct StoreView: View {
 
     var store: Store
+    @State var menuitem: [FoodItem] = []
+    
+    init(store: Store){
+        self.store = store
+        self._menuitem = State(initialValue: store.products)
+    }
 
     var body: some View {
+        
+        
         ScrollView{
 
             ProductTopView() //장바구니 아이콘
+            
+            //LazyVStack{}
 
             VStack(alignment: .leading) {
 
@@ -27,21 +37,21 @@ struct StoreView: View {
                 VStack(alignment: .leading){
                     
                     Text("\(store.store_name)")
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: 18, weight: .bold))
                         .padding(.leading, 10)
 
                     //Text(fooditem.storeName).font(.system(size: 20, weight: .bold))
                     Spacer().frame(height: 10)
 
                     Text("📍 \(store.address1)")
-                        .font(.system(size: 20))
+                        .font(.system(size: 16))
                         .padding(.leading, 10)
 
                     Spacer().frame(height: 10)
                 
 
                     Text("📞 \(store.store_phone_num)")
-                        .font(.system(size: 20))
+                        .font(.system(size: 16))
                         .padding(.leading, 10)
 
                     Spacer().frame(height: 10)
@@ -50,9 +60,9 @@ struct StoreView: View {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
                         Text(String(format: "%.1f", store.store_ratings))
-                            .font(.system(size: 20))
+                            .font(.system(size: 16))
                         Text("작성된 리뷰 \(store.reviewCnt)개 > ")
-                            .font(.system(size: 20))
+                            .font(.system(size: 16))
                             .padding(.leading, 10)
                         
                         Spacer().frame(width: 30)
@@ -74,10 +84,18 @@ struct StoreView: View {
                     
                     
                     Text(" 📜 메뉴판")
-                        .font(.system(size: 20))
+                        .font(.system(size: 16))
                         .padding(.leading, 10)
                     
-                    
+                    LazyVStack{
+                        ForEach(menuitem) { item in
+                            MenuItemRow(fooditem: item)
+                                .listRowInsets(EdgeInsets(top:0, leading: 0, bottom:0, trailing: 0))
+                                .frame(height: 90)
+                            
+                        }
+                        
+                    }
 
                 }
 
