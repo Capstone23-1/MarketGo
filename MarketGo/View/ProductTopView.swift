@@ -16,14 +16,20 @@ struct ProductTopView: View {
 
             Spacer()
             
-            NavigationLink{
-                CartView()
-            } label: {
+//            NavigationLink{
+//                CartView()
+//            } label: {
+//                Image(systemName: "cart")
+//                    .padding(.horizontal)
+//                    .imageScale(.large)
+//            }
+            
+            NavigationLink(destination: CartView()) {
                 Image(systemName: "cart")
                     .padding(.horizontal)
                     .imageScale(.large)
             }
- 
+//
         }
         .padding()
     }

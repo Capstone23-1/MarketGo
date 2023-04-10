@@ -45,30 +45,41 @@ struct ShopView: View {
                         
                         LazyVStack { // LazyVStack 사용
                             ForEach(filteredStores, id: \.store_num) { store in
-                                HStack {
-                                    Image(store.store_image)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 70, height: 70)
-                                        .cornerRadius(10)
+                                NavigationLink(destination: StoreView(store: store)){
                                     
-                                    VStack(alignment: .leading, spacing: 10) {
-                                        Text(store.store_name)
-                                            .font(.headline)
-                                        Text("작성된 리뷰 \(store.reviewCnt)개 > ")
-                                            .font(.subheadline)
-                                    }
-                                    Spacer()
                                     HStack {
-                                        Image(systemName: "star.fill")
-                                            .foregroundColor(.yellow)
-                                        Text(String(format: "%.1f", store.store_ratings))
-                                            .font(.subheadline)
+                                        Image(store.store_image)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 70, height: 70)
+                                            .cornerRadius(10)
+
+                                        VStack(alignment: .leading, spacing: 10) {
+                                            Text(store.store_name)
+                                                .font(.headline)
+                                                .foregroundColor(.black)
+                                            
+                                            Text("작성된 리뷰 \(store.reviewCnt)개 > ")
+                                                .font(.subheadline)
+                                                .foregroundColor(.black)
+                                        }
+                                        Spacer()
+                                        HStack {
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.yellow)
+                                            Text(String(format: "%.1f", store.store_ratings))
+                                                .font(.subheadline)
+                                                .foregroundColor(.black)
+                                        }
                                     }
+                                    .padding() // 각 셀에 패딩 추가
+                                    
                                 }
-                                .padding() // 각 셀에 패딩 추가
+                                
                             }
                         }
+                        
+                        
                         Text("상품 >")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal)
@@ -94,3 +105,6 @@ struct ShopView_Previews: PreviewProvider {
         ShopView()
     }
 }
+
+
+
