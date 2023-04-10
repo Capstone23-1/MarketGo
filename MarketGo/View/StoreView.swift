@@ -21,8 +21,6 @@ struct StoreView: View {
         
         
         ScrollView{
-
-            ProductTopView() //장바구니 아이콘
             
             //LazyVStack{}
 
