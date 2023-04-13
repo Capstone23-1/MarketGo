@@ -34,6 +34,7 @@ struct ShopView: View {
         var body: some View {
             NavigationView { // NavigationView 추가
                 VStack(alignment: .leading) {
+                    TobView()
                     SearchBar(searchText: $searchText, placeHolder: $placeHolder)
                     Spacer()
                     

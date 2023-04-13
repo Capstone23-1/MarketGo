@@ -13,7 +13,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TobView()
+                //TobView()
                 TabView(selection: $selectedTab) {
                         ShopView()
                           .tabItem {
