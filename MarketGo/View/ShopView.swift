@@ -34,7 +34,7 @@ struct ShopView: View {
         var body: some View {
             NavigationView { // NavigationView 추가
                 VStack(alignment: .leading) {
-                    TobView()
+                    //TobView()
                     SearchBar(searchText: $searchText, placeHolder: $placeHolder)
                     Spacer()
                     
@@ -86,7 +86,11 @@ struct ShopView: View {
                             .padding(.horizontal)
                         LazyVGrid(columns: layout){
                             ForEach(foodlist) { item in
-                                FoodItemCell(fooditem: item)
+                                NavigationLink(destination: FoodItemDetailView(fooditem: item)){
+                                    FoodItemCell(fooditem: item)
+                                        .foregroundColor(.black)
+                                }
+                                
                             }
                         }
                         .padding([.top, .leading, .trailing],16.0)

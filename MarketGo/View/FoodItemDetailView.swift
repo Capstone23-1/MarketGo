@@ -13,8 +13,6 @@ struct FoodItemDetailView: View {
     var body: some View {
         ScrollView{
             
-            ProductTopView() //장바구니 아이콘
-            
             VStack(alignment: .leading) {
                 
                 Image(fooditem.imageName)
@@ -23,20 +21,20 @@ struct FoodItemDetailView: View {
                 
                 
                 Text(fooditem.name)
-                    .font(.system(size: 30, weight: .bold))
+                    .font(.system(size: 26, weight: .bold))
                     .padding(.leading, 10)
                 
                 //Text(fooditem.storeName).font(.system(size: 20, weight: .bold))
                 Spacer().frame(height: 10)
                 
                 Text("\(fooditem.price)원")
-                    .font(.system(size: 24))
+                    .font(.system(size: 20))
                     .padding(.leading, 10)
                 
                 Spacer().frame(height: 10)
                 
                 Text("\(fooditem.storeName) 둘러보기 >")
-                    .font(.system(size: 24))
+                    .font(.system(size: 20))
                     .padding(.leading, 10)
                 
                 Spacer().frame(height: 20)
@@ -74,7 +72,7 @@ struct FoodItemDetailView: View {
                 Spacer().frame(height: 20)
 
                 Text(" 📉 가격변동추이")
-                    .font(.system(size: 22))
+                    .font(.system(size: 19))
                     .padding(.leading, 10)
             }
             //가격변동그래프 만들어야함. 가격추이를 저장해서 가져와야함
