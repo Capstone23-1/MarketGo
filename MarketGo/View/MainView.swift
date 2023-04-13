@@ -13,9 +13,9 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                //TobView()
+                TobView()
                 TabView(selection: $selectedTab) {
-                        ShopView()
+                           ShopView()
                           .tabItem {
                               Image(systemName: "basket")
                               Text("장보기")
@@ -50,9 +50,8 @@ struct MainView: View {
                                 }
                                 .tag(4)
                         }
+                
             }
-            
-            
         }
         .navigationBarHidden(true)
         
