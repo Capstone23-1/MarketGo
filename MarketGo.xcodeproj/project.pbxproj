@@ -14,7 +14,6 @@
 		2140BC6F29D1CEBA00B78C6C /* MarketGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC6E29D1CEBA00B78C6C /* MarketGoUITests.swift */; };
 		2140BC7129D1CEBA00B78C6C /* MarketGoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC7029D1CEBA00B78C6C /* MarketGoUITestsLaunchTests.swift */; };
 		2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC7D29D1CF7D00B78C6C /* Documentation.docc */; };
-		2140BC8029D1CF9400B78C6C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC7F29D1CF9300B78C6C /* README.md */; };
 		2140BC8329D1CFA900B78C6C /* MarketInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC8229D1CFA900B78C6C /* MarketInfoModel.swift */; };
 		2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */; };
 		2140BC9929D1D01900B78C6C /* MarketGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC9829D1D01900B78C6C /* MarketGoApp.swift */; };
@@ -74,7 +73,6 @@
 		2140BC6E29D1CEBA00B78C6C /* MarketGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGoUITests.swift; sourceTree = "<group>"; };
 		2140BC7029D1CEBA00B78C6C /* MarketGoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2140BC7D29D1CF7D00B78C6C /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
-		2140BC7F29D1CF9300B78C6C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = MarketGo/README.md; sourceTree = "<group>"; };
 		2140BC8229D1CFA900B78C6C /* MarketInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketInfoModel.swift; sourceTree = "<group>"; };
 		2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		2140BC9829D1D01900B78C6C /* MarketGoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketGoApp.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 		2140BC4729D1CEB900B78C6C = {
 			isa = PBXGroup;
 			children = (
-				2140BC7F29D1CF9300B78C6C /* README.md */,
 				2140BC7D29D1CF7D00B78C6C /* Documentation.docc */,
 				2140BC5229D1CEB900B78C6C /* MarketGo */,
 				2140BC6329D1CEBA00B78C6C /* MarketGoTests */,
@@ -396,7 +393,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2140BC8029D1CF9400B78C6C /* README.md in Resources */,
 				2140BC5B29D1CEBA00B78C6C /* Preview Assets.xcassets in Resources */,
 				2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */,
 			);
