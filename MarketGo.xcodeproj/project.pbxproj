@@ -217,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */,
+				2188126329E96F4700F315EF /* ParkingLotViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -227,7 +228,6 @@
 				2144FE7D29DD6BCF008913C4 /* LocationManager.swift */,
 				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
 				217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */,
-				2188126329E96F4700F315EF /* ParkingLotViewModel.swift */,
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				215A3D1029E9B31D00DCD0B0 /* NMapView.swift */,
 			);
