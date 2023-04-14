@@ -19,7 +19,7 @@ struct ParkingLotMapView: UIViewRepresentable {
 
         DispatchQueue.main.async {
             if let userLocation = locationManager.userLocation {
-                let nmg = NMGLatLng(lat: userLocation.lat ?? 23, lng: userLocation.lng ?? 44)
+                let nmg = NMGLatLng(lat: userLocation.lat , lng: userLocation.lng )
                 let cameraUpdate = NMFCameraUpdate(scrollTo: nmg)
 
                 let marketMarker = NMFMarker()
