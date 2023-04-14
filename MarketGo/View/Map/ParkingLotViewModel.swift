@@ -16,7 +16,7 @@ class ParkingLotViewModel{
     //카테고리로 주차장 찾기(카카오맵)
     func searchParkingLot(location:CoordinateInfo,queryKeyword: String, completionHandler: @escaping SearchCompletionHandler) {
         let radius: Int =  10000 //중심 좌표로부터의 반경거리,미터 단위
-        let page: Int = 2//결과 페이지 번호(1~45),기본값 1
+        let page: Int = 1//결과 페이지 번호(1~45),기본값 1
         let size: Int = 15//한 페이지에 보여질 문서의 개수(1~15),기본값 15
         let sort: String = "distance"//결과 정렬 순서(distance,accuracy),기본값:accuracy
         

@@ -17,7 +17,8 @@ struct MarketSearchView: View {
     //입력필드에서 사용되는 힌트
     @State private var placeHolder: String = "가고싶은 시장을 입력하세요"
     
-       
+    @State private var lm = LocationManager()
+     
     var MarketList: [MarketInfo] = [
         MarketInfo(marketName: "흑석 시장", rating: 4.3,distance: 0.8),
         MarketInfo(marketName: "상도 시장", rating: 4.9,distance: 1.2),

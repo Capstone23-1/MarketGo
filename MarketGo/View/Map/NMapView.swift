@@ -10,19 +10,20 @@ import NMapsMap
 
 
 struct NMapView: UIViewRepresentable {
-    @ObservedObject var lm = LocationManager()
+    @ObservedObject var currentMarket = LocationManager()
     var cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)
 
     func makeUIView(context: Context) -> NMFNaverMapView {
         let mapView = NMFNaverMapView()
 
         DispatchQueue.main.async {
-            let nmg = NMGLatLng(lat: lm.userLocation?.lat ?? cauLocation.lat, lng: lm.userLocation?.lng ?? cauLocation.lng)
+            let nmg = NMGLatLng(lat: currentMarket.userLocation?.lat ?? cauLocation.lat, lng: currentMarket.userLocation?.lng ?? cauLocation.lng)
             let cameraUpdate = NMFCameraUpdate(scrollTo: nmg)
 
             let marketMarker = NMFMarker()
             marketMarker.position = nmg
-            marketMarker.iconImage = NMFOverlayImage(name: "marker_icon")
+            marketMarker.iconImage = NMF_MARKER_IMAGE_BLACK
+            marketMarker.iconTintColor = UIColor.red
             marketMarker.mapView = mapView.mapView
 
             mapView.mapView.moveCamera(cameraUpdate)
