@@ -20,9 +20,10 @@ struct NMapView: UIViewRepresentable {
             let nmg = NMGLatLng(lat: lm.userLocation?.lat ?? cauLocation.lat, lng: lm.userLocation?.lng ?? cauLocation.lng)
             let cameraUpdate = NMFCameraUpdate(scrollTo: nmg)
 
-            let marker = NMFMarker()
-            marker.position = nmg
-            marker.mapView = mapView.mapView
+            let marketMarker = NMFMarker()
+            marketMarker.position = nmg
+            marketMarker.iconImage = NMFOverlayImage(name: "marker_icon")
+            marketMarker.mapView = mapView.mapView
 
             mapView.mapView.moveCamera(cameraUpdate)
         }

@@ -17,3 +17,4 @@ public struct CoordinateInfo{
     }
     
 }
+let cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)

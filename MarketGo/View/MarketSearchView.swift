@@ -75,7 +75,7 @@ struct MarketSearchView: View {
                                 //평점을 나타냄
                                 Image(systemName: "star.fill")
                                     .foregroundColor(Color.yellow
-                                       // .opacity(0.3)
+                                                     // .opacity(0.3)
                                     )
                                 
                                 
@@ -98,29 +98,29 @@ struct MarketSearchView: View {
                     
                     
                 }
-                Button(action: {
-                    getTest()
-                }) {
-                    Text("GET API 호출")
-                        .padding(.vertical, 10)
-                        .frame(width: 200.0)
-                        .background(Color.blue)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(10)
+                
+                NavigationLink(destination: ParkingLotView()){
+                    Text("주차장 찾기")
                 }
+                
+                //                    Task{
+                //                        var pl = try await ParkingLotViewModel().searchParkingLot(location: cauLocation, queryKeyword: "카페")
+                //
+                //                    }
+                
                 NavigationLink(destination: MainView()) {
-                                    Text("화면 넘기기")
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .background(Color.blue)
-                                        .cornerRadius(10.0)
-                                }
+                    Text("화면 넘기기")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10.0)
+                }
                 
                 
             }
             
-           
+            
             
         }
         
