@@ -104,11 +104,7 @@ struct MarketSearchView: View {
                     Text("주차장 찾기")
                 }
                 
-                //                    Task{
-                //                        var pl = try await ParkingLotViewModel().searchParkingLot(location: cauLocation, queryKeyword: "카페")
-                //
-                //                    }
-                
+
                 NavigationLink(destination: MainView()) {
                     Text("화면 넘기기")
                         .font(.headline)
