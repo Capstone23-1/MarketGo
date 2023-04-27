@@ -24,6 +24,7 @@ MZ세대를 공략하기 위한 전통시장 정보 제공 어플
 * [앱만드는 방법](https://blog.naver.com/sooyeon7828/222843662880)
 * [네이버 지도 api xcode에 가져오기](https://blog.naver.com/alstn428/222935799740)
 * [iOS 개발자를 위한 링크모음](https://github.com/giftbott/iOSDevLinks)
+* [ProgressView 공식 ](https://developer.apple.com/documentation/swiftui/progressview)
 
 
 
