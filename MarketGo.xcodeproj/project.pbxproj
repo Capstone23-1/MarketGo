@@ -28,6 +28,9 @@
 		2144FE7B29DD6B88008913C4 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE7A29DD6B88008913C4 /* ShopView.swift */; };
 		2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE7D29DD6BCF008913C4 /* LocationManager.swift */; };
 		2144FE8029DD6BEC008913C4 /* ParkingLotMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */; };
+		21470AAE29FD0F7F00A7CEE7 /* EatingHouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AAD29FD0F7F00A7CEE7 /* EatingHouseView.swift */; };
+		21470AB029FD0FFD00A7CEE7 /* EatingHouseMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AAF29FD0FFD00A7CEE7 /* EatingHouseMapView.swift */; };
+		21470AB229FD125100A7CEE7 /* EatingHouseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB129FD125100A7CEE7 /* EatingHouseViewModel.swift */; };
 		2150933E29DEF17F0001C788 /* APITestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150933D29DEF17F0001C788 /* APITestModel.swift */; };
 		2150934129DEF1A40001C788 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2150934029DEF1A40001C788 /* Alamofire */; };
 		215A3D1129E9B31D00DCD0B0 /* NMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A3D1029E9B31D00DCD0B0 /* NMapView.swift */; };
@@ -87,6 +90,9 @@
 		2144FE7A29DD6B88008913C4 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		2144FE7D29DD6BCF008913C4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotMapView.swift; sourceTree = "<group>"; };
+		21470AAD29FD0F7F00A7CEE7 /* EatingHouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingHouseView.swift; sourceTree = "<group>"; };
+		21470AAF29FD0FFD00A7CEE7 /* EatingHouseMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingHouseMapView.swift; sourceTree = "<group>"; };
+		21470AB129FD125100A7CEE7 /* EatingHouseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingHouseViewModel.swift; sourceTree = "<group>"; };
 		2150933D29DEF17F0001C788 /* APITestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITestModel.swift; sourceTree = "<group>"; };
 		215A3D1029E9B31D00DCD0B0 /* NMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapView.swift; sourceTree = "<group>"; };
 		217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChoicePickerView.swift; sourceTree = "<group>"; };
@@ -216,8 +222,9 @@
 		2140BC9529D1CFD900B78C6C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */,
+				21470AB129FD125100A7CEE7 /* EatingHouseViewModel.swift */,
 				2188126329E96F4700F315EF /* ParkingLotViewModel.swift */,
+				2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -225,11 +232,13 @@
 		2144FE7C29DD6BC0008913C4 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				21470AAF29FD0FFD00A7CEE7 /* EatingHouseMapView.swift */,
+				21470AAD29FD0F7F00A7CEE7 /* EatingHouseView.swift */,
 				2144FE7D29DD6BCF008913C4 /* LocationManager.swift */,
-				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
 				217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */,
-				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				215A3D1029E9B31D00DCD0B0 /* NMapView.swift */,
+				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
+				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -240,17 +249,17 @@
 				2144FE7C29DD6BC0008913C4 /* Map */,
 				2144FE7229DD6AAA008913C4 /* CartView.swift */,
 				21F1C9BC29DD69870022113A /* ContentView.swift */,
+				99CD749329DD904600D2D782 /* FoodItemCell.swift */,
+				99CD749729DD97B300D2D782 /* FoodItemDetailView.swift */,
 				2144FE7629DD6B11008913C4 /* MainView.swift */,
 				2144FE7829DD6B4F008913C4 /* MarketSearchView.swift */,
+				990D2C9629E23678002ED379 /* MenuItemRow.swift */,
+				99CD749529DD95D100D2D782 /* ProductTopView.swift */,
 				2144FE6A29DD69B5008913C4 /* ProfileImageView.swift */,
 				2144FE7429DD6AF6008913C4 /* SearchBar.swift */,
 				2144FE7A29DD6B88008913C4 /* ShopView.swift */,
-				2144FE7029DD6A79008913C4 /* TopView.swift */,
-				99CD749329DD904600D2D782 /* FoodItemCell.swift */,
-				99CD749529DD95D100D2D782 /* ProductTopView.swift */,
-				99CD749729DD97B300D2D782 /* FoodItemDetailView.swift */,
 				993AF1C429DE474F00031A7B /* StoreView.swift */,
-				990D2C9629E23678002ED379 /* MenuItemRow.swift */,
+				2144FE7029DD6A79008913C4 /* TopView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -525,14 +534,17 @@
 				2144FE8029DD6BEC008913C4 /* ParkingLotMapView.swift in Sources */,
 				2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */,
 				217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */,
+				21470AB029FD0FFD00A7CEE7 /* EatingHouseMapView.swift in Sources */,
 				2188126229E96D8400F315EF /* ParkingLotJSONData.swift in Sources */,
 				2144FE7329DD6AAA008913C4 /* CartView.swift in Sources */,
+				21470AB229FD125100A7CEE7 /* EatingHouseViewModel.swift in Sources */,
 				2144FE7729DD6B11008913C4 /* MainView.swift in Sources */,
 				215A3D1129E9B31D00DCD0B0 /* NMapView.swift in Sources */,
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,
 				99CD749629DD95D100D2D782 /* ProductTopView.swift in Sources */,
 				2144FE7B29DD6B88008913C4 /* ShopView.swift in Sources */,
+				21470AAE29FD0F7F00A7CEE7 /* EatingHouseView.swift in Sources */,
 				99CD749429DD904600D2D782 /* FoodItemCell.swift in Sources */,
 				2144FE6F29DD6A58008913C4 /* LocationModel.swift in Sources */,
 				2144FE7929DD6B4F008913C4 /* MarketSearchView.swift in Sources */,

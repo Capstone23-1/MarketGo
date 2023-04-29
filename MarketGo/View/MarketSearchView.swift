@@ -18,7 +18,8 @@ struct MarketSearchView: View {
     @State private var placeHolder: String = "가고싶은 시장을 입력하세요"
     
     @State private var lm = LocationManager()
-     
+    @State var EatingHouses: [Document] = []
+    @State var selectedEatingHouse: Document?
     var MarketList: [MarketInfo] = [
         MarketInfo(marketName: "흑석 시장", rating: 4.3,distance: 0.8),
         MarketInfo(marketName: "상도 시장", rating: 4.9,distance: 1.2),
@@ -100,8 +101,8 @@ struct MarketSearchView: View {
                     
                 }
                 
-                NavigationLink(destination: ParkingLotView()){
-                    Text("주차장 찾기")
+                NavigationLink(destination: EatingHouseView()){
+                    Text("맛집 찾기")
                 }
                 
 
