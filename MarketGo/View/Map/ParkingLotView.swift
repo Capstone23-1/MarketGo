@@ -21,23 +21,26 @@ struct ParkingLotView: View {
                 Text(errorMessage)
             } else {
                 if isLoading {
-                    
                     ProgressView()
                         .scaleEffect(3.0)
-                        .progressViewStyle(CircularProgressViewStyle(tint: .primary))
+                        .progressViewStyle(CircularProgressViewStyle(tint: .purple))
                         .padding()
-                    
+
                 } else {
                     ParkingLotMapView(parkingLots: $parkingLots, selectedParkingLot: $selectedParkingLot)
-                    List(parkingLots, id: \.self) { parkingLot in
-                        Text("\(parkingLot.placeName)   \(parkingLot.distance)m")
-                            .onTapGesture {
-                                selectedParkingLot = parkingLot
-                            }
-                            .foregroundColor(selectedParkingLot?.id == parkingLot.id ? .blue : .primary)
+                    List(parkingLots, id: \.distance) { parkingLot in
+                        VStack(alignment: .leading) {
+                            Text(parkingLot.placeName)
+                                .font(.headline)
+                            Text("\(parkingLot.distance)m")
+                                .font(.subheadline)
+                        }
+                        .onTapGesture {
+                            selectedParkingLot = parkingLot
+                            print(selectedParkingLot!)
+                        }
+                        .foregroundColor(selectedParkingLot?.id == parkingLot.id ? .blue : .primary)
                     }
-                    .id(selectedParkingLot?.id)
-
                 }
             }
         }
@@ -61,8 +64,9 @@ struct ParkingLotView: View {
         }
         
     }
-    
 }
+
+
 
 
 struct ParkingLotView_Previews: PreviewProvider {
