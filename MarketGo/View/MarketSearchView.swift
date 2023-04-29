@@ -101,7 +101,7 @@ struct MarketSearchView: View {
                     
                 }
                 
-                NavigationLink(destination: EatingHouseView()){
+                NavigationLink(destination: ParkingLotView()){
                     Text("맛집 찾기")
                 }
                 

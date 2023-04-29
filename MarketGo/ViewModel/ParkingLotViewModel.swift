@@ -33,7 +33,7 @@ class ParkingLotViewModel{
         
         // Meta.isEnd가 false가 될 때까지 반복해서 데이터를 받는 함수
         func fetchData() {
-            AF.request("https://dapi.kakao.com/v2/local/search/keyword.json?page=\(page)&size=\(size)&sort=\(sort)&query=\(encodeQueryKeyword)&x=\(location.lng)&y=\(location.lat)&radius=\(radius)",
+            AF.request("https://dapi.kakao.com/v2/local/search/keyword.json?category_group_code=PK6&page=\(page)&size=\(size)&sort=\(sort)&query=\(encodeQueryKeyword)&x=\(location.lng)&y=\(location.lat)&radius=\(radius)",
                        method: .get,
                        encoding: URLEncoding.default,
                        headers: headers)
