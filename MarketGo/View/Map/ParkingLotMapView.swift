@@ -17,6 +17,7 @@ struct ParkingLotMapView: UIViewRepresentable {
     var cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)
     public let mapView = NMFNaverMapView()
     func makeUIView(context: Context) -> NMFNaverMapView {
+        mapView.showLocationButton = true
         
         DispatchQueue.main.async {
             if let userLocation = locationManager.userLocation {

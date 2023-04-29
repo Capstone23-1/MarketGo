@@ -15,7 +15,7 @@ struct NMapView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> NMFNaverMapView {
         let mapView = NMFNaverMapView()
-
+        mapView.showLocationButton=true
         DispatchQueue.main.async {
             let nmg = NMGLatLng(lat: currentMarket.userLocation?.lat ?? cauLocation.lat, lng: currentMarket.userLocation?.lng ?? cauLocation.lng)
             let cameraUpdate = NMFCameraUpdate(scrollTo: nmg)

@@ -24,19 +24,20 @@ struct ParkingLotView: View {
                     
                     ProgressView()
                         .scaleEffect(3.0)
-                        .progressViewStyle(CircularProgressViewStyle(tint: .purple))
+                        .progressViewStyle(CircularProgressViewStyle(tint: .primary))
                         .padding()
-
+                    
                 } else {
                     ParkingLotMapView(parkingLots: $parkingLots, selectedParkingLot: $selectedParkingLot)
-                    List(parkingLots, id: \.distance) { parkingLot in
+                    List(parkingLots, id: \.self) { parkingLot in
                         Text("\(parkingLot.placeName)   \(parkingLot.distance)m")
                             .onTapGesture {
                                 selectedParkingLot = parkingLot
-                                print(selectedParkingLot!)
                             }
                             .foregroundColor(selectedParkingLot?.id == parkingLot.id ? .blue : .primary)
                     }
+                    .id(selectedParkingLot?.id)
+
                 }
             }
         }
@@ -60,6 +61,7 @@ struct ParkingLotView: View {
         }
         
     }
+    
 }
 
 
