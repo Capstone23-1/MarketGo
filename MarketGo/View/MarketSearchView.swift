@@ -52,7 +52,7 @@ struct MarketSearchView: View {
                     .padding(.horizontal)
                     .foregroundColor(.gray)
                 }
-                NMapView()
+                MarketMapView()
                 
                 
                 

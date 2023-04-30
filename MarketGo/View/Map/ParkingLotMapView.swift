@@ -8,7 +8,7 @@
 import SwiftUI
 import NMapsMap
 
-
+// TODO: 지도에서 마커를 클릭하면 셀이 셀렉트 된 표시가 났으면 좋겠음
 struct ParkingLotMapView: UIViewRepresentable {
 
     @ObservedObject var locationManager = LocationManager()
