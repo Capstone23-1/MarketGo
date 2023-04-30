@@ -9,33 +9,26 @@ import SwiftUI
 import UIKit
 
 
-
+// TODO: 카카오 검색기능으로 찾은 시장이 디비와 일치하지않는경우 에러메시지를 추가해줌
 struct MarketSearchView: View {
     @State private var searchText: String = ""
     //드롭다운바 즉,Picker에서 사용하기 위한 사용자가 선택한 옵션을 저장,이 값을 사용하여 리스트를 정렬 1~3까지의 값이 있음,추가될 수 있음
     @State private var sortOption: Int = 0
     //입력필드에서 사용되는 힌트
     @State private var placeHolder: String = "가고싶은 시장을 입력하세요"
-    
-    @State private var lm = LocationManager()
-    @State var EatingHouses: [Document] = []
-    @State var selectedEatingHouse: Document?
-    var MarketList: [MarketInfo] = [
-        MarketInfo(marketName: "흑석 시장", rating: 4.3,distance: 0.8),
-        MarketInfo(marketName: "상도 시장", rating: 4.9,distance: 1.2),
-        MarketInfo(marketName: "광장 시장", rating: 3.3,distance: 7.7)
-    ]
-    
-    var sortedClasses: [MarketInfo] {
+    @State private var MarketList: [Document] = []
+    @State private var errorMessage: String?
+    @ObservedObject var locationManager = LocationManager()
+    @State private var selectedMarket: Document?
+    @State private var isLoading = false // indicator 추가
+    var sortedClasses: [Document] {
         switch sortOption {
             case 0: return MarketList.sorted(by: { $0.distance < $1.distance })
-            case 1: return MarketList.sorted(by: { $0.rating > $1.rating })
-            case 2: return MarketList.sorted(by: { $0.marketName < $1.marketName })
+                //                case 1: return MarketList.sorted(by: { $0.rating > $1.rating })
+            case 2: return MarketList.sorted(by: { $0.placeName < $1.placeName })
             default: return MarketList
         }
     }
-    
-    
     
     var body: some View {
         NavigationView{
@@ -52,60 +45,25 @@ struct MarketSearchView: View {
                     .padding(.horizontal)
                     .foregroundColor(.gray)
                 }
-                MarketMapView()
-                
-                
-                
-                List(sortedClasses.filter {
-                    searchText.isEmpty ? true : $0.marketName.localizedCaseInsensitiveContains(searchText)
-                }, id: \.marketName) { MarketInfo in
-                    HStack{
-                        Image(systemName:"person.circle")
-                            .resizable()
-                            .frame(width: 40,height: 40)
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
-                        VStack(alignment: .leading,spacing: 4) {
-                            Text("\(MarketInfo.marketName)")
-                                .bold()
-                                .font(.system(size:20))
-                            
-                            HStack{
-                                Text("\(String(format:"%.1f",MarketInfo.distance)) Km")
-                                
-                                Spacer()
-                                
-                                //평점을 나타냄
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(Color.yellow
-                                                     // .opacity(0.3)
-                                    )
-                                
-                                
-                                Text("\(String(format:"%.1f",MarketInfo.rating))")
-                            }
-                            .font(.system(size:15))
-                            
-                            
-                            
-                        }
-                        
-                        
-                        
+                if let errorMessage = errorMessage {
+                    Text(errorMessage)
+                } else {
+                    if isLoading {
+                        ProgressView()
+                            .scaleEffect(3.0)
+                            .progressViewStyle(CircularProgressViewStyle(tint: .purple))
+                            .padding()
+                    } else {
+                        MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
+                        UITableViewWrapper(data: MarketList, selectedParkingLot: $selectedMarket)
                     }
-                    .listStyle(PlainListStyle())
-                    //화면 터치시 키보드 숨김 -> SwiftUI에서는 아직 지원x ->UIKit 사용
-                    .onTapGesture {
-                        hideKeyboard()
-                    }
-                    
                     
                 }
-                
                 NavigationLink(destination: ParkingLotView()){
                     Text("맛집 찾기")
                 }
                 
-
+                
                 NavigationLink(destination: MainView()) {
                     Text("화면 넘기기")
                         .font(.headline)
@@ -115,18 +73,36 @@ struct MarketSearchView: View {
                         .cornerRadius(10.0)
                 }
                 
-                
             }
-            
+            .onAppear {
+                let viewModel = MarketViewModel()
+                isLoading = true // 로딩 시작
+                viewModel.searchMarket(location: locationManager.userLocation ?? cauLocation, queryKeyword: "시장") { result in
+                    switch result {
+                        case .success(let parkingLotData):
+                            DispatchQueue.main.async {
+                                self.MarketList = parkingLotData.documents
+                                isLoading = false // 로딩 종료
+                            }
+                        case .failure(let error):
+                            DispatchQueue.main.async {
+                                self.errorMessage = error.localizedDescription
+                                isLoading = false // 로딩 종료
+                            }
+                    }
+                }
+            }
             
             
         }
         
         
+        
     }
-    
-    
 }
+
+
+
 
 
 struct MarketSearchView_Previews: PreviewProvider {

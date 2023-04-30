@@ -32,6 +32,8 @@
 		21470AB029FD0FFD00A7CEE7 /* EatingHouseMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AAF29FD0FFD00A7CEE7 /* EatingHouseMapView.swift */; };
 		21470AB229FD125100A7CEE7 /* EatingHouseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB129FD125100A7CEE7 /* EatingHouseViewModel.swift */; };
 		21470AB429FD87E400A7CEE7 /* UITableViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */; };
+		21470AB629FE588000A7CEE7 /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB529FE588000A7CEE7 /* MarketViewModel.swift */; };
+		21470AB829FE620100A7CEE7 /* MarketJSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB729FE620100A7CEE7 /* MarketJSONData.swift */; };
 		2150933E29DEF17F0001C788 /* APITestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150933D29DEF17F0001C788 /* APITestModel.swift */; };
 		2150934129DEF1A40001C788 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2150934029DEF1A40001C788 /* Alamofire */; };
 		215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */; };
@@ -95,6 +97,8 @@
 		21470AAF29FD0FFD00A7CEE7 /* EatingHouseMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingHouseMapView.swift; sourceTree = "<group>"; };
 		21470AB129FD125100A7CEE7 /* EatingHouseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingHouseViewModel.swift; sourceTree = "<group>"; };
 		21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewWrapper.swift; sourceTree = "<group>"; };
+		21470AB529FE588000A7CEE7 /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
+		21470AB729FE620100A7CEE7 /* MarketJSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketJSONData.swift; sourceTree = "<group>"; };
 		2150933D29DEF17F0001C788 /* APITestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITestModel.swift; sourceTree = "<group>"; };
 		215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketMapView.swift; sourceTree = "<group>"; };
 		217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChoicePickerView.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 				2144FE6C29DD6A32008913C4 /* FoodItemModel.swift */,
 				2144FE6E29DD6A58008913C4 /* LocationModel.swift */,
 				2188126129E96D8400F315EF /* EatingHouseJSONData.swift */,
+				21470AB729FE620100A7CEE7 /* MarketJSONData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				21470AB129FD125100A7CEE7 /* EatingHouseViewModel.swift */,
 				2188126329E96F4700F315EF /* ParkingLotViewModel.swift */,
 				2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */,
+				21470AB529FE588000A7CEE7 /* MarketViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -238,8 +244,8 @@
 				21470AAD29FD0F7F00A7CEE7 /* EatingHouseView.swift */,
 				2144FE7D29DD6BCF008913C4 /* LocationManager.swift */,
 				217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */,
-				215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */,
 				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
+				215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */,
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 			);
@@ -534,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21470AB629FE588000A7CEE7 /* MarketViewModel.swift in Sources */,
 				21470AB429FD87E400A7CEE7 /* UITableViewWrapper.swift in Sources */,
 				2144FE8029DD6BEC008913C4 /* ParkingLotMapView.swift in Sources */,
 				2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */,
@@ -560,6 +567,7 @@
 				2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */,
 				2150933E29DEF17F0001C788 /* APITestModel.swift in Sources */,
 				2188126429E96F4700F315EF /* ParkingLotViewModel.swift in Sources */,
+				21470AB829FE620100A7CEE7 /* MarketJSONData.swift in Sources */,
 				99CD749829DD97B300D2D782 /* FoodItemDetailView.swift in Sources */,
 				2144FE7129DD6A79008913C4 /* TopView.swift in Sources */,
 				2144FE7529DD6AF6008913C4 /* SearchBar.swift in Sources */,
