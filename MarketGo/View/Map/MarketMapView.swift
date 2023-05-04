@@ -10,7 +10,7 @@ import NMapsMap
 
 
 struct MarketMapView: UIViewRepresentable {
-
+    
     @ObservedObject var locationManager = LocationManager()
     @Binding var marketList: [Document]
     @Binding var selectedMarket: Document?
@@ -46,6 +46,11 @@ struct MarketMapView: UIViewRepresentable {
                         mapView?.mapView.moveCamera(cameraUpdate)
                         DispatchQueue.main.async {
                             self.selectedMarket = market
+                        }
+                        DispatchQueue.main.async {
+                            if let index = self.marketList.firstIndex(where: { $0.id == market.id }) {
+                                self.selectedMarket = self.marketList[index]
+                            }
                         }
                         
                     }

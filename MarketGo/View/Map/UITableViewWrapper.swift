@@ -59,5 +59,13 @@ struct UITableViewWrapper: UIViewControllerRepresentable {
             selected = data[indexPath.row]  // 선택된 데이터를 바인딩
 //            tableView.deselectRow(at: indexPath, animated: true) // 선택된 셀의 하이라이트를 해제
         }
+        func updateUIViewController(_ uiViewController: UITableViewController, context: Context) {
+                if let selectedMarket = selected {
+                    if let index = data.firstIndex(where: { $0.id == selectedMarket.id }) {
+                        let indexPath = IndexPath(row: index, section: 0)
+                        uiViewController.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+                    }
+                }
+            }
     }
 }
