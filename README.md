@@ -11,12 +11,8 @@ MZ세대를 공략하기 위한 전통시장 정보 제공 어플
 * Spring Boot
 * AWS
 * MySQL
-
-### 🔥작업시 주의 사항🔥
-- 작업 시작 전에 pull 하셨나요?
-- 작업이 끝나고 커밋,푸시 하셨나요?
-- push 브런치 대상이 `develop` 맞을까요?
-
+### 노션 링크
+- [API 명세서 게시](https://www.notion.so/API-f1c0e6cc95e04848ac96c57045b3d566)
 ### 개발 시 참고하세용
 * [Swift MarkUP Documentation1](https://0urtrees.tistory.com/13)
 * [Swift MarkUP Documentation2](https://blog.naver.com/rlawnguq12/222250260268)

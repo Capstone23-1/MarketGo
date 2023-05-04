@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+class Cart: ObservableObject {
+    @Published var items: [FoodItem] = []
+    
+    func addToCart(item: FoodItem) {
+        items.append(item)
+    }
+}
+
 struct CartView: View {
     @State private var foodItems = [FoodItem(name: "사과 ", storeName: "영찬과일", imageName: "apple", price: 12000, store_num: 1),
                                         FoodItem(name: "참외", storeName: "주현싱싱", imageName: "melon", price: 1100,store_num: 2),
