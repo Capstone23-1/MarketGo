@@ -16,7 +16,7 @@ class EatingHouseViewModel{
     func searchEatingHouse(location:CoordinateInfo,queryKeyword: String, completionHandler: @escaping SearchCompletionHandler) {
         let radius: Int =  10000
         let size: Int = 10
-        let sort: String = "distance"
+        let sort: String = "accuracy"
         let requestPage = 5
         
         var page: Int = 1 // 검색 시작 페이지

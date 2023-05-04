@@ -9,7 +9,8 @@ import SwiftUI
 
 struct UITableViewWrapper: UIViewControllerRepresentable {
     var data: [Document]
-    @Binding var selectedParkingLot: Document?
+    @Binding var selected: Document?
+    var didSelectRowAt: ((Document) -> Void)?
     
     func makeUIViewController(context: Context) -> UITableViewController {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
@@ -26,16 +27,16 @@ struct UITableViewWrapper: UIViewControllerRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(data: data, selectedParkingLot: $selectedParkingLot)
+        Coordinator(data: data, selected: $selected)
     }
 
     class Coordinator: NSObject, UITableViewDataSource, UITableViewDelegate {
         var data: [Document]
-        @Binding var selectedParkingLot: Document?
+        @Binding var selected: Document?
 
-        init(data: [Document], selectedParkingLot: Binding<Document?>) {
+        init(data: [Document], selected: Binding<Document?>) {
             self.data = data
-            self._selectedParkingLot = selectedParkingLot
+            self._selected = selected
         }
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,17 +46,18 @@ struct UITableViewWrapper: UIViewControllerRepresentable {
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            let parkingLot = data[indexPath.row]
-            cell.textLabel?.text = "\(parkingLot.placeName)   \(parkingLot.distance)m"
+            let place = data[indexPath.row]
+            cell.textLabel?.text = "\(place.placeName)   \(place.distance)m"
 //            tableView.deselectRow(at: indexPath, animated: true) // 선택된 셀의 하이라이트를 해제
-//            cell.textLabel?.textColor = selectedParkingLot?.id == parkingLot.id ? .blue : .black
+
             return cell
         }
 
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            selectedParkingLot = data[indexPath.row]
+            selected = data[indexPath.row]
 //            tableView.deselectRow(at: indexPath, animated: true) // 선택된 셀의 하이라이트를 해제
             
         }
+        
     }
 }
