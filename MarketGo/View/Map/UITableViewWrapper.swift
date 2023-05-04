@@ -10,6 +10,7 @@ import SwiftUI
 struct UITableViewWrapper: UIViewControllerRepresentable {
     var data: [Document]
     @Binding var selectedParkingLot: Document?
+    var didSelectRowAt: ((Document) -> Void)?
     
     func makeUIViewController(context: Context) -> UITableViewController {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
@@ -57,5 +58,6 @@ struct UITableViewWrapper: UIViewControllerRepresentable {
 //            tableView.deselectRow(at: indexPath, animated: true) // 선택된 셀의 하이라이트를 해제
             
         }
+        
     }
 }

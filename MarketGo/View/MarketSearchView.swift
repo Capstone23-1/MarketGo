@@ -56,10 +56,15 @@ struct MarketSearchView: View {
                     } else {
                         MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
                         UITableViewWrapper(data: MarketList, selectedParkingLot: $selectedMarket)
+                        NavigationLink(destination: MarketInfoView(selectedMarket: $selectedMarket)) {
+                            EmptyView()
+                        }
+                        .hidden()
+
                     }
                     
                 }
-                NavigationLink(destination: ParkingLotView()){
+                NavigationLink(destination: EatingHouseView()){
                     Text("맛집 찾기")
                 }
                 
