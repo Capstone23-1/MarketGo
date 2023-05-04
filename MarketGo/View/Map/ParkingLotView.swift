@@ -27,7 +27,7 @@ struct ParkingLotView: View {
                         .padding()
                 } else {
                     ParkingLotMapView(parkingLots: $parkingLots, selectedParkingLot: $selectedParkingLot)
-                    UITableViewWrapper(data: parkingLots, selectedParkingLot: $selectedParkingLot)
+                    UITableViewWrapper(data: parkingLots, selected: $selectedParkingLot)
                 }
 
             }

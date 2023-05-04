@@ -55,7 +55,7 @@ struct MarketSearchView: View {
                             .padding()
                     } else {
                         MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
-                        UITableViewWrapper(data: MarketList, selectedParkingLot: $selectedMarket)
+                        UITableViewWrapper(data: MarketList, selected: $selectedMarket)
                         NavigationLink(destination: MarketInfoView(selectedMarket: $selectedMarket)) {
                             EmptyView()
                         }
