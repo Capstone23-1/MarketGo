@@ -29,6 +29,7 @@ struct StoreReviewListView: View {
             }
             .padding()
             
+            
         }
     }
     
@@ -65,12 +66,11 @@ struct ReviewRow: View {
                 .font(.body)
         }
         .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .cornerRadius(10)
         .shadow(radius: 2, y: 1)
-        .padding(.vertical, 8)
-        .frame(width: 600)
-        .fixedSize(horizontal: true, vertical: true)
+
     }
 }
 
