@@ -35,6 +35,10 @@
 		21470AB629FE588000A7CEE7 /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB529FE588000A7CEE7 /* MarketViewModel.swift */; };
 		21470AB829FE620100A7CEE7 /* MarketJSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB729FE620100A7CEE7 /* MarketJSONData.swift */; };
 		21470ABA2A00FEE000A7CEE7 /* MarketInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB92A00FEE000A7CEE7 /* MarketInfoView.swift */; };
+		214871CE2A05573800C6FD1D /* MarketOneNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871CD2A05573800C6FD1D /* MarketOneNetwork.swift */; };
+		214871D02A055E9D00C6FD1D /* MarketsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871CF2A055E9D00C6FD1D /* MarketsNetwork.swift */; };
+		214871D22A055EDB00C6FD1D /* MarketOneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871D12A055EDB00C6FD1D /* MarketOneModel.swift */; };
+		214871D42A05600F00C6FD1D /* MarketListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871D32A05600F00C6FD1D /* MarketListView.swift */; };
 		2150933E29DEF17F0001C788 /* APITestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150933D29DEF17F0001C788 /* APITestModel.swift */; };
 		2150934129DEF1A40001C788 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2150934029DEF1A40001C788 /* Alamofire */; };
 		215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */; };
@@ -108,6 +112,10 @@
 		21470AB529FE588000A7CEE7 /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
 		21470AB729FE620100A7CEE7 /* MarketJSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketJSONData.swift; sourceTree = "<group>"; };
 		21470AB92A00FEE000A7CEE7 /* MarketInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfoView.swift; sourceTree = "<group>"; };
+		214871CD2A05573800C6FD1D /* MarketOneNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketOneNetwork.swift; sourceTree = "<group>"; };
+		214871CF2A055E9D00C6FD1D /* MarketsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsNetwork.swift; sourceTree = "<group>"; };
+		214871D12A055EDB00C6FD1D /* MarketOneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketOneModel.swift; sourceTree = "<group>"; };
+		214871D32A05600F00C6FD1D /* MarketListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListView.swift; sourceTree = "<group>"; };
 		2150933D29DEF17F0001C788 /* APITestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITestModel.swift; sourceTree = "<group>"; };
 		215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketMapView.swift; sourceTree = "<group>"; };
 		217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChoicePickerView.swift; sourceTree = "<group>"; };
@@ -240,6 +248,7 @@
 				21470AB729FE620100A7CEE7 /* MarketJSONData.swift */,
 				994B17C62A0236DE009B77E8 /* ReviewStore.swift */,
 				998843BD2A04DD5000132079 /* MemberModel.swift */,
+				214871D12A055EDB00C6FD1D /* MarketOneModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +260,8 @@
 				2188126329E96F4700F315EF /* ParkingLotViewModel.swift */,
 				2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */,
 				21470AB529FE588000A7CEE7 /* MarketViewModel.swift */,
+				214871CD2A05573800C6FD1D /* MarketOneNetwork.swift */,
+				214871CF2A055E9D00C6FD1D /* MarketsNetwork.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -267,6 +278,7 @@
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				21470AB92A00FEE000A7CEE7 /* MarketInfoView.swift */,
+				214871D32A05600F00C6FD1D /* MarketListView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -576,12 +588,14 @@
 				21470ABA2A00FEE000A7CEE7 /* MarketInfoView.swift in Sources */,
 				2188126229E96D8400F315EF /* EatingHouseJSONData.swift in Sources */,
 				2144FE7329DD6AAA008913C4 /* CartView.swift in Sources */,
+				214871D42A05600F00C6FD1D /* MarketListView.swift in Sources */,
 				21470AB229FD125100A7CEE7 /* EatingHouseViewModel.swift in Sources */,
 				2144FE7729DD6B11008913C4 /* MainView.swift in Sources */,
 				215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */,
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,
 				99CD749629DD95D100D2D782 /* ProductTopView.swift in Sources */,
+				214871D22A055EDB00C6FD1D /* MarketOneModel.swift in Sources */,
 				994B17C52A023653009B77E8 /* ReviewView.swift in Sources */,
 				998843C22A04F76800132079 /* StoreListView.swift in Sources */,
 				2144FE7B29DD6B88008913C4 /* ShopView.swift in Sources */,
@@ -592,12 +606,14 @@
 				2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */,
 				2144FE6D29DD6A32008913C4 /* FoodItemModel.swift in Sources */,
 				2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */,
+				214871D02A055E9D00C6FD1D /* MarketsNetwork.swift in Sources */,
 				21F1C9BD29DD69870022113A /* ContentView.swift in Sources */,
 				998843C02A04DE8700132079 /* MypageView.swift in Sources */,
 				2140BC8329D1CFA900B78C6C /* MarketInfoModel.swift in Sources */,
 				2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */,
 				2150933E29DEF17F0001C788 /* APITestModel.swift in Sources */,
 				2188126429E96F4700F315EF /* ParkingLotViewModel.swift in Sources */,
+				214871CE2A05573800C6FD1D /* MarketOneNetwork.swift in Sources */,
 				21470AB829FE620100A7CEE7 /* MarketJSONData.swift in Sources */,
 				99CD749829DD97B300D2D782 /* FoodItemDetailView.swift in Sources */,
 				2144FE7129DD6A79008913C4 /* TopView.swift in Sources */,

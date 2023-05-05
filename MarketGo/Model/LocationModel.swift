@@ -13,7 +13,7 @@ public struct CoordinateInfo{
     init(lat: Double, lng: Double) {
         self.lat = lat
         self.lng = lng
-        print("lat: \(self.lat), lng: \(self.lng)")
+//        print("lat: \(self.lat), lng: \(self.lng)")
     }
     
 }
