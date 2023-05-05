@@ -4,10 +4,11 @@
 //
 //  Created by ram on 2023/05/06.
 //
+
 import SwiftUI
 import Alamofire
 
-struct MarketListView :View {
+struct MarketListView: View {
     @State var marketData: [MarketOneElement] = []
 
     var body: some View {
@@ -27,7 +28,8 @@ struct MarketListView :View {
     }
 
     func getMarketData() {
-        let url = "http://3.34.33.15:8080/market/marketName/흑석시장"
+        let letter=makeStringKoreanEncoded("흑석시장")
+        let url = "http://3.34.33.15:8080/market/marketName/\(letter)"
         AF.request(url).responseData { response in
             guard let data = response.data else { return }
             do {
