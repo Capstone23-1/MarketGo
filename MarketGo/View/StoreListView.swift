@@ -14,7 +14,7 @@ struct StoreListView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
+               
                     HStack {
                         TextField("시장 이름으로 검색", text: $searchText)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -24,10 +24,6 @@ struct StoreListView: View {
                     .padding(.top, 16)
 
                     Divider()
-
-                    Text("가게 둘러보기")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
 
                     LazyVStack {
                         ForEach(stores.sorted { $0.reviewCnt > $1.reviewCnt }.filter {
@@ -63,7 +59,7 @@ struct StoreListView: View {
                             }
                         }
                     }
-                }
+                
             }
         }
     }

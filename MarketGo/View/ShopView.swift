@@ -48,7 +48,7 @@ struct ShopView: View {
                                 .padding(.horizontal)
                             Spacer()
                             NavigationLink(destination: StoreListView()){
-                                Text("시장 더보기 ")
+                                Text("가게 더보기 > ")
                                     .foregroundColor(.black)
                                     .padding(.horizontal)
                             }
@@ -91,10 +91,21 @@ struct ShopView: View {
                             }
                         }
                         
+                        HStack{
+                            Text("상품 >")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal)
+                            Spacer()
+                            NavigationLink(destination: StoreListView()){
+                                Text("상품 더보기 > ")
+                                    .foregroundColor(.black)
+                                    .padding(.horizontal)
+                            }
+                            
+  
+                        }
                         
-                        Text("상품 >")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal)
+                       
                         LazyVGrid(columns: layout){
                             ForEach(foodlist) { item in
                                 NavigationLink(destination: FoodItemDetailView(fooditem: item)){
