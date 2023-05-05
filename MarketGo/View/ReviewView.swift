@@ -66,6 +66,7 @@ struct ReviewView: View {
             
             HStack(spacing: 10) {
                 Text(storeName)
+                    .font(.headline)
                     .padding()
                 
                 ForEach(0..<5) { index in
