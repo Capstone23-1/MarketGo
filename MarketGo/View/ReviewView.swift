@@ -61,7 +61,8 @@ struct ReviewView: View {
     var body: some View {
         VStack {
             Text("만족도 평가 및 리뷰")
-                .font(.title)
+                .font(.title2)
+                .bold()
                 .padding()
             
             HStack(spacing: 10) {

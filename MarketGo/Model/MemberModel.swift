@@ -11,11 +11,11 @@ import Foundation
 public struct Member{
     
     let memberToken: String
-    let memberName: String
-    let interestMarket: Int
+    var memberName: String
+    var interestMarket: Int
     let cartId: Int
-    let storeId: Int
-    let recentLatitude: Double
-    let recentLongitude: Double
+    var storeId: Int
+    var recentLatitude: Double
+    var recentLongitude: Double
 
 }

@@ -263,7 +263,6 @@
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				21470AB92A00FEE000A7CEE7 /* MarketInfoView.swift */,
-				998843BF2A04DE8700132079 /* MypageView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -287,6 +286,7 @@
 				2144FE7029DD6A79008913C4 /* TopView.swift */,
 				994B17C42A023653009B77E8 /* ReviewView.swift */,
 				99926D082A03419F00071E3C /* StoreReviewListView.swift */,
+				998843BF2A04DE8700132079 /* MypageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
