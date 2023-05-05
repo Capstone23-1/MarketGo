@@ -13,17 +13,19 @@ struct Review: Identifiable, Codable{
     let storeId: Int
     let rating: Int
     let text: String
-    //let imageName: String
+    //var image: UIImage?
+    let imageName: String? // 이미지 파일 이름 추가
+    
 }
 
 extension Review{
     
     static let reviews :[Review] = [
-        Review(author: "김흑석", storeId: 1, rating: 4, text: "음식도 신선하고 서비스도 좋아요!"),
-        Review(author: "김푸앙", storeId: 1, rating: 5, text: "음식과 서비스 모두 훌륭합니다!"),
-        Review(author: "흑석솜주먹", storeId: 1, rating: 3, text: "물건 자체는 괜찮았지만 가격이 조금 비싸요."),
-        Review(author: "양재주현", storeId: 1, rating: 2, text: "그냥 그랬어요."),
-        Review(author: "중대생", storeId: 1, rating: 4, text: "상품 다양성이 좋았습니다. 추천합니다.")
+        Review(author: "김흑석", storeId: 1, rating: 4, text: "음식도 신선하고 서비스도 좋아요!", imageName: "review1" ),
+        Review(author: "김푸앙", storeId: 1, rating: 5, text: "음식과 서비스 모두 훌륭합니다!",imageName: "review2"),
+        Review(author: "흑석솜주먹", storeId: 1, rating: 3, text: "물건 자체는 괜찮았지만 가격이 조금 비싸요.",imageName: "review3"),
+        Review(author: "양재주현", storeId: 1, rating: 2, text: "그냥 그랬어요.",imageName: nil),
+        Review(author: "중대생", storeId: 1, rating: 4, text: "상품 다양성이 좋았습니다. 추천합니다.",imageName: nil)
     ]
     
 }

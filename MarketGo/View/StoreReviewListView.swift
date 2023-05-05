@@ -13,17 +13,16 @@ struct StoreReviewListView: View {
     @State private var showMoreReviews = false
     
     var body: some View {
-        VStack {
+        VStack() {
             Text("\(store.store_name) Review")
                 .font(.title)
                 .fontWeight(.bold)
                 .padding()
             
             ScrollView {
-                LazyVStack {
+                LazyVStack() {
                     ForEach(reviews) { review in
                         ReviewRow(review: review)
-                            .frame(height: fixedHeight)
                     }
                 }
             }
@@ -33,7 +32,6 @@ struct StoreReviewListView: View {
         }
     }
     
-    let fixedHeight: CGFloat = 120 // 리뷰 뷰의 고정 높이
 }
 
 struct ReviewRow: View {
@@ -42,11 +40,11 @@ struct ReviewRow: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
+            HStack(alignment: .top) {
                 Text("\(review.rating)점")
                     .foregroundColor(.white)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, 5)
                     .background(Color.yellow)
                     .cornerRadius(10)
                 
@@ -55,21 +53,36 @@ struct ReviewRow: View {
                                         Image(systemName: "star.fill")
                                             .foregroundColor(index < review.rating ? .yellow : .gray)
                                     }
-                                }
+                }.padding(.leading,5)
                                
                 Text(review.author)
                     .font(.headline)
                     .fontWeight(.bold)
                 
             }
+            
             Text(review.text)
                 .font(.body)
+                .padding(.horizontal, 1)
+                .padding(.vertical, 7)
+            
+            if let imageName = review.imageName {
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, maxHeight:200)
+                    .padding(.horizontal, 1)
+                    .padding(.vertical, 3)
+            }
+          
+
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .cornerRadius(5)
         .shadow(radius: 2, y: 1)
+
 
     }
 }

@@ -81,21 +81,21 @@ struct ReviewView: View {
             }
             .padding()
             
-            VStack(alignment: .leading) {
-                            Text("구매한 물품")
-                                .font(.headline)
-                                .padding(20)
-                            
-                            TextEditor(text: $orderedItemsText)
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 2)
-                                        .stroke(Color.gray, lineWidth: 1)
-                                        .background(Color.white)
-                                )
-                                .frame(height: 50)
-                                .padding(.horizontal, 20)
-                        }
+//            VStack(alignment: .leading) {
+//                            Text("구매한 물품")
+//                                .font(.headline)
+//                                .padding(20)
+//
+//                            TextEditor(text: $orderedItemsText)
+//                                .padding()
+//                                .background(
+//                                    RoundedRectangle(cornerRadius: 2)
+//                                        .stroke(Color.gray, lineWidth: 1)
+//                                        .background(Color.white)
+//                                )
+//                                .frame(height: 50)
+//                                .padding(.horizontal, 20)
+//                        }
 
             
 //
@@ -109,9 +109,10 @@ struct ReviewView: View {
             
             VStack(alignment: .leading){
                 
-                Text("구매 후기")
+                Text("상품 구매 후기")
                     .font(.headline)
-                    .padding(20)
+                    .padding(.horizontal, 23)
+                    .padding(.vertical, 20)
                 
                 TextEditor(text: $reviewText)
                     .padding()
