@@ -40,9 +40,20 @@ struct ShopView: View {
                     
                     ScrollView { // ScrollView 추가
                         Spacer()
-                        Text("가게 랭킹 top3 (리뷰 많은 순) ")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal)
+                        
+                        HStack{
+                            
+                            Text("가게 랭킹 top3 (리뷰 많은 순) ")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal)
+                            Spacer()
+                            NavigationLink(destination: StoreListView()){
+                                Text("시장 더보기 ")
+                                    .foregroundColor(.black)
+                                    .padding(.horizontal)
+                            }
+                        }
+                        
                         
                         LazyVStack { // LazyVStack 사용
                             ForEach(filteredStores, id: \.store_num) { store in
