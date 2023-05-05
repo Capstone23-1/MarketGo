@@ -47,6 +47,8 @@
 		993AF1C529DE474F00031A7B /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF1C429DE474F00031A7B /* StoreView.swift */; };
 		994B17C52A023653009B77E8 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B17C42A023653009B77E8 /* ReviewView.swift */; };
 		994B17C72A0236DE009B77E8 /* ReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B17C62A0236DE009B77E8 /* ReviewStore.swift */; };
+		998843BE2A04DD5000132079 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843BD2A04DD5000132079 /* MemberModel.swift */; };
+		998843C02A04DE8700132079 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843BF2A04DE8700132079 /* MypageView.swift */; };
 		99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99926D082A03419F00071E3C /* StoreReviewListView.swift */; };
 		99CD749429DD904600D2D782 /* FoodItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CD749329DD904600D2D782 /* FoodItemCell.swift */; };
 		99CD749629DD95D100D2D782 /* ProductTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CD749529DD95D100D2D782 /* ProductTopView.swift */; };
@@ -121,6 +123,8 @@
 		993AF1C429DE474F00031A7B /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		994B17C42A023653009B77E8 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		994B17C62A0236DE009B77E8 /* ReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStore.swift; sourceTree = "<group>"; };
+		998843BD2A04DD5000132079 /* MemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
+		998843BF2A04DE8700132079 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		99926D082A03419F00071E3C /* StoreReviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewListView.swift; sourceTree = "<group>"; };
 		99CD749329DD904600D2D782 /* FoodItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemCell.swift; sourceTree = "<group>"; };
 		99CD749529DD95D100D2D782 /* ProductTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTopView.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 				2188126129E96D8400F315EF /* EatingHouseJSONData.swift */,
 				21470AB729FE620100A7CEE7 /* MarketJSONData.swift */,
 				994B17C62A0236DE009B77E8 /* ReviewStore.swift */,
+				998843BD2A04DD5000132079 /* MemberModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				21470AB92A00FEE000A7CEE7 /* MarketInfoView.swift */,
+				998843BF2A04DE8700132079 /* MypageView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -557,6 +563,7 @@
 				21470AB429FD87E400A7CEE7 /* UITableViewWrapper.swift in Sources */,
 				2144FE8029DD6BEC008913C4 /* ParkingLotMapView.swift in Sources */,
 				2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */,
+				998843BE2A04DD5000132079 /* MemberModel.swift in Sources */,
 				217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */,
 				21470AB029FD0FFD00A7CEE7 /* EatingHouseMapView.swift in Sources */,
 				21470ABA2A00FEE000A7CEE7 /* MarketInfoView.swift in Sources */,
@@ -578,6 +585,7 @@
 				2144FE6D29DD6A32008913C4 /* FoodItemModel.swift in Sources */,
 				2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */,
 				21F1C9BD29DD69870022113A /* ContentView.swift in Sources */,
+				998843C02A04DE8700132079 /* MypageView.swift in Sources */,
 				2140BC8329D1CFA900B78C6C /* MarketInfoModel.swift in Sources */,
 				2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */,
 				2150933E29DEF17F0001C788 /* APITestModel.swift in Sources */,
