@@ -53,7 +53,7 @@ struct ReviewView: View {
     @State var reviewText: String = ""
     @State var selectedImage: UIImage?
     let storeName: String
-    let orderedItems: [String]
+    @State var orderedItemsText: String = ""
     
     let starColor = Color(red: 255/255, green: 202/255, blue: 40/255)
     let starWidth: CGFloat = 30.0
@@ -64,22 +64,6 @@ struct ReviewView: View {
                 .font(.title)
                 .padding()
             
-            HStack(){
-                Text("주문한 물품")
-                    .font(.headline)
-                    .padding(.bottom, 10)
-                
-                VStack(alignment: .leading) {
-                       
-                        ForEach(orderedItems, id: \.self) { item in
-                            Text("-  \(item)")
-                        }
-                    }
-                    .padding()
-                
-            }
-            
-
             HStack(spacing: 10) {
                 Text(storeName)
                     .padding()
@@ -96,23 +80,50 @@ struct ReviewView: View {
             }
             .padding()
             
-            if let image = selectedImage {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 200)
+            VStack(alignment: .leading) {
+                            Text("구매한 물품")
+                                .font(.headline)
+                                .padding(20)
+                            
+                            TextEditor(text: $orderedItemsText)
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 2)
+                                        .stroke(Color.gray, lineWidth: 1)
+                                        .background(Color.white)
+                                )
+                                .frame(height: 50)
+                                .padding(.horizontal, 20)
+                        }
+
+            
+//
+//            if let image = selectedImage {
+//                Image(uiImage: image)
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(width: 200, height: 200)
+//                    .padding()
+//            }
+            
+            VStack(alignment: .leading){
+                
+                Text("구매 후기")
+                    .font(.headline)
+                    .padding(20)
+                
+                TextEditor(text: $reviewText)
                     .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 2)
+                            .stroke(Color.gray, lineWidth: 1)
+                            .background(Color.white)
+                    )
+                    .padding(.horizontal, 20)
+                
             }
             
-            TextEditor(text: $reviewText)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 2)
-                        .stroke(Color.gray, lineWidth: 1)
-                        .background(Color.white)
-                )
-                .padding(.horizontal, 20)
-            
+          
             Spacer()
             
             HStack{
@@ -170,6 +181,6 @@ struct ReviewView: View {
 
 struct ReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewView(isPresented: Binding.constant(false), storeName: "영찬과일", orderedItems: ["수박", "참외", "딸기"])
+        ReviewView(isPresented: Binding.constant(false), storeName: "영찬과일")
     }
 }

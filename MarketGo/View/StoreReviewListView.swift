@@ -14,7 +14,7 @@ struct StoreReviewListView: View {
     
     var body: some View {
         VStack {
-            Text(store.store_name)
+            Text("\(store.store_name) Review")
                 .font(.title)
                 .fontWeight(.bold)
                 .padding()
@@ -68,7 +68,7 @@ struct ReviewRow: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
-        .cornerRadius(10)
+        .cornerRadius(5)
         .shadow(radius: 2, y: 1)
 
     }
