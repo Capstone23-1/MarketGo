@@ -56,7 +56,7 @@ struct MarketSearchView: View {
                     } else {
                         MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
                         UITableViewWrapper(data: MarketList, selected: $selectedMarket)
-                        NavigationLink(destination: MarketInfoView(selectedMarket: $selectedMarket)) {
+                        NavigationLink(destination: MarketInfoView()) {
                             EmptyView()
                         }
                         .hidden()
@@ -64,7 +64,7 @@ struct MarketSearchView: View {
                     }
                     
                 }
-                NavigationLink(destination: MarketListView()){
+                NavigationLink(destination: MarketInfoView()){
                     Text("맛집 찾기")
                 }
                 
@@ -81,17 +81,17 @@ struct MarketSearchView: View {
             }
             .onAppear {
                 let viewModel = MarketViewModel()
-                let networkService = MarketOneNetwork()
-                networkService.getMarketInfo { result in
-                    switch result {
-                    case .success(let data):
-                        // 데이터 처리
-                        print(data)
-                    case .failure(let error):
-                        // 에러 처리
-                        print(error.localizedDescription)
-                    }
-                }
+//                let networkService = MarketOneNetwork()
+//                networkService.getMarketInfo { result in
+//                    switch result {
+//                    case .success(let data):
+//                        // 데이터 처리
+//                        print(data)
+//                    case .failure(let error):
+//                        // 에러 처리
+//                        print(error.localizedDescription)
+//                    }
+//                }
                 isLoading = true // 로딩 시작
                 viewModel.searchMarket(location: locationManager.userLocation ?? cauLocation, queryKeyword: "시장") { result in
                     switch result {

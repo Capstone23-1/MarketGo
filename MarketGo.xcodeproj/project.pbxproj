@@ -34,10 +34,9 @@
 		21470AB429FD87E400A7CEE7 /* UITableViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */; };
 		21470AB629FE588000A7CEE7 /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB529FE588000A7CEE7 /* MarketViewModel.swift */; };
 		21470AB829FE620100A7CEE7 /* MarketJSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB729FE620100A7CEE7 /* MarketJSONData.swift */; };
-		21470ABA2A00FEE000A7CEE7 /* MarketInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB92A00FEE000A7CEE7 /* MarketInfoView.swift */; };
 		214871CE2A05573800C6FD1D /* MarketOneNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871CD2A05573800C6FD1D /* MarketOneNetwork.swift */; };
 		214871D22A055EDB00C6FD1D /* MarketOneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871D12A055EDB00C6FD1D /* MarketOneModel.swift */; };
-		214871D42A05600F00C6FD1D /* MarketListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871D32A05600F00C6FD1D /* MarketListView.swift */; };
+		214871D42A05600F00C6FD1D /* MarketInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871D32A05600F00C6FD1D /* MarketInfoView.swift */; };
 		2150933E29DEF17F0001C788 /* APITestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150933D29DEF17F0001C788 /* APITestModel.swift */; };
 		2150934129DEF1A40001C788 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2150934029DEF1A40001C788 /* Alamofire */; };
 		215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */; };
@@ -110,10 +109,9 @@
 		21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewWrapper.swift; sourceTree = "<group>"; };
 		21470AB529FE588000A7CEE7 /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
 		21470AB729FE620100A7CEE7 /* MarketJSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketJSONData.swift; sourceTree = "<group>"; };
-		21470AB92A00FEE000A7CEE7 /* MarketInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfoView.swift; sourceTree = "<group>"; };
 		214871CD2A05573800C6FD1D /* MarketOneNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketOneNetwork.swift; sourceTree = "<group>"; };
 		214871D12A055EDB00C6FD1D /* MarketOneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketOneModel.swift; sourceTree = "<group>"; };
-		214871D32A05600F00C6FD1D /* MarketListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListView.swift; sourceTree = "<group>"; };
+		214871D32A05600F00C6FD1D /* MarketInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfoView.swift; sourceTree = "<group>"; };
 		2150933D29DEF17F0001C788 /* APITestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITestModel.swift; sourceTree = "<group>"; };
 		215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketMapView.swift; sourceTree = "<group>"; };
 		217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChoicePickerView.swift; sourceTree = "<group>"; };
@@ -274,8 +272,7 @@
 				215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */,
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
-				21470AB92A00FEE000A7CEE7 /* MarketInfoView.swift */,
-				214871D32A05600F00C6FD1D /* MarketListView.swift */,
+				214871D32A05600F00C6FD1D /* MarketInfoView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -582,10 +579,9 @@
 				998843BE2A04DD5000132079 /* MemberModel.swift in Sources */,
 				217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */,
 				21470AB029FD0FFD00A7CEE7 /* EatingHouseMapView.swift in Sources */,
-				21470ABA2A00FEE000A7CEE7 /* MarketInfoView.swift in Sources */,
 				2188126229E96D8400F315EF /* EatingHouseJSONData.swift in Sources */,
 				2144FE7329DD6AAA008913C4 /* CartView.swift in Sources */,
-				214871D42A05600F00C6FD1D /* MarketListView.swift in Sources */,
+				214871D42A05600F00C6FD1D /* MarketInfoView.swift in Sources */,
 				21470AB229FD125100A7CEE7 /* EatingHouseViewModel.swift in Sources */,
 				2144FE7729DD6B11008913C4 /* MainView.swift in Sources */,
 				215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */,
