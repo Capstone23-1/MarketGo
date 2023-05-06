@@ -24,8 +24,8 @@ struct ProfileImageView: View {
         }
     }
     
-        
-        
+    
+    
 }
 
 struct ProfileImageView_Previews: PreviewProvider {

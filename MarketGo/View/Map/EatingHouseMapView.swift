@@ -10,7 +10,7 @@ import NMapsMap
 
 
 struct EatingHouseMapView: UIViewRepresentable {
-
+    
     @ObservedObject var locationManager = LocationManager()
     @Binding var EatingHouses: [Document]
     @Binding var SelectedEating: Document?

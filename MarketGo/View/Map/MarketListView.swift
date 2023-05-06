@@ -18,10 +18,6 @@ struct MarketListView: View {
                     Section(header: Text("데이터 기준 일자: 2022-07-06")) {
                         Text("시장 이름: \(marketData.marketName ?? "")")
                         Text("주소: \(marketData.marketAddress1 ?? "") \(marketData.marketAddress2 ?? "")")
-//                        Text("지역: \(marketData.marketLocation ?? "")")
-//                        Text("위도: \(marketData.marketLatitude ?? 0.0)")
-//                        Text("경도: \(marketData.marketLongitude ?? 0.0)")
-                        
                         Text("평점: \(String(format:"%.1f",marketData.marketRatings ?? 0.0)) ")
                         Text("상세 정보: \(marketData.marketInfo ?? "")")
                         Text("주차장: \(marketData.parking ?? "")")
@@ -57,7 +53,7 @@ struct MarketListView: View {
             "marketFile": null
         }
         """
-
+        
         if let jsonData = jsonString.data(using: .utf8) {
             let decoder = JSONDecoder()
             do {

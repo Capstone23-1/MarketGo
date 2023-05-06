@@ -31,13 +31,13 @@ struct MarketInfoView: View {
                     case 0:
                         MarketListView(marketData: $selectedMarket)
                     case 1:
-//                        MarketOneMapView(selectedMarket: $selectedMarket)
-//                            .frame(height: geometry.size.height * 0.3)
+                        //                        MarketOneMapView(selectedMarket: $selectedMarket)
+                        //                            .frame(height: geometry.size.height * 0.3)
                         
                         Image("상도시장지도")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            
+                        
                         
                         Spacer().frame(width:20)
                     case 2:

@@ -14,7 +14,7 @@ struct Place {
 
 struct MapLinkView: View {
     let place: Place
-
+    
     var body: some View {
         VStack {
             Link("네이버 지도로 보기", destination: naverMapURL())
@@ -35,7 +35,7 @@ struct MapLinkView: View {
         let urlString = "https://map.naver.com/v5/search?query=\(place.latitude),\(place.longitude)"
         return URL(string: urlString)!
     }
-
+    
     func kakaoMapURL() -> URL {
         let urlString = "https://map.kakao.com/link/map/\(place.latitude),\(place.longitude)"
         return URL(string: urlString)!

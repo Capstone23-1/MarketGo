@@ -12,7 +12,6 @@ import NMapsMap
 struct MarketOneMapView: UIViewRepresentable {
     
     @ObservedObject var locationManager = LocationManager()
-//    @Binding var marketList: [Document]
     @Binding var selectedMarket: MarketOneElement?
     var cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)
     public let mapView = NMFNaverMapView()
@@ -20,7 +19,7 @@ struct MarketOneMapView: UIViewRepresentable {
         mapView.showLocationButton = true
         
         DispatchQueue.main.async {
-
+            
             let nmg = NMGLatLng(lat: (selectedMarket?.marketLatitude!) ?? cauLocation.lat , lng: (selectedMarket?.marketLongitude!) ?? cauLocation.lng )
             let cameraUpdate = NMFCameraUpdate(scrollTo: nmg)
             let marketMarker = NMFMarker()
@@ -30,12 +29,12 @@ struct MarketOneMapView: UIViewRepresentable {
             marketMarker.position = nmg
             marketMarker.mapView = mapView.mapView
             marketMarker.mapView?.moveCamera(cameraUpdate)
-
+            
         }
         return mapView
     }
     
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
-
+        
     }
 }

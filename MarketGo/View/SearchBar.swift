@@ -15,7 +15,7 @@ struct SearchBar: View {
     var body: some View {
         
         HStack {
-           TextField("\(placeHolder)", text: $searchText)
+            TextField("\(placeHolder)", text: $searchText)
                 .foregroundColor(.primary)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))

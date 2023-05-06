@@ -33,7 +33,7 @@ struct FindPathView: View {
             .padding()
         }
     }
-
+    
     func openNaverMap() {
         if let selectedMarketName = selectedMarket?.marketName{
             let name = makeStringKoreanEncoded(selectedMarketName)
@@ -50,8 +50,8 @@ struct FindPathView: View {
         } else {
             print("Error: Missing name or bundleID")
         }
-
-
+        
+        
     }
     
     func openKakaoMap() {

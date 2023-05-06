@@ -10,7 +10,6 @@ import SwiftUI
 struct MarketChoicePickerView: View {
     @State private var selectedMarket = 0
     let markets = ["흑석시장", "상도시장", "광장시장", "시장선택"]
-       
 
     var body: some View {
         Picker(selection: $selectedMarket, label: Text("")) {

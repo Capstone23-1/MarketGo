@@ -36,7 +36,7 @@ struct EatingHouseView: View {
                             .foregroundColor(selectedEating?.id == eatingHouse.id ? .blue : .primary)
                     }
                     .id(selectedEating?.id)
-
+                    
                 }
             }
         }

@@ -21,7 +21,7 @@ struct MarketOneElement: Codable {
     let marketInfo, parking, toilet, marketPhonenum: String?
     let marketGiftcard: String?
     let marketFile: MarketFile?
-
+    
     enum CodingKeys: String, CodingKey {
         case marketID = "marketId"
         case marketName, marketAddress1, marketAddress2, marketLocation, marketLatitude, marketLongitude, marketRatings, marketInfo, parking, toilet, marketPhonenum, marketGiftcard, marketFile
@@ -33,7 +33,7 @@ struct MarketFile: Codable {
     let fileID: Int?
     let originalFileName, uploadFileName, uploadFilePath: String?
     let uploadFileURL: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case fileID = "fileId"
         case originalFileName, uploadFileName, uploadFilePath

@@ -45,12 +45,9 @@ class ParkingLotViewModel{
                             do {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(ParkingLotJSONData.self, from: data)
-//                                print(result)
-//                                print("-----------")
                                 resultArray.append(contentsOf: result.documents)
                                 isEnd = result.meta.isEnd
                                 page += 1
-//                                print(page)
                                 if !isEnd && page<=requestPage  { // Meta.isEnd가 false가 아니라면 다시 fetchData 함수를 호출
                                     fetchData()
                                 } else { // 모든 검색 결과를 받았다면 completionHandler를 통해 결과값 반환
