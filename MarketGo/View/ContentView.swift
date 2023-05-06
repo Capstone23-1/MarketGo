@@ -1,67 +1,52 @@
-////
-////  ContentView.swift
-////  MarketGo
-////
-////  Created by ram on 2023/03/27.
-////
 //
-//import SwiftUI
-//import Combine
+//  ContentView.swift
+//  MarketGo
 //
-//class MarketOneViewModel: ObservableObject {
-//    @Published var marketOneData: MarketOne = []
+//  Created by ram on 2023/03/27.
 //
-//    func fetchMarketOneData() {
-//        let urlString = "http://3.34.33.15:8080/market/marketName/흑석시장"
-//
-//        guard let url = URL(string: urlString) else {
-//            print("Invalid URL")
-//            return
-//        }
-//
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            if let data = data {
-//                do {
-//                    let decodedResponse = try JSONDecoder().decode(MarketOne.self, from: data)
-//                    DispatchQueue.main.async {
-//                        self.marketOneData = decodedResponse
-//                    }
-//                } catch {
-//                    print("Error while decoding JSON: \(error)")
-//                }
-//            } else {
-//                print("Error: \(error?.localizedDescription ?? "Unknown error")")
-//            }
-//        }.resume()
-//    }
-//}
-//
-//struct ContentView: View {
-//    @StateObject private var marketOneViewModel = MarketOneViewModel()
-//
-//    var body: some View {
-//        VStack {
-//            Button("Fetch Data") {
-//                marketOneViewModel.fetchMarketOneData()
-//            }
-//
-//            List(marketOneViewModel.marketOneData, id: \.marketID) { market in
-//                VStack(alignment: .leading) {
-//                    Text(market.marketName)
-//                        .font(.headline)
-//                    Text(market.marketAddress1)
-//                        .font(.subheadline)
-//                    Text(market.marketAddress2)
-//                        .font(.subheadline)
-//                    // Add other properties as needed
-//                }
-//            }
-//        }
-//    }
-//}
-//
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+import SwiftUI
+
+struct ContentView: View {
+    @State private var selectedTab = 0
+    
+    @State private var selectedMarket: MarketOneElement?
+    
+    var body: some View {
+        GeometryReader { geometry in
+            VStack {
+                
+                Image("상도시장메인")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                
+                Picker(selection: $selectedTab, label: Text("탭")) {
+                    Text("시장정보").tag(0)
+                    Text("지도보기").tag(1)
+                    Text("가는길 찾기").tag(2)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
+                switch selectedTab {
+                    case 0:
+                        MarketListView(marketData: $selectedMarket)
+                    case 1:
+//                        MarketOneMapView(selectedMarket: $selectedMarket)
+//                            .frame(height: geometry.size.height * 0.3)
+                        
+                        Image("상도시장지도")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            
+                        
+                        Spacer().frame(width:20)
+                    case 2:
+                        FindPathView(selectedMarket: $selectedMarket)
+                    default:
+                        Text("잘못된 선택")
+                }
+            }
+        }
+        .navigationTitle((selectedMarket?.marketName ?? "null"))
+    }
+}

@@ -11,16 +11,16 @@
 //   let marketOne = try? JSONDecoder().decode(MarketOne.self, from: jsonData)
 
 import Foundation
-
+import UIKit
 // MARK: - MarketOneElement
 struct MarketOneElement: Codable {
     let marketID: Int
-    let marketName, marketAddress1, marketAddress2, marketLocation: String
-    let marketLatitude, marketLongitude: Double
-    let marketRatings: Int
-    let marketInfo, parking, toilet, marketPhonenum: String
-    let marketGiftcard: String
-    let marketFile: MarketFile
+    let marketName, marketAddress1, marketAddress2, marketLocation: String?
+    let marketLatitude, marketLongitude: Double?
+    let marketRatings: Double?
+    let marketInfo, parking, toilet, marketPhonenum: String?
+    let marketGiftcard: String?
+    let marketFile: MarketFile?
 
     enum CodingKeys: String, CodingKey {
         case marketID = "marketId"
@@ -30,9 +30,9 @@ struct MarketOneElement: Codable {
 
 // MARK: - MarketFile
 struct MarketFile: Codable {
-    let fileID: Int
-    let originalFileName, uploadFileName, uploadFilePath: String
-    let uploadFileURL: String
+    let fileID: Int?
+    let originalFileName, uploadFileName, uploadFilePath: String?
+    let uploadFileURL: String?
 
     enum CodingKeys: String, CodingKey {
         case fileID = "fileId"
