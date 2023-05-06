@@ -64,7 +64,7 @@ struct MarketSearchView: View {
                     }
                     
                 }
-                NavigationLink(destination: ContentView()){
+                NavigationLink(destination: SignUpView()){
                     Text("맛집 찾기")
                 }
                 

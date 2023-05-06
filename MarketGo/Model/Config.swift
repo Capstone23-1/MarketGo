@@ -8,5 +8,5 @@
 import Foundation
 
 class Config{
-    public let bundleID="com.capstone.MarketGo"
+    public let bundleID: String="com.capstone.MarketGo"
 }

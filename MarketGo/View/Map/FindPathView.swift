@@ -33,19 +33,29 @@ struct FindPathView: View {
             .padding()
         }
     }
-    
+
     func openNaverMap() {
-        if let naverURL = URL(string: "nmap://route/walk?dlat=\(selectedMarket?.marketLatitude)&dlng=\(selectedMarket?.marketLongitude)&appname=\(Config().bundleID)") {
-            if UIApplication.shared.canOpenURL(naverURL) {
-                UIApplication.shared.open(naverURL)
-            } else {
-                let webURL = URL(string: "https://m.map.naver.com/directions/?waypoint=\(selectedMarket?.marketLatitude),\(selectedMarket?.marketLongitude)")!
-                UIApplication.shared.open(webURL)
+        if let selectedMarketName = selectedMarket?.marketName{
+            let name = makeStringKoreanEncoded(selectedMarketName)
+            let encodedBundleID = makeStringKoreanEncoded(Config().bundleID)
+            
+            if let naverURL = URL(string: "nmap://place?lat=\(selectedMarket?.marketLatitude! ?? cauLocation.lat)&lng=\(selectedMarket?.marketLongitude! ?? cauLocation.lng)&name=\(name)&appname=\(encodedBundleID)") {
+                if UIApplication.shared.canOpenURL(naverURL) {
+                    UIApplication.shared.open(naverURL)
+                } else {
+                    let webURL = URL(string: "https://m.map.naver.com/directions/?waypoint=\(selectedMarket?.marketLatitude! ?? cauLocation.lat),\(selectedMarket?.marketLongitude! ?? cauLocation.lng)")
+                    UIApplication.shared.open(webURL!)
+                }
             }
+        } else {
+            print("Error: Missing name or bundleID")
         }
+
+
     }
     
     func openKakaoMap() {
+        
         if let kakaoURL = URL(string: "kakaomap://route?ep=\(String(describing: selectedMarket?.marketLatitude)),\(String(describing: selectedMarket?.marketLongitude))&by=FOOT") {
             if UIApplication.shared.canOpenURL(kakaoURL) {
                 UIApplication.shared.open(kakaoURL)
