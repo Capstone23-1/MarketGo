@@ -8,49 +8,10 @@
 import SwiftUI
 
 
-struct ImagePicker: UIViewControllerRepresentable {
-    @Environment(\.presentationMode) var presentationMode
-    @Binding var selectedImage: UIImage?
-
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = context.coordinator
-        return imagePicker
-    }
-
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
-
-    }
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-
-    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        let parent: ImagePicker
-
-        init(_ parent: ImagePicker) {
-            self.parent = parent
-        }
-
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let image = info[.originalImage] as? UIImage {
-                parent.selectedImage = image
-            }
-            parent.presentationMode.wrappedValue.dismiss()
-        }
-
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            parent.presentationMode.wrappedValue.dismiss()
-        }
-    }
-}
-
-
 struct ReviewView: View {
     @Binding var isPresented: Bool
     @State var rating: Int = 0
-    @State var reviewText: String = ""
+    @State var reviewContent: String = ""
     @State var selectedImage: UIImage?
     let storeName: String
     @State var orderedItemsText: String = ""
@@ -82,31 +43,6 @@ struct ReviewView: View {
             }
             .padding()
             
-//            VStack(alignment: .leading) {
-//                            Text("구매한 물품")
-//                                .font(.headline)
-//                                .padding(20)
-//
-//                            TextEditor(text: $orderedItemsText)
-//                                .padding()
-//                                .background(
-//                                    RoundedRectangle(cornerRadius: 2)
-//                                        .stroke(Color.gray, lineWidth: 1)
-//                                        .background(Color.white)
-//                                )
-//                                .frame(height: 50)
-//                                .padding(.horizontal, 20)
-//                        }
-
-            
-//
-//            if let image = selectedImage {
-//                Image(uiImage: image)
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(width: 200, height: 200)
-//                    .padding()
-//            }
             
             VStack(alignment: .leading){
                 
@@ -115,7 +51,7 @@ struct ReviewView: View {
                     .padding(.horizontal, 23)
                     .padding(.vertical, 20)
                 
-                TextEditor(text: $reviewText)
+                TextEditor(text: $reviewContent)
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 2)
@@ -129,25 +65,25 @@ struct ReviewView: View {
           
             Spacer()
             
-            HStack{
-                
-                VStack(alignment: .leading){
-            
-                    Button(action: {
-                        showImagePicker()
-                    }) {
-                        Image(systemName: "camera.on.rectangle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.black)
-                    }
-                    
-                    Text("사진추가")
-                }
-                Spacer()
-                
-            }.padding(30)
+//            HStack{
+//
+//                VStack(alignment: .leading){
+//
+//                    Button(action: {
+//                        showImagePicker()
+//                    }) {
+//                        Image(systemName: "camera.on.rectangle")
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fit)
+//                            .frame(width: 50, height: 50)
+//                            .foregroundColor(.black)
+//                    }
+//
+//                    Text("사진추가")
+//                }
+//                Spacer()
+//
+//            }.padding(30)
             
             Button(action: {
                 saveReview()
@@ -174,10 +110,37 @@ struct ReviewView: View {
     }
     
     func saveReview() {
-        //        let newReview = Review(rating: rating, text: reviewText, image: selectedImage, storeName: storeName, orderedItems: orderedItems)
-        //        StorageManager.shared.saveReview(newReview) // 저장소에 리뷰 저장
-        //        isPresented = false // 리뷰 작성 창 닫기
+        
+        let marketReview = MarketReview(marketId: 123, memberId: 456, memberName: "John", ratings: Double(rating), reviewContent: reviewContent, marketReviewFile: 0)
+        guard let reviewData = try? JSONEncoder().encode(marketReview) else {
+            print("Failed to encode review data")
+            return
+        }
+        // reviewData를 서버에 전송하는 로직
+
+
+        guard let url = URL(string: "http://3.34.33.15:8080/marketReview") else {
+            print("Invalid URL")
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = reviewData
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                print("Failed to send review")
+                return
+            }
+
+            DispatchQueue.main.async {
+                isPresented = false
+            }
+        }.resume()
     }
+
     
 }
 

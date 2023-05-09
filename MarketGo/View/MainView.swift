@@ -38,7 +38,7 @@ struct MainView: View {
                                 }
                                 .tag(2)
                             
-                            Text("Fourth View")
+                            ReviewView(isPresented: Binding.constant(false), storeName: "영찬과일")
                                 .tabItem {
                                     Image(systemName: "bubble.left")
                                     Text("채팅")

@@ -7,6 +7,22 @@
 
 import Foundation
 
+struct MarketReview: Codable, Identifiable {
+    var id = UUID()
+    var marketId: Int
+    var memberId: Int
+    var memberName: String
+    var ratings: Double
+    var reviewContent: String
+    var marketReviewFile: Int
+    
+    enum CodingKeys: String, CodingKey {
+         case marketId, memberId, memberName, ratings, reviewContent, marketReviewFile
+     }
+}
+
+
+
 struct Review: Identifiable, Codable{
     var id = UUID()
     let author: String
