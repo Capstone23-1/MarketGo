@@ -52,10 +52,8 @@
 		21FAE1DC2A0AA468006593D9 /* AppDelegateAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1DB2A0AA468006593D9 /* AppDelegateAdaptor.swift */; };
 		21FAE1DE2A0AA49D006593D9 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1DD2A0AA49D006593D9 /* SignUpViewModel.swift */; };
 		21FAE1E02A0AA52E006593D9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1DF2A0AA52E006593D9 /* SignUpView.swift */; };
-		21FAE1E22A0AA6D7006593D9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E12A0AA6D7006593D9 /* SignInView.swift */; };
-		21FAE1E42A0AA6FC006593D9 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E32A0AA6FC006593D9 /* SignInViewModel.swift */; };
-		21FAE1E62A0AA787006593D9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E52A0AA787006593D9 /* LoginView.swift */; };
-		21FAE1E82A0AA7A2006593D9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E72A0AA7A2006593D9 /* LoginViewModel.swift */; };
+		21FAE1E62A0AA787006593D9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E52A0AA787006593D9 /* SignInView.swift */; };
+		21FAE1E82A0AA7A2006593D9 /* SiginInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E72A0AA7A2006593D9 /* SiginInViewModel.swift */; };
 		990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990D2C9629E23678002ED379 /* MenuItemRow.swift */; };
 		993AD3A52A0A72500069A27F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AD3A42A0A72500069A27F /* ContentView.swift */; };
 		993AF1C529DE474F00031A7B /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF1C429DE474F00031A7B /* StoreView.swift */; };
@@ -138,10 +136,8 @@
 		21FAE1DB2A0AA468006593D9 /* AppDelegateAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAdaptor.swift; sourceTree = "<group>"; };
 		21FAE1DD2A0AA49D006593D9 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		21FAE1DF2A0AA52E006593D9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		21FAE1E12A0AA6D7006593D9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		21FAE1E32A0AA6FC006593D9 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
-		21FAE1E52A0AA787006593D9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		21FAE1E72A0AA7A2006593D9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		21FAE1E52A0AA787006593D9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		21FAE1E72A0AA7A2006593D9 /* SiginInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiginInViewModel.swift; sourceTree = "<group>"; };
 		46694163AD73EB569AAEC2CD /* Pods-MarketGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGoTests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGoTests/Pods-MarketGoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5CDF3197B9A79DF4BA138956 /* Pods-MarketGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo/Pods-MarketGo.debug.xcconfig"; sourceTree = "<group>"; };
 		5F46EB407DB4F30F4ABA9195 /* Pods-MarketGo-MarketGoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.release.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -282,8 +278,7 @@
 				2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */,
 				21470AB529FE588000A7CEE7 /* MarketViewModel.swift */,
 				214871CD2A05573800C6FD1D /* MarketOneNetwork.swift */,
-				21FAE1E32A0AA6FC006593D9 /* SignInViewModel.swift */,
-				21FAE1E72A0AA7A2006593D9 /* LoginViewModel.swift */,
+				21FAE1E72A0AA7A2006593D9 /* SiginInViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -305,8 +300,7 @@
 				210861FF2A06AF8F00EC3A60 /* FindPathView.swift */,
 				210862012A06D67900EC3A60 /* MapLinkView.swift */,
 				21FAE1DF2A0AA52E006593D9 /* SignUpView.swift */,
-				21FAE1E12A0AA6D7006593D9 /* SignInView.swift */,
-				21FAE1E52A0AA787006593D9 /* LoginView.swift */,
+				21FAE1E52A0AA787006593D9 /* SignInView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -609,21 +603,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				21470AB629FE588000A7CEE7 /* MarketViewModel.swift in Sources */,
-				21FAE1E22A0AA6D7006593D9 /* SignInView.swift in Sources */,
 				994B17C72A0236DE009B77E8 /* ReviewStore.swift in Sources */,
 				21470AB429FD87E400A7CEE7 /* UITableViewWrapper.swift in Sources */,
 				998843C42A05035D00132079 /* FoodItemListView.swift in Sources */,
 				2144FE8029DD6BEC008913C4 /* ParkingLotMapView.swift in Sources */,
 				2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */,
 				998843BE2A04DD5000132079 /* MemberModel.swift in Sources */,
-				21FAE1E82A0AA7A2006593D9 /* LoginViewModel.swift in Sources */,
+				21FAE1E82A0AA7A2006593D9 /* SiginInViewModel.swift in Sources */,
 				217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */,
 				21470AB029FD0FFD00A7CEE7 /* EatingHouseMapView.swift in Sources */,
 				2144FE7329DD6AAA008913C4 /* CartView.swift in Sources */,
 				21470AB229FD125100A7CEE7 /* EatingHouseViewModel.swift in Sources */,
 				2144FE7729DD6B11008913C4 /* MainView.swift in Sources */,
 				215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */,
-				21FAE1E42A0AA6FC006593D9 /* SignInViewModel.swift in Sources */,
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,
 				99CD749629DD95D100D2D782 /* ProductTopView.swift in Sources */,
@@ -636,7 +628,7 @@
 				210862002A06AF8F00EC3A60 /* FindPathView.swift in Sources */,
 				21470AAE29FD0F7F00A7CEE7 /* EatingHouseView.swift in Sources */,
 				99CD749429DD904600D2D782 /* FoodItemCell.swift in Sources */,
-				21FAE1E62A0AA787006593D9 /* LoginView.swift in Sources */,
+				21FAE1E62A0AA787006593D9 /* SignInView.swift in Sources */,
 				2144FE6F29DD6A58008913C4 /* LocationModel.swift in Sources */,
 				2144FE7929DD6B4F008913C4 /* MarketSearchView.swift in Sources */,
 				2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */,
