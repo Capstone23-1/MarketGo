@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct SignInView: View {
+    @State private var moveToProfileView = false
     // SignInViewModel을 StateObject로 선언하여 로그인 상태를 관리합니다.
     @StateObject private var viewModel = SignInViewModel()
     // 회원가입 창을 표시할지 여부를 결정하는 State 변수
@@ -105,6 +106,20 @@ struct SignInView: View {
                     .fullScreenCover(isPresented: $moveToMarketSearchViewDirectly) {
                         MarketSearchView()
                     }
+                    Button(action: {
+                                    // 버튼 클릭 시 moveToProfileView 상태를 true로 변경하여 ProfileView로 전환
+                                    self.moveToProfileView = true
+                                }) {
+                                    Text("ProfileView로 이동")
+//                                        .frame(maxWidth: .infinity)
+//                                        .padding()
+//                                        .background(Color.accentColor)
+//                                        .foregroundColor(.white)
+//                                        .cornerRadius(8)
+                                }
+                                .fullScreenCover(isPresented: $moveToProfileView) {
+                                    ProfileView()
+                                }
                 }
                 .padding()
                 Spacer()

@@ -54,6 +54,7 @@
 		21FAE1E02A0AA52E006593D9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1DF2A0AA52E006593D9 /* SignUpView.swift */; };
 		21FAE1E62A0AA787006593D9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E52A0AA787006593D9 /* SignInView.swift */; };
 		21FAE1E82A0AA7A2006593D9 /* SiginInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E72A0AA7A2006593D9 /* SiginInViewModel.swift */; };
+		21FAE1EA2A0AC0AF006593D9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */; };
 		990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990D2C9629E23678002ED379 /* MenuItemRow.swift */; };
 		993AD3A52A0A72500069A27F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AD3A42A0A72500069A27F /* ContentView.swift */; };
 		993AF1C529DE474F00031A7B /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF1C429DE474F00031A7B /* StoreView.swift */; };
@@ -138,6 +139,7 @@
 		21FAE1DF2A0AA52E006593D9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		21FAE1E52A0AA787006593D9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		21FAE1E72A0AA7A2006593D9 /* SiginInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiginInViewModel.swift; sourceTree = "<group>"; };
+		21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		46694163AD73EB569AAEC2CD /* Pods-MarketGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGoTests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGoTests/Pods-MarketGoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5CDF3197B9A79DF4BA138956 /* Pods-MarketGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo/Pods-MarketGo.debug.xcconfig"; sourceTree = "<group>"; };
 		5F46EB407DB4F30F4ABA9195 /* Pods-MarketGo-MarketGoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.release.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				210862012A06D67900EC3A60 /* MapLinkView.swift */,
 				21FAE1DF2A0AA52E006593D9 /* SignUpView.swift */,
 				21FAE1E52A0AA787006593D9 /* SignInView.swift */,
+				21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				21470AB829FE620100A7CEE7 /* MarketJSONData.swift in Sources */,
 				214871DA2A06894700C6FD1D /* MarketOneMapView.swift in Sources */,
 				99CD749829DD97B300D2D782 /* FoodItemDetailView.swift in Sources */,
+				21FAE1EA2A0AC0AF006593D9 /* ProfileView.swift in Sources */,
 				2144FE7129DD6A79008913C4 /* TopView.swift in Sources */,
 				993AD3A52A0A72500069A27F /* ContentView.swift in Sources */,
 				210861FC2A06AE0900EC3A60 /* Config.swift in Sources */,
