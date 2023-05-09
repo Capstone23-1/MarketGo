@@ -20,7 +20,9 @@ class SignInViewModel: ObservableObject {
     @Published var error: String? = nil
     // 로그인 과정 중임을 나타내는 변수 (예: 로딩 인디케이터 표시용)
     @Published var isLoading = false
+    @Published var selectedRoll = 0
     
+    // TODO: 소비자/상인 나눠서 로그인,받아오는게 다름 cartID,storeID를 각각 받아오고..멤버토큰을 가져옴
     // 로그인 메서드
     // completion: 로그인 성공 여부에 따라 호출되는 콜백 함수
     func SignIn(completion: @escaping (Bool) -> Void) {

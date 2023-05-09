@@ -16,7 +16,7 @@ struct SignInView: View {
     // 메인화면 바로가기 버튼 클릭 시 MarketSearchView로 전환할지 여부를 결정하는 State 변수
     @State private var moveToMarketSearchViewDirectly = false
     // 소비자와 상인 중 선택된 항목을 저장하는 State 변수
-       @State private var selectedRole = 0
+    @State private var selectedRole = 0
     // 소비자와 상인을 선택할 수 있는 Picker에 사용할 데이터
     private let roles = ["소비자", "상인"]
     
@@ -32,6 +32,9 @@ struct SignInView: View {
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
+                    .onChange(of: selectedRole) { value in
+                        print("Selected role: \(value)")
+                    }
                     
                     // 이메일 입력 필드
                     TextField("이메일", text: $viewModel.email)
