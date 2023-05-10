@@ -1,4 +1,4 @@
-//
+
 //  ContentView.swift
 //  MarketGo
 //
@@ -15,10 +15,10 @@ struct ContentView: View {
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State var category: String = ""
     @State var id: String = ""
-    
+
     func uploadImageToServer(image: UIImage, category: String, id: String) {
         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
-        
+
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(imageData, withName: "files", fileName: "image.jpg", mimeType: "image/jpeg")
             multipartFormData.append(category.data(using: .utf8)!, withName: "category")

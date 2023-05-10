@@ -9,7 +9,8 @@ import SwiftUI
 
 struct StoreView: View {
 
-    var store: Store
+    @ObservedObject var storeModel = StoreViewModel()
+    @StateObject var fileModel = FileDataViewModel() //이미지파일 구조체
     @State var menuitem: [FoodItem] = []
     
     init(store: Store){
@@ -23,9 +24,25 @@ struct StoreView: View {
             ScrollView{
 
                 VStack(alignment: .leading) {
-                    Image(store.store_image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    VStack {
+                        if let fileData = fileModel.fileData {
+
+                            //Text("Original File Name: \(fileData.originalFileName)")
+                            //Text("Upload File Name: \(fileData.uploadFileName)")
+                            
+                            Image(fileData.originalFileName)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 70, height: 70)
+                                .cornerRadius(4)
+                    
+                        } else {
+                            Text("Loading...")
+                        }
+                    }
+                    .onAppear {
+                        viewModel.getFileData(fileId: store.file)
+                    }
                     
                     Spacer().frame(height: 20)
                     
