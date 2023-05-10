@@ -62,7 +62,7 @@ struct ShopView: View {
                         
                         LazyVStack { // LazyVStack 사용
                             ForEach(filteredStores, id: \.id) { store in
-                                NavigationLink(destination: StoreView(store: store)){
+                                NavigationLink(destination: EmptyView()){
                                     
                                     HStack {
                                         VStack {
