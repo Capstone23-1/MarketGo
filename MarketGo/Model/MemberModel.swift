@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct Member{
+public struct Member {
     
     let memberToken: String
     var memberName: String
