@@ -11,7 +11,6 @@
 		210861FC2A06AE0900EC3A60 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210861FB2A06AE0900EC3A60 /* Config.swift */; };
 		210862002A06AF8F00EC3A60 /* FindPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210861FF2A06AF8F00EC3A60 /* FindPathView.swift */; };
 		210862022A06D67900EC3A60 /* MapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210862012A06D67900EC3A60 /* MapLinkView.swift */; };
-		210862042A06DEAC00EC3A60 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210862032A06DEAC00EC3A60 /* SignUpView.swift */; };
 		2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5729D1CEBA00B78C6C /* Assets.xcassets */; };
 		2140BC5B29D1CEBA00B78C6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */; };
 		2140BC6529D1CEBA00B78C6C /* MarketGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC6429D1CEBA00B78C6C /* MarketGoTests.swift */; };
@@ -47,6 +46,18 @@
 		2188126429E96F4700F315EF /* ParkingLotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126329E96F4700F315EF /* ParkingLotViewModel.swift */; };
 		2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126529E972ED00F315EF /* ParkingLotView.swift */; };
 		21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1C9BC29DD69870022113A /* MarketInfoView.swift */; };
+		21FAE1D52A0AA3F7006593D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */; };
+		21FAE1D82A0AA422006593D9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 21FAE1D72A0AA422006593D9 /* FirebaseAnalytics */; };
+		21FAE1DA2A0AA422006593D9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 21FAE1D92A0AA422006593D9 /* FirebaseAuth */; };
+		21FAE1DC2A0AA468006593D9 /* AppDelegateAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1DB2A0AA468006593D9 /* AppDelegateAdaptor.swift */; };
+		21FAE1DE2A0AA49D006593D9 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1DD2A0AA49D006593D9 /* SignUpViewModel.swift */; };
+		21FAE1E02A0AA52E006593D9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1DF2A0AA52E006593D9 /* SignUpView.swift */; };
+		21FAE1E62A0AA787006593D9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E52A0AA787006593D9 /* SignInView.swift */; };
+		21FAE1E82A0AA7A2006593D9 /* SiginInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E72A0AA7A2006593D9 /* SiginInViewModel.swift */; };
+		21FAE1EA2A0AC0AF006593D9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */; };
+		21FAE1EC2A0AC2A6006593D9 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */; };
+		21FAE1EE2A0B65EC006593D9 /* SellerSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1ED2A0B65EC006593D9 /* SellerSignUp.swift */; };
+		21FAE1F02A0B65FC006593D9 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1EF2A0B65FC006593D9 /* SellerSignUpViewModel.swift */; };
 		990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990D2C9629E23678002ED379 /* MenuItemRow.swift */; };
 		993AD3A52A0A72500069A27F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AD3A42A0A72500069A27F /* ContentView.swift */; };
 		993AF1C529DE474F00031A7B /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF1C429DE474F00031A7B /* StoreView.swift */; };
@@ -86,7 +97,6 @@
 		210861FB2A06AE0900EC3A60 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		210861FF2A06AF8F00EC3A60 /* FindPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPathView.swift; sourceTree = "<group>"; };
 		210862012A06D67900EC3A60 /* MapLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLinkView.swift; sourceTree = "<group>"; };
-		210862032A06DEAC00EC3A60 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2140BC5029D1CEB900B78C6C /* MarketGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2140BC5729D1CEBA00B78C6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -126,6 +136,16 @@
 		2198B6DE943CEFFEB56B33D7 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21E7A4B029D6D995009EB220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21F1C9BC29DD69870022113A /* MarketInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfoView.swift; sourceTree = "<group>"; };
+		21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		21FAE1DB2A0AA468006593D9 /* AppDelegateAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAdaptor.swift; sourceTree = "<group>"; };
+		21FAE1DD2A0AA49D006593D9 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		21FAE1DF2A0AA52E006593D9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		21FAE1E52A0AA787006593D9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		21FAE1E72A0AA7A2006593D9 /* SiginInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiginInViewModel.swift; sourceTree = "<group>"; };
+		21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		21FAE1ED2A0B65EC006593D9 /* SellerSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUp.swift; sourceTree = "<group>"; };
+		21FAE1EF2A0B65FC006593D9 /* SellerSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpViewModel.swift; sourceTree = "<group>"; };
 		46694163AD73EB569AAEC2CD /* Pods-MarketGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGoTests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGoTests/Pods-MarketGoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5CDF3197B9A79DF4BA138956 /* Pods-MarketGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo/Pods-MarketGo.debug.xcconfig"; sourceTree = "<group>"; };
 		5F46EB407DB4F30F4ABA9195 /* Pods-MarketGo-MarketGoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.release.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +175,8 @@
 			files = (
 				AEC6AFE4A57CD1E7E1E0B310 /* libPods-MarketGo.a in Frameworks */,
 				2150934129DEF1A40001C788 /* Alamofire in Frameworks */,
+				21FAE1D82A0AA422006593D9 /* FirebaseAnalytics in Frameworks */,
+				21FAE1DA2A0AA422006593D9 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,12 +226,14 @@
 			isa = PBXGroup;
 			children = (
 				21E7A4B029D6D995009EB220 /* Info.plist */,
+				21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */,
 				2140BC9829D1D01900B78C6C /* MarketGoApp.swift */,
 				2140BC5729D1CEBA00B78C6C /* Assets.xcassets */,
 				2140BC8129D1CFA900B78C6C /* Model */,
 				2140BC5929D1CEBA00B78C6C /* Preview Content */,
 				21F1C9B929DD68F60022113A /* View */,
 				2140BC9529D1CFD900B78C6C /* ViewModel */,
+				21FAE1DB2A0AA468006593D9 /* AppDelegateAdaptor.swift */,
 			);
 			path = MarketGo;
 			sourceTree = "<group>";
@@ -256,11 +280,14 @@
 		2140BC9529D1CFD900B78C6C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				21FAE1DD2A0AA49D006593D9 /* SignUpViewModel.swift */,
 				21470AB129FD125100A7CEE7 /* EatingHouseViewModel.swift */,
 				2188126329E96F4700F315EF /* ParkingLotViewModel.swift */,
 				2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */,
 				21470AB529FE588000A7CEE7 /* MarketViewModel.swift */,
 				214871CD2A05573800C6FD1D /* MarketOneNetwork.swift */,
+				21FAE1E72A0AA7A2006593D9 /* SiginInViewModel.swift */,
+				21FAE1EF2A0B65FC006593D9 /* SellerSignUpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -281,7 +308,11 @@
 				214871D92A06894700C6FD1D /* MarketOneMapView.swift */,
 				210861FF2A06AF8F00EC3A60 /* FindPathView.swift */,
 				210862012A06D67900EC3A60 /* MapLinkView.swift */,
-				210862032A06DEAC00EC3A60 /* SignUpView.swift */,
+				21FAE1DF2A0AA52E006593D9 /* SignUpView.swift */,
+				21FAE1E52A0AA787006593D9 /* SignInView.swift */,
+				21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */,
+				21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */,
+				21FAE1ED2A0B65EC006593D9 /* SellerSignUp.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -355,6 +386,8 @@
 			name = MarketGo;
 			packageProductDependencies = (
 				2150934029DEF1A40001C788 /* Alamofire */,
+				21FAE1D72A0AA422006593D9 /* FirebaseAnalytics */,
+				21FAE1D92A0AA422006593D9 /* FirebaseAuth */,
 			);
 			productName = MarketGo;
 			productReference = 2140BC5029D1CEB900B78C6C /* MarketGo.app */;
@@ -433,6 +466,7 @@
 			mainGroup = 2140BC4729D1CEB900B78C6C;
 			packageReferences = (
 				2150933F29DEF1A40001C788 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				21FAE1D62A0AA422006593D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 2140BC5129D1CEB900B78C6C /* Products */;
 			projectDirPath = "";
@@ -452,6 +486,7 @@
 			files = (
 				2140BC5B29D1CEBA00B78C6C /* Preview Assets.xcassets in Resources */,
 				2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */,
+				21FAE1D52A0AA3F7006593D9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,9 +621,9 @@
 				2144FE8029DD6BEC008913C4 /* ParkingLotMapView.swift in Sources */,
 				2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */,
 				998843BE2A04DD5000132079 /* MemberModel.swift in Sources */,
+				21FAE1E82A0AA7A2006593D9 /* SiginInViewModel.swift in Sources */,
 				217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */,
 				21470AB029FD0FFD00A7CEE7 /* EatingHouseMapView.swift in Sources */,
-				210862042A06DEAC00EC3A60 /* SignUpView.swift in Sources */,
 				2144FE7329DD6AAA008913C4 /* CartView.swift in Sources */,
 				21470AB229FD125100A7CEE7 /* EatingHouseViewModel.swift in Sources */,
 				2144FE7729DD6B11008913C4 /* MainView.swift in Sources */,
@@ -599,31 +634,39 @@
 				214871D22A055EDB00C6FD1D /* MarketOneModel.swift in Sources */,
 				994B17C52A023653009B77E8 /* ReviewView.swift in Sources */,
 				998843C22A04F76800132079 /* StoreListView.swift in Sources */,
+				21FAE1DC2A0AA468006593D9 /* AppDelegateAdaptor.swift in Sources */,
 				2144FE7B29DD6B88008913C4 /* ShopView.swift in Sources */,
 				214871D82A0685C300C6FD1D /* MarketListView.swift in Sources */,
 				210862002A06AF8F00EC3A60 /* FindPathView.swift in Sources */,
 				21470AAE29FD0F7F00A7CEE7 /* EatingHouseView.swift in Sources */,
 				99CD749429DD904600D2D782 /* FoodItemCell.swift in Sources */,
+				21FAE1E62A0AA787006593D9 /* SignInView.swift in Sources */,
 				2144FE6F29DD6A58008913C4 /* LocationModel.swift in Sources */,
 				2144FE7929DD6B4F008913C4 /* MarketSearchView.swift in Sources */,
+				21FAE1F02A0B65FC006593D9 /* SellerSignUpViewModel.swift in Sources */,
 				2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */,
+				21FAE1E02A0AA52E006593D9 /* SignUpView.swift in Sources */,
 				2144FE6D29DD6A32008913C4 /* FoodItemModel.swift in Sources */,
 				2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */,
 				21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */,
 				998843C02A04DE8700132079 /* MypageView.swift in Sources */,
+				21FAE1EE2A0B65EC006593D9 /* SellerSignUp.swift in Sources */,
 				2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */,
+				21FAE1DE2A0AA49D006593D9 /* SignUpViewModel.swift in Sources */,
 				210862022A06D67900EC3A60 /* MapLinkView.swift in Sources */,
 				2188126429E96F4700F315EF /* ParkingLotViewModel.swift in Sources */,
 				214871CE2A05573800C6FD1D /* MarketOneNetwork.swift in Sources */,
 				21470AB829FE620100A7CEE7 /* MarketJSONData.swift in Sources */,
 				214871DA2A06894700C6FD1D /* MarketOneMapView.swift in Sources */,
 				99CD749829DD97B300D2D782 /* FoodItemDetailView.swift in Sources */,
+				21FAE1EA2A0AC0AF006593D9 /* ProfileView.swift in Sources */,
 				2144FE7129DD6A79008913C4 /* TopView.swift in Sources */,
 				993AD3A52A0A72500069A27F /* ContentView.swift in Sources */,
 				210861FC2A06AE0900EC3A60 /* Config.swift in Sources */,
 				2144FE7529DD6AF6008913C4 /* SearchBar.swift in Sources */,
 				993AF1C529DE474F00031A7B /* StoreView.swift in Sources */,
 				2140BC9929D1D01900B78C6C /* MarketGoApp.swift in Sources */,
+				21FAE1EC2A0AC2A6006593D9 /* EditProfileView.swift in Sources */,
 				99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -973,6 +1016,14 @@
 				kind = branch;
 			};
 		};
+		21FAE1D62A0AA422006593D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -980,6 +1031,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2150933F29DEF1A40001C788 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		21FAE1D72A0AA422006593D9 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21FAE1D62A0AA422006593D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		21FAE1D92A0AA422006593D9 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21FAE1D62A0AA422006593D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

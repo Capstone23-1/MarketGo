@@ -64,8 +64,8 @@ struct MarketSearchView: View {
                     }
                     
                 }
-                NavigationLink(destination: SignUpView()){
-                    Text("맛집 찾기")
+                NavigationLink(destination: SignInView()){
+                    Text("로그인 하기")
                 }
                 
                 
