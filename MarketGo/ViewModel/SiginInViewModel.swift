@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 import Firebase
+import Alamofire
 // MARK: 소비자 로그인 UI
 // SignInViewModel 클래스는 ObservableObject 프로토콜을 채택하여 로그인 관련 상태를 관리합니다.
 class SignInViewModel: ObservableObject {
@@ -47,4 +48,17 @@ class SignInViewModel: ObservableObject {
         }
         
     }
+    func fetch(with marketName: String, completion: @escaping (Result<MemberInfo, Error>) -> Void) {
+        let letter = makeStringKoreanEncoded(marketName)
+        let url = "http://3.34.33.15:8080/market/marketName/\(letter)"
+        AF.request(url).responseDecodable(of: MemberInfo.self) { response in
+            switch response.result {
+            case .success(let data):
+                    completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
 }
