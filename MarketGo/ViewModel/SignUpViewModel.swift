@@ -8,7 +8,8 @@
 import SwiftUI
 import FirebaseAuth
 import Alamofire
-
+// MARK: 소비자 회원가입 창
+// TODO: UserSignUp으로 바꾸기
 class SignUpViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
@@ -40,7 +41,7 @@ class SignUpViewModel: ObservableObject {
                     // 회원가입 성공 시 uid 저장
                     strongSelf.uid = Auth.auth().currentUser?.uid
                     let newMemberInfo = MemberInfo(memberID: nil, memberToken: strongSelf.uid, memberName: self?.nickName, interestMarket: nil, cartID: nil, storeID: nil, recentLatitude: 0, recentLongitude: 0)
-                    postMemberInfo(memberInfo: newMemberInfo) { result in
+                    postUserMemberInfo(memberInfo: newMemberInfo) { result in
                         switch result {
                         case .success(let data):
                             // 요청 성공
@@ -60,14 +61,14 @@ class SignUpViewModel: ObservableObject {
         }
     }
 }
-func postMemberInfo(memberInfo: MemberInfo, completion: @escaping (Result<Data, Error>) -> Void) {
+func postUserMemberInfo(memberInfo: MemberInfo, completion: @escaping (Result<Data, Error>) -> Void) {
     
     let headers: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
     let encodeName = makeStringKoreanEncoded(memberInfo.memberName!)
 
-    var requestURL = "http://3.34.33.15:8080/member?memberId=&memberToken=\(memberInfo.memberToken ?? "null")&memberName=\(memberInfo.memberName ?? "null")&interestMarket=0&cartId=0&storeId=0&recentLatitude=0&recentLongitude=0"
+    var requestURL = "http://3.34.33.15:8080/member?memberId=&memberToken=\(memberInfo.memberToken ?? "null")&memberName=\(encodeName)&interestMarket=0&cartId=0&storeId=0&recentLatitude=0&recentLongitude=0"
     print(requestURL)
     AF.request(requestURL, method: .post, parameters: memberInfo, encoder: JSONParameterEncoder.default, headers: headers).responseData { response in
         switch response.result {

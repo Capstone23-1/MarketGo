@@ -19,6 +19,7 @@
 		2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC7D29D1CF7D00B78C6C /* Documentation.docc */; };
 		2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */; };
 		2140BC9929D1D01900B78C6C /* MarketGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC9829D1D01900B78C6C /* MarketGoApp.swift */; };
+		21416B762A0BBEF9008EA3C5 /* SellerSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21416B752A0BBEF9008EA3C5 /* SellerSignInView.swift */; };
 		2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE6A29DD69B5008913C4 /* ProfileImageView.swift */; };
 		2144FE6D29DD6A32008913C4 /* FoodItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE6C29DD6A32008913C4 /* FoodItemModel.swift */; };
 		2144FE6F29DD6A58008913C4 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE6E29DD6A58008913C4 /* LocationModel.swift */; };
@@ -58,6 +59,7 @@
 		21FAE1EC2A0AC2A6006593D9 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */; };
 		21FAE1EE2A0B65EC006593D9 /* SellerSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1ED2A0B65EC006593D9 /* SellerSignUp.swift */; };
 		21FAE1F02A0B65FC006593D9 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1EF2A0B65FC006593D9 /* SellerSignUpViewModel.swift */; };
+		21FAE1F22A0BB829006593D9 /* UserSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1F12A0BB829006593D9 /* UserSignInView.swift */; };
 		990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990D2C9629E23678002ED379 /* MenuItemRow.swift */; };
 		993AD3A52A0A72500069A27F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AD3A42A0A72500069A27F /* ContentView.swift */; };
 		993AF1C529DE474F00031A7B /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF1C429DE474F00031A7B /* StoreView.swift */; };
@@ -108,6 +110,7 @@
 		2140BC7D29D1CF7D00B78C6C /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		2140BC9829D1D01900B78C6C /* MarketGoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketGoApp.swift; sourceTree = "<group>"; };
+		21416B752A0BBEF9008EA3C5 /* SellerSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignInView.swift; sourceTree = "<group>"; };
 		2144FE6A29DD69B5008913C4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		2144FE6C29DD6A32008913C4 /* FoodItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemModel.swift; sourceTree = "<group>"; };
 		2144FE6E29DD6A58008913C4 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 		21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		21FAE1ED2A0B65EC006593D9 /* SellerSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUp.swift; sourceTree = "<group>"; };
 		21FAE1EF2A0B65FC006593D9 /* SellerSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpViewModel.swift; sourceTree = "<group>"; };
+		21FAE1F12A0BB829006593D9 /* UserSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInView.swift; sourceTree = "<group>"; };
 		46694163AD73EB569AAEC2CD /* Pods-MarketGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGoTests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGoTests/Pods-MarketGoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5CDF3197B9A79DF4BA138956 /* Pods-MarketGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo/Pods-MarketGo.debug.xcconfig"; sourceTree = "<group>"; };
 		5F46EB407DB4F30F4ABA9195 /* Pods-MarketGo-MarketGoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.release.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -313,6 +317,8 @@
 				21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */,
 				21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */,
 				21FAE1ED2A0B65EC006593D9 /* SellerSignUp.swift */,
+				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
+				21416B752A0BBEF9008EA3C5 /* SellerSignInView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -630,8 +636,10 @@
 				215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */,
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,
+				21FAE1F22A0BB829006593D9 /* UserSignInView.swift in Sources */,
 				99CD749629DD95D100D2D782 /* ProductTopView.swift in Sources */,
 				214871D22A055EDB00C6FD1D /* MarketOneModel.swift in Sources */,
+				21416B762A0BBEF9008EA3C5 /* SellerSignInView.swift in Sources */,
 				994B17C52A023653009B77E8 /* ReviewView.swift in Sources */,
 				998843C22A04F76800132079 /* StoreListView.swift in Sources */,
 				21FAE1DC2A0AA468006593D9 /* AppDelegateAdaptor.swift in Sources */,

@@ -14,7 +14,9 @@ struct SignUpView: View {
     
     var body: some View {
         VStack {
-            
+            Text("일반회원 회원가입")
+                .font(.headline)
+                        
             TextField("닉네임", text: $viewModel.nickName)
                 .autocapitalization(.none)
                 .padding()
