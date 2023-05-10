@@ -1,13 +1,14 @@
 //
-//  SignUpView.swift
+//  SellerSignUp.swift
 //  MarketGo
 //
-//  Created by ram on 2023/05/07.
+//  Created by ram on 2023/05/10.
 //
+
 import SwiftUI
 import FirebaseAuth
 
-struct SignUpView: View {
+struct SellerSignUpView: View {
     @StateObject private var viewModel = SignUpViewModel()
     @State private var moveToSignInView = false
     
