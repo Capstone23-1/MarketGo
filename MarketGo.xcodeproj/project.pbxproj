@@ -280,10 +280,10 @@
 		2140BC9529D1CFD900B78C6C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				21FAE1DD2A0AA49D006593D9 /* SignUpViewModel.swift */,
 				21470AB129FD125100A7CEE7 /* EatingHouseViewModel.swift */,
 				2188126329E96F4700F315EF /* ParkingLotViewModel.swift */,
 				2140BC9629D1CFD900B78C6C /* SearchViewModel.swift */,
+				21FAE1DD2A0AA49D006593D9 /* SignUpViewModel.swift */,
 				21470AB529FE588000A7CEE7 /* MarketViewModel.swift */,
 				214871CD2A05573800C6FD1D /* MarketOneNetwork.swift */,
 				21FAE1E72A0AA7A2006593D9 /* SiginInViewModel.swift */,

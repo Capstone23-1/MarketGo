@@ -5,7 +5,7 @@
 //  Created by ram on 2023/05/10.
 //
 import SwiftUI
-
+// TODO: 로그인 성공시 현위치를 받음
 struct SignInView: View {
     @State private var moveToProfileView = false
     // SignInViewModel을 StateObject로 선언하여 로그인 상태를 관리합니다.
@@ -37,6 +37,7 @@ struct SignInView: View {
                         .onChange(of: selectedRole) { value in
                             print("Selected role: \(value)")
                         }
+                        
                         
                         // 이메일 입력 필드
                         TextField("이메일", text: $viewModel.email)

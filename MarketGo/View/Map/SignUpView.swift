@@ -10,9 +10,17 @@ import FirebaseAuth
 struct SignUpView: View {
     @StateObject private var viewModel = SignUpViewModel()
     @State private var moveToSignInView = false
+
     
     var body: some View {
         VStack {
+            
+            TextField("닉네임", text: $viewModel.nickName)
+                .autocapitalization(.none)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(8)
+            
             TextField("이메일", text: $viewModel.email)
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
@@ -37,6 +45,7 @@ struct SignUpView: View {
             Button(action: {
                 viewModel.signUp { success in
                     if success {
+                        
                         print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
                         self.moveToSignInView = true
                     } else {

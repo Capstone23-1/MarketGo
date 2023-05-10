@@ -28,12 +28,12 @@ import Foundation
 
 // MARK: - MemberInfo
 struct MemberInfo: Codable {
-    let memberID: Int
-    let memberToken, memberName: String
-    let interestMarket: InterestMarket
-    let cartID: [String: Int?]
-    let storeID: StoreID
-    let recentLatitude, recentLongitude: Int
+    var memberID: Int?
+    var memberToken, memberName: String?
+    var interestMarket: InterestMarket?
+    var cartID: [String: Int?]?
+    var storeID: StoreID?
+    var recentLatitude, recentLongitude: Int?
 
     enum CodingKeys: String, CodingKey {
         case memberID = "memberId"
@@ -46,13 +46,13 @@ struct MemberInfo: Codable {
 
 // MARK: - InterestMarket
 struct InterestMarket: Codable {
-    let marketID: Int
-    let marketName, marketAddress1, marketAddress2, marketLocation: String
-    let marketLatitude, marketLongitude, marketRatings: JSONNull?
-    let marketInfo, parking, toilet, marketPhonenum: String
-    let marketGiftcard: String
-    let marketType, updateTime, marketFile, marketMap: JSONNull?
-    let reviewCount: JSONNull?
+    var marketID: Int?
+    var marketName, marketAddress1, marketAddress2, marketLocation: String?
+    var marketLatitude, marketLongitude, marketRatings: JSONNull?
+    var marketInfo, parking, toilet, marketPhonenum: String?
+    var marketGiftcard: String?
+    var marketType, updateTime, marketFile, marketMap: JSONNull?
+    var reviewCount: JSONNull?
 
     enum CodingKeys: String, CodingKey {
         case marketID = "marketId"
@@ -62,11 +62,11 @@ struct InterestMarket: Codable {
 
 // MARK: - StoreID
 struct StoreID: Codable {
-    let storeID: Int
-    let storeName, storeAddress1, storeAddress2: String
-    let storeCategory, storeRatings: JSONNull?
-    let storePhonenum, storeInfo, cardAvail, localAvail: String
-    let storeNum, storeMarketID, storeFile, reviewCount: JSONNull?
+    var storeID: Int?
+    var storeName, storeAddress1, storeAddress2: String?
+    var storeCategory, storeRatings: JSONNull?
+    var storePhonenum, storeInfo, cardAvail, localAvail: String?
+    var storeNum, storeMarketID, storeFile, reviewCount: JSONNull?
 
     enum CodingKeys: String, CodingKey {
         case storeID = "storeId"
@@ -75,3 +75,4 @@ struct StoreID: Codable {
         case storeFile, reviewCount
     }
 }
+
