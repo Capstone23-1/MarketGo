@@ -8,51 +8,38 @@
 import SwiftUI
 
 struct FoodItemDetailView: View {
-    var fooditem: FoodItem
+    var goods: Goods
     
     var body: some View {
         ScrollView{
             
             VStack(alignment: .leading) {
                 
-                Image(fooditem.imageName)
+                Image(String(goods.goodsFile))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                 
                 
-                Text(fooditem.name)
+                Text(goods.goodsName)
                     .font(.system(size: 26, weight: .bold))
                     .padding(.leading, 10)
                 
                 //Text(fooditem.storeName).font(.system(size: 20, weight: .bold))
                 Spacer().frame(height: 10)
                 
-                Text("\(fooditem.price)원")
+                Text("\(goods.goodsPrice)원")
                     .font(.system(size: 20))
                     .padding(.leading, 10)
                 
                 Spacer().frame(height: 10)
                 
-                Text("\(fooditem.storeName) 둘러보기 >")
+                Text("\(goods.goodsStore) 둘러보기 >")
                     .font(.system(size: 20))
                     .padding(.leading, 10)
                 
                 Spacer().frame(height: 20)
                 
                 HStack {
-                        Spacer()
-                        Button(action: {
-                            // 버튼이 클릭되었을 때 수행할 액션
-                        }, label: {
-                            Text("사장님과 채팅")
-                                .font(.system(size: 16))
-                                .foregroundColor(.white)
-                        })
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.green)
-                        .cornerRadius(10)
-
                     Button(action: {
                         // 버튼이 클릭되었을 때 수행할 액션
                     }, label: {
@@ -65,26 +52,19 @@ struct FoodItemDetailView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
                     Spacer()
-                    
-                    
                     }
                 
                 Spacer().frame(height: 20)
 
-                Text(" 📉 가격변동추이")
-                    .font(.system(size: 19))
-                    .padding(.leading, 10)
+              
             }
-            //가격변동그래프 만들어야함. 가격추이를 저장해서 가져와야함
-            // 장바구니 담기 -> 장바구니에 현재 페이지에 해당하는 상품이 담겨야함
-            // 장바구니에 들어갈 애들은 데이터셋을 따로 저장해야하나..?
         }
 
     }
 }
 
-struct FoodItemDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        FoodItemDetailView(fooditem: FoodItem.foodItems[0])
-    }
-}
+//struct FoodItemDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FoodItemDetailView(fooditem: FoodItem.foodItems[0])
+//    }
+//}

@@ -8,27 +8,45 @@
 import SwiftUI
 
 struct FoodItemCell: View {
-    var fooditem: FoodItem
+    var goods: Goods
+    @StateObject var fileModel = FileDataViewModel() //이미지파일 구조체
     
     var body: some View {
         VStack {
-            Image(fooditem.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            Spacer()
+            VStack {
+                if let fileData = fileModel.fileData {
+
+                    //Text("Original File Name: \(fileData.originalFileName)")
+                    //Text("Upload File Name: \(fileData.uploadFileName)")
+                    
+                    Image(fileData.originalFileName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 70, height: 70)
+                        .cornerRadius(4)
             
-            Text(fooditem.name)
+                } else {
+                    Text("Loading...")
+                }
+            }
+            .onAppear {
+                fileModel.getFileData(fileId: goods.goodsFile)
+            }
+ 
+            
+            Text(goods.goodsName)
                 .font(.system(size: 16, weight: .bold))
-            Text(fooditem.storeName).font(.system(size: 11, weight: .bold))
-            Text("가격 : \(fooditem.price)원").font(.system(size: 11))
+            Text(String(goods.goodsStore)).font(.system(size: 11, weight: .bold))
+            Text("가격 : \(goods.goodsPrice)원").font(.system(size: 11))
             Spacer()
         }
     }
 }
 
-struct FoodItemCell_Previews: PreviewProvider {
-    static var previews: some View {
-        FoodItemCell(fooditem: FoodItem.foodItems[0])
-            .previewLayout(.fixed(width: 160, height: 250))
-    }
-}
+//
+//struct FoodItemCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FoodItemCell(goods: Goods.example)
+//            .previewLayout(.fixed(width: 160, height: 250))
+//    }
+//}
