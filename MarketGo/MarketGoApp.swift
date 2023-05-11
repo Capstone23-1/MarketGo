@@ -12,6 +12,7 @@ import FirebaseCore
 @main
 struct MarketGoApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    //파이어베이스 연결부분
     var body: some Scene {
         WindowGroup {
             SignInView()
