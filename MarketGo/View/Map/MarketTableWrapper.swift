@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct MarketTableWrapper: UIViewControllerRepresentable {
     var data: [Document]
-    @Binding var selected: Document?
+    @Binding var selectedMarket: Document?
+    var didSelectRowAt: ((Document) -> Void)?
     
     func makeUIViewController(context: Context) -> UITableViewController {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
@@ -19,7 +19,6 @@ struct MarketTableWrapper: UIViewControllerRepresentable {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         let controller = UITableViewController(style: .plain)
         controller.tableView = tableView
-        context.coordinator.viewController = controller
         return controller
     }
 
@@ -28,17 +27,16 @@ struct MarketTableWrapper: UIViewControllerRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(data: data, selected: $selected)
+        Coordinator(data: data, selectedMarket: $selectedMarket)
     }
 
     class Coordinator: NSObject, UITableViewDataSource, UITableViewDelegate {
         var data: [Document]
-        @Binding var selected: Document?
-        weak var viewController: UIViewController?
+        @Binding var selectedMarket: Document?
 
-        init(data: [Document], selected: Binding<Document?>) {
+        init(data: [Document], selectedMarket: Binding<Document?>) {
             self.data = data
-            self._selected = selected
+            self._selectedMarket = selectedMarket
         }
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,18 +45,27 @@ struct MarketTableWrapper: UIViewControllerRepresentable {
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            let document = data[indexPath.row]
-            cell.textLabel?.text = "\(document.placeName)   \(document.distance)m"
+            let place = data[indexPath.row]
+            cell.textLabel?.text = "\(place.placeName)   \(place.distance)m"
+            cell.accessoryType = .disclosureIndicator
             return cell
         }
 
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            selected = data[indexPath.row]
-//            let documentDetailView = DocumentDetailView(document: data[indexPath.row])
-            let documentDetailView = EmptyView()
-            let detailViewController = UIHostingController(rootView: documentDetailView)
-            viewController?.navigationController?.pushViewController(detailViewController, animated: true)
-            tableView.deselectRow(at: indexPath, animated: true)
+            selectedMarket = data[indexPath.row]
+        }
+        
+        func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+            selectedMarket = data[indexPath.row]
+        }
+        
+        func updateUIViewController(_ uiViewController: UITableViewController, context: Context) {
+            if let selectedMarket = selectedMarket {
+                if let index = data.firstIndex(where: { $0.id == selectedMarket.id }) {
+                    let indexPath = IndexPath(row: index, section: 0)
+                    uiViewController.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+                }
+            }
         }
     }
 }

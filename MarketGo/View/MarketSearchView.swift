@@ -57,11 +57,8 @@ struct MarketSearchView: View {
                     } else {
                         
                         MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
-                                        MarketTableWrapper(data: MarketList, selected: $selectedMarket)
-//                                NavigationLink(destination: MarketInfoView()) {
-//                                    EmptyView()
-//                                }
-//                                .hidden()
+                        MarketTableWrapper(data: MarketList, selectedMarket: $selectedMarket)
+                               
                         
                     }
                     
