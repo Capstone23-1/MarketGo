@@ -88,111 +88,35 @@ class StoreViewModel: ObservableObject {
 //        }
 //    }
 //}
-struct Goods: Codable, Identifiable {
-    let id: Int
-    let goodsName: String
-    let goodsMarket: Int
-    let goodsStore: Int
-    let goodsFile: Int
-    let goodsPrice: Int
-    let goodsUnit: String
-    let goodsInfo: String
-    let goodsOrigin: String
-    let isAvail: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "goodsId"
-        case goodsName
-        case goodsMarket
-        case goodsStore
-        case goodsFile
-        case goodsPrice
-        case goodsUnit
-        case goodsInfo
-        case goodsOrigin
-        case isAvail
-    }
-}
+//
 
 
 //MarketId를 입력받아 특정 시장 내의 모든 goods들을 가져옴
-class GoodsViewModel: ObservableObject {
-    @Published var goods: [Goods] = []
-    
-    func fetchGoods(goodsMarket: Int) {
-        let url = "http://3.34.33.15:8080/goods/all"
-        let parameters: [String: Any] = ["goodsMarket": goodsMarket]
-        
-        AF.request(url, parameters: parameters).responseData { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    let goods = try JSONDecoder().decode([Goods].self, from: data)
-                    DispatchQueue.main.async {
-                        self.goods = goods
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-}
+//class GoodsViewModel: ObservableObject {
+//    @Published var goods: Goods = []
+//
+//    func fetchGoods() {
+//        let url = "http://3.34.33.15:8080/goods/all"
+//
+//        AF.request(url).responseData { response in
+//            switch response.result {
+//            case .success(let data):
+//                do {
+//                    let decoder = JSONDecoder()
+//                    let goods = try decoder.decode(Goods.self, from: data)
+//                    DispatchQueue.main.async {
+//                        self.goods = goods
+//                    }
+//                } catch {
+//                    print(error.localizedDescription)
+//                }
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
+//}
 
-//MarketId와 storeId가를 입력받아 특정 시장 내 특정 가게의 goods들을 가져옴
-class GoodsViewModel2: ObservableObject {
-    @Published var goods: [Goods] = []
-    
-    func fetchGoods(goodsMarket: Int, goodsStore: Int) {
-        let url = "http://3.34.33.15:8080/goods/all"
-        let parameters: [String: Any] = [
-            "goodsMarket": goodsMarket,
-            "goodsStore": goodsStore
-        ]
-        
-        AF.request(url, parameters: parameters).responseData { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    let goods = try JSONDecoder().decode([Goods].self, from: data)
-                    DispatchQueue.main.async {
-                        self.goods = goods
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-}
-
-class GoodsViewModel3: ObservableObject {
-    @Published var goods: Goods?
-    
-    func fetchGoodsById(goodsId: Int) {
-        let url = "http://3.34.33.15:8080/goods/\(goodsId)"
-        
-        AF.request(url).responseData { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    let goods = try JSONDecoder().decode(Goods.self, from: data)
-                    DispatchQueue.main.async {
-                        self.goods = goods
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-}
 
 
 

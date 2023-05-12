@@ -6,7 +6,6 @@
 //  mainView에서 장보기 탭
 
 
-
 import SwiftUI
 
 struct ShopView: View {
@@ -142,7 +141,7 @@ struct ShopView: View {
                         .padding([.top, .leading, .trailing], 16.0)
                     }
                     .onAppear {
-                        goodsModel.fetchGoods(goodsMarket: marketId)
+                        goodsModel.fetchGoods(forStoreMarketID: 17)
                     }
                     
                 }

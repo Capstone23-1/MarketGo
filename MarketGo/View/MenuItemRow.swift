@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct MenuItemRow: View {
-    var goods: Goods
+    var goods: Good
     
     @StateObject var fileModel = FileDataViewModel()
     
@@ -29,17 +29,17 @@ struct MenuItemRow: View {
                 }
             }
             .onAppear {
-                fileModel.getFileData(fileId: goods.goodsFile)
+                fileModel.getFileData(fileId: goods.goodsFile?.fileID ?? 0)
             }
         
             Spacer().frame(width:20)
             
             VStack(alignment: .leading, spacing: 10) {
-                Text("\(goods.goodsName)")
+                Text("\(goods.goodsName ?? "")")
                     .font(.system(size: 17))
                 
                 HStack {
-                    Text("\(goods.goodsPrice) 원")
+                    Text("\(goods.goodsPrice ?? 0) 원")
                         .font(.system(size: 15))
                         .foregroundColor(.gray)
                 }
@@ -60,8 +60,8 @@ struct MenuItemRow: View {
         }
 }
 
-struct MenuItemRow_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuItemRow(goods: Goods(id: 1, goodsName: "Food Item", goodsMarket: 1, goodsStore: 1, goodsFile: 1, goodsPrice: 10, goodsUnit: "unit", goodsInfo: "Info", goodsOrigin: "Origin", isAvail: 1))
-    }
-}
+//struct MenuItemRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MenuItemRow()
+//    }
+//}

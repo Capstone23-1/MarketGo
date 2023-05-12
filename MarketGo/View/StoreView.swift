@@ -100,30 +100,8 @@ struct StoreView: View {
     }
 }
 
-struct StoreView_Previews: PreviewProvider {
-    static var previews: some View {
-        let goods = [
-            Goods(id: 1, goodsName: "Food Item 1", goodsMarket: 1, goodsStore: 1, goodsFile: 1, goodsPrice: 10, goodsUnit: "unit", goodsInfo: "Info 1", goodsOrigin: "Origin 1", isAvail: 1),
-            Goods(id: 2, goodsName: "Food Item 2", goodsMarket: 1, goodsStore: 1, goodsFile: 2, goodsPrice: 20, goodsUnit: "unit", goodsInfo: "Info 2", goodsOrigin: "Origin 2", isAvail: 1),
-            Goods(id: 3, goodsName: "Food Item 3", goodsMarket: 1, goodsStore: 1, goodsFile: 3, goodsPrice: 30, goodsUnit: "unit", goodsInfo: "Info 3", goodsOrigin: "Origin 3", isAvail: 1)
-        ]
-        
-        let store = Store(
-            id: 1,
-            name: "Example Store",
-            address1: "Example Address 1",
-            address2: "Example Address 2",
-            ratings: 4.5,
-            phoneNumber: "123-456-7890",
-            info: "Example Info",
-            isCardAvailable: "true",
-            isLocalAvailable: "true",
-            number: 123,
-            marketId: 1,
-            file: 23
-        )
-
-        
-        return StoreView(store: store)
-    }
-}
+//struct StoreView_Previews: PreviewProvider {
+//    static var previews: some View {
+//       
+//    }
+//}

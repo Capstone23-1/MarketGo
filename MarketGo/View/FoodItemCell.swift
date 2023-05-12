@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FoodItemCell: View {
-    var goods: Goods
+    var goods: Good
     @StateObject var fileModel = FileDataViewModel() //이미지파일 구조체
     
     var body: some View {
@@ -30,14 +30,14 @@ struct FoodItemCell: View {
                 }
             }
             .onAppear {
-                fileModel.getFileData(fileId: goods.goodsFile)
+                fileModel.getFileData(fileId: 0)
             }
  
             
-            Text(goods.goodsName)
+            Text(goods.goodsName ?? "")
                 .font(.system(size: 16, weight: .bold))
-            Text(String(goods.goodsStore)).font(.system(size: 11, weight: .bold))
-            Text("가격 : \(goods.goodsPrice)원").font(.system(size: 11))
+            Text(goods.goodsStore?.storeName ?? "").font(.system(size: 11, weight: .bold))
+            Text("가격 : \(goods.goodsPrice ?? 0)원").font(.system(size: 11))
             Spacer()
         }
     }
