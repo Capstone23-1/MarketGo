@@ -70,6 +70,9 @@
 		998843C02A04DE8700132079 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843BF2A04DE8700132079 /* MypageView.swift */; };
 		998843C22A04F76800132079 /* StoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843C12A04F76800132079 /* StoreListView.swift */; };
 		998843C42A05035D00132079 /* FoodItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843C32A05035D00132079 /* FoodItemListView.swift */; };
+		998BFBC32A0DCC1F005F4652 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998BFBC22A0DCC1F005F4652 /* TestView.swift */; };
+		998BFBC52A0DD01C005F4652 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998BFBC42A0DD01C005F4652 /* CategoryView.swift */; };
+		998BFBC92A0DD5B7005F4652 /* GoodsJASONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998BFBC82A0DD5B7005F4652 /* GoodsJASONData.swift */; };
 		99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99926D082A03419F00071E3C /* StoreReviewListView.swift */; };
 		99CD749429DD904600D2D782 /* FoodItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CD749329DD904600D2D782 /* FoodItemCell.swift */; };
 		99CD749629DD95D100D2D782 /* ProductTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CD749529DD95D100D2D782 /* ProductTopView.swift */; };
@@ -165,6 +168,9 @@
 		998843BF2A04DE8700132079 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		998843C12A04F76800132079 /* StoreListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListView.swift; sourceTree = "<group>"; };
 		998843C32A05035D00132079 /* FoodItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemListView.swift; sourceTree = "<group>"; };
+		998BFBC22A0DCC1F005F4652 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		998BFBC42A0DD01C005F4652 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		998BFBC82A0DD5B7005F4652 /* GoodsJASONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsJASONData.swift; sourceTree = "<group>"; };
 		99926D082A03419F00071E3C /* StoreReviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewListView.swift; sourceTree = "<group>"; };
 		99CD749329DD904600D2D782 /* FoodItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemCell.swift; sourceTree = "<group>"; };
 		99CD749529DD95D100D2D782 /* ProductTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTopView.swift; sourceTree = "<group>"; };
@@ -275,6 +281,7 @@
 				2144FE6C29DD6A32008913C4 /* FoodItemModel.swift */,
 				2144FE6E29DD6A58008913C4 /* LocationModel.swift */,
 				21470AB729FE620100A7CEE7 /* MarketJSONData.swift */,
+				998BFBC82A0DD5B7005F4652 /* GoodsJASONData.swift */,
 				994B17C62A0236DE009B77E8 /* ReviewStore.swift */,
 				998843BD2A04DD5000132079 /* MemberModel.swift */,
 				214871D12A055EDB00C6FD1D /* MarketOneModel.swift */,
@@ -348,6 +355,8 @@
 				998843C12A04F76800132079 /* StoreListView.swift */,
 				998843C32A05035D00132079 /* FoodItemListView.swift */,
 				993AD3A42A0A72500069A27F /* ContentView.swift */,
+				998BFBC22A0DCC1F005F4652 /* TestView.swift */,
+				998BFBC42A0DD01C005F4652 /* CategoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -638,12 +647,15 @@
 				2144FE7729DD6B11008913C4 /* MainView.swift in Sources */,
 				215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */,
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
+				998BFBC32A0DCC1F005F4652 /* TestView.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,
 				21FAE1F22A0BB829006593D9 /* UserSignInView.swift in Sources */,
 				99CD749629DD95D100D2D782 /* ProductTopView.swift in Sources */,
 				214871D22A055EDB00C6FD1D /* MarketOneModel.swift in Sources */,
 				21416B762A0BBEF9008EA3C5 /* SellerSignInView.swift in Sources */,
+				998BFBC92A0DD5B7005F4652 /* GoodsJASONData.swift in Sources */,
 				994B17C52A023653009B77E8 /* ReviewView.swift in Sources */,
+				998BFBC52A0DD01C005F4652 /* CategoryView.swift in Sources */,
 				998843C22A04F76800132079 /* StoreListView.swift in Sources */,
 				21FAE1DC2A0AA468006593D9 /* AppDelegateAdaptor.swift in Sources */,
 				2144FE7B29DD6B88008913C4 /* ShopView.swift in Sources */,

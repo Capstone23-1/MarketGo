@@ -15,20 +15,12 @@ struct ProductTopView: View {
         HStack {
 
             Spacer()
-            
-//            NavigationLink{
-//                CartView()
-//            } label: {
+
+//            NavigationLink(destination: CartView()) {
 //                Image(systemName: "cart")
 //                    .padding(.horizontal)
 //                    .imageScale(.large)
 //            }
-            
-            NavigationLink(destination: CartView()) {
-                Image(systemName: "cart")
-                    .padding(.horizontal)
-                    .imageScale(.large)
-            }
 //
         }
         .padding()

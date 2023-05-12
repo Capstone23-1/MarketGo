@@ -70,9 +70,11 @@ class SignInViewModel: ObservableObject {
         }
         
     }
+
     func fetch(uid: String, completion: @escaping (Result<MemberInfo, Error>) -> Void) {
         
         let url = "http://3.34.33.15:8080/member/memberToken/\(uid)"
+
         AF.request(url).responseDecodable(of: MemberInfo.self) { response in
             switch response.result {
             case .success(let data):

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct StoreListView: View {
     @State var stores: [Store] = []
+    @State var marketId: Int = 17
+    @ObservedObject var storeModel = StoreViewModel()
     @State private var searchText = ""
     @StateObject var viewModel = FileDataViewModel() //이미지파일 구조체
 
@@ -27,7 +29,7 @@ struct StoreListView: View {
                 Divider()
 
                 LazyVStack {
-                    ForEach(stores.sorted { $0.ratings > $1.ratings }.filter {
+                    ForEach(storeModel.stores.sorted { $0.ratings > $1.ratings }.filter {
                         searchText.isEmpty ? true : $0.name.contains(searchText)
                     }, id: \.id) { store in
                         NavigationLink(destination: EmptyView()) {
@@ -77,29 +79,12 @@ struct StoreListView: View {
                     }
                 }
             }
-            .onAppear(perform: loadData)
+            .onAppear {
+                storeModel.fetchStores(marketId: marketId)
             
         }    }
-    
-    func loadData() {
-        guard let url = URL(string: "http://3.34.33.15:8080/store/all") else {
-            print("Invalid URL")
-            return
         }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                if let decodedResponse = try? JSONDecoder().decode([Store].self, from: data) {
-                    DispatchQueue.main.async {
-                        self.stores = decodedResponse
-                    }
-                    return
-                }
-            }
-            
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
-        }.resume()
-    }
+    
 }
 
 
