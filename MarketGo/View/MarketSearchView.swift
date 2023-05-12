@@ -57,23 +57,7 @@ struct MarketSearchView: View {
                     } else {
                         
                         MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
-                        List(MarketList, id: \.placeName) { market in
-                                        HStack {
-                                            VStack(alignment: .leading) {
-                                                Text(market.placeName)
-                                                    .font(.headline)
-                                                Text("\(market.distance) m")
-                                                    .font(.subheadline)
-                                                    .foregroundColor(.secondary)
-                                            }
-                                            Spacer()
-                                            NavigationLink(destination: Detail()) {
-                                                Text("")
-                                                    .foregroundColor(.blue)
-                                            }
-                                        }
-                                    }
-                                    
+                        MarketTableWrapper(data: MarketList, selected: $selectedMarket)
                                
                         
                     }

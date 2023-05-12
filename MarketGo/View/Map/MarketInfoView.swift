@@ -8,8 +8,8 @@ import SwiftUI
 
 struct MarketInfoView: View {
     @State private var selectedTab = 0
-    
-    @Binding var selectedMarket: MarketOneElement?
+    @Binding var selected: Document?
+    @State var selectedMarket: MarketOneElement?
     
     var body: some View {
         GeometryReader { geometry in
@@ -47,6 +47,6 @@ struct MarketInfoView: View {
                 }
             }
         }
-        .navigationTitle((selectedMarket?.marketName ?? "시장정보"))
+        .navigationTitle((selected?.placeName ?? "시장정보"))
     }
 }

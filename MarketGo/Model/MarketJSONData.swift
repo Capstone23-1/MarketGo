@@ -30,7 +30,7 @@ struct ParkingLotJSONData: Codable{
 }
 
 // MARK: - Document
-struct Document: Codable,Hashable{
+struct Document: Codable,Hashable,Identifiable{
     
     let distance, id, phone, placeName: String
     let placeURL: String
