@@ -29,7 +29,7 @@ struct ParkingLotView: View {
                     ParkingLotMapView(parkingLots: $parkingLots, selectedParkingLot: $selectedParkingLot)
                     UITableViewWrapper(data: parkingLots, selected: $selectedParkingLot)
                 }
-
+                
             }
         }
         .onAppear {

@@ -12,7 +12,7 @@ struct MarketTableWrapper: View {
     var didSelectRowAt: ((Document) -> Void)?
     @State private var isLoading = false // indicator 추가
     @State private var isLinkActive = false
-
+    
     var body: some View {
         List(data) { market in
             HStack {
@@ -33,7 +33,7 @@ struct MarketTableWrapper: View {
                     NavigationLink(destination: MarketInfoView(selected: $selected), isActive: $isLinkActive) {
                         EmptyView()
                     }
-                    .hidden()
+                        .hidden()
                 )
             }
         }
@@ -42,7 +42,7 @@ struct MarketTableWrapper: View {
 
 struct DetailView: View {
     var market: Document
-
+    
     var body: some View {
         Text("\(market.placeName)")
             .navigationTitle("Detail")

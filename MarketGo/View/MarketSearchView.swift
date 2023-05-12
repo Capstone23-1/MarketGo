@@ -58,7 +58,7 @@ struct MarketSearchView: View {
                         
                         MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
                         MarketTableWrapper(data: MarketList, selected: $selectedMarket)
-                               
+                        
                         
                     }
                     
