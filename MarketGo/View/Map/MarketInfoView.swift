@@ -9,7 +9,7 @@ import SwiftUI
 struct MarketInfoView: View {
     @State private var selectedTab = 0
     @Binding var selected: Document?
-    @State var selectedMarket: MarketOneElement?
+    @Binding var selectedMarket: MarketOneElement?
     
     var body: some View {
         GeometryReader { geometry in
@@ -31,14 +31,9 @@ struct MarketInfoView: View {
                     case 0:
                         MarketListView(marketData: $selectedMarket)
                     case 1:
-                        //                        MarketOneMapView(selectedMarket: $selectedMarket)
-                        //                            .frame(height: geometry.size.height * 0.3)
-                        
                         Image("상도시장지도")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                        
-                        
                         Spacer().frame(width:20)
                     case 2:
                         FindPathView(selectedMarket: $selectedMarket)
