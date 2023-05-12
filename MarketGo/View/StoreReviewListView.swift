@@ -8,12 +8,14 @@
 //import SwiftUI
 //
 //struct StoreReviewListView: View {
+
 //    let store: Store
 //    @State private var reviews: [Review] = Review.reviews
 //    @State private var showMoreReviews = false
 //    
 //    @ObservedObject var storeModel = StoreViewModel()
 //    
+
 //    var body: some View {
 //        VStack() {
 //            Text("\(store.store_name) Review")

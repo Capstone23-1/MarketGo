@@ -41,4 +41,4 @@ struct MarketFile: Codable {
     }
 }
 
-typealias MarketOne = [MarketOneElement]
+

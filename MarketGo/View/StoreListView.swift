@@ -32,7 +32,7 @@ struct StoreListView: View {
                     ForEach(storeModel.stores.sorted { $0.ratings > $1.ratings }.filter {
                         searchText.isEmpty ? true : $0.name.contains(searchText)
                     }, id: \.id) { store in
-                        NavigationLink(destination: StoreView(store: store)) {
+                        NavigationLink(destination: EmptyView()) {
                             HStack {
                                 
                                 VStack {

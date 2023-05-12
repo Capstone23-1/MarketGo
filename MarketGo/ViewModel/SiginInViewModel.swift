@@ -22,6 +22,8 @@ class SignInViewModel: ObservableObject {
     // 로그인 과정 중임을 나타내는 변수 (예: 로딩 인디케이터 표시용)
     @Published var isLoading = false
     @Published var uid: String? = nil
+    @Published var currentUser: MemberInfo?
+    
     
     
     
@@ -42,15 +44,37 @@ class SignInViewModel: ObservableObject {
                 } else {
                     // 로그인 성공 시 uid 저장
                     strongSelf.uid = Auth.auth().currentUser?.uid
+//                    self?.fetch(uid: strongSelf.uid!) { result in
+//                        switch result {
+//                            case .success(_):
+//                            // 사용자 정보가 있는 경우, memberInfo 구조체 인스턴스에 저장된 값을 사용합니다.
+//                                print("성공")
+//                        case .failure(let error):
+//                            // 에러가 발생한 경우, 에러 메시지를 출력합니다.
+//                            print("Error: \(error.localizedDescription)")
+//                        }
+//                    }
+                    self!.fetch(uid: strongSelf.uid!) { result in
+                        switch result {
+                        case .success(let memberInfo):
+                            // 받아온 데이터를 사용하여 UI 구성 등 필요한 작업을 수행
+                                self?.currentUser = memberInfo
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+
                     completion(true)
                 }
             }
         }
         
     }
-    func fetch(with marketName: String, completion: @escaping (Result<MemberInfo, Error>) -> Void) {
-        let letter = makeStringKoreanEncoded(marketName)
-        let url = "http://3.34.33.15:8080/market/marketName/\(letter)"
+
+    func fetch(uid: String, completion: @escaping (Result<MemberInfo, Error>) -> Void) {
+        
+        let url = "http://3.34.33.15:8080/member/memberToken/\(uid)"
+
         AF.request(url).responseDecodable(of: MemberInfo.self) { response in
             switch response.result {
             case .success(let data):

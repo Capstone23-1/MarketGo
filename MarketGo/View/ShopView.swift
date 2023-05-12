@@ -60,10 +60,12 @@ struct ShopView: View {
                                         .padding(.horizontal)
                                 }
                             }
+
                             
                             LazyVStack { // LazyVStack 사용
                                 ForEach(filteredStores, id: \.id) { store in
                                     NavigationLink(destination: StoreView(store: store)){
+
                                         
                                         HStack {
                                             VStack {

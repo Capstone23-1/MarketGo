@@ -14,6 +14,7 @@ struct UserSignInView: View {
     @ObservedObject private var viewModel = SignInViewModel()
     @Binding var showSignUpView: Bool
     @State var moveToMarketSearchView = false
+    @State var currentUser: MemberInfo? = nil
     
     
     
