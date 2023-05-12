@@ -21,6 +21,7 @@
 		2140BC9929D1D01900B78C6C /* MarketGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC9829D1D01900B78C6C /* MarketGoApp.swift */; };
 		21416B762A0BBEF9008EA3C5 /* SellerSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21416B752A0BBEF9008EA3C5 /* SellerSignInView.swift */; };
 		21416B7E2A0CF25F008EA3C5 /* MarketTableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21416B7D2A0CF25F008EA3C5 /* MarketTableWrapper.swift */; };
+		21416B862A0EB008008EA3C5 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21416B852A0EB008008EA3C5 /* Detail.swift */; };
 		2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE6A29DD69B5008913C4 /* ProfileImageView.swift */; };
 		2144FE6D29DD6A32008913C4 /* FoodItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE6C29DD6A32008913C4 /* FoodItemModel.swift */; };
 		2144FE6F29DD6A58008913C4 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE6E29DD6A58008913C4 /* LocationModel.swift */; };
@@ -116,6 +117,7 @@
 		2140BC9829D1D01900B78C6C /* MarketGoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketGoApp.swift; sourceTree = "<group>"; };
 		21416B752A0BBEF9008EA3C5 /* SellerSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignInView.swift; sourceTree = "<group>"; };
 		21416B7D2A0CF25F008EA3C5 /* MarketTableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableWrapper.swift; sourceTree = "<group>"; };
+		21416B852A0EB008008EA3C5 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		2144FE6A29DD69B5008913C4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		2144FE6C29DD6A32008913C4 /* FoodItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemModel.swift; sourceTree = "<group>"; };
 		2144FE6E29DD6A58008913C4 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21416B7D2A0CF25F008EA3C5 /* MarketTableWrapper.swift */,
+				21416B852A0EB008008EA3C5 /* Detail.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21470AB629FE588000A7CEE7 /* MarketViewModel.swift in Sources */,
+				21416B862A0EB008008EA3C5 /* Detail.swift in Sources */,
 				994B17C72A0236DE009B77E8 /* ReviewStore.swift in Sources */,
 				21470AB429FD87E400A7CEE7 /* UITableViewWrapper.swift in Sources */,
 				998843C42A05035D00132079 /* FoodItemListView.swift in Sources */,
