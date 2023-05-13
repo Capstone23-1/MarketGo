@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct FindPathView: View {
-    @Binding var selectedMarket: MarketOneElement?
+    @Binding var selectedMarket: MarketOne?
     
     var body: some View {
         VStack {

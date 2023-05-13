@@ -12,7 +12,7 @@ import NMapsMap
 struct MarketOneMapView: UIViewRepresentable {
     
     @ObservedObject var locationManager = LocationManager()
-    @Binding var selectedMarket: MarketOneElement?
+    @Binding var selectedMarket: MarketOne?
     var cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)
     public let mapView = NMFNaverMapView()
     func makeUIView(context: Context) -> NMFNaverMapView {

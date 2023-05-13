@@ -9,7 +9,7 @@ import SwiftUI
 struct MarketInfoView: View {
     @State private var selectedTab = 0
     @Binding var selected: Document?
-    @Binding var selectedMarket: MarketOneElement?
+    @Binding var selectedMarket: MarketOne?
     
     var body: some View {
         GeometryReader { geometry in

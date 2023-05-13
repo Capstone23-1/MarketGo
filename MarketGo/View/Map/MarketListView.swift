@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct MarketListView: View {
-    @Binding var marketData: MarketOneElement?
+    @Binding var marketData: MarketOne?
     
     var body: some View {
         NavigationView {
@@ -57,7 +57,7 @@ struct MarketListView: View {
         if let jsonData = jsonString.data(using: .utf8) {
             let decoder = JSONDecoder()
             do {
-                marketData = try decoder.decode(MarketOneElement.self, from: jsonData)
+                marketData = try decoder.decode(MarketOne.self, from: jsonData)
             } catch {
                 print("Error decoding JSON: \(error)")
             }

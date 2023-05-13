@@ -19,16 +19,16 @@
 //   }
 
 import Foundation
-import Alamofire
 
-// MARK: - MarketOneElement
-struct MarketOneElement: Codable {
+// MARK: - Market
+struct MarketOne: Codable {
     var marketID: Int?
     var marketName, marketAddress1, marketAddress2, marketLocation: String?
-    var marketLatitude, marketLongitude, marketRatings: Double?
+    var marketLatitude, marketLongitude: Double?
+    var marketRatings: Double?
     var marketInfo, parking, toilet, marketPhonenum: String?
     var marketGiftcard, marketType, updateTime: String?
-    var marketFile, marketMap: Market?
+    var marketFile, marketMap: MarketFileClass?
     var reviewCount: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -37,17 +37,8 @@ struct MarketOneElement: Codable {
     }
 }
 
-//
-// To parse values from Alamofire responses:
-//
-//   Alamofire.request(url).responseMarket { response in
-//     if let market = response.result.value {
-//       ...
-//     }
-//   }
-
-// MARK: - Market
-struct Market: Codable {
+// MARK: - MarketFileClass
+struct MarketFileClass: Codable {
     var fileID: Int?
     var originalFileName, uploadFileName, uploadFilePath: String?
     var uploadFileURL: String?
@@ -59,22 +50,4 @@ struct Market: Codable {
     }
 }
 
-typealias MarketOne = [MarketOneElement]
-
-// MARK: - Helper functions for creating encoders and decoders
-
-func newJSONDecoder() -> JSONDecoder {
-    let decoder = JSONDecoder()
-    if #available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
-        decoder.dateDecodingStrategy = .iso8601
-    }
-    return decoder
-}
-
-func newJSONEncoder() -> JSONEncoder {
-    let encoder = JSONEncoder()
-    if #available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
-        encoder.dateEncodingStrategy = .iso8601
-    }
-    return encoder
-}
+typealias MarketArray = [MarketOne]

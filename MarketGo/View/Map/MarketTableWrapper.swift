@@ -14,7 +14,7 @@ struct MarketTableWrapper: View {
     var didSelectRowAt: ((Document) -> Void)?
     @State private var isLoading = false // indicator 추가
     @State private var isLinkActive = false
-    @State var selectedMarket: MarketOneElement?
+    @State var selectedMarket: MarketOne?
 
     var body: some View {
         List(data) { market in
@@ -48,7 +48,7 @@ struct MarketTableWrapper: View {
         let url = "http://3.34.33.15:8080/market/marketName/\(letter)"
         AF.request(url, method: .get)
             .validate()
-            .responseDecodable(of: [MarketOneElement].self) { response in
+            .responseDecodable(of: [MarketOne].self) { response in
                 switch response.result {
                 case .success(let market):
                     // 이 경우 market은 MarketOneElement의 배열입니다. 첫 번째 요소를 선택하거나 적절하게 처리하세요.

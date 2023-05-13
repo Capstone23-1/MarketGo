@@ -13,7 +13,7 @@
 import Foundation
 
 // MARK: - MarketJSONData
-struct MarketJSONData: Codable{
+struct MarketAPIModel: Codable{
     let documents: [Document]
     let meta: Meta
 }
