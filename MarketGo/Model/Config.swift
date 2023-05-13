@@ -10,6 +10,9 @@ import Foundation
 class Config{
     public let bundleID: String="com.capstone.MarketGo"
 }
+func makeStringKoreanEncoded(_ string: String) -> String {
+    return string.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? string
+}
 // MARK: - Encode/decode helpers
 
 class JSONNull: Codable, Hashable {
