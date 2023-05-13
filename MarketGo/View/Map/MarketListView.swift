@@ -15,7 +15,7 @@ struct MarketListView: View {
         NavigationView {
             List {
                 if let marketData = marketData {
-                    Section(header: Text("데이터 기준 일자: 2022-07-06")) {
+                    Section(header: Text("데이터 기준 일자: \(convertDate(from: marketData.updateTime!))")) {
                         Text("시장 이름: \(marketData.marketName ?? "")")
                         Text("주소: \(marketData.marketAddress1 ?? "") \(marketData.marketAddress2 ?? "")")
                         Text("평점: \(String(format:"%.1f",marketData.marketRatings ?? 0.0)) ")
@@ -23,6 +23,7 @@ struct MarketListView: View {
                         Text("주차장: \(marketData.parking ?? "")")
                         Text("화장실: \(marketData.toilet ?? "")")
                         Text("전화번호: \(marketData.marketPhonenum ?? "")")
+                        Text("지역화페: \(marketData.marketGiftcard!)")
                         
                     }
                 } else {
@@ -30,38 +31,19 @@ struct MarketListView: View {
                 }
             }
             .listStyle(GroupedListStyle())
-            .onAppear(perform: loadData)
         }
     }
     
-    func loadData() {
-        let jsonString = """
-        {
-            "marketId": 2,
-            "marketName": "상도시장",
-            "marketAddress1": "상도역",
-            "marketAddress2": "",
-            "marketLocation": "서울",
-            "marketLatitude": 37.499677,
-            "marketLongitude": 126.961537,
-            "marketRatings": 3.8,
-            "marketInfo": "규모가 큰 시장은 아니지만, 좋은 상품들이 풍성하게 있고 정이 넘치는 전통시장이다.",
-            "parking": "O",
-            "toilet": "O",
-            "marketPhonenum": "02-824-3747",
-            "marketGiftcard": "온누리상품권",
-            "marketFile": null
-        }
-        """
-        
-        if let jsonData = jsonString.data(using: .utf8) {
-            let decoder = JSONDecoder()
-            do {
-                marketData = try decoder.decode(MarketOne.self, from: jsonData)
-            } catch {
-                print("Error decoding JSON: \(error)")
+    func convertDate(from string: String) -> String {
+            let inputFormatter = DateFormatter()
+            inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            if let date = inputFormatter.date(from: string) {
+                let outputFormatter = DateFormatter()
+                outputFormatter.dateFormat = "yyyy.MM.dd"
+                return outputFormatter.string(from: date)
+            } else {
+                return "Invalid date"
             }
         }
-    }
 }
 

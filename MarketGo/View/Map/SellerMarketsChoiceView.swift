@@ -13,13 +13,16 @@ import Combine
 class MarketsChoiceViewModel: ObservableObject {
     @Published var markets = MarketArray()
     @Published var searchText = ""
+    @Published var selectedLocation = "서울"
+    
     
     init() {
         getMarkets()
     }
     
     func getMarkets() {
-        let letter = makeStringKoreanEncoded("서울")
+        
+        let letter = makeStringKoreanEncoded("\(selectedLocation)")
         let url = "http://3.34.33.15:8080/market/loc/\(letter)"
         
         AF.request(url, method: .get).validate().responseDecodable(of: MarketArray.self) { (response) in
@@ -36,11 +39,21 @@ class MarketsChoiceViewModel: ObservableObject {
 }
 struct SellerMarketsChoiceView: View {
     @ObservedObject var viewModel = MarketsChoiceViewModel()
+    @State private var isLinkActive = false
     
     var body: some View {
         NavigationView {
             VStack {
                 HStack{
+                    Picker(selection: $viewModel.selectedLocation, label: Text("Location")) {
+                        Text("서울").tag("서울")
+                        Text("제주").tag("제주")
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    .accentColor(.black)
+                    .onChange(of: viewModel.selectedLocation) { _ in
+                        viewModel.getMarkets()
+                    }
                     TextField("Search", text: $viewModel.searchText)
                         .padding(7)
                         .background(Color(.systemGray6))
@@ -50,7 +63,28 @@ struct SellerMarketsChoiceView: View {
                 
                 
                 List(viewModel.markets.filter({ "\($0)".contains(viewModel.searchText) || viewModel.searchText.isEmpty }), id: \.marketName) { market in
-                    Text(market.marketName ?? "")
+                    HStack{
+                        Text(market.marketName ?? "")
+                        
+                        Spacer()
+                        Button(action: {
+                            
+                            isLinkActive = true
+                        }) {
+                            Image(systemName: "arrowtriangle.forward")
+                                .foregroundColor(.black)
+                        }
+                        .background(
+                            
+                            NavigationLink(destination: Detail(), isActive: $isLinkActive) {
+                                EmptyView()
+                            }
+                                .hidden()
+                        )
+                        
+                    }
+                    
+                    
                 }
             }
             .navigationTitle("")
