@@ -23,6 +23,7 @@
 		21416B7E2A0CF25F008EA3C5 /* MarketTableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21416B7D2A0CF25F008EA3C5 /* MarketTableWrapper.swift */; };
 		21416B862A0EB008008EA3C5 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21416B852A0EB008008EA3C5 /* Detail.swift */; };
 		21416B8A2A10217A008EA3C5 /* SellerMarketChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21416B892A10217A008EA3C5 /* SellerMarketChoiceView.swift */; };
+		21416B8C2A1025F0008EA3C5 /* SellerMarketsChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21416B8B2A1025F0008EA3C5 /* SellerMarketsChoiceView.swift */; };
 		2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE6A29DD69B5008913C4 /* ProfileImageView.swift */; };
 		2144FE6D29DD6A32008913C4 /* FoodItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE6C29DD6A32008913C4 /* FoodItemModel.swift */; };
 		2144FE6F29DD6A58008913C4 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FE6E29DD6A58008913C4 /* LocationModel.swift */; };
@@ -120,6 +121,7 @@
 		21416B7D2A0CF25F008EA3C5 /* MarketTableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableWrapper.swift; sourceTree = "<group>"; };
 		21416B852A0EB008008EA3C5 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		21416B892A10217A008EA3C5 /* SellerMarketChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerMarketChoiceView.swift; sourceTree = "<group>"; };
+		21416B8B2A1025F0008EA3C5 /* SellerMarketsChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerMarketsChoiceView.swift; sourceTree = "<group>"; };
 		2144FE6A29DD69B5008913C4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		2144FE6C29DD6A32008913C4 /* FoodItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemModel.swift; sourceTree = "<group>"; };
 		2144FE6E29DD6A58008913C4 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				21416B7D2A0CF25F008EA3C5 /* MarketTableWrapper.swift */,
 				21416B852A0EB008008EA3C5 /* Detail.swift */,
 				21416B892A10217A008EA3C5 /* SellerMarketChoiceView.swift */,
+				21416B8B2A1025F0008EA3C5 /* SellerMarketsChoiceView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				2144FE7929DD6B4F008913C4 /* MarketSearchView.swift in Sources */,
 				21FAE1F02A0B65FC006593D9 /* SellerSignUpViewModel.swift in Sources */,
 				2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */,
+				21416B8C2A1025F0008EA3C5 /* SellerMarketsChoiceView.swift in Sources */,
 				21FAE1E02A0AA52E006593D9 /* SignUpView.swift in Sources */,
 				2144FE6D29DD6A32008913C4 /* FoodItemModel.swift in Sources */,
 				2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */,
