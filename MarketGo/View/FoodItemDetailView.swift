@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct FoodItemDetailView: View {
     var goods: Good
     
@@ -15,10 +17,7 @@ struct FoodItemDetailView: View {
             
             VStack(alignment: .leading) {
                 
-                Image(String(goods.goodsFile?.originalFileName ?? ""))
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                
+                GoodsImage(url: URL(string: goods.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
                 
                 Text(goods.goodsName ?? "")
                     .font(.system(size: 26, weight: .bold))
@@ -58,13 +57,11 @@ struct FoodItemDetailView: View {
 
               
             }
+           
         }
 
     }
+    
 }
 
-//struct FoodItemDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FoodItemDetailView(fooditem: FoodItem.foodItems[0])
-//    }
-//}
+

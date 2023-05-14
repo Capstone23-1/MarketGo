@@ -11,27 +11,9 @@ import SwiftUI
 struct MenuItemRow: View {
     var goods: Good
     
-    @StateObject var fileModel = FileDataViewModel()
-    
     var body: some View {
         
         HStack {
-            VStack {
-                //서버에서 이미지 받아오기
-                if let fileData = fileModel.fileData {
-                    Image(fileData.originalFileName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 70, height: 70)
-                        .cornerRadius(4)
-                } else {
-                    Text("Loading...")
-                }
-            }
-            .onAppear {
-                fileModel.getFileData(fileId: goods.goodsFile?.fileID ?? 0)
-            }
-        
             Spacer().frame(width:20)
             
             VStack(alignment: .leading, spacing: 10) {
