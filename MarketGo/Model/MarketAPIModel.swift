@@ -137,9 +137,9 @@ struct StoreFile: Codable {
     var uploadFileURL: String?
 
     enum CodingKeys: String, CodingKey {
-        case fileID
+        case fileID = "fileId"
         case originalFileName, uploadFileName, uploadFilePath
-        case uploadFileURL
+        case uploadFileURL = "uploadFileUrl"
     }
 }
 

@@ -32,11 +32,12 @@ struct StoreListView: View {
                         NavigationLink(destination: StoreView(store: store)) {
                             HStack {
                                 HStack {
-                                    if let fileData = store.storeFile {
-                                        URLImage(url: URL(string: fileData.uploadFileURL ?? "")) // Pass the URL directly
+                                    if let fileData = store.storeFile, let uploadFileURL = fileData.uploadFileURL, let url = URL(string: uploadFileURL) {
+                                        URLImage(url: url)
                                     } else {
                                         Text("Loading...")
                                     }
+
                                 }
 
                                 VStack(alignment: .leading, spacing: 10) {

@@ -68,48 +68,44 @@ struct ShopView: View {
                                     let store = filteredStores[index]
                                     NavigationLink(destination: StoreView(store: store)){
 
-                                        
                                         HStack {
+                                            
                                             VStack {
-                                                
-                                                VStack {
-                                                    if let fileData = store.storeFile {
-                                                        URLImage(url: URL(string: fileData.uploadFileURL ?? "")) // Pass the URL directly
-                                                    } else {
-                                                        Text("Loading...")
-                                                    }
+                                                if let fileData = store.storeFile {
+                                                    URLImage(url: URL(string: fileData.uploadFileURL ?? "")) // Pass the URL directly
+                                                } else {
+                                                    Text("Loading...")
                                                 }
+                                            }
 
+                                            
+                                            VStack(alignment: .leading, spacing: 10) {
+                                                Text(store.storeName ?? "")
+                                                    .font(.headline)
+                                                    .foregroundColor(.black)
                                                 
-                                                VStack(alignment: .leading, spacing: 10) {
-                                                    Text(store.storeName ?? "")
-                                                        .font(.headline)
+                                                if let reviewCount = store.reviewCount as? Int {
+                                                    Text("작성된 리뷰 \(reviewCount)개 > ")
+                                                        .font(.subheadline)
                                                         .foregroundColor(.black)
-                                                    
-                                                    if let reviewCount = store.reviewCount as? Int {
-                                                        Text("작성된 리뷰 \(reviewCount)개 > ")
-                                                            .font(.subheadline)
-                                                            .foregroundColor(.black)
-                                                    } else {
-                                                        Text("작성된 리뷰 0개 > ")
-                                                            .font(.subheadline)
-                                                            .foregroundColor(.black)
-                                                    }
-                                                    
-                                                    
-                                                }
-                                                Spacer()
-                                                HStack {
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.yellow)
-                                                    Text(String(format: "%.1f", store.storeRatings ?? 0))
+                                                } else {
+                                                    Text("작성된 리뷰 0개 > ")
                                                         .font(.subheadline)
                                                         .foregroundColor(.black)
                                                 }
+                                                
+                                                
                                             }
-                                            .padding() // 각 셀에 패딩 추가
-                                            
+                                            Spacer()
+                                            HStack {
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.yellow)
+                                                Text(String(format: "%.1f", store.storeRatings ?? 0))
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.black)
+                                            }
                                         }
+                                        .padding() 
                                         
                                     }
                                 }
