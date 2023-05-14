@@ -42,52 +42,52 @@ struct SellerMarketChoiceView: View {
     @State private var isLinkActive = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                HStack{
-                    Picker(selection: $viewModel.selectedLocation, label: Text("Location")) {
-                        Text("서울").tag("서울")
-                        Text("제주").tag("제주")
-                    }
-                    .pickerStyle(MenuPickerStyle())
-                    .accentColor(.black)
-                    .onChange(of: viewModel.selectedLocation) { _ in
-                        viewModel.getMarkets()
-                    }
-                    TextField("Search", text: $viewModel.searchText)
-                        .padding(7)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                        .padding(.horizontal, 10)
+        
+        VStack {
+            HStack{
+                Picker(selection: $viewModel.selectedLocation, label: Text("Location")) {
+                    Text("서울").tag("서울")
+                    Text("제주").tag("제주")
                 }
-                
-                
-                List(viewModel.markets.filter({ "\($0)".contains(viewModel.searchText) || viewModel.searchText.isEmpty }), id: \.marketName) { market in
-                    HStack{
-                        Text(market.marketName ?? "")
-                        
-                        Spacer()
-                        Button(action: {
-                            
-                            isLinkActive = true
-                        }) {
-                            Image(systemName: "arrowtriangle.forward")
-                                .foregroundColor(.black)
-                        }
-                        .background(
-                            
-                            NavigationLink(destination: Detail(), isActive: $isLinkActive) {
-                                EmptyView()
-                            }
-                                .hidden()
-                        )
-                        
-                    }
-                    
-                    
+                .pickerStyle(MenuPickerStyle())
+                .accentColor(.black)
+                .onChange(of: viewModel.selectedLocation) { _ in
+                    viewModel.getMarkets()
                 }
+                TextField("Search", text: $viewModel.searchText)
+                    .padding(7)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(8)
+                    .padding(.horizontal, 10)
             }
-            .navigationTitle("")
+            
+            
+            List(viewModel.markets.filter({ "\($0)".contains(viewModel.searchText) || viewModel.searchText.isEmpty }), id: \.marketName) { market in
+                HStack{
+                    Text(market.marketName ?? "")
+                    
+                    Spacer()
+                    Button(action: {
+                        
+                        isLinkActive = true
+                    }) {
+                        Image(systemName: "arrowtriangle.forward")
+                            .foregroundColor(.black)
+                    }
+                    .background(
+                        
+                        NavigationLink(destination: Detail(), isActive: $isLinkActive) {
+                            EmptyView()
+                        }
+                            .hidden()
+                    )
+                    
+                }
+                
+                
+            }
         }
+        
     }
 }
+
