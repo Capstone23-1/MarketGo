@@ -16,7 +16,7 @@ import SwiftUI
 
 struct StoreView: View {
     let store: StoreElement
-    @ObservedObject private var goodsViewModel = GoodsViewModel()
+    @ObservedObject private var goodsViewModel = GoodsViewModel2()
     
     var body: some View {
         ScrollView {
@@ -58,12 +58,6 @@ struct StoreView: View {
                     Text("Market Location: \(market.marketLocation ?? "")")
                         .foregroundColor(.black)
                     
-                    Text("Market Ratings: \(market.marketRatings ?? 0.0)")
-                        .foregroundColor(.black)
-                    
-                    Text("Market Info: \(market.marketInfo ?? "")")
-                        .foregroundColor(.black)
-                    
                     Text("Parking: \(market.parking ?? "")")
                         .foregroundColor(.black)
                     
@@ -76,11 +70,7 @@ struct StoreView: View {
                     Text("Market Giftcard: \(market.marketGiftcard ?? "")")
                         .foregroundColor(.black)
                     
-                    Text("Market Type: \(market.marketType ?? "")")
-                        .foregroundColor(.black)
                     
-                    //                    Text("Update Time: \(market.updateTime ?? "")")
-                    //                        .foregroundColor(.black)
                 }
                 
                 if let reviewCount = store.reviewCount {
@@ -94,7 +84,26 @@ struct StoreView: View {
                     .font(.headline)
                     .foregroundColor(.black)
                     .padding(.top)
-                
+            
+                VStack {
+                        // Menu Board
+                        if !goodsViewModel.goods.isEmpty {
+                            List(goodsViewModel.goods) { good in
+                                VStack(alignment: .leading) {
+                                    Text(good.goodsName ?? "")
+                                        .font(.headline)
+                                    Text(good.goodsInfo ?? "")
+                                        .font(.subheadline)
+                                }
+                            }
+                        } else {
+                            Text("No menu items available")
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    .onAppear {
+                        goodsViewModel.fetchGoods(forStoreID: store.storeID ?? 0)
+                    }
             }
         }
     }
