@@ -72,7 +72,14 @@ struct ShopView: View {
                                         HStack {
                                             VStack {
                                                 
-                                                Image(store.storeFile?.uploadFileName ?? "")
+                                                VStack {
+                                                    if let fileData = store.storeFile {
+                                                        URLImage(url: URL(string: fileData.uploadFileURL ?? "")) // Pass the URL directly
+                                                    } else {
+                                                        Text("Loading...")
+                                                    }
+                                                }
+
                                                 
                                                 VStack(alignment: .leading, spacing: 10) {
                                                     Text(store.storeName ?? "")

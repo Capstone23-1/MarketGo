@@ -31,14 +31,12 @@ struct StoreListView: View {
                     }) { store in
                         NavigationLink(destination: StoreView(store: store)) {
                             HStack {
-                                if let storeFile = store.storeFile,
-                                   let uploadFileURL = storeFile.uploadFileURL,
-                                   let url = URL(string: uploadFileURL) {
-                                    URLImage(url: url)
-                                        .frame(width: 80, height: 80)
-                                        .cornerRadius(1)
-                                } else {
-                                    Text("Loading...")
+                                HStack {
+                                    if let fileData = store.storeFile {
+                                        URLImage(url: URL(string: fileData.uploadFileURL ?? "")) // Pass the URL directly
+                                    } else {
+                                        Text("Loading...")
+                                    }
                                 }
 
                                 VStack(alignment: .leading, spacing: 10) {
@@ -46,7 +44,7 @@ struct StoreListView: View {
                                         .font(.headline)
                                         .foregroundColor(.black)
 
-                                    Text("작성된 리뷰 \(store.storeRatings ?? 0)개 > ")
+                                    Text("작성된 리뷰 \(store.reviewCount ?? 0)개 > ")
                                         .font(.subheadline)
                                         .foregroundColor(.black)
                                 }
@@ -62,20 +60,6 @@ struct StoreListView: View {
                                 }
                             }
                             .padding()
-
-                            // Display goods information for the store
-                            VStack(alignment: .leading) {
-                                if let storeMarketID = store.storeMarketID {
-                                    Text("상품 정보:")
-                                        .font(.headline)
-                                        .foregroundColor(.black)
-                                        .padding(.top)
-                                    ForEach(goodsViewModel.goods.filter { $0.goodsStore?.storeID == storeMarketID.marketID }, id: \.id) { goods in
-                                        Text(goods.goodsName ?? "")
-                                            .foregroundColor(.black)
-                                    }
-                                }
-                            }
                         }
                     }
                 }
