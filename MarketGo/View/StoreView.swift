@@ -33,14 +33,14 @@ struct StoreView: View {
                                 Text("Address: \(store.storeAddress1 ?? "") \(store.storeAddress2 ?? "")")
                                     .foregroundColor(.black)
                 
-                                Text("Category: \(store.storeCategory?.categoryName ?? "")")
-                                    .foregroundColor(.black)
-                
-                                Text("Phone: \(store.storePhonenum ?? "")")
-                                    .foregroundColor(.black)
-                
-                                Text("Info: \(store.storeInfo ?? "")")
-                                    .foregroundColor(.black)
+//                                Text("Category: \(store.storeCategory?.categoryName ?? "")")
+//                                    .foregroundColor(.black)
+//
+//                                Text("Phone: \(store.storePhonenum ?? "")")
+//                                    .foregroundColor(.black)
+//
+//                                Text("Info: \(store.storeInfo ?? "")")
+//                                    .foregroundColor(.black)
                 
                 //                Text("Card Availability: \(store.cardAvail ?? "")")
                 //                    .foregroundColor(.black)
