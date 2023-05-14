@@ -84,23 +84,16 @@ struct ShopView: View {
                                                     .font(.headline)
                                                     .foregroundColor(.black)
                                                 
-                                                if let reviewCount = store.reviewCount as? Int {
-                                                    Text("작성된 리뷰 \(reviewCount)개 > ")
-                                                        .font(.subheadline)
-                                                        .foregroundColor(.black)
-                                                } else {
-                                                    Text("작성된 리뷰 0개 > ")
-                                                        .font(.subheadline)
-                                                        .foregroundColor(.black)
-                                                }
-                                                
+                                                Text("작성된 리뷰 \(store.reviewCount ?? 0)개 > ")
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.black)
                                                 
                                             }
                                             Spacer()
                                             HStack {
                                                 Image(systemName: "star.fill")
                                                     .foregroundColor(.yellow)
-                                                Text(String(format: "%.1f", store.storeRatings ?? 0))
+                                                Text(String(format: "%.1f", store.storeRatings ?? 0.0))
                                                     .font(.subheadline)
                                                     .foregroundColor(.black)
                                             }
