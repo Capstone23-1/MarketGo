@@ -34,12 +34,12 @@ struct MarketTableWrapper: View {
                     Image(systemName: "arrowtriangle.forward")
                         .foregroundColor(.black)
                 }
-//                .background(
-//                    NavigationLink(destination: MarketInfoView(selected: $selected, selectedMarket: $selectedMarket,currentUser: $currentUser), isActive: $isLinkActive) {
-//                        EmptyView()
-//                    }
-//                    .hidden()
-//                )
+                .background(
+                    NavigationLink(destination: MarketInfoView(selected: $selected, selectedMarket: $selectedMarket), isActive: $isLinkActive) {
+                        EmptyView()
+                    }
+                    .hidden()
+                )
             }
         }
     }

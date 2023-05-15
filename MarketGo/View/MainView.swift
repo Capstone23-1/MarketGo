@@ -9,7 +9,7 @@ import SwiftUI
 struct MainView: View {
     @State private var selectedTab = 0
     @State public var topTitle = "시장"
-    @Binding var currentUser: MemberInfo?
+    
     let member = Member(memberToken: "1234567890", memberName: "John Doe", interestMarket: 1, cartId: 123, storeId: 456, recentLatitude: 37.567, recentLongitude: 126.978)
     
 
@@ -31,7 +31,7 @@ struct MainView: View {
                                 }
                                 .tag(1)
                             
-                            Text("Third View")
+                                HomeView()
                                 .tabItem {
                                     Image(systemName: "house")
                                     Text("Home")

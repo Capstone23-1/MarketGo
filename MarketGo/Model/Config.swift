@@ -7,6 +7,8 @@
 // 이곳은 전역변수를 모아놓는 곳입니다.
 import Foundation
 import Alamofire
+var currentUser: MemberInfo?
+
 class Config{
     public let bundleID: String="com.capstone.MarketGo"
 }

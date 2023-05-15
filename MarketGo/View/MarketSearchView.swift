@@ -67,7 +67,7 @@ struct MarketSearchView: View {
                 
                 
                 
-                NavigationLink(destination: MainView(currentUser: $currentUser)) {
+                NavigationLink(destination: MainView()) {
                     Text("화면 넘기기")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -78,6 +78,7 @@ struct MarketSearchView: View {
                 
             }
             .onAppear {
+                currentUser=currentUser
                 let viewModel = MarketViewModel()
                 isLoading = true // 로딩 시작
                 viewModel.searchMarket(location: locationManager.userLocation ?? cauLocation, queryKeyword: "시장") { result in
