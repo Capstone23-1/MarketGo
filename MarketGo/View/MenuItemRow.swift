@@ -10,10 +10,16 @@ import SwiftUI
 
 struct MenuItemRow: View {
     var goods: Good
+    let storeID: Int // Store ID
     
     var body: some View {
         
         HStack {
+            
+            GoodsImage(url: URL(string: goods.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
+                .frame(width: 70, height: 70)
+
+            
             Spacer().frame(width:20)
             
             VStack(alignment: .leading, spacing: 10) {
@@ -33,7 +39,7 @@ struct MenuItemRow: View {
                 .resizable()
                 .renderingMode(.template)
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 25, height: 25)
+                .frame(width: 20, height: 20)
                 .foregroundColor(.gray)
                 
         }
