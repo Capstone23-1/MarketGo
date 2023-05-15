@@ -1,28 +1,33 @@
-
 import SwiftUI
-import Alamofire
-
-
 
 struct TestView: View {
-    @ObservedObject var viewModel = GoodsViewModel()
+    @ObservedObject private var goodsViewModel = GoodsViewModel2()
+    let storeID: Int // Store ID
 
     var body: some View {
-        List(viewModel.goods, id: \.goodsID) { good in
-            VStack(alignment: .leading) {
-                Text("ID: \(good.goodsID ?? 0)")
-                Text("Name: \(good.goodsName ?? "")")
-                // Add more views to display other properties as needed
+        VStack {
+            if !goodsViewModel.goods.isEmpty {
+                List(goodsViewModel.goods) { good in
+                    VStack(alignment: .leading) {
+                        Text(good.goodsName ?? "")
+                            .font(.headline)
+                        Text(good.goodsInfo ?? "")
+                            .font(.subheadline)
+                    }
+                }
+            } else {
+                Text("No menu items available")
+                    .foregroundColor(.gray)
             }
         }
         .onAppear {
-            viewModel.fetchGoods(forStoreMarketID: 17)
+            goodsViewModel.fetchGoods(forGoodsStoreID: storeID)
         }
     }
 }
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
-        TestView()
+        TestView(storeID: 4) // Replace with an actual store ID for preview
     }
 }

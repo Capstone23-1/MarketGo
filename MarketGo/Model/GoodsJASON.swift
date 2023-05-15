@@ -152,8 +152,8 @@ class GoodsViewModel: ObservableObject {
 class GoodsViewModel2: ObservableObject {
     @Published var goods: Goods = []
 
-    func fetchGoods(forGoodsStore goodsStore: StoreElement) {
-        let url = "http://3.34.33.15:8080/goods/all?storeID=\(goodsStore.storeID ?? 0)"
+    func fetchGoods(forGoodsStoreID storeID: Int) {
+        let url = "http://3.34.33.15:8080/goods/all?storeID=\(storeID)"
 
         AF.request(url).responseData { response in
             switch response.result {
@@ -173,8 +173,6 @@ class GoodsViewModel2: ObservableObject {
         }
     }
 }
-
-
 
 
 

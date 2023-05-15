@@ -19,7 +19,7 @@ struct StoreView: View {
     @ObservedObject var goodsViewModel = GoodsViewModel2()
     
     var body: some View {
-        ScrollView {
+        VStack {
             
             VStack(alignment: .leading) {
                 
@@ -86,31 +86,37 @@ struct StoreView: View {
 //                }
 //
                 Divider()
+            VStack{
                 
                 Text("Menu")
                     .font(.headline)
                     .foregroundColor(.black)
                     .padding(.top)
-            
-                VStack {
-                        // Menu Board
-                        if !goodsViewModel.goods.isEmpty {
-                            List(goodsViewModel.goods) { good in
-                                VStack(alignment: .leading) {
-                                    Text(good.goodsName ?? "")
-                                        .font(.headline)
-                                    Text(good.goodsInfo ?? "")
-                                        .font(.subheadline)
-                                }
-                            }
-                        } else {
-                            Text("No menu items available")
-                                .foregroundColor(.gray)
-                        }
-                    }
-                    .onAppear {
-                        goodsViewModel.fetchGoods(forGoodsStore: store)
-                    }
+            Text("\(store.storeID ?? 0)")
+            TestView(storeID: store.storeID ?? 0)
+                    .id(UUID())
+                
+            }
+                
+//                VStack {
+//                        // Menu Board
+//                        if !goodsViewModel.goods.isEmpty {
+//                            List(goodsViewModel.goods) { good in
+//                                VStack(alignment: .leading) {
+//                                    Text(good.goodsName ?? "")
+//                                        .font(.headline)
+//                                    Text(good.goodsInfo ?? "")
+//                                        .font(.subheadline)
+//                                }
+//                            }
+//                        } else {
+//                            Text("No menu items available")
+//                                .foregroundColor(.gray)
+//                        }
+//                    }
+//                    .onAppear {
+//                        goodsViewModel.fetchGoods(forGoodsStoreID: store.storeID ?? 0)
+//                    }
             }
         }
     }
