@@ -63,9 +63,7 @@ struct MarketSearchView: View {
                     }
                     
                 }
-                NavigationLink(destination:SellerMarketChoiceView()){
-                    Text("판매자")
-                }
+                
                 
                 
                 NavigationLink(destination: MainView()) {

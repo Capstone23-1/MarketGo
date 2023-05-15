@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct SellerSignInView: View {
+struct SellerSignIn: View {
     
     @Binding var moveToProfileView: Bool
-    @ObservedObject private var viewModel = SignInViewModel()
-    @Binding var showSignUpView: Bool
+    @ObservedObject private var viewModel = UserSignInViewModel()
+//    @Binding var showSignUpView: Bool
     @State var moveToMarketSearchView = false
     
     
@@ -71,16 +71,9 @@ struct SellerSignInView: View {
                 }
                 
                 
-                // 회원가입 버튼
-                Button(action: {
-                    // 버튼 클릭 시 회원가입 창 표시
-                    showSignUpView.toggle()
-                }) {
+                
+                NavigationLink(destination:SellerSignUpView()){
                     Text("회원가입")
-                        .foregroundColor(.blue)
-                }
-                .sheet(isPresented: $showSignUpView) {
-                    SellerSignUpView()
                 }
                 
                 

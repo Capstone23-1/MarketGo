@@ -11,7 +11,7 @@ import SwiftUI
 struct UserSignInView: View {
     
     @Binding var moveToProfileView: Bool
-    @ObservedObject private var viewModel = SignInViewModel()
+    @ObservedObject private var viewModel = UserSignInViewModel()
     @Binding var showSignUpView: Bool
     @State var moveToMarketSearchView = false
     @State var currentUser: MemberInfo? = nil
@@ -82,7 +82,7 @@ struct UserSignInView: View {
                         .foregroundColor(.blue)
                 }
                 .sheet(isPresented: $showSignUpView) {
-                    SignUpView()
+                    UserSignUpView()
                 }
                 
                 
