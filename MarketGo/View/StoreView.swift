@@ -16,68 +16,75 @@ import SwiftUI
 
 struct StoreView: View {
     let store: StoreElement
-    @ObservedObject private var goodsViewModel = GoodsViewModel2()
+    @ObservedObject var goodsViewModel = GoodsViewModel2()
     
     var body: some View {
         ScrollView {
             
-            VStack {
+            VStack(alignment: .leading) {
                 
                 GoodsImage(url: URL(string: store.storeFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
                 
                 }
-                                Text(store.storeName ?? "")
-                                    .font(.headline)
-                                    .foregroundColor(.black)
+            
+            VStack(alignment: .leading){
                 
-                                Text("Address: \(store.storeAddress1 ?? "") \(store.storeAddress2 ?? "")")
-                                    .foregroundColor(.black)
+                Text(store.storeName ?? "")
+                    .font(.headline)
+                    .foregroundColor(.black)
+
+                Text("가게 주소: \(store.storeAddress1 ?? "") \(store.storeAddress2 ?? "")")
+                    .foregroundColor(.black)
+
+                Text("가게 유형: \(store.storeCategory?.categoryName ?? "")")
+                    .foregroundColor(.black)
                 
-//                                Text("Category: \(store.storeCategory?.categoryName ?? "")")
-//                                    .foregroundColor(.black)
+                Text("전화번호 : \(store.storePhonenum ?? "")")
+                    .foregroundColor(.black)
+
+                Text("가게 소개 : \(store.storeInfo ?? "")")
+                    .foregroundColor(.black)
+
+                Text("카드 사용 가능 여부 : \(store.cardAvail ?? "")")
+                    .foregroundColor(.black)
+
+                Text("지역 화폐 사용 가능 여부 : \(store.localAvail ?? "")")
+                    .foregroundColor(.black)
+
+                
+            }
+                                
+                                                
+//                if let market = store.storeMarketID {
+//                    Text("Market: \(market.marketName ?? "")")
+//                        .foregroundColor(.black)
 //
-//                                Text("Phone: \(store.storePhonenum ?? "")")
-//                                    .foregroundColor(.black)
+//                    Text("Market Address: \(market.marketAddress1 ?? "") \(market.marketAddress2 ?? "")")
+//                        .foregroundColor(.black)
 //
-//                                Text("Info: \(store.storeInfo ?? "")")
-//                                    .foregroundColor(.black)
-                
-                //                Text("Card Availability: \(store.cardAvail ?? "")")
-                //                    .foregroundColor(.black)
-                //
-//                                Text("Local Availability: \(store.localAvail ?? "")")
-//                                    .foregroundColor(.black)
-                
-                if let market = store.storeMarketID {
-                    Text("Market: \(market.marketName ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Text("Market Address: \(market.marketAddress1 ?? "") \(market.marketAddress2 ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Text("Market Location: \(market.marketLocation ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Text("Parking: \(market.parking ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Text("Toilet: \(market.toilet ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Text("Market Phone: \(market.marketPhonenum ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Text("Market Giftcard: \(market.marketGiftcard ?? "")")
-                        .foregroundColor(.black)
-                    
-                    
-                }
-                
-                if let reviewCount = store.reviewCount {
-                    Text("Review Count: \(reviewCount)")
-                        .foregroundColor(.black)
-                }
-                
+//                    Text("Market Location: \(market.marketLocation ?? "")")
+//                        .foregroundColor(.black)
+//
+//                    Text("Parking: \(market.parking ?? "")")
+//                        .foregroundColor(.black)
+//
+//                    Text("Toilet: \(market.toilet ?? "")")
+//                        .foregroundColor(.black)
+//
+//                    Text("Market Phone: \(market.marketPhonenum ?? "")")
+//                        .foregroundColor(.black)
+//
+//                    Text("Market Giftcard: \(market.marketGiftcard ?? "")")
+//                        .foregroundColor(.black)
+//
+//
+//                }
+//
+//                if let reviewCount = store.reviewCount {
+//                    Text("Review Count: \(reviewCount)")
+//                        .foregroundColor(.black)
+//                }
+//
                 Divider()
                 
                 Text("Menu")
@@ -102,7 +109,7 @@ struct StoreView: View {
                         }
                     }
                     .onAppear {
-                        goodsViewModel.fetchGoods(forStoreID: store.storeID ?? 0)
+                        goodsViewModel.fetchGoods(forGoodsStore: store)
                     }
             }
         }

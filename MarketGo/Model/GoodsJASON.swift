@@ -150,29 +150,19 @@ class GoodsViewModel: ObservableObject {
 
 
 class GoodsViewModel2: ObservableObject {
-    @Published var goods: [Good] = []
+    @Published var goods: Goods = []
 
-    func fetchGoods(forStoreID storeID: Int) {
-        let url = "http://3.34.33.15:8080/goods/all"
-        guard let requestURL = URL(string: url) else {
-            print("Invalid URL")
-            return
-        }
-        
-        let parameters: [String: Any] = [
-            "goodsStore": storeID
-        ]
-        
-        AF.request(requestURL, parameters: parameters).responseData { response in
+    func fetchGoods(forGoodsStore goodsStore: StoreElement) {
+        let url = "http://3.34.33.15:8080/goods/all?storeID=\(goodsStore.storeID ?? 0)"
+
+        AF.request(url).responseData { response in
             switch response.result {
             case .success(let data):
                 do {
                     let decoder = JSONDecoder()
-                    let allGoods = try decoder.decode([Good].self, from: data)
-                    // Filter goods based on storeID
-                    let filteredGoods = allGoods.filter { $0.goodsStore?.storeID == storeID }
+                    let response = try decoder.decode(Goods.self, from: data)
                     DispatchQueue.main.async {
-                        self.goods = filteredGoods
+                        self.goods = response
                     }
                 } catch {
                     print(error.localizedDescription)
@@ -183,6 +173,9 @@ class GoodsViewModel2: ObservableObject {
         }
     }
 }
+
+
+
 
 
 
