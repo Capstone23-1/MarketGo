@@ -20,7 +20,7 @@ struct SignInView: View {
     // 소비자와 상인 중 선택된 항목을 저장하는 State 변수
     @State private var selectedRole = 0
     // 소비자와 상인을 선택할 수 있는 Picker에 사용할 데이터
-
+    @State var tempUser: MemberInfo?
     
     var body: some View {
         NavigationView{
@@ -58,7 +58,7 @@ struct SignInView: View {
                                 .foregroundColor(.blue)
                         }
                         .fullScreenCover(isPresented: $moveToMarketSearchViewDirectly) {
-                            MarketSearchView()
+                            MarketSearchView(currentUser: $tempUser)
                         }
                         NavigationLink(destination:EditProfileView()){
                             Text("회원정보수정")

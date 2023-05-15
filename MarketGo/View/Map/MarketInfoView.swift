@@ -10,6 +10,7 @@ struct MarketInfoView: View {
     @State private var selectedTab = 0
     @Binding var selected: Document?
     @Binding var selectedMarket: MarketOne?
+//    @Binding var currentUser: Member?
     
     var body: some View {
         GeometryReader { geometry in
@@ -40,7 +41,16 @@ struct MarketInfoView: View {
                     default:
                         Text("잘못된 선택")
                 }
+                
             }
+//            NavigationLink(destination: MainView(currentUser: $currentUser)) {
+//                Text("시장 선택")
+//                    .font(.headline)
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .background(Color.blue)
+//                    .cornerRadius(10.0)
+//            }
         }
         .navigationTitle((selected?.placeName ?? "시장정보"))
     }

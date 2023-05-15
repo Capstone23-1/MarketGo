@@ -22,6 +22,7 @@ struct MarketSearchView: View {
     @ObservedObject var locationManager = LocationManager()
     @State private var selectedMarket: Document?
     @State private var isLoading = false // indicator 추가
+    @Binding var currentUser: MemberInfo?
     var sortedClasses: [Document] {
         switch sortOption {
             case 0: return MarketList.sorted(by: { $0.distance < $1.distance })
@@ -66,7 +67,7 @@ struct MarketSearchView: View {
                 
                 
                 
-                NavigationLink(destination: MainView()) {
+                NavigationLink(destination: MainView(currentUser: $currentUser)) {
                     Text("화면 넘기기")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -103,12 +104,3 @@ struct MarketSearchView: View {
     }
 }
 
-
-
-
-
-struct MarketSearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        MarketSearchView()
-    }
-}

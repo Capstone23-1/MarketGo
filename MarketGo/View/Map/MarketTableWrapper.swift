@@ -15,6 +15,7 @@ struct MarketTableWrapper: View {
     @State private var isLoading = false // indicator 추가
     @State private var isLinkActive = false
     @State var selectedMarket: MarketOne?
+    
 
     var body: some View {
         List(data) { market in
@@ -33,12 +34,12 @@ struct MarketTableWrapper: View {
                     Image(systemName: "arrowtriangle.forward")
                         .foregroundColor(.black)
                 }
-                .background(
-                    NavigationLink(destination: MarketInfoView(selected: $selected, selectedMarket: $selectedMarket), isActive: $isLinkActive) {
-                        EmptyView()
-                    }
-                    .hidden()
-                )
+//                .background(
+//                    NavigationLink(destination: MarketInfoView(selected: $selected, selectedMarket: $selectedMarket,currentUser: $currentUser), isActive: $isLinkActive) {
+//                        EmptyView()
+//                    }
+//                    .hidden()
+//                )
             }
         }
     }
