@@ -42,6 +42,7 @@ struct StoreView: View {
                                 .cornerRadius(5)
                         }
                     }
+                    Divider()
                     
                     Text(store.storeName ?? "")
                         .font(.headline)
@@ -62,13 +63,17 @@ struct StoreView: View {
                         .foregroundColor(.black)
                     
                     Divider()
+                    
+                    VStack{
+                        Text("카드 사용 가능 여부 : \(store.cardAvail ?? "")")
+                            .foregroundColor(.black)
 
-                    Text("카드 사용 가능 여부 : \(store.cardAvail ?? "")")
-                        .foregroundColor(.black)
+                        Text("지역 화폐 사용 가능 여부 : \(store.localAvail ?? "")")
+                            .foregroundColor(.black)
 
-                    Text("지역 화폐 사용 가능 여부 : \(store.localAvail ?? "")")
-                        .foregroundColor(.black)
+                    }
 
+                   
                     
                 }
                                 
