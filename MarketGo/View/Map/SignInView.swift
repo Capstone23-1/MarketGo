@@ -10,7 +10,7 @@ struct SignInView: View {
     @State private var selectedTab = 0
     @State private var moveToProfileView = false
     // SignInViewModel을 StateObject로 선언하여 로그인 상태를 관리합니다.
-    @StateObject private var viewModel = SignInViewModel()
+    @StateObject private var viewModel = UserSignInViewModel()
     // 회원가입 창을 표시할지 여부를 결정하는 State 변수
     @State private var showSignUpView = false
     // 로그인 성공 시 MarketSearchView로 전환할지 여부를 결정하는 State 변수
@@ -41,13 +41,14 @@ struct SignInView: View {
                             case 0:
                                 UserSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
                             case 1:
-                                SellerSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
+                                SellerSignIn(moveToProfileView: $moveToProfileView)
                             
                             default:
                                 Text("잘못된 선택")
                         }
                         
                      
+                        
                         // 메인화면 바로가기 버튼
                         Button(action: {
                             // 버튼 클릭 시 moveToMarketSearchViewDirectly 상태를 true로 변경하여 MarketSearchView로 전환
