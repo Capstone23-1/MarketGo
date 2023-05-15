@@ -19,15 +19,29 @@ struct StoreView: View {
     @ObservedObject var goodsViewModel = GoodsViewModel2()
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             ScrollView{
                 VStack(alignment: .leading) {
                     
                     GoodsImage(url: URL(string: store.storeFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
                     
                     }
-                
-                VStack(alignment: .leading){
+            
+                VStack(){
+                    
+                    HStack {
+                        
+                        Text("작성된 리뷰 \(store.reviewCount ?? 0) 개>")
+                        
+                        NavigationLink(destination: MenuView(storeID: store.storeID ?? 0)) {
+                            Text("메뉴판")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.blue)
+                                .cornerRadius(5)
+                        }
+                    }
                     
                     Text(store.storeName ?? "")
                         .font(.headline)
@@ -35,15 +49,19 @@ struct StoreView: View {
 
                     Text("가게 주소: \(store.storeAddress1 ?? "") \(store.storeAddress2 ?? "")")
                         .foregroundColor(.black)
+                    Divider()
 
                     Text("가게 유형: \(store.storeCategory?.categoryName ?? "")")
                         .foregroundColor(.black)
+                    
                     
                     Text("전화번호 : \(store.storePhonenum ?? "")")
                         .foregroundColor(.black)
 
                     Text("가게 소개 : \(store.storeInfo ?? "")")
                         .foregroundColor(.black)
+                    
+                    Divider()
 
                     Text("카드 사용 가능 여부 : \(store.cardAvail ?? "")")
                         .foregroundColor(.black)
@@ -53,7 +71,7 @@ struct StoreView: View {
 
                     
                 }
-                                    
+                                
                                                     
                     if let market = store.storeMarketID {
                         Text("Market: \(market.marketName ?? "")")
@@ -64,12 +82,14 @@ struct StoreView: View {
 
                         Text("Market Location: \(market.marketLocation ?? "")")
                             .foregroundColor(.black)
+                        Divider()
 
                         Text("Parking: \(market.parking ?? "")")
                             .foregroundColor(.black)
 
                         Text("Toilet: \(market.toilet ?? "")")
                             .foregroundColor(.black)
+                        Divider()
 
                         Text("Market Phone: \(market.marketPhonenum ?? "")")
                             .foregroundColor(.black)
@@ -80,30 +100,8 @@ struct StoreView: View {
 
                     }
 
-                    if let reviewCount = store.reviewCount {
-                        Text("Review Count: \(reviewCount)")
-                            .foregroundColor(.black)
-                    }
-
-                    Divider()
-
+                   
                     
-                    VStack {
-                            // Menu Board
-                            if !goodsViewModel.goods.isEmpty {
-                                List(goodsViewModel.goods) { good in
-                                    MenuItemRow(goods: good, storeID: good.goodsStore?.storeID ?? 0)
-                                    }
-                                }
-                             else {
-                                Text("No menu items available")
-                                    .foregroundColor(.gray)
-                            }
-                
-                        }
-                        .onAppear {
-                            goodsViewModel.fetchGoods(forGoodsStoreID: store.storeID ?? 0)
-                        }
                 
             }
             
