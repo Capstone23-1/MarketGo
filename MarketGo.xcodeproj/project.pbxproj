@@ -290,6 +290,7 @@
 			children = (
 				994979BE2A11999D00159828 /* GoodsJASON.swift */,
 				994979C02A119A5100159828 /* StoreJASON.swift */,
+				994979C62A12700E00159828 /* CartJASON.swift */,
 				2144FE6E29DD6A58008913C4 /* LocationModel.swift */,
 				21470AB729FE620100A7CEE7 /* MarketAPIModel.swift */,
 				994B17C62A0236DE009B77E8 /* ReviewStore.swift */,
@@ -297,7 +298,6 @@
 				214871D12A055EDB00C6FD1D /* MarketOneModel.swift */,
 				210861FB2A06AE0900EC3A60 /* Config.swift */,
 				994979C22A119ADE00159828 /* URLImage.swift */,
-				994979C62A12700E00159828 /* CartJASON.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

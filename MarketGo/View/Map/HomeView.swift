@@ -11,9 +11,7 @@ struct HomeView: View {
     @EnvironmentObject var userViewModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
     var body: some View {
-        Text((userViewModel.currentUser?.memberName)!)
-        
-        Text((marketModel.currentMarket?.marketType)!)
+        Text("\(userViewModel.currentUser?.memberName ?? "")")
     }
 
 }
