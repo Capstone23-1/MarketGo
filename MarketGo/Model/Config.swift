@@ -7,7 +7,7 @@
 // 이곳은 전역변수를 모아놓는 곳입니다.
 import Foundation
 import Alamofire
-var currentUser: MemberInfo?
+
 
 class Config{
     public let bundleID: String="com.capstone.MarketGo"
@@ -22,7 +22,7 @@ func postUserMemberInfo(memberInfo: MemberInfo, completion: @escaping (Result<Da
     ]
     let encodeName = makeStringKoreanEncoded(memberInfo.memberName!)
 
-    var requestURL = "http://3.34.33.15:8080/member?memberId=&memberToken=\(memberInfo.memberToken ?? "null")&memberName=\(encodeName)&interestMarket=0&cartId=0&storeId=0&recentLatitude=0&recentLongitude=0"
+    let requestURL = "http://3.34.33.15:8080/member?memberId=&memberToken=\(memberInfo.memberToken ?? "null")&memberName=\(encodeName)&interestMarket=0&cartId=0&storeId=0&recentLatitude=0&recentLongitude=0"
     print(requestURL)
     AF.request(requestURL, method: .post, parameters: memberInfo, encoder: JSONParameterEncoder.default, headers: headers).responseData { response in
         switch response.result {

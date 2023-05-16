@@ -86,3 +86,6 @@ class UserSignInViewModel: ObservableObject {
     }
 
 }
+class User: ObservableObject {
+    @Published var currentUser: MemberInfo?
+}
