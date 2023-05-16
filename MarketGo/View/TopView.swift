@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct TobView: View {
+    @EnvironmentObject var marketModel: MarketModel
     var body: some View {
         HStack {
-            MarketChoicePickerView()
-//            Text("흑석시장")
-//                .font(.headline)
+//            MarketChoicePickerView()
+            Text( marketModel.currentMarket?.marketName ?? "N/A" )
+                .font(.headline)
             Spacer()
             
             NavigationLink{

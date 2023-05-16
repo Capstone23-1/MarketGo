@@ -10,6 +10,7 @@ struct MarketInfoView: View {
     @State private var selectedTab = 0
     @Binding var selected: Document?
     @Binding var selectedMarket: MarketOne?
+    @EnvironmentObject var marketModel: MarketModel
     
     
     var body: some View {
@@ -41,14 +42,20 @@ struct MarketInfoView: View {
                     default:
                         Text("잘못된 선택")
                 }
-                NavigationLink(destination: MainView()) {
-                    Text("시장 선택")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10.0)
+                Button(action: {
+                    self.marketModel.currentMarket = selectedMarket!
+//                    print("selectedMarket:\(String(describing: selectedMarket?.marketName))")
+                }) {
+                    NavigationLink(destination: MainView()) {
+                        Text("시장 선택")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(10.0)
+                    }
                 }
+
             }
             
         }

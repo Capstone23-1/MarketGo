@@ -58,7 +58,7 @@ struct SignInView: View {
                                 .foregroundColor(.blue)
                         }
                         .fullScreenCover(isPresented: $moveToMarketSearchViewDirectly) {
-                            MarketSearchView(currentUser: $tempUser)
+                            MarketSearchView()
                         }
                         NavigationLink(destination:EditProfileView()){
                             Text("회원정보수정")

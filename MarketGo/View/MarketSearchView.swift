@@ -22,7 +22,7 @@ struct MarketSearchView: View {
     @ObservedObject var locationManager = LocationManager()
     @State private var selectedMarket: Document?
     @State private var isLoading = false // indicator 추가
-    @Binding var currentUser: MemberInfo?
+    
     var sortedClasses: [Document] {
         switch sortOption {
             case 0: return MarketList.sorted(by: { $0.distance < $1.distance })
@@ -78,7 +78,7 @@ struct MarketSearchView: View {
                 
             }
             .onAppear {
-                currentUser=currentUser
+                
                 let viewModel = MarketViewModel()
                 isLoading = true // 로딩 시작
                 viewModel.searchMarket(location: locationManager.userLocation ?? cauLocation, queryKeyword: "시장") { result in
