@@ -11,6 +11,7 @@ struct StoreListView: View {
     @StateObject var storeModel = StoreViewModel()
     @StateObject var goodsViewModel = GoodsViewModel()
     @State private var searchText = ""
+    @EnvironmentObject var marketModel: MarketModel
 
     var body: some View {
         ScrollView {
@@ -66,8 +67,8 @@ struct StoreListView: View {
         }
         .navigationBarHidden(true)
         .onAppear {
-            storeModel.fetchStores(marketId: 17) // Provide the desired marketId here
-            goodsViewModel.fetchGoods(forStoreMarketID: 17) // Provide the desired marketId here
+            storeModel.fetchStores(marketId: marketModel.currentMarket?.marketID ?? 0) // Provide the desired marketId here
+            goodsViewModel.fetchGoods(forStoreMarketID: marketModel.currentMarket?.marketID ?? 0) // Provide the desired marketId here
         }
     }
 }
