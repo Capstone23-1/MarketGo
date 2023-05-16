@@ -11,8 +11,15 @@ import SwiftUI
 struct ShopView: View {
     @ObservedObject var storeModel = StoreViewModel()
     @ObservedObject var goodsModel = GoodsViewModel()
+    
+    @EnvironmentObject var userModel: UserModel
+    @EnvironmentObject var marketModel: MarketModel
 
-    @State var marketId: Int = 17
+    @State var marketId: Int? = 0
+
+    // Check if the value is not nil before accessing its properties
+
+    
     @State private var searchText = ""
     @State private var placeHolder: String = "시장 또는 물품 검색"
     
@@ -106,7 +113,7 @@ struct ShopView: View {
                             }
                             
                         }.onAppear {
-                            storeModel.fetchStores(marketId: marketId)
+                            storeModel.fetchStores(marketId: marketModel.currentMarket?.marketID ?? 0)
                         }
                         
                         VStack(alignment: .leading) {
@@ -115,7 +122,7 @@ struct ShopView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal)
                                 Spacer()
-                                NavigationLink(destination: FoodItemListView(marketId: marketId)) {
+                                NavigationLink(destination: FoodItemListView(marketId: marketModel.currentMarket?.marketID ?? 0)) {
                                     Text("상품 더보기 >")
                                         .foregroundColor(.black)
                                         .padding(.horizontal)
@@ -133,7 +140,7 @@ struct ShopView: View {
                             .padding([.top, .leading, .trailing], 16.0)
                         }
                         .onAppear {
-                            goodsModel.fetchGoods(forStoreMarketID: 17)
+                            goodsModel.fetchGoods(forStoreMarketID: marketModel.currentMarket?.marketID ?? 0)
                         }
                         
                     }
