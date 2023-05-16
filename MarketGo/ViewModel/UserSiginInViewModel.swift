@@ -24,9 +24,6 @@ class UserSignInViewModel: ObservableObject {
     @Published var uid: String? = nil
     @Published var currentUser: MemberInfo?
     
-    
-    
-    
     // TODO: 소비자/상인 나눠서 로그인,받아오는게 다름 cartID,storeID를 각각 받아오고..멤버토큰을 가져옴
     // 로그인 메서드
     // completion: 로그인 성공 여부에 따라 호출되는 콜백 함수
@@ -44,48 +41,36 @@ class UserSignInViewModel: ObservableObject {
                 } else {
                     // 로그인 성공 시 uid 저장
                     strongSelf.uid = Auth.auth().currentUser?.uid
-//                    self?.fetch(uid: strongSelf.uid!) { result in
-//                        switch result {
-//                            case .success(_):
-//                            // 사용자 정보가 있는 경우, memberInfo 구조체 인스턴스에 저장된 값을 사용합니다.
-//                                print("성공")
-//                        case .failure(let error):
-//                            // 에러가 발생한 경우, 에러 메시지를 출력합니다.
-//                            print("Error: \(error.localizedDescription)")
-//                        }
-//                    }
                     self?.fetchMemberInfo(uid: strongSelf.uid!) { result in
                         switch result {
-                        case .success(let memberInfo):
-                            // 받아온 데이터를 사용하여 UI 구성 등 필요한 작업을 수행
-                            userViewModel.currentUser = memberInfo
-                        case .failure(let error):
-                            print(error)
+                            case .success(let memberInfo):
+                                // 받아온 데이터를 사용하여 UI 구성 등 필요한 작업을 수행
+                                userViewModel.currentUser = memberInfo
+                            case .failure(let error):
+                                print(error)
                         }
                     }
-
-
                     completion(true)
                 }
             }
         }
         
     }
-
+    
     func fetchMemberInfo(uid: String, completion: @escaping (Result<MemberInfo, Error>) -> Void) {
         
         let url = "http://3.34.33.15:8080/member/memberToken/\(uid)"
-
+        
         AF.request(url).responseDecodable(of: MemberInfo.self) { response in
             switch response.result {
-            case .success(let data):
+                case .success(let data):
                     completion(.success(data))
-            case .failure(let error):
-                completion(.failure(error))
+                case .failure(let error):
+                    completion(.failure(error))
             }
         }
     }
-
+    
 }
 
 class UserViewModel: ObservableObject {
