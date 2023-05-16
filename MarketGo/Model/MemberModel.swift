@@ -26,9 +26,16 @@ public struct Member {
 
 import Foundation
 
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let memberInfo = try? JSONDecoder().decode(MemberInfo.self, from: jsonData)
+
+import Foundation
+
 // MARK: - MemberInfo
 struct MemberInfo: Codable {
-    var memberId: Int?
+    var memberID: Int?
     var memberToken, memberName: String?
     var interestMarket: InterestMarket?
     var cartID: [String: Int?]?
@@ -36,7 +43,7 @@ struct MemberInfo: Codable {
     var recentLatitude, recentLongitude: Int?
 
     enum CodingKeys: String, CodingKey {
-        case memberId 
+        case memberID = "memberId"
         case memberToken, memberName, interestMarket
         case cartID = "cartId"
         case storeID = "storeId"
@@ -75,6 +82,9 @@ struct StoreID: Codable {
         case storeFile, reviewCount
     }
 }
+
+
+// MARK: - Encode/decode helpers
 
 class MarketModel: ObservableObject {
     @Published var currentMarket: MarketOne? = nil

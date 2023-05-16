@@ -11,7 +11,13 @@ struct HomeView: View {
     @EnvironmentObject var userViewModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
     var body: some View {
-        Text("\(userViewModel.currentUser?.memberName ?? "")")
+        VStack{
+            Text("\(userViewModel.currentUser?.memberName ?? "")")
+            Text(String(userViewModel.currentUser!.memberID!))
+            Text("\(userViewModel.currentUser?.memberToken ?? "")")
+        }
+       
+        
     }
 
 }

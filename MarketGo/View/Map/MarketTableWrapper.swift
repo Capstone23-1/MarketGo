@@ -50,7 +50,6 @@ struct MarketTableWrapper: View {
         AF.request(url, method: .get)
             .validate()
             .responseDecodable(of: [MarketOne].self) { response in
-                print(response)
                 switch response.result {
                 case .success(let market):
                     // 이 경우 market은 MarketOneElement의 배열입니다. 첫 번째 요소를 선택하거나 적절하게 처리하세요.

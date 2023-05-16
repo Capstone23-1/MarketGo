@@ -42,6 +42,7 @@ class UserSignInViewModel: ObservableObject {
                     // 로그인 성공 시 uid 저장
                     strongSelf.uid = Auth.auth().currentUser?.uid
                     self?.fetchMemberInfo(uid: strongSelf.uid!) { result in
+                        print(result)
                         switch result {
                             case .success(let memberInfo):
                                 // 받아온 데이터를 사용하여 UI 구성 등 필요한 작업을 수행
@@ -60,7 +61,7 @@ class UserSignInViewModel: ObservableObject {
     func fetchMemberInfo(uid: String, completion: @escaping (Result<MemberInfo, Error>) -> Void) {
         
         let url = "http://3.34.33.15:8080/member/memberToken/\(uid)"
-        
+        print(url)
         AF.request(url).responseDecodable(of: MemberInfo.self) { response in
             switch response.result {
                 case .success(let data):
