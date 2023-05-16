@@ -42,7 +42,7 @@ struct MarketInfoView: View {
                     default:
                         Text("잘못된 선택")
                 }
-                NavigationLink(destination: HomeView(), isActive: $isLinkActive) {
+                NavigationLink(destination: MainView(), isActive: $isLinkActive) {
                     Text("시장 선택")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -57,17 +57,7 @@ struct MarketInfoView: View {
                         }
                     
                 }
-                Button(action: {
-//                    print(marketModel.currentMarket!)
-                }) {
-                    Text("버튼")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10.0)
-                }
-
+             
                 
             }
             

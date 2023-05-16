@@ -16,8 +16,9 @@ struct MarketListView: View {
             List {
                 if let marketData = marketData {
                     Section(header: Text("데이터 기준 일자: \(convertDate(from: marketData.updateTime!))")) {
+                        Text("마켓ID:\(marketData.marketID)")
                         Text("시장 이름: \(marketData.marketName ?? "")")
-                        Text("주소: \(marketData.marketAddress1 ?? "") \(marketData.marketAddress2 ?? "")")
+                        Text("주소: \(marketData.marketAddress1 ?? "")")
                         Text("평점: \(String(format:"%.1f",marketData.marketRatings ?? 0.0)) ")
                         Text("상세 정보: \(marketData.marketInfo ?? "")")
                         Text("주차장: \(marketData.parking ?? "")")

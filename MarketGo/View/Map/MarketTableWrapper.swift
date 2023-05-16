@@ -60,7 +60,8 @@ struct MarketTableWrapper: View {
 //                        print(firstMarket)
                     }
                 case .failure(let error):
-                    print("Error: \(error)")
+//                    print("Error: \(error)")
+                        print("error")
                 }
 
             }
