@@ -42,20 +42,33 @@ struct MarketInfoView: View {
                     default:
                         Text("잘못된 선택")
                 }
-                NavigationLink(destination: MainView(), isActive: $isLinkActive) {
-                                    Text("시장 선택")
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .background(Color.blue)
-                                        .cornerRadius(10.0)
-                                        .onTapGesture {
-                                            self.marketModel.currentMarket = selectedMarket!
-                                            self.isLinkActive = true
-                                        }
-                                
+                NavigationLink(destination: HomeView(), isActive: $isLinkActive) {
+                    Text("시장 선택")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10.0)
+                        .onTapGesture {
+                            self.marketModel.currentMarket = selectedMarket
+                            self.isLinkActive = true
+                            
+                        }
+                    
+                }
+                Button(action: {
+//                    print(marketModel.currentMarket!)
+                }) {
+                    Text("버튼")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10.0)
                 }
 
+                
             }
             
         }

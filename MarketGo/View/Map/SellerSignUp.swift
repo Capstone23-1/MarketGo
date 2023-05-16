@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct SellerSignUpView: View {
-    @StateObject private var viewModel = SignUpViewModel()
+    @StateObject private var viewModel = UserSignUpViewModel()
     @State private var moveToSignInView = false
     @State private var moveToCoiceView = false
     @State private var selectedMarket: MarketOne? // 선택된 마켓 정보를 저장할 상태 변수

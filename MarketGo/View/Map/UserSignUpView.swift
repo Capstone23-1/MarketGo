@@ -8,7 +8,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct UserSignUpView: View {
-    @StateObject private var viewModel = SignUpViewModel()
+    @StateObject private var viewModel = UserSignUpViewModel()
     @State private var moveToSignInView = false
 
     

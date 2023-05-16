@@ -16,9 +16,6 @@ class SellerMarketChoiceViewModel: ObservableObject {
     @Published var selectedLocation = "서울"
     @Published var selectedMarket: MarketOne?
     
-    
-    
-    
     init() {
         getMarkets()
     }

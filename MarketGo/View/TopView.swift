@@ -12,9 +12,9 @@ struct TobView: View {
     var body: some View {
         HStack {
 //            MarketChoicePickerView()
-            Text( marketModel.currentMarket?.marketName ?? "N/A" )
+            Text((marketModel.currentMarket?.marketName) ?? "N/A")
                 .font(.headline)
-            Spacer()
+//            Text(marketModel.currentMarket?.marketID)
             
             NavigationLink{
                 //CartView()

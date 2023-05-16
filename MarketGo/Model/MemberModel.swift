@@ -28,7 +28,7 @@ import Foundation
 
 // MARK: - MemberInfo
 struct MemberInfo: Codable {
-    var memberID: Int?
+    var memberId: Int?
     var memberToken, memberName: String?
     var interestMarket: InterestMarket?
     var cartID: [String: Int?]?
@@ -36,7 +36,7 @@ struct MemberInfo: Codable {
     var recentLatitude, recentLongitude: Int?
 
     enum CodingKeys: String, CodingKey {
-        case memberID = "memberId"
+        case memberId 
         case memberToken, memberName, interestMarket
         case cartID = "cartId"
         case storeID = "storeId"

@@ -4,7 +4,6 @@
 //
 //  Created by ram on 2023/05/11.
 //
-
 import SwiftUI
 import Alamofire
 
@@ -15,7 +14,7 @@ struct MarketTableWrapper: View {
     @State private var isLoading = false // indicator 추가
     @State private var isLinkActive = false
     @State var selectedMarket: MarketOne?
-    
+    @EnvironmentObject var marketModel: MarketModel
 
     var body: some View {
         List(data) { market in
@@ -29,6 +28,7 @@ struct MarketTableWrapper: View {
                 Button(action: {
                     self.fetchMarketData(marketName: market.placeName)
                     selected = market
+                    
                     isLinkActive = true
                 }) {
                     Image(systemName: "arrowtriangle.forward")
@@ -50,15 +50,19 @@ struct MarketTableWrapper: View {
         AF.request(url, method: .get)
             .validate()
             .responseDecodable(of: [MarketOne].self) { response in
+                print(response)
                 switch response.result {
                 case .success(let market):
                     // 이 경우 market은 MarketOneElement의 배열입니다. 첫 번째 요소를 선택하거나 적절하게 처리하세요.
                     if let firstMarket = market.first {
                         self.selectedMarket = firstMarket
+                        self.marketModel.currentMarket = firstMarket // fetched market data is saved to currentMarket
+//                        print(firstMarket)
                     }
                 case .failure(let error):
                     print("Error: \(error)")
                 }
+
             }
     }
 }
