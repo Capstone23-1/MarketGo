@@ -76,3 +76,6 @@ struct StoreID: Codable {
     }
 }
 
+class MarketModel: ObservableObject {
+    @Published var currentMarket: MarketOne? = nil
+}

@@ -27,7 +27,7 @@ class UserSignInViewModel: ObservableObject {
     // TODO: 소비자/상인 나눠서 로그인,받아오는게 다름 cartID,storeID를 각각 받아오고..멤버토큰을 가져옴
     // 로그인 메서드
     // completion: 로그인 성공 여부에 따라 호출되는 콜백 함수
-    func SignIn(userViewModel: UserViewModel,completion: @escaping (Bool) -> Void) {
+    func SignIn(userViewModel: UserModel,completion: @escaping (Bool) -> Void) {
         isLoading = true
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let strongSelf = self else { return }
@@ -73,6 +73,7 @@ class UserSignInViewModel: ObservableObject {
     
 }
 
-class UserViewModel: ObservableObject {
+class UserModel: ObservableObject {
     @Published var currentUser: MemberInfo? = nil
 }
+

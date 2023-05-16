@@ -15,7 +15,7 @@ struct UserSignInView: View {
     @Binding var showSignUpView: Bool
     @State var moveToMarketSearchView = false
     @State var currentUser: MemberInfo? = nil
-    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var userViewModel: UserModel
     
     
     var body: some View {

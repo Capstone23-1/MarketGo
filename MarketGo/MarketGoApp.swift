@@ -11,7 +11,7 @@ import FirebaseCore
 
 @main
 struct MarketGoApp: App {
-    @StateObject var userViewModel = UserViewModel()
+    @StateObject var userViewModel = UserModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     //파이어베이스 연결부분
     var body: some Scene {

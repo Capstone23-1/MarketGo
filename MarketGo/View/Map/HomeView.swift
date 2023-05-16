@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var userViewModel: UserModel
     var body: some View {
         Text((userViewModel.currentUser?.memberName)!)
     }
