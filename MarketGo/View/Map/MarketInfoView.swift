@@ -11,7 +11,7 @@ struct MarketInfoView: View {
     @Binding var selected: Document?
     @Binding var selectedMarket: MarketOne?
     @EnvironmentObject var marketModel: MarketModel
-    
+    @State private var isLinkActive = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -42,18 +42,18 @@ struct MarketInfoView: View {
                     default:
                         Text("잘못된 선택")
                 }
-                Button(action: {
-                    self.marketModel.currentMarket = selectedMarket!
-//                    print("selectedMarket:\(String(describing: selectedMarket?.marketName))")
-                }) {
-                    NavigationLink(destination: MainView()) {
-                        Text("시장 선택")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(10.0)
-                    }
+                NavigationLink(destination: MainView(), isActive: $isLinkActive) {
+                                    Text("시장 선택")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .background(Color.blue)
+                                        .cornerRadius(10.0)
+                                        .onTapGesture {
+                                            self.marketModel.currentMarket = selectedMarket!
+                                            self.isLinkActive = true
+                                        }
+                                
                 }
 
             }
