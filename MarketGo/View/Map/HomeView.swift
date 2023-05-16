@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var userViewModel: UserModel
     var body: some View {
-        Text((userViewModel.currentUser?.memberName)!)
+        Text("\(userViewModel.currentUser?.memberName ?? "")")
     }
 }
 

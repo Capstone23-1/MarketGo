@@ -52,6 +52,7 @@ struct ShopView: View {
                     Spacer()
                     
                     ScrollView{
+                        Text("\(marketModel.currentMarket?.marketID ?? 0)")
                         
                         VStack { // ScrollView 추가
                             Spacer()
