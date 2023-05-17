@@ -19,8 +19,7 @@ struct TobView: View {
             Spacer()
             
             NavigationLink{
-                //CartView()
-                Text("cart")
+                CartView()
             } label: {
                 Image(systemName: "cart")
                     .padding(.horizontal)
