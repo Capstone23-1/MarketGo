@@ -40,8 +40,8 @@ struct MainView: View {
                             
                             ReviewView(isPresented: Binding.constant(false), storeName: "영찬과일")
                                 .tabItem {
-                                    Image(systemName: "bubble.left")
-                                    Text("채팅")
+                                    Image(systemName: "ellipsis.message")
+                                    Text("시장리뷰")
                                 }
                                 .tag(3)
                             

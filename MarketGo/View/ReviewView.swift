@@ -22,7 +22,7 @@ struct ReviewView: View {
     
     var body: some View {
         VStack {
-            Text("\(userModel.currentUser?.memberID ?? 0)")
+            //Text("\(userModel.currentUser?.memberID ?? 0)") //김주현 memberId : 13
             
             Text("만족도 평가 및 리뷰")
                 .font(.title2)
@@ -68,25 +68,25 @@ struct ReviewView: View {
           
             Spacer()
             
-//            HStack{
-//
-//                VStack(alignment: .leading){
-//
-//                    Button(action: {
-//                        showImagePicker()
-//                    }) {
-//                        Image(systemName: "camera.on.rectangle")
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fit)
-//                            .frame(width: 50, height: 50)
-//                            .foregroundColor(.black)
-//                    }
-//
-//                    Text("사진추가")
-//                }
-//                Spacer()
-//
-//            }.padding(30)
+            HStack{
+
+                VStack(alignment: .leading){
+
+                    Button(action: {
+                        showImagePicker()
+                    }) {
+                        Image(systemName: "camera.on.rectangle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 50, height: 50)
+                            .foregroundColor(.black)
+                    }
+
+                    Text("사진추가")
+                }
+                Spacer()
+
+            }.padding(30)
             
             Button(action: {
                 saveReview()
