@@ -11,6 +11,7 @@
 //   let cart = try? JSONDecoder().decode(Cart.self, from: jsonData)
 
 import Foundation
+import Alamofire
 
 // MARK: - Cart
 struct Cart: Codable {
@@ -45,3 +46,29 @@ struct GoodsID: Codable {
         case goodsName, goodsMarket, goodsStore, goodsFile, goodsPrice, goodsUnit, goodsInfo, updateTime, goodsOrigin, isAvail
     }
 }
+
+class CartViewModel: ObservableObject {
+    @Published var cart: Cart?
+    
+    func fetchCart(forUserId userId: Int) {
+        let url = "http://3.34.33.15:8080/cart/\(userId)"
+        
+        AF.request(url).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    let cart = try decoder.decode(Cart.self, from: data)
+                    DispatchQueue.main.async {
+                        self.cart = cart
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+
