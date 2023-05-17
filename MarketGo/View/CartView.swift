@@ -9,7 +9,7 @@ import SwiftUI
 struct CartItem: Identifiable {
     let id: UUID = UUID()
     let goodsName: String
-    let unit: Int
+    let unit: String
     let quantity: Int
 }
 
@@ -95,7 +95,7 @@ struct CartView: View {
                 if let goodsName = goodsId?.goodsName,
                    let unit = getUnit(forGoodsId: goodsId),
                    let quantity = getQuantity(forGoodsId: goodsId) {
-                    let cartItem = CartItem(goodsName: goodsName, unit: unit, quantity: quantity)
+                   let cartItem = CartItem(goodsName: goodsName, unit: unit, quantity: quantity)
                     cartItems.append(cartItem)
                 }
             }
