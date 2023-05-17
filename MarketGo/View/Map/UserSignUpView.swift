@@ -10,7 +10,6 @@ import FirebaseAuth
 struct UserSignUpView: View {
     @StateObject private var viewModel = UserSignUpViewModel()
     @State private var moveToSignInView = false
-
     
     var body: some View {
         VStack {
