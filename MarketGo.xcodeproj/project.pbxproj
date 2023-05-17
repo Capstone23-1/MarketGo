@@ -49,13 +49,13 @@
 		2188126429E96F4700F315EF /* ParkingLotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126329E96F4700F315EF /* ParkingLotViewModel.swift */; };
 		2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126529E972ED00F315EF /* ParkingLotView.swift */; };
 		21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */; };
+		21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006912A15047100C404C3 /* UserSignUpView.swift */; };
 		21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1C9BC29DD69870022113A /* MarketInfoView.swift */; };
 		21FAE1D52A0AA3F7006593D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */; };
 		21FAE1D82A0AA422006593D9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 21FAE1D72A0AA422006593D9 /* FirebaseAnalytics */; };
 		21FAE1DA2A0AA422006593D9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 21FAE1D92A0AA422006593D9 /* FirebaseAuth */; };
 		21FAE1DC2A0AA468006593D9 /* AppDelegateAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1DB2A0AA468006593D9 /* AppDelegateAdaptor.swift */; };
 		21FAE1DE2A0AA49D006593D9 /* UserSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1DD2A0AA49D006593D9 /* UserSignUpViewModel.swift */; };
-		21FAE1E02A0AA52E006593D9 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1DF2A0AA52E006593D9 /* UserSignUpView.swift */; };
 		21FAE1E62A0AA787006593D9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E52A0AA787006593D9 /* SignInView.swift */; };
 		21FAE1E82A0AA7A2006593D9 /* UserSiginInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E72A0AA7A2006593D9 /* UserSiginInViewModel.swift */; };
 		21FAE1EA2A0AC0AF006593D9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */; };
@@ -150,12 +150,12 @@
 		2188126529E972ED00F315EF /* ParkingLotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotView.swift; sourceTree = "<group>"; };
 		2198B6DE943CEFFEB56B33D7 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpViewModel.swift; sourceTree = "<group>"; };
+		21D006912A15047100C404C3 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		21E7A4B029D6D995009EB220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21F1C9BC29DD69870022113A /* MarketInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfoView.swift; sourceTree = "<group>"; };
 		21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		21FAE1DB2A0AA468006593D9 /* AppDelegateAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAdaptor.swift; sourceTree = "<group>"; };
 		21FAE1DD2A0AA49D006593D9 /* UserSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpViewModel.swift; sourceTree = "<group>"; };
-		21FAE1DF2A0AA52E006593D9 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		21FAE1E52A0AA787006593D9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		21FAE1E72A0AA7A2006593D9 /* UserSiginInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSiginInViewModel.swift; sourceTree = "<group>"; };
 		21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -344,8 +344,8 @@
 				21FAE1E52A0AA787006593D9 /* SignInView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
-				21FAE1DF2A0AA52E006593D9 /* UserSignUpView.swift */,
 				2181EDD92A127E8300B879B2 /* HomeView.swift */,
+				21D006912A15047100C404C3 /* UserSignUpView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -681,6 +681,7 @@
 				2181EDD82A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift in Sources */,
 				2144FE7B29DD6B88008913C4 /* ShopView.swift in Sources */,
 				214871D82A0685C300C6FD1D /* MarketListView.swift in Sources */,
+				21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */,
 				210862002A06AF8F00EC3A60 /* FindPathView.swift in Sources */,
 				994979C72A12700E00159828 /* CartJASON.swift in Sources */,
 				21470AAE29FD0F7F00A7CEE7 /* EatingHouseView.swift in Sources */,
@@ -693,7 +694,6 @@
 				2144FE7929DD6B4F008913C4 /* MarketSearchView.swift in Sources */,
 				2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */,
 				21416B8C2A1025F0008EA3C5 /* SellerMarketChoiceView.swift in Sources */,
-				21FAE1E02A0AA52E006593D9 /* UserSignUpView.swift in Sources */,
 				2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */,
 				21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */,
 				998843C02A04DE8700132079 /* MypageView.swift in Sources */,
