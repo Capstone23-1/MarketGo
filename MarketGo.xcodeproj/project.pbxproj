@@ -357,6 +357,7 @@
 				2144FE7629DD6B11008913C4 /* MainView.swift */,
 				2144FE7829DD6B4F008913C4 /* MarketSearchView.swift */,
 				990D2C9629E23678002ED379 /* MenuItemRow.swift */,
+				994979C42A12681A00159828 /* MenuView.swift */,
 				99CD749529DD95D100D2D782 /* ProductTopView.swift */,
 				2144FE6A29DD69B5008913C4 /* ProfileImageView.swift */,
 				2144FE7429DD6AF6008913C4 /* SearchBar.swift */,
@@ -371,7 +372,6 @@
 				993AD3A42A0A72500069A27F /* ContentView.swift */,
 				998BFBC22A0DCC1F005F4652 /* TestView.swift */,
 				998BFBC42A0DD01C005F4652 /* CategoryView.swift */,
-				994979C42A12681A00159828 /* MenuView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
