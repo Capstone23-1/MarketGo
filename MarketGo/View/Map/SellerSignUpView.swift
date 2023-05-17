@@ -16,6 +16,18 @@ struct SellerSignUpView: View {
     @State private var marketName: String = "" // TextField에 바인딩할 변수
     @State var category = ""
     @State var id = ""
+    @State private var selectedCategoryId = 0
+    let categories = [
+        (id: 0, name: "분류"),
+        (id: 1, name: "농산물"),
+        (id: 2, name: "수산물"),
+        (id: 3, name: "축산물"),
+        (id: 4, name: "반찬"),
+        (id: 5, name: "가공식품"),
+        (id: 6, name: "건강식품"),
+        (id: 7, name: "생활용품"),
+        (id: 8, name: "기타"),
+    ]
     var body: some View {
         VStack {
             Text("상인회원 회원가입")
@@ -45,6 +57,12 @@ struct SellerSignUpView: View {
                 }
                 .sheet(isPresented: $moveToCoiceView) {
                     SellerMarketChoiceView(selectedMarket: $selectedMarket, isPresented: $moveToCoiceView, marketName: $marketName)
+                }
+            }
+            
+            Picker(selection: $selectedCategoryId, label: Text("카테고리")) {
+                ForEach(categories, id: \.id) { category in
+                    Text(category.name).tag(category.id)
                 }
             }
             
