@@ -48,7 +48,7 @@ struct StoreView: View {
                         .font(.headline)
                         .foregroundColor(.black)
 
-                    Text("가게 주소: \(store.storeAddress1 ?? "") \(store.storeAddress2 ?? "")")
+                    Text("가게 주소: \(store.storeAddress1 ?? "")")
                         .foregroundColor(.black)
                     Divider()
 
