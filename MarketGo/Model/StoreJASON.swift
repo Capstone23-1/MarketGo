@@ -13,6 +13,7 @@
 import Foundation
 import SwiftUI
 import Alamofire
+import Combine
 
 // MARK: - StoreElement
 struct StoreElement: Codable, Identifiable {
@@ -71,29 +72,20 @@ struct StoreMarketID: Codable {
 typealias Store = [StoreElement]
 
 class StoreViewModel: ObservableObject {
-    @Published var stores: Store = []
-
-    func fetchStores(marketId: Int) {
-        let url = "http://3.34.33.15:8080/store/all"
-        let parameters: [String: Any] = [
-            "marketId": marketId
-        ]
-
-        AF.request(url, parameters: parameters).responseData { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    let decoder = JSONDecoder()
-                    let stores = try decoder.decode(Store.self, from: data)
-                    DispatchQueue.main.async {
-                        self.stores = stores
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+    @Published var stores: [StoreElement] = []
+    private var cancellables: Set<AnyCancellable> = []
+    
+    func fetchStores(forMarketId marketId: Int) {
+        // Perform the API request to fetch stores for the given marketId
+        // Replace this with your actual API call or data fetching mechanism
+        
+        let url = URL(string: "https://your-api.com/stores?marketId=\(marketId)")!
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map { $0.data }
+            .decode(type: Store.self, decoder: JSONDecoder())
+            .replaceError(with: [])
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.stores, on: self)
+            .store(in: &cancellables)
     }
 }
