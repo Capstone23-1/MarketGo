@@ -6,54 +6,51 @@
 //
 
 import SwiftUI
-struct CartItem: Identifiable {
+struct CartItem: Identifiable, Hashable {
     let id: UUID = UUID()
     let goodsName: String
     let unit: String
-    let quantity: Int
+    var quantity: Int
 }
-
-
-import SwiftUI
 
 struct CartView: View {
     @EnvironmentObject var userModel: UserModel
     @ObservedObject var cartViewModel = CartViewModel()
+    @State private var cartItems: [CartItem] = []
 
+    
     var body: some View {
         VStack {
             List {
                 ForEach(getGroupedCartItems(), id: \.self) { market in
                     Section(header: Text(market)) {
                         ForEach(getCartItems(forMarket: market), id: \.self) { cartItem in
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(cartItem.goodsName)
-                                        .fontWeight(.semibold)
-                                    Text("Unit: \(cartItem.unit)")
-                                        .font(.system(size: 14))
-                                    // Add more information about the cart item if needed
-                                }
-                                Spacer()
-                                Stepper(value: $cartItem.quantity, in: 1...10) {
-                                    Text("\(cartItem.quantity) 개")
+                            if let index = cartItems.firstIndex(where: { $0.id == cartItem.id }) {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(cartItems[index].goodsName) // Use cartItems[index] here
+                                            .fontWeight(.semibold)
+                                        Text("Unit: \(cartItems[index].unit)") // Use cartItems[index] here
+                                            .font(.system(size: 14))
+                                        // Add more information about the cart item if needed
+                                    }
+                                    Spacer()
+                                    Stepper(value: $cartItems[index].quantity, in: 1...10) {
+                                        Text("\(cartItems[index].quantity) 개")
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-            Spacer()
-            HStack {
-                Text("총 가격: ")
-                    .fontWeight(.semibold)
-                Text("\(calculateTotalPrice())원")
-            }
+
+            // ... rest of the code
         }
         .navigationBarTitle("장바구니")
         .navigationBarItems(trailing: EditButton())
         .onAppear {
-            cartViewModel.fetchCart(forUserId: userModel.currentUser?.cartID ?? 0)
+            cartViewModel.fetchCart(forUserId: userModel.currentUser?.memberID ?? 0)
         }
     }
 
