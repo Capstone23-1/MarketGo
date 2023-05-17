@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct ReviewView: View {
+    @EnvironmentObject var userModel: UserModel
     @Binding var isPresented: Bool
     @State var rating: Int = 0
     @State var reviewContent: String = ""
@@ -21,6 +22,8 @@ struct ReviewView: View {
     
     var body: some View {
         VStack {
+            Text("\(userModel.currentUser?.memberID ?? 0)")
+            
             Text("만족도 평가 및 리뷰")
                 .font(.title2)
                 .bold()
