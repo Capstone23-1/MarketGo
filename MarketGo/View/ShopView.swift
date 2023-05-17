@@ -46,14 +46,9 @@ struct ShopView: View {
             VStack(alignment: .leading) {
                 
                 VStack(alignment: .leading){
-                    
-                    
-                    SearchBar(searchText: $searchText, placeHolder: $placeHolder)
-                    Spacer()
-                    
+
                     ScrollView{
-                        Text("\(marketModel.currentMarket?.marketID ?? 0)")
-                        
+
                         VStack { // ScrollView 추가
                             Spacer()
                             
