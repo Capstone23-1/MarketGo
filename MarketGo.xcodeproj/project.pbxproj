@@ -79,6 +79,7 @@
 		998BFBC32A0DCC1F005F4652 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998BFBC22A0DCC1F005F4652 /* TestView.swift */; };
 		998BFBC52A0DD01C005F4652 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998BFBC42A0DD01C005F4652 /* CategoryView.swift */; };
 		99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99926D082A03419F00071E3C /* StoreReviewListView.swift */; };
+		99B1697F2A14D651007FC25F /* StoreReviewJASON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1697E2A14D651007FC25F /* StoreReviewJASON.swift */; };
 		99CD749429DD904600D2D782 /* FoodItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CD749329DD904600D2D782 /* FoodItemCell.swift */; };
 		99CD749629DD95D100D2D782 /* ProductTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CD749529DD95D100D2D782 /* ProductTopView.swift */; };
 		99CD749829DD97B300D2D782 /* FoodItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CD749729DD97B300D2D782 /* FoodItemDetailView.swift */; };
@@ -182,6 +183,7 @@
 		998BFBC22A0DCC1F005F4652 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		998BFBC42A0DD01C005F4652 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		99926D082A03419F00071E3C /* StoreReviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewListView.swift; sourceTree = "<group>"; };
+		99B1697E2A14D651007FC25F /* StoreReviewJASON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewJASON.swift; sourceTree = "<group>"; };
 		99CD749329DD904600D2D782 /* FoodItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemCell.swift; sourceTree = "<group>"; };
 		99CD749529DD95D100D2D782 /* ProductTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTopView.swift; sourceTree = "<group>"; };
 		99CD749729DD97B300D2D782 /* FoodItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemDetailView.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				994979BE2A11999D00159828 /* GoodsJASON.swift */,
 				994979C02A119A5100159828 /* StoreJASON.swift */,
 				994979C62A12700E00159828 /* CartJASON.swift */,
+				99B1697E2A14D651007FC25F /* StoreReviewJASON.swift */,
 				2144FE6E29DD6A58008913C4 /* LocationModel.swift */,
 				21470AB729FE620100A7CEE7 /* MarketAPIModel.swift */,
 				994B17C62A0236DE009B77E8 /* ReviewStore.swift */,
@@ -654,6 +657,7 @@
 				998843C42A05035D00132079 /* FoodItemListView.swift in Sources */,
 				2144FE8029DD6BEC008913C4 /* ParkingLotMapView.swift in Sources */,
 				2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */,
+				99B1697F2A14D651007FC25F /* StoreReviewJASON.swift in Sources */,
 				998843BE2A04DD5000132079 /* MemberModel.swift in Sources */,
 				21FAE1E82A0AA7A2006593D9 /* UserSiginInViewModel.swift in Sources */,
 				217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */,
