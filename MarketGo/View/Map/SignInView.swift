@@ -42,12 +42,12 @@ struct SignInView: View {
                                 UserSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
                             case 1:
                                 SellerSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
-//                                UserSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
+                                //                                UserSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
                             default:
                                 Text("잘못된 선택")
                         }
                         
-                     
+                        
                         
                         // 메인화면 바로가기 버튼
                         Button(action: {

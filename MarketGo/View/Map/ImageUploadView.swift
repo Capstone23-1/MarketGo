@@ -6,11 +6,12 @@ struct ImageUploadView: View {
     @State var showImagePicker: Bool = false
     @State var image: UIImage?
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    @State var category: String = ""
-    @State var id: String = ""
+    @Binding var category: String 
+    @Binding var id: String
+    let imageSize = 100.0
 
     var body: some View {
-        let imageSize = 150.0
+        
         VStack {
             // 이미지가 선택되었을 경우 이미지 표시
             if let image = image {
@@ -30,20 +31,16 @@ struct ImageUploadView: View {
                     .padding(.top)
             }
 
-            Button("앨범에서 이미지 선택") {
+            Button("이미지 선택") {
                 self.showImagePicker = true
             }
             .sheet(isPresented: $showImagePicker, onDismiss: {
                 if let image = self.image {
-                    self.uploadImageToServer(image: image, category: self.category, id: self.id)
+                    self.uploadImageToServer(image: image, category: "store", id: self.id)
                 }
             }) {
                 ImagePicker(selectedImage: self.$image, sourceType: self.sourceType)
             }
-
-            TextField("Category", text: $category)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
 
             TextField("ID", text: $id)
                 .textFieldStyle(RoundedBorderTextFieldStyle())

@@ -14,8 +14,13 @@ struct SellerSignUpView: View {
     @State private var moveToCoiceView = false
     @State private var selectedMarket: MarketOne? // 선택된 마켓 정보를 저장할 상태 변수
     @State private var marketName: String = "" // TextField에 바인딩할 변수
+    @State var category = ""
+    @State var id = ""
     var body: some View {
         VStack {
+            Text("상인회원 회원가입")
+                .font(.headline)
+            ImageUploadView(category: $category, id: $id)
             TextField("가게명", text: $viewModel.nickName)
                 .autocapitalization(.none)
                 .padding()
