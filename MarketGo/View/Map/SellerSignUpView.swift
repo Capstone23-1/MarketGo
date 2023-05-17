@@ -16,6 +16,9 @@ struct SellerSignUpView: View {
     @State private var marketName: String = "" // TextField에 바인딩할 변수
     var body: some View {
         VStack {
+            Text("상인회원 회원가입")
+                .font(.headline)
+            ImageUploadView()
             TextField("가게명", text: $viewModel.nickName)
                 .autocapitalization(.none)
                 .padding()
