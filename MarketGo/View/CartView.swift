@@ -1,62 +1,124 @@
-////
-////  CartView.swift
-////  MarketGo
-////
-////  Created by ram on 2023/03/27.
-////
 //
-//import SwiftUI
+//  CartView.swift
+//  MarketGo
 //
-//struct CartView: View {
-//    @EnvironmentObject var userModel: UserModel
+//  Created by ram on 2023/03/27.
 //
-//    var body: some View {
-//        VStack {
-//            List {
-//                ForEach(foodItems.indices, id: \.self) { index in
-//                    let foodItem = foodItems[index]
-//                    HStack() {
-//                        VStack(alignment: .leading){
-//                            Image("\(foodItem.imageName)")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
-//                                .frame(width:80, height: 80)
-//                        }
-//                        Spacer()
-//                        VStack(alignment: .leading, spacing: 5){
-//                            Text(foodItem.name)
-//                                .fontWeight(.semibold)
-//                            Text(foodItem.storeName).font(.system(size: 14))
-//                            Text("\(foodItem.price)원")
-//                               .foregroundColor(.gray)
-//                        }
-//
-//                        Stepper(value: $foodItems[index].quantity, in: 1...10) {
-//                            Text("\(foodItem.quantity) 개")
-//                        }
-//                    }
-//                }
-//                .onDelete(perform: deleteItem)
-//            }
-//            Spacer()
-//            HStack {
-//                Text("총 가격: ")
-//                    .fontWeight(.semibold)
-//                Text("\(foodItems.map { $0.price * $0.quantity }.reduce(0, +))원")
-//            }
-//        }
-//        .navigationBarTitle("장바구니")
-//        .navigationBarItems(trailing: EditButton())
-//    }
-//
-//    func deleteItem(at offsets: IndexSet) {
-//        foodItems.remove(atOffsets: offsets)
-//    }
-//}
-//
-//
-//struct CartView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CartView()
-//    }
-//}
+
+import SwiftUI
+struct CartItem: Identifiable {
+    let id: UUID = UUID()
+    let goodsName: String
+    let unit: Int
+}
+
+
+struct CartView: View {
+    @EnvironmentObject var userModel: UserModel
+    @ObservedObject var cartViewModel = CartViewModel()
+    
+    func getCartItems(forMarket market: String) -> [CartItem] {
+            guard let cart = cartViewModel.cart else {
+                return []
+            }
+
+            var cartItems: [CartItem] = []
+            let goodsIds: [GoodsID?] = [
+                cart.goodsId1, cart.goodsId2, cart.goodsId3, cart.goodsId4, cart.goodsId5,
+                cart.goodsId6, cart.goodsId7, cart.goodsId8, cart.goodsId9, cart.goodsId10
+            ]
+
+            for goodsId in goodsIds {
+                if let marketName = goodsId?.goodsMarket?.marketName, marketName == market {
+                    if let goodsName = goodsId?.goodsName, let unit = goodsId?.goodsUnit {
+                        let cartItem = CartItem(goodsName: goodsName, unit: Int(unit) ?? 0)
+                        cartItems.append(cartItem)
+                    }
+                }
+            }
+
+            return cartItems
+        }
+
+
+    var body: some View {
+        VStack {
+            List {
+                ForEach(getGroupedCartItems(), id: \.self) { market in
+                    Section(header: Text(market)) {
+                        ForEach(getCartItems(forMarket: market), id: \.self) { cartItem in
+                            HStack {
+                                // Display the cart item information
+                            }
+                        }
+                    }
+                }
+            }
+            Spacer()
+            HStack {
+                // Display the total price
+            }
+        }
+        .navigationBarTitle("장바구니")
+        .navigationBarItems(trailing: EditButton())
+        .onAppear {
+            cartViewModel.fetchCart(forUserId: userModel.currentUser?.cartID)
+        }
+    }
+
+    // Get the unique market names from the cart items
+    func getMarketNames() -> [String] {
+        guard let cart = cartViewModel.cart else {
+            return []
+        }
+
+        var marketNames: [String] = []
+        let goodsIds: [GoodsID?] = [
+            cart.goodsId1, cart.goodsId2, cart.goodsId3, cart.goodsId4, cart.goodsId5,
+            cart.goodsId6, cart.goodsId7, cart.goodsId8, cart.goodsId9, cart.goodsId10
+        ]
+
+        for goodsId in goodsIds {
+            if let marketName = goodsId?.goodsMarket?.name, !marketNames.contains(marketName) {
+                marketNames.append(marketName)
+            }
+        }
+
+        return marketNames
+    }
+
+    // Get the cart items for a specific market
+    func getCartItems(forMarket market: String) -> [Good] {
+        guard let cart = cartViewModel.cart else {
+            return []
+        }
+
+        var cartItems: [CartItem] = []
+        let goodsIds: [GoodsID?] = [
+            cart.goodsId1, cart.goodsId2, cart.goodsId3, cart.goodsId4, cart.goodsId5,
+            cart.goodsId6, cart.goodsId7, cart.goodsId8, cart.goodsId9, cart.goodsId10
+        ]
+
+        for goodsId in goodsIds {
+            if let marketName = goodsId?.goodsMarket?.name, marketName == market {
+                let cartItem = // Create a CartItem object from the goodsId and unit information
+                cartItems.append(cartItem)
+            }
+        }
+
+        return cartItems
+    }
+
+    // Get the cart items grouped by market name
+    func getGroupedCartItems() -> [String] {
+        let marketNames = getMarketNames()
+        return marketNames.sorted()
+    }
+}
+
+
+struct CartView_Previews: PreviewProvider {
+    static var previews: some View {
+        CartView()
+    }
+}
