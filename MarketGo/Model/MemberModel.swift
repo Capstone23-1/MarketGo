@@ -30,9 +30,9 @@ public struct Member {
 struct MemberInfo: Codable {
     var memberID: Int?
     var memberToken, memberName: String?
-    var interestMarket: InterestMarket?
-    var cartID: [String: Int?]?
-    var storeID: StoreID?
+    var interestMarket: Int?
+    var cartID: Int?
+    var storeID: Int?
     var recentLatitude, recentLongitude: Int?
 
     enum CodingKeys: String, CodingKey {
