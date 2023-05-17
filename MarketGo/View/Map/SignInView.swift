@@ -41,8 +41,8 @@ struct SignInView: View {
                             case 0:
                                 UserSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
                             case 1:
-//                                SellerSignIn(moveToProfileView: $moveToProfileView)
-                                UserSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
+                                SellerSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
+//                                UserSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
                             default:
                                 Text("잘못된 선택")
                         }

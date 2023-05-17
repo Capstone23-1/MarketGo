@@ -61,7 +61,7 @@
 		21FAE1E82A0AA7A2006593D9 /* UserSiginInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E72A0AA7A2006593D9 /* UserSiginInViewModel.swift */; };
 		21FAE1EA2A0AC0AF006593D9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */; };
 		21FAE1EC2A0AC2A6006593D9 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */; };
-		21FAE1EE2A0B65EC006593D9 /* SellerSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1ED2A0B65EC006593D9 /* SellerSignUp.swift */; };
+		21FAE1EE2A0B65EC006593D9 /* SellerSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1ED2A0B65EC006593D9 /* SellerSignUpView.swift */; };
 		21FAE1F22A0BB829006593D9 /* UserSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1F12A0BB829006593D9 /* UserSignInView.swift */; };
 		990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990D2C9629E23678002ED379 /* MenuItemRow.swift */; };
 		993AD3A52A0A72500069A27F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AD3A42A0A72500069A27F /* ContentView.swift */; };
@@ -162,7 +162,7 @@
 		21FAE1E72A0AA7A2006593D9 /* UserSiginInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSiginInViewModel.swift; sourceTree = "<group>"; };
 		21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
-		21FAE1ED2A0B65EC006593D9 /* SellerSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUp.swift; sourceTree = "<group>"; };
+		21FAE1ED2A0B65EC006593D9 /* SellerSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpView.swift; sourceTree = "<group>"; };
 		21FAE1F12A0BB829006593D9 /* UserSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInView.swift; sourceTree = "<group>"; };
 		46694163AD73EB569AAEC2CD /* Pods-MarketGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGoTests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGoTests/Pods-MarketGoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5CDF3197B9A79DF4BA138956 /* Pods-MarketGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo/Pods-MarketGo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -342,7 +342,7 @@
 				21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */,
 				21416B8B2A1025F0008EA3C5 /* SellerMarketChoiceView.swift */,
 				21416B752A0BBEF9008EA3C5 /* SellerSignInView.swift */,
-				21FAE1ED2A0B65EC006593D9 /* SellerSignUp.swift */,
+				21FAE1ED2A0B65EC006593D9 /* SellerSignUpView.swift */,
 				21FAE1E52A0AA787006593D9 /* SignInView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
@@ -701,7 +701,7 @@
 				2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */,
 				21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */,
 				998843C02A04DE8700132079 /* MypageView.swift in Sources */,
-				21FAE1EE2A0B65EC006593D9 /* SellerSignUp.swift in Sources */,
+				21FAE1EE2A0B65EC006593D9 /* SellerSignUpView.swift in Sources */,
 				2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */,
 				21FAE1DE2A0AA49D006593D9 /* UserSignUpViewModel.swift in Sources */,
 				210862022A06D67900EC3A60 /* MapLinkView.swift in Sources */,
