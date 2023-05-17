@@ -31,7 +31,7 @@ struct Cart: Codable {
 }
 
 // MARK: - GoodsID
-struct GoodsID: Codable {
+struct GoodsID: Codable, Equatable {
     var goodsID: Int?
     var goodsName: String?
     var goodsMarket: GoodsMarket?
@@ -45,6 +45,12 @@ struct GoodsID: Codable {
         case goodsID = "goodsId"
         case goodsName, goodsMarket, goodsStore, goodsFile, goodsPrice, goodsUnit, goodsInfo, updateTime, goodsOrigin, isAvail
     }
+    
+    static func ==(lhs: GoodsID, rhs: GoodsID) -> Bool {
+            // Implement the equality comparison logic for GoodsID
+            // Compare the relevant properties to determine equality
+            return lhs.goodsID == rhs.goodsID
+        }
 }
 
 class CartViewModel: ObservableObject {
