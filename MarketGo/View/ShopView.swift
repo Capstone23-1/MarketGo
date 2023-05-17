@@ -114,7 +114,7 @@ struct ShopView: View {
                             }
                             
                         }.onAppear {
-                            storeModel.fetchStores(marketId: marketModel.currentMarket?.marketID ?? 0)
+                            storeModel.fetchStores(forMarketId: marketModel.currentMarket?.marketID ?? 0)
                         }
                         
                         VStack(alignment: .leading) {
