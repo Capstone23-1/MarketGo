@@ -72,8 +72,6 @@ struct ReviewRow: View {
             VStack(alignment: .leading) {
                 
                 GoodsImage(url: URL(string: review.storeReviewFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
-                
-                
                 }
         }
         .padding()
