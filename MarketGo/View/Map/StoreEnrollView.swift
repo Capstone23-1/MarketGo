@@ -76,6 +76,7 @@ struct StoreEnrollView: View {
                 Toggle("카드 이용 가능 여부", isOn: $cardAvail)
                     .onChange(of: cardAvail) { newValue in
                         storePost.cardAvail = newValue ? "가능" : "이용불가"
+                        print(storePost.cardAvail)
                     }
                 
                 Toggle("지역 이용 가능 여부", isOn: $localAvail)
@@ -84,21 +85,21 @@ struct StoreEnrollView: View {
                     }
             }
             
-            Section(header: Text("마켓 상품권")) {
-                // 다중 선택 가능한 체크박스 목록
-                VStack(alignment: .leading) {
-                    ForEach(["온누리상품권"], id: \.self) { giftcard in
-                        HStack {
-                            Button(action: {
-                                toggleMarketGiftcard(giftcard)
-                            }) {
-                                Image(systemName: marketGiftcards.contains(giftcard) ? "checkmark.square" : "square")
-                            }
-                            Text(giftcard)
-                        }
-                    }
-                }
-            }
+//            Section(header: Text("마켓 상품권")) {
+//                // 다중 선택 가능한 체크박스 목록
+//                VStack(alignment: .leading) {
+//                    ForEach(["온누리상품권"], id: \.self) { giftcard in
+//                        HStack {
+//                            Button(action: {
+//                                toggleMarketGiftcard(giftcard)
+//                            }) {
+//                                Image(systemName: marketGiftcards.contains(giftcard) ? "checkmark.square" : "square")
+//                            }
+//                            Text(giftcard)
+//                        }
+//                    }
+//                }
+//            }
             
             Section(header: Text("가게 번호")) {
                 Stepper(value: $storeNum, in: 0...10) {
@@ -115,14 +116,7 @@ struct StoreEnrollView: View {
         }
     }
     
-    func toggleMarketGiftcard(_ giftcard: String) {
-        if marketGiftcards.contains(giftcard) {
-            marketGiftcards.removeAll(where: { $0 == giftcard })
-        } else {
-            marketGiftcards.append(giftcard)
-        }
-    }
-    
+   
     func saveStoreElement() {
         // StoreElement 객체를 생성하여 입력된 값들을 저장
         //        let storeElement = StoreElement(
@@ -158,7 +152,7 @@ struct StoreEnrollView: View {
         //            // URL이 유효하지 않을 경우 에러 처리
         //            return
         //        }
-        //        
+        //
         //        // StoreID를 반환받을 비동기 HTTP POST 요청
         //        URLSession.shared.dataTask(with: url) { data, response, error in
         //            if let data = data {
@@ -172,7 +166,7 @@ struct StoreEnrollView: View {
         //                }
         //            }
         //        }.resume()
-        //        
+        //
         //        // 저장 후 입력 필드 초기화
         //        clearForm()
     }
