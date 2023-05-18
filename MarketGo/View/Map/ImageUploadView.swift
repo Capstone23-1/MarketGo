@@ -46,7 +46,7 @@ struct ImageUploadView: View {
             .sheet(isPresented: $showImagePicker, onDismiss: {
                 self.showImagePicker = false
             }) {
-                ImagePicker(selectedImage: self.$image, sourceType: self.sourceType)
+                ImagePickerModel(selectedImage: self.$image, sourceType: self.sourceType)
             }
             
             Button("서버에 이미지 업로드") {

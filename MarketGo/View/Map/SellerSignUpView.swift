@@ -1,4 +1,4 @@
-//
+
 //  SellerSignUp.swift
 //  MarketGo
 //
@@ -83,14 +83,16 @@ struct SellerSignUpView: View {
                 Button(action: {
                     self.moveToWriteView = true
                 }) {
-                    Text("가게정보입력")
+                    Text("가게정보입력")//입력되지않으면 회원가입이 안되도록
                         .padding()
                         .background(Color.white)
                         .foregroundColor(.accentColor)
                         .cornerRadius(8)
                         .frame(maxWidth: .infinity)
                 }
-                .sheet(isPresented: $moveToWriteView) {
+                .sheet(isPresented: $moveToWriteView, onDismiss: {
+                    print(storePost.storeNum)
+                }) {
                     StoreEnrollView()
                 }
                 Button(action: {
@@ -100,8 +102,9 @@ struct SellerSignUpView: View {
                     storePost.storeFile=newImage.fileID ?? 0
                     DispatchQueue.main.async {
                         storePost.enrollStore()
-                        viewModel.storeId = (storePost.newStore?.id)! //에러발생
+                        
                     }
+                    viewModel.storeId = (storePost.newStore?.storeID)! //에러발생
                     viewModel.signUp { success in
                         if success {
                             print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
