@@ -61,7 +61,7 @@ struct StoreMarketID: Codable {
     var marketGiftcard, marketType, updateTime: String?
     var marketFile, marketMap: StoreFile?
     var reviewCount: Int?
-
+ 
     enum CodingKeys: String, CodingKey {
         case marketID = "marketId"
         case marketName, marketAddress1, marketAddress2, marketLocation, marketLatitude, marketLongitude, marketRatings, marketInfo, parking, toilet, marketPhonenum, marketGiftcard, marketType, updateTime, marketFile, marketMap, reviewCount
