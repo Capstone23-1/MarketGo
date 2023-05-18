@@ -95,8 +95,8 @@ struct StoreID: Codable {
 
 // MARK: - StoreCategory
 struct StoreCategory: Codable {
-    var categoryID: Int?
-    var categoryName: String?
+    var categoryID: Int
+    var categoryName: String
 
     enum CodingKeys: String, CodingKey {
         case categoryID = "categoryId"
