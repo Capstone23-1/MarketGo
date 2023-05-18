@@ -101,11 +101,11 @@ struct StoreEnrollView: View {
 //                }
 //            }
             
-            Section(header: Text("가게 번호")) {
-                Stepper(value: $storeNum, in: 0...10) {
-                    Text("가게 번호: \(storeNum)")
-                }
-            }
+//            Section(header: Text("가게 번호")) {
+//                Stepper(value: $storeNum, in: 0...10) {
+//                    Text("가게 번호: \(storeNum)")
+//                }
+//            }
             
             // 저장 버튼
             Section {
