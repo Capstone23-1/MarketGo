@@ -17,6 +17,7 @@ class SellerSignUpViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var uid: String? = nil // 추가된 프로퍼티
     @Published var nickName = ""
+    @Published var storeId=0
 
     
     func signUp(completion: @escaping (Bool) -> Void) {

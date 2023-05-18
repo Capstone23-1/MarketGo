@@ -3,6 +3,7 @@ import Alamofire
 import UIKit
 
 struct ImageUploadView: View {
+    @State private var isLoading: Bool = false
     @State var showImagePicker: Bool = false
     @State var image: UIImage?
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
@@ -14,6 +15,7 @@ struct ImageUploadView: View {
             set: { did = Int($0) ?? 0 }
         )
     }
+    @Binding var newImage: FileInfo
     let imageSize = 100.0
     
     var body: some View {
@@ -60,6 +62,7 @@ struct ImageUploadView: View {
     // 서버로 이미지 업로드
     func uploadImageToServer(image: UIImage, category: String, id: String) {
         self.showImagePicker = false
+        self.isLoading = true // 이미지 업로드 시작
         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
         
         AF.upload(multipartFormData: { multipartFormData in
@@ -67,17 +70,16 @@ struct ImageUploadView: View {
             multipartFormData.append(category.data(using: .utf8)!, withName: "category")
             multipartFormData.append(id.data(using: .utf8)!, withName: "id")
         }, to: "http://3.34.33.15:8080/uploads").responseDecodable(of: [FileInfo].self) { response in
+            self.isLoading = false // 이미지 업로드 완료
             switch response.result {
                 case .success(let fileInfoArray):
-                    for fileInfo in fileInfoArray {
-                        print(fileInfo)
-                    }
+                    self.newImage=fileInfoArray[0]
+                    
                 case .failure(let error):
                     print(error)
             }
         }
     }
-    
     
     // 카테고리와 ID를 포함하여 서버에서 이미지를 로드
     func loadImage(category: String, id: String, image: UIImage, completion: @escaping (Result<String, Error>) -> Void) {

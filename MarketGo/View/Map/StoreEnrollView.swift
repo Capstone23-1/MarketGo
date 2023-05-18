@@ -79,7 +79,7 @@ struct StoreEnrollView: View {
                         print(storePost.cardAvail)
                     }
                 
-                Toggle("지역 이용 가능 여부", isOn: $localAvail)
+                Toggle("지역 화폐 가능 여부", isOn: $localAvail)
                     .onChange(of: localAvail) { newValue in
                         storePost.localAvail = newValue ? "가능" : "이용불가"
                     }
