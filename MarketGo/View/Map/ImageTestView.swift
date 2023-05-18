@@ -2,19 +2,18 @@ import SwiftUI
 import Alamofire
 import UIKit
 
-struct ImageUploadView: View {
+struct ImageTestView: View {
     @State var showImagePicker: Bool = false
     @State var image: UIImage?
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    @Binding var category: String 
-    @Binding var id: Int
-    var stringId: Binding<String> {
+    @Binding var category: String
+    @Binding var did: Int
+    var id: Binding<String> {
         Binding<String>(
-            get: { String(id) },
-            set: { id = Int($0) ?? 0 }
+            get: { String(did) },
+            set: { did = Int($0) ?? 0 }
         )
     }
-
     let imageSize = 100.0
 
     var body: some View {
@@ -37,19 +36,21 @@ struct ImageUploadView: View {
                     .clipShape(Circle())
                     .padding(.top)
             }
+
             Button("이미지 선택") {
                 self.showImagePicker = true
             }
-            .sheet(isPresented: $showImagePicker, onDismiss: {
-                if let image = self.image {
-                    self.uploadImageToServer(image: image, category: "store", id: String(id))
-                }
-            }) {
+            .sheet(isPresented: $showImagePicker) {
                 ImagePicker(selectedImage: self.$image, sourceType: self.sourceType)
             }
+
+            TextField("ID", text: id)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+
             Button("서버에 이미지 업로드") {
                 if let image = self.image {
-                    self.uploadImageToServer(image: image, category: self.category, id: String(self.id))
+                    self.uploadImageToServer(image: image, category: category, id: String(did))
                 }
             }
             .padding()
@@ -62,12 +63,10 @@ struct ImageUploadView: View {
 
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(imageData, withName: "files", fileName: "image.jpg", mimeType: "image/jpeg")
-            multipartFormData.append(category.data(using: .utf8)!, withName: category)
-            multipartFormData.append(id.data(using: .utf8)!, withName: id)
+            multipartFormData.append(category.data(using: .utf8)!, withName: "category")
+            multipartFormData.append(id.data(using: .utf8)!, withName: "id")
         }, to: "http://3.34.33.15:8080/uploads").response { response in
-            
             debugPrint(response)
-            
         }
     }
 
@@ -84,8 +83,8 @@ struct ImageUploadView: View {
         ]
 
         let parameters: [String: String] = [
-            "category": self.category,
-            "id": String(self.id)
+            "category": category,
+            "id": id
         ]
 
         AF.upload(multipartFormData: { multipartFormData in
@@ -100,46 +99,6 @@ struct ImageUploadView: View {
             case .failure(let error):
                 completion(.failure(error))
             }
-        }
-    }
-}
-
-struct ImagePicker: UIViewControllerRepresentable {
-    @Environment(\.presentationMode) var presentationMode
-    @Binding var selectedImage: UIImage?
-    var sourceType: UIImagePickerController.SourceType
-
-    func makeUIViewController(context: Context) -> UIImagePickerController {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = context.coordinator
-        imagePickerController.sourceType = sourceType
-        return imagePickerController
-    }
-
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-    }
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-
-    final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        var parent: ImagePicker
-
-        init(_ parent: ImagePicker) {
-            self.parent = parent
-        }
-
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                parent.selectedImage = image
-            }
-
-            parent.presentationMode.wrappedValue.dismiss()
-        }
-
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            parent.presentationMode.wrappedValue.dismiss()
         }
     }
 }
