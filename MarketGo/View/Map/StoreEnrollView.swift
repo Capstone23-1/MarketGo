@@ -36,24 +36,24 @@ struct StoreEnrollView: View {
             
             Section(header: Text("가게 정보")) {
                 TextField("가게 이름", text: $storePost.storeName)
-                HStack{
-                    TextField("소속시장", text: $marketName)
-                        .autocapitalization(.none)
-                    
-                    
-                    Button(action: {
-                        self.moveToCoiceView = true
-                    }) {
-                        Text("찾기")
-                            .frame(maxWidth: 50)
-                            .background(Color.accentColor)
-                            .foregroundColor(.white)
-                            .cornerRadius(8.0)
-                    }
-                    .sheet(isPresented: $moveToCoiceView) {
-                        SellerMarketChoiceView(selectedMarket: $selectedMarket, isPresented: $moveToCoiceView, marketName: $marketName)
-                    }
-                }
+//                HStack{
+//                    TextField("소속시장", text: $marketName)
+//                        .autocapitalization(.none)
+//
+//
+//                    Button(action: {
+//                        self.moveToCoiceView = true
+//                    }) {
+//                        Text("찾기")
+//                            .frame(maxWidth: 50)
+//                            .background(Color.accentColor)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(8.0)
+//                    }
+//                    .sheet(isPresented: $moveToCoiceView) {
+//                        SellerMarketChoiceView(selectedMarket: $selectedMarket, isPresented: $moveToCoiceView, marketName: $marketName)
+//                    }
+//                }
                 TextField("시장 내 상세주소", text: $storePost.storeAddress1)
                 
                 
@@ -79,7 +79,7 @@ struct StoreEnrollView: View {
                         print(storePost.cardAvail)
                     }
                 
-                Toggle("지역 이용 가능 여부", isOn: $localAvail)
+                Toggle("지역 화폐 가능 여부", isOn: $localAvail)
                     .onChange(of: localAvail) { newValue in
                         storePost.localAvail = newValue ? "가능" : "이용불가"
                     }

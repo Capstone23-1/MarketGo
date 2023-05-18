@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ImagePicker: UIViewControllerRepresentable {
+struct ImagePickerModel: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     @Binding var selectedImage: UIImage?
     var sourceType: UIImagePickerController.SourceType
@@ -27,9 +27,9 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
 
     final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        var parent: ImagePicker
+        var parent: ImagePickerModel
 
-        init(_ parent: ImagePicker) {
+        init(_ parent: ImagePickerModel) {
             self.parent = parent
         }
 

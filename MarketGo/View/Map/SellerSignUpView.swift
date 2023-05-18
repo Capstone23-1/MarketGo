@@ -1,4 +1,4 @@
-//
+
 //  SellerSignUp.swift
 //  MarketGo
 //
@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseAuth
 import Alamofire
 struct SellerSignUpView: View {
+    @State private var isLoading: Bool = false
     @StateObject private var viewModel = SellerSignUpViewModel()
     @EnvironmentObject private var storePost: StorePostViewModel
     @State private var moveToSignInView = false
@@ -17,14 +18,15 @@ struct SellerSignUpView: View {
     @State private var selectedMarket: MarketOne? // 선택된 마켓 정보를 저장할 상태 변수
     @State private var marketName: String = "" // TextField에 바인딩할 변수
     @State private var newStore: StoreElement?
-    @State private var imageCate = StoreCategory(categoryID: 3,categoryName: "test")
+    @State private var imageCate = StoreCategory(categoryID: 0,categoryName: "store")
+    @State private var newImage = FileInfo()
     
     var body: some View {
         NavigationView {
             
             Form {
-                ImageUploadView(category: $imageCate.categoryName, did: $imageCate.categoryID)
-
+                ImageUploadView(category: $imageCate.categoryName, did: $imageCate.categoryID, newImage: $newImage)
+                
                 TextField("가게명", text: $storePost.storeName)
                     .autocapitalization(.none)
                     .padding()
@@ -81,32 +83,36 @@ struct SellerSignUpView: View {
                 Button(action: {
                     self.moveToWriteView = true
                 }) {
-                    Text("가게정보입력")
+                    Text("가게정보입력")//입력되지않으면 회원가입이 안되도록
                         .padding()
                         .background(Color.white)
                         .foregroundColor(.accentColor)
                         .cornerRadius(8)
                         .frame(maxWidth: .infinity)
                 }
-                .sheet(isPresented: $moveToWriteView) {
+                .sheet(isPresented: $moveToWriteView, onDismiss: {
+                    print(storePost.storeNum)
+                }) {
                     StoreEnrollView()
                 }
-                
                 Button(action: {
-                    
                     viewModel.nickName=storePost.storeName
                     storePost.storeAddress2=storePost.storeAddress1
                     storePost.marketId = selectedMarket!.marketID
-//                    storePost.storeFile=
-                    storePost.enrollStore()
-//                    viewModel.signUp { success in
-//                        if success {
-//                            print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
-//                            self.moveToSignInView = true
-//                        } else {
-//                            print("회원가입 실패")
-//                        }
-//                    }
+                    storePost.storeFile=newImage.fileID ?? 0
+                    DispatchQueue.main.async {
+                        storePost.enrollStore()
+                        
+                    }
+                    viewModel.storeId = (storePost.newStore?.storeID)! //에러발생
+                    viewModel.signUp { success in
+                        if success {
+                            print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
+                            self.moveToSignInView = true
+                        } else {
+                            print("회원가입 실패")
+                        }
+                    }
                 }) {
                     Text("회원가입")
                         .frame(maxWidth: .infinity)
@@ -115,7 +121,7 @@ struct SellerSignUpView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
-                .disabled(viewModel.isLoading)
+                .disabled(viewModel.isLoading || self.isLoading)
                 .fullScreenCover(isPresented: $moveToSignInView) {
                     SignInView()
                 }
@@ -159,18 +165,18 @@ class StorePostViewModel: ObservableObject {
         let url = "http://3.34.33.15:8080/store"
         
         AF.request(url, method: .post, parameters: parameters)
-                    .validate()
-                    .responseDecodable(of: StoreElement.self) { (response) in
-                        switch response.result {
-                        case .success(let storeElement):
-                            DispatchQueue.main.async {
-                                self.newStore = storeElement
-                                print(self.newStore?.cardAvail! as Any)
-                            }
-                        case .failure(let error):
-                            print(error)
+            .validate()
+            .responseDecodable(of: StoreElement.self) { (response) in
+                switch response.result {
+                    case .success(let storeElement):
+                        DispatchQueue.main.async {
+                            self.newStore = storeElement
+                            print(self.newStore?.cardAvail! as Any)
                         }
-                    }
+                    case .failure(let error):
+                        print(error)
+                }
+            }
         
     }
 }
