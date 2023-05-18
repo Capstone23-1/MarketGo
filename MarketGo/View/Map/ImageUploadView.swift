@@ -7,7 +7,14 @@ struct ImageUploadView: View {
     @State var image: UIImage?
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var category: String 
-    @Binding var id: String
+    @Binding var id: Int
+    var stringId: Binding<String> {
+        Binding<String>(
+            get: { String(id) },
+            set: { id = Int($0) ?? 0 }
+        )
+    }
+
     let imageSize = 100.0
 
     var body: some View {
@@ -36,19 +43,20 @@ struct ImageUploadView: View {
             }
             .sheet(isPresented: $showImagePicker, onDismiss: {
                 if let image = self.image {
-                    self.uploadImageToServer(image: image, category: "store", id: self.id)
+                    self.uploadImageToServer(image: image, category: "store", id: String(id))
                 }
             }) {
                 ImagePicker(selectedImage: self.$image, sourceType: self.sourceType)
             }
 
-            TextField("ID", text: $id)
+            TextField("ID", text: stringId)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
 
+
             Button("서버에 이미지 업로드") {
                 if let image = self.image {
-                    self.uploadImageToServer(image: image, category: "store", id: self.id)
+                    self.uploadImageToServer(image: image, category: "store", id: String(id))
                 }
             }
             .padding()

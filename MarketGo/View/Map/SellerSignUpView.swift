@@ -17,11 +17,13 @@ struct SellerSignUpView: View {
     @State private var selectedMarket: MarketOne? // 선택된 마켓 정보를 저장할 상태 변수
     @State private var marketName: String = "" // TextField에 바인딩할 변수
     @State private var newStore: StoreElement?
+    @State private var imageCate = StoreCategory(categoryID: 2,categoryName: "store")
     
     var body: some View {
         NavigationView {
+            ImageUploadView(category: $imageCate.categoryName, id: $imageCate.categoryID)
             Form {
-               
+                
                 TextField("가게명", text: $storePost.storeName)
                     .autocapitalization(.none)
                     .padding()
