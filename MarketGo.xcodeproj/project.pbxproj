@@ -11,7 +11,7 @@
 		210861FC2A06AE0900EC3A60 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210861FB2A06AE0900EC3A60 /* Config.swift */; };
 		210862002A06AF8F00EC3A60 /* FindPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210861FF2A06AF8F00EC3A60 /* FindPathView.swift */; };
 		210862022A06D67900EC3A60 /* MapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210862012A06D67900EC3A60 /* MapLinkView.swift */; };
-		211F53D92A169A7D003DA011 /* ImageTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53D82A169A7D003DA011 /* ImageTestView.swift */; };
+		211F53DB2A16A152003DA011 /* ImagePickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53DA2A16A152003DA011 /* ImagePickerModel.swift */; };
 		2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5729D1CEBA00B78C6C /* Assets.xcassets */; };
 		2140BC5B29D1CEBA00B78C6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */; };
 		2140BC6529D1CEBA00B78C6C /* MarketGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC6429D1CEBA00B78C6C /* MarketGoTests.swift */; };
@@ -113,7 +113,7 @@
 		210861FB2A06AE0900EC3A60 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		210861FF2A06AF8F00EC3A60 /* FindPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPathView.swift; sourceTree = "<group>"; };
 		210862012A06D67900EC3A60 /* MapLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLinkView.swift; sourceTree = "<group>"; };
-		211F53D82A169A7D003DA011 /* ImageTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTestView.swift; sourceTree = "<group>"; };
+		211F53DA2A16A152003DA011 /* ImagePickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerModel.swift; sourceTree = "<group>"; };
 		2140BC5029D1CEB900B78C6C /* MarketGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2140BC5729D1CEBA00B78C6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -309,6 +309,7 @@
 				214871D12A055EDB00C6FD1D /* MarketOneModel.swift */,
 				210861FB2A06AE0900EC3A60 /* Config.swift */,
 				994979C22A119ADE00159828 /* URLImage.swift */,
+				211F53DA2A16A152003DA011 /* ImagePickerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -357,7 +358,6 @@
 				21D006932A15057E00C404C3 /* ImageUploadView.swift */,
 				21D006952A15300200C404C3 /* StoreInfoWrite.swift */,
 				21D006972A15DB9200C404C3 /* StoreEnrollView.swift */,
-				211F53D82A169A7D003DA011 /* ImageTestView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -701,6 +701,7 @@
 				994979C12A119A5100159828 /* StoreJASON.swift in Sources */,
 				99CD749429DD904600D2D782 /* FoodItemCell.swift in Sources */,
 				21D006942A15057E00C404C3 /* ImageUploadView.swift in Sources */,
+				211F53DB2A16A152003DA011 /* ImagePickerModel.swift in Sources */,
 				994979BF2A11999D00159828 /* GoodsJASON.swift in Sources */,
 				994979C52A12681A00159828 /* MenuView.swift in Sources */,
 				21FAE1E62A0AA787006593D9 /* SignInView.swift in Sources */,
@@ -712,7 +713,6 @@
 				21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */,
 				998843C02A04DE8700132079 /* MypageView.swift in Sources */,
 				21FAE1EE2A0B65EC006593D9 /* SellerSignUpView.swift in Sources */,
-				211F53D92A169A7D003DA011 /* ImageTestView.swift in Sources */,
 				2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */,
 				21FAE1DE2A0AA49D006593D9 /* UserSignUpViewModel.swift in Sources */,
 				210862022A06D67900EC3A60 /* MapLinkView.swift in Sources */,

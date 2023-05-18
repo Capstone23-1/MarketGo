@@ -17,14 +17,14 @@ struct SellerSignUpView: View {
     @State private var selectedMarket: MarketOne? // 선택된 마켓 정보를 저장할 상태 변수
     @State private var marketName: String = "" // TextField에 바인딩할 변수
     @State private var newStore: StoreElement?
-    @State private var imageCate = StoreCategory(categoryID: 1,categoryName: "test")
+    @State private var imageCate = StoreCategory(categoryID: 3,categoryName: "test")
     
     var body: some View {
         NavigationView {
             
             Form {
-//                ImageUploadView(category: $imageCate.categoryName, id: $imageCate.categoryID)
-                ImageTestView(category: $imageCate.categoryName, did: $imageCate.categoryID)
+                ImageUploadView(category: $imageCate.categoryName, did: $imageCate.categoryID)
+
                 TextField("가게명", text: $storePost.storeName)
                     .autocapitalization(.none)
                     .padding()
@@ -165,7 +165,7 @@ class StorePostViewModel: ObservableObject {
                         case .success(let storeElement):
                             DispatchQueue.main.async {
                                 self.newStore = storeElement
-                                print(self.newStore?.cardAvail!)
+                                print(self.newStore?.cardAvail! as Any)
                             }
                         case .failure(let error):
                             print(error)
