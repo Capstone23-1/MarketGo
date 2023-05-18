@@ -1,5 +1,5 @@
 import SwiftUI
-
+// TODO: storeNum은 지도가 등록됐을 때 수정창에서 하도록
 struct StoreEnrollView: View {
     //    @StateObject private var vm = SellerSignUpViewModel()
     @EnvironmentObject private var storePost: StorePostViewModel
@@ -35,25 +35,25 @@ struct StoreEnrollView: View {
         Form {
             
             Section(header: Text("가게 정보")) {
-                TextField("가게 이름", text: $viewModel.storeName)
-                //                HStack{
-                //                    TextField("소속시장", text: $marketName)
-                //                        .autocapitalization(.none)
-                //
-                //
-                //                    Button(action: {
-                //                        self.moveToCoiceView = true
-                //                    }) {
-                //                        Text("찾기")
-                //                            .frame(maxWidth: 50)
-                //                            .background(Color.accentColor)
-                //                            .foregroundColor(.white)
-                //                            .cornerRadius(8.0)
-                //                    }
-                //                    .sheet(isPresented: $moveToCoiceView) {
-                //                        SellerMarketChoiceView(selectedMarket: $selectedMarket, isPresented: $moveToCoiceView, marketName: $marketName)
-                //                    }
-                //                }
+                TextField("가게 이름", text: $storePost.storeName)
+                HStack{
+                    TextField("소속시장", text: $marketName)
+                        .autocapitalization(.none)
+                    
+                    
+                    Button(action: {
+                        self.moveToCoiceView = true
+                    }) {
+                        Text("찾기")
+                            .frame(maxWidth: 50)
+                            .background(Color.accentColor)
+                            .foregroundColor(.white)
+                            .cornerRadius(8.0)
+                    }
+                    .sheet(isPresented: $moveToCoiceView) {
+                        SellerMarketChoiceView(selectedMarket: $selectedMarket, isPresented: $moveToCoiceView, marketName: $marketName)
+                    }
+                }
                 TextField("시장 내 상세주소", text: $storePost.storeAddress1)
                 
                 
@@ -85,38 +85,38 @@ struct StoreEnrollView: View {
                     }
             }
             
-//            Section(header: Text("마켓 상품권")) {
-//                // 다중 선택 가능한 체크박스 목록
-//                VStack(alignment: .leading) {
-//                    ForEach(["온누리상품권"], id: \.self) { giftcard in
-//                        HStack {
-//                            Button(action: {
-//                                toggleMarketGiftcard(giftcard)
-//                            }) {
-//                                Image(systemName: marketGiftcards.contains(giftcard) ? "checkmark.square" : "square")
-//                            }
-//                            Text(giftcard)
-//                        }
-//                    }
-//                }
-//            }
+            //            Section(header: Text("마켓 상품권")) {
+            //                // 다중 선택 가능한 체크박스 목록
+            //                VStack(alignment: .leading) {
+            //                    ForEach(["온누리상품권"], id: \.self) { giftcard in
+            //                        HStack {
+            //                            Button(action: {
+            //                                toggleMarketGiftcard(giftcard)
+            //                            }) {
+            //                                Image(systemName: marketGiftcards.contains(giftcard) ? "checkmark.square" : "square")
+            //                            }
+            //                            Text(giftcard)
+            //                        }
+            //                    }
+            //                }
+            //            }
             
-            Section(header: Text("가게 번호")) {
-                Stepper(value: $storeNum, in: 0...10) {
-                    Text("가게 번호: \(storeNum)")
-                }
-            }
+            //            Section(header: Text("가게 번호")) {
+            //                Stepper(value: $storeNum, in: 0...10) {
+            //                    Text("가게 번호: \(storeNum)")
+            //                }
+            //            }
             
-            // 저장 버튼
-            Section {
-                Button(action: saveStoreElement) {
-                    Text("저장")
-                }
-            }
+            //            // 저장 버튼
+            //            Section {
+            //                Button(action: saveStoreElement) {
+            //                    Text("저장")
+            //                }
+            //            }
         }
     }
     
-   
+    
     func saveStoreElement() {
         // StoreElement 객체를 생성하여 입력된 값들을 저장
         //        let storeElement = StoreElement(

@@ -23,7 +23,7 @@ struct MarketOne: Codable {
     var marketRatings: Double?
     var marketInfo, parking, toilet, marketPhonenum: String?
     var marketGiftcard, marketType, updateTime: String?
-    var marketFile, marketMap: Market?
+    var marketFile, marketMap: FileInfo?
     var reviewCount: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -32,17 +32,17 @@ struct MarketOne: Codable {
     }
 }
 
-// MARK: - Market
-struct Market: Codable {
-    var fileID: Int?
-    var originalFileName, uploadFileName, uploadFilePath: String?
-    var uploadFileURL: String?
-
-    enum CodingKeys: String, CodingKey {
-        case fileID = "fileId"
-        case originalFileName, uploadFileName, uploadFilePath
-        case uploadFileURL = "uploadFileUrl"
-    }
-}
+//// MARK: - Market 중복으로 다른걸로 대체
+//struct Market: Codable {
+//    var fileID: Int?
+//    var originalFileName, uploadFileName, uploadFilePath: String?
+//    var uploadFileURL: String?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case fileID = "fileId"
+//        case originalFileName, uploadFileName, uploadFilePath
+//        case uploadFileURL = "uploadFileUrl"
+//    }
+//}
 
 typealias MarketArray = [MarketOne]

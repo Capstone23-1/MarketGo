@@ -90,6 +90,7 @@ struct SameName: Codable {
 import Foundation
 import Alamofire
 
+
 //// MARK: - StoreInfo
 //struct StoreInfo: Codable {
 //    var storeID: Int?
@@ -109,6 +110,7 @@ import Alamofire
 //        case storeFile, reviewCount
 //    }
 //}
+
 
 //
 // To parse values from Alamofire responses:
@@ -130,18 +132,18 @@ import Alamofire
 //     }
 //   }
 
-// MARK: - StoreFile
-struct StoreFile: Codable {
-    var fileID: Int?
-    var originalFileName, uploadFileName, uploadFilePath: String?
-    var uploadFileURL: String?
-
-    enum CodingKeys: String, CodingKey {
-        case fileID = "fileId"
-        case originalFileName, uploadFileName, uploadFilePath
-        case uploadFileURL = "uploadFileUrl"
-    }
-}
+//// MARK: - StoreFile 중복으로 대체
+//struct StoreFile: Codable {
+//    var fileID: Int?
+//    var originalFileName, uploadFileName, uploadFilePath: String?
+//    var uploadFileURL: String?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case fileID = "fileId"
+//        case originalFileName, uploadFileName, uploadFilePath
+//        case uploadFileURL = "uploadFileUrl"
+//    }
+//}
 
 //
 // To parse values from Alamofire responses:
