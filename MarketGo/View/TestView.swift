@@ -1,41 +1,69 @@
-//struct CartView: View {
-//    @EnvironmentObject var userModel: UserModel
-//    @ObservedObject var cartViewModel = CartViewModel()
-//    @State private var cartItems: [CartItem] = []
-//
-//    // ... rest of the code
-//
-//    var body: some View {
-//        // ... rest of the code
-//
-//        VStack {
-//            List {
-//                ForEach(getGroupedCartItems(), id: \.self) { market in
-//                    Section(header: Text(market)) {
-//                        ForEach(getCartItems(forMarket: market), id: \.self) { cartItem in
-//                            if let index = cartItems.firstIndex(where: { $0.id == cartItem.id }) {
-//                                HStack {
-//                                    VStack(alignment: .leading) {
-//                                        Text(cartItems[index].goodsName) // Use cartItems[index] here
-//                                            .fontWeight(.semibold)
-//                                        Text("Unit: \(cartItems[index].unit)") // Use cartItems[index] here
-//                                            .font(.system(size: 14))
-//                                        // Add more information about the cart item if needed
-//                                    }
-//                                    Spacer()
-//                                    Stepper(value: $cartItems[index].quantity, in: 1...10) {
-//                                        Text("\(cartItems[index].quantity) 개")
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//
-//            // ... rest of the code
-//        }
-//    }
-//
-//    // ... rest of the code
-//}
+import SwiftUI
+
+struct TestView: View {
+    @StateObject private var viewModel = TestViewModel()
+    let storeId: Int
+    
+    var body: some View {
+        VStack {
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                if let reviews = viewModel.reviews {
+                    List(reviews, id: \.storeReviewID) { review in
+                        VStack(alignment: .leading) {
+                            Text("Review ID: \(review.storeReviewID ?? 0)")
+                            Text("Member Name: \(review.memberID?.memberName ?? "")")
+                            Text("Ratings: \(review.ratings ?? 0)")
+                            Text("Review Content: \(review.reviewContent ?? "")")
+                            // Display other relevant review information
+                        }
+                        .padding()
+                    }
+                } else {
+                    Text("Failed to fetch reviews")
+                        .foregroundColor(.red)
+                }
+            }
+        }
+        .onAppear {
+            viewModel.fetchReviews(for: storeId)
+        }
+    }
+}
+
+class TestViewModel: ObservableObject {
+    @Published var reviews: StoreReview?
+    @Published var isLoading = false
+    
+    func fetchReviews(for storeId: Int) {
+        isLoading = true
+        
+        let url = URL(string: "http://3.34.33.15:8080/storeReview/storeId/\(storeId)")!
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            defer { self.isLoading = false }
+            
+            if let error = error {
+                print("Failed to fetch reviews: \(error)")
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let decodedData = try JSONDecoder().decode(StoreReview.self, from: data)
+                    DispatchQueue.main.async {
+                        self.reviews = decodedData
+                    }
+                } catch {
+                    print("Failed to decode reviews: \(error)")
+                }
+            }
+        }.resume()
+    }
+}
+
+struct TestView_Previews: PreviewProvider {
+    static var previews: some View {
+        TestView(storeId: 9)
+    }
+}

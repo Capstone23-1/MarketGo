@@ -13,6 +13,7 @@ import FirebaseCore
 struct MarketGoApp: App {
     @StateObject var userModel = UserModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     //파이어베이스 연결부분
     var body: some Scene {
         WindowGroup {
