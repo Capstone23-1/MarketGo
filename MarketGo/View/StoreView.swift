@@ -31,7 +31,9 @@ struct StoreView: View {
                     
                     HStack {
                         
-                        Text("작성된 리뷰 \(store.reviewCount ?? 0) 개>")
+                        NavigationLink(destination: StoreReviewListView(store: store)){
+                            Text("작성된 리뷰 \(store.reviewCount ?? 0) 개>")
+                        }
                         
                         NavigationLink(destination: MenuView(storeID: store.storeID ?? 0)) {
                             Text("메뉴판")

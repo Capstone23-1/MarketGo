@@ -90,25 +90,27 @@ struct SameName: Codable {
 import Foundation
 import Alamofire
 
-// MARK: - StoreInfo
-struct StoreInfo: Codable {
-    var storeID: Int?
-    var storeName, storeAddress1, storeAddress2: String?
-    var storeCategory: StoreCategory?
-    var storeRatings: Double?
-    var storePhonenum, storeInfo, cardAvail, localAvail: String?
-    var storeNum: Int?
-    var storeMarketOne: MarketOne?
-    var storeFile: FileInfo?
-    var reviewCount: JSONNull?
 
-    enum CodingKeys: String, CodingKey {
-        case storeID
-        case storeName, storeAddress1, storeAddress2, storeCategory, storeRatings, storePhonenum, storeInfo, cardAvail, localAvail, storeNum
-        case storeMarketOne
-        case storeFile, reviewCount
-    }
-}
+//// MARK: - StoreInfo
+//struct StoreInfo: Codable {
+//    var storeID: Int?
+//    var storeName, storeAddress1, storeAddress2: String?
+//    var storeCategory: StoreCategory?
+//    var storeRatings: Double?
+//    var storePhonenum, storeInfo, cardAvail, localAvail: String?
+//    var storeNum: Int?
+//    var storeMarketOne: MarketOne?
+//    var storeFile: StoreFile?
+//    var reviewCount: JSONNull?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case storeID
+//        case storeName, storeAddress1, storeAddress2, storeCategory, storeRatings, storePhonenum, storeInfo, cardAvail, localAvail, storeNum
+//        case storeMarketOne
+//        case storeFile, reviewCount
+//    }
+//}
+
 
 //
 // To parse values from Alamofire responses:

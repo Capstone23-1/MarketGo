@@ -44,37 +44,37 @@ struct MemberInfo: Codable {
     }
 }
 
-// MARK: - InterestMarket
-struct InterestMarket: Codable {
-    var marketID: Int?
-    var marketName, marketAddress1, marketAddress2, marketLocation: String?
-    var marketLatitude, marketLongitude, marketRatings: JSONNull?
-    var marketInfo, parking, toilet, marketPhonenum: String?
-    var marketGiftcard: String?
-    var marketType, updateTime, marketFile, marketMap: JSONNull?
-    var reviewCount: JSONNull?
-
-    enum CodingKeys: String, CodingKey {
-        case marketID = "marketId"
-        case marketName, marketAddress1, marketAddress2, marketLocation, marketLatitude, marketLongitude, marketRatings, marketInfo, parking, toilet, marketPhonenum, marketGiftcard, marketType, updateTime, marketFile, marketMap, reviewCount
-    }
-}
-
-// MARK: - StoreID
-struct StoreID: Codable {
-    var storeID: Int?
-    var storeName, storeAddress1, storeAddress2: String?
-    var storeCategory, storeRatings: JSONNull?
-    var storePhonenum, storeInfo, cardAvail, localAvail: String?
-    var storeNum, storeMarketID, storeFile, reviewCount: JSONNull?
-
-    enum CodingKeys: String, CodingKey {
-        case storeID = "storeId"
-        case storeName, storeAddress1, storeAddress2, storeCategory, storeRatings, storePhonenum, storeInfo, cardAvail, localAvail, storeNum
-        case storeMarketID = "storeMarketId"
-        case storeFile, reviewCount
-    }
-}
+//// MARK: - InterestMarket
+//struct InterestMarket: Codable {
+//    var marketID: Int?
+//    var marketName, marketAddress1, marketAddress2, marketLocation: String?
+//    var marketLatitude, marketLongitude, marketRatings: JSONNull?
+//    var marketInfo, parking, toilet, marketPhonenum: String?
+//    var marketGiftcard: String?
+//    var marketType, updateTime, marketFile, marketMap: JSONNull?
+//    var reviewCount: JSONNull?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case marketID = "marketId"
+//        case marketName, marketAddress1, marketAddress2, marketLocation, marketLatitude, marketLongitude, marketRatings, marketInfo, parking, toilet, marketPhonenum, marketGiftcard, marketType, updateTime, marketFile, marketMap, reviewCount
+//    }
+//}
+//
+//// MARK: - StoreID
+//struct StoreID: Codable {
+//    var storeID: Int?
+//    var storeName, storeAddress1, storeAddress2: String?
+//    var storeCategory, storeRatings: JSONNull?
+//    var storePhonenum, storeInfo, cardAvail, localAvail: String?
+//    var storeNum, storeMarketID, storeFile, reviewCount: JSONNull?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case storeID = "storeId"
+//        case storeName, storeAddress1, storeAddress2, storeCategory, storeRatings, storePhonenum, storeInfo, cardAvail, localAvail, storeNum
+//        case storeMarketID = "storeMarketId"
+//        case storeFile, reviewCount
+//    }
+//}
 
 
 // MARK: - Encode/decode helpers
