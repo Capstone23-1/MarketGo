@@ -13,7 +13,7 @@ struct Good: Codable, Identifiable {
     var goodsName: String?
     var goodsMarket: GoodsMarket?
     var goodsStore: GoodsStore?
-    var goodsFile: FileInfo?
+    var goodsFile: GoodsFile?
     var goodsPrice: Int?
     var goodsUnit, goodsInfo: String?
     var updateTime: String?
@@ -30,8 +30,8 @@ struct Good: Codable, Identifiable {
        }
 }
 
-// MARK: - GoodsFile 대표가 됨
-struct FileInfo: Codable {
+// MARK: - GoodsFile
+struct GoodsFile: Codable {
     var fileID: Int?
     var originalFileName, uploadFileName, uploadFilePath: String?
     var uploadFileURL: String?
@@ -75,7 +75,7 @@ struct GoodsMarket: Codable {
     var marketLatitude, marketLongitude, marketRatings: Double?
     var marketInfo, parking, toilet, marketPhonenum: String?
     var marketGiftcard, marketType, updateTime: String?
-    var marketFile, marketMap: FileInfo?
+    var marketFile, marketMap: GoodsFile?
     var reviewCount: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -93,7 +93,7 @@ struct GoodsStore: Codable {
     var storePhonenum, storeInfo, cardAvail, localAvail: String?
     var storeNum: Int?
     var storeMarketID: GoodsMarket?
-    var storeFile: FileInfo?
+    var storeFile: GoodsFile?
     var reviewCount: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -190,5 +190,4 @@ class GoodsViewModel3: ObservableObject {
         }
     }
 }
-
 
