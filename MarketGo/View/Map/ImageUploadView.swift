@@ -37,7 +37,6 @@ struct ImageUploadView: View {
                     .clipShape(Circle())
                     .padding(.top)
             }
-
             Button("이미지 선택") {
                 self.showImagePicker = true
             }
@@ -48,15 +47,9 @@ struct ImageUploadView: View {
             }) {
                 ImagePicker(selectedImage: self.$image, sourceType: self.sourceType)
             }
-
-//            TextField("ID", text: stringId)
-//                .textFieldStyle(RoundedBorderTextFieldStyle())
-//                .padding()
-
-
             Button("서버에 이미지 업로드") {
                 if let image = self.image {
-                    self.uploadImageToServer(image: image, category: "store", id: String(id))
+                    self.uploadImageToServer(image: image, category: self.category, id: String(self.id))
                 }
             }
             .padding()
@@ -69,10 +62,12 @@ struct ImageUploadView: View {
 
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(imageData, withName: "files", fileName: "image.jpg", mimeType: "image/jpeg")
-            multipartFormData.append(category.data(using: .utf8)!, withName: "category")
-            multipartFormData.append(id.data(using: .utf8)!, withName: "id")
+            multipartFormData.append(category.data(using: .utf8)!, withName: category)
+            multipartFormData.append(id.data(using: .utf8)!, withName: id)
         }, to: "http://3.34.33.15:8080/uploads").response { response in
+            
             debugPrint(response)
+            
         }
     }
 

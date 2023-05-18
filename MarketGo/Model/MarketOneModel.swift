@@ -14,7 +14,17 @@
 //   let marketOne = try? JSONDecoder().decode(MarketOne.self, from: jsonData)
 
 import Foundation
+struct FileInfo: Codable {
+    var fileID: Int?
+    var originalFileName, uploadFileName, uploadFilePath: String?
+    var uploadFileURL: String?
 
+    enum CodingKeys: String, CodingKey {
+        case fileID = "fileId"
+        case originalFileName, uploadFileName, uploadFilePath
+        case uploadFileURL = "uploadFileUrl"
+    }
+}
 // MARK: - MarketOneElement
 struct MarketOne: Codable {
     var marketID: Int=0

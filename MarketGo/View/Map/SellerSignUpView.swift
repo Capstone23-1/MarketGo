@@ -17,7 +17,7 @@ struct SellerSignUpView: View {
     @State private var selectedMarket: MarketOne? // 선택된 마켓 정보를 저장할 상태 변수
     @State private var marketName: String = "" // TextField에 바인딩할 변수
     @State private var newStore: StoreElement?
-    @State private var imageCate = StoreCategory(categoryID: 0,categoryName: "test")
+    @State private var imageCate = StoreCategory(categoryID: 1,categoryName: "test")
     
     var body: some View {
         NavigationView {
