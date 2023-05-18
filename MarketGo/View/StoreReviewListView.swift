@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StoreReviewListView: View {
     let store: StoreElement
-    @StateObject private var viewModel = StoreReViewModel()
+    @StateObject private var viewModel = TestViewModel()
     
     var body: some View {
         VStack {

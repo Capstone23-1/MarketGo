@@ -1,10 +1,3 @@
-//
-//  StoreReviewJASON.swift
-//  MarketGo
-//
-//  Created by 김주현 on 2023/05/17.
-//
-
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
@@ -14,6 +7,7 @@ import Foundation
 
 // MARK: - StoreReviewElement
 struct StoreReviewElement: Codable, Identifiable {
+    
     var id: Int?
     var storeReviewID: Int?
     var storeID: StoreID?
@@ -84,12 +78,12 @@ struct StoreID: Codable {
     var storeID: Int?
     var storeName, storeAddress1, storeAddress2: String?
     var storeCategory: StoreCategory?
-    var storeRatings: Int?
+    var storeRatings: Double?
     var storePhonenum, storeInfo, cardAvail, localAvail: String?
     var storeNum: Int?
     var storeMarketID: InterestMarket?
     var storeFile: StoreReviewFile?
-    var reviewCount: JSONNull?
+    var reviewCount: Int?
 
     enum CodingKeys: String, CodingKey {
         case storeID = "storeId"
@@ -107,36 +101,6 @@ struct StoreCategory: Codable {
     enum CodingKeys: String, CodingKey {
         case categoryID = "categoryId"
         case categoryName
-    }
-}
-
-class StoreReViewModel: ObservableObject {
-    @Published var reviews: StoreReview?
-    @Published var isLoading = false
-    
-    func fetchReviews(for storeId: Int) {
-        isLoading = true
-        
-        let url = URL(string: "http://3.34.33.15:8080/storeReview/storeId/\(storeId)")!
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            defer { self.isLoading = false }
-            
-            if let error = error {
-                print("Failed to fetch reviews: \(error)")
-                return
-            }
-            
-            if let data = data {
-                do {
-                    let decodedData = try JSONDecoder().decode(StoreReview.self, from: data)
-                    DispatchQueue.main.async {
-                        self.reviews = decodedData
-                    }
-                } catch {
-                    print("Failed to decode reviews: \(error)")
-                }
-            }
-        }.resume()
     }
 }
 

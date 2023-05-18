@@ -1,69 +1,53 @@
 import SwiftUI
+import Alamofire
 
 struct TestView: View {
     @StateObject private var viewModel = TestViewModel()
-    let storeId: Int
-    
+
     var body: some View {
         VStack {
             if viewModel.isLoading {
                 ProgressView()
-            } else {
-                if let reviews = viewModel.reviews {
-                    List(reviews, id: \.storeReviewID) { review in
-                        VStack(alignment: .leading) {
-                            Text("Review ID: \(review.storeReviewID ?? 0)")
-                            Text("Member Name: \(review.memberID?.memberName ?? "")")
-                            Text("Ratings: \(review.ratings ?? 0)")
-                            Text("Review Content: \(review.reviewContent ?? "")")
-                            // Display other relevant review information
-                        }
-                        .padding()
-                    }
-                } else {
-                    Text("Failed to fetch reviews")
-                        .foregroundColor(.red)
+            } else if let reviews = viewModel.reviews {
+                List(reviews) { review in
+                    Text(review.reviewContent ?? "")
                 }
+            } else {
+                Text("No reviews found")
             }
         }
         .onAppear {
-            viewModel.fetchReviews(for: storeId)
+            viewModel.fetchReviews(for: 9) // Replace 9 with the desired storeId
         }
-    }
-}
-
-class TestViewModel: ObservableObject {
-    @Published var reviews: StoreReview?
-    @Published var isLoading = false
-    
-    func fetchReviews(for storeId: Int) {
-        isLoading = true
-        
-        let url = URL(string: "http://3.34.33.15:8080/storeReview/storeId/\(storeId)")!
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            defer { self.isLoading = false }
-            
-            if let error = error {
-                print("Failed to fetch reviews: \(error)")
-                return
-            }
-            
-            if let data = data {
-                do {
-                    let decodedData = try JSONDecoder().decode(StoreReview.self, from: data)
-                    DispatchQueue.main.async {
-                        self.reviews = decodedData
-                    }
-                } catch {
-                    print("Failed to decode reviews: \(error)")
-                }
-            }
-        }.resume()
     }
 }
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
-        TestView(storeId: 9)
+        TestView()
+    }
+}
+
+
+class TestViewModel: ObservableObject {
+    @Published var reviews: [StoreReviewElement]?
+    @Published var isLoading = false
+
+    func fetchReviews(for storeId: Int) {
+        isLoading = true
+
+        let url = "http://3.34.33.15:8080/storeReview/storeId/\(storeId)"
+        AF.request(url).responseDecodable(of: StoreReview.self) { response in
+            defer { self.isLoading = false }
+
+            switch response.result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.reviews = data
+                }
+            case .failure(let error):
+                print("Failed to fetch reviews: \(error)")
+            }
+        }
     }
 }
