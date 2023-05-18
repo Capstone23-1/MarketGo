@@ -13,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         VStack{
             Text("\(userViewModel.currentUser?.memberName ?? "")")
-            Text(String(userViewModel.currentUser!.memberID!))
+//            Text(String(userViewModel.currentUser!.memberID!))
             Text("\(userViewModel.currentUser?.memberToken ?? "")")
         }
        
