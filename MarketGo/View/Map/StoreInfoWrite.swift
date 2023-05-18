@@ -3,7 +3,7 @@ import SwiftUI
 import Foundation
 import Alamofire
 
-class StoreEnrollViewModel: ObservableObject {
+class StorePostViewModel: ObservableObject {
     @Published var newStore: StoreElement? // newStore를 옵셔널 타입으로 선언
     
     var storeName: String = "소람상회"
@@ -54,8 +54,8 @@ class StoreEnrollViewModel: ObservableObject {
     }
 }
 
-struct StoreEnrollViewTest: View {
-    @StateObject var viewModel = StoreEnrollViewModel()
+struct StorePostTestView: View {
+    @StateObject var viewModel = StorePostViewModel()
     
     var body: some View {
         VStack {

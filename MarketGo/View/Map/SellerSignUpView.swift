@@ -85,7 +85,7 @@ struct SellerSignUpView: View {
                         .frame(maxWidth: .infinity)
                 }
                 .sheet(isPresented: $moveToWriteView) {
-                    StoreEnrollViewTest()
+                    StorePostTestView()
                 }
                 
                 Button(action: {
