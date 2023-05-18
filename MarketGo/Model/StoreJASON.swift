@@ -23,7 +23,7 @@ struct StoreElement: Codable, Identifiable {
     var storePhonenum, storeInfo, cardAvail, localAvail: String?
     var storeNum: Int?
     var storeMarketID: MarketOne?
-    var storeFile: StoreFile?
+    var storeFile: FileInfo?
     var reviewCount: Int?
     
     enum CodingKeys: String, CodingKey {

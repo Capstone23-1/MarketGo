@@ -17,7 +17,7 @@ struct SellerSignUpView: View {
     @State private var selectedMarket: MarketOne? // 선택된 마켓 정보를 저장할 상태 변수
     @State private var marketName: String = "" // TextField에 바인딩할 변수
     @State private var newStore: StoreElement?
-    @State private var imageCate = StoreCategory(categoryID: 2,categoryName: "store")
+    @State private var imageCate = StoreCategory(categoryID: 0,categoryName: "test")
     
     var body: some View {
         NavigationView {
@@ -95,7 +95,9 @@ struct SellerSignUpView: View {
                     
                     viewModel.nickName=storePost.storeName
                     storePost.storeAddress2=storePost.storeAddress1
-                    print(storePost.storeAddress2)
+                    storePost.marketId = selectedMarket!.marketID
+//                    storePost.storeFile=
+                    storePost.enrollStore()
 //                    viewModel.signUp { success in
 //                        if success {
 //                            print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")

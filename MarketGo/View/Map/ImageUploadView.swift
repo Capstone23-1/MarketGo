@@ -49,9 +49,9 @@ struct ImageUploadView: View {
                 ImagePicker(selectedImage: self.$image, sourceType: self.sourceType)
             }
 
-            TextField("ID", text: stringId)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+//            TextField("ID", text: stringId)
+//                .textFieldStyle(RoundedBorderTextFieldStyle())
+//                .padding()
 
 
             Button("서버에 이미지 업로드") {

@@ -99,7 +99,7 @@ struct StoreInfo: Codable {
     var storePhonenum, storeInfo, cardAvail, localAvail: String?
     var storeNum: Int?
     var storeMarketOne: MarketOne?
-    var storeFile: StoreFile?
+    var storeFile: FileInfo?
     var reviewCount: JSONNull?
 
     enum CodingKeys: String, CodingKey {
@@ -130,18 +130,18 @@ struct StoreInfo: Codable {
 //     }
 //   }
 
-// MARK: - StoreFile
-struct StoreFile: Codable {
-    var fileID: Int?
-    var originalFileName, uploadFileName, uploadFilePath: String?
-    var uploadFileURL: String?
-
-    enum CodingKeys: String, CodingKey {
-        case fileID = "fileId"
-        case originalFileName, uploadFileName, uploadFilePath
-        case uploadFileURL = "uploadFileUrl"
-    }
-}
+//// MARK: - StoreFile 중복으로 대체
+//struct StoreFile: Codable {
+//    var fileID: Int?
+//    var originalFileName, uploadFileName, uploadFilePath: String?
+//    var uploadFileURL: String?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case fileID = "fileId"
+//        case originalFileName, uploadFileName, uploadFilePath
+//        case uploadFileURL = "uploadFileUrl"
+//    }
+//}
 
 //
 // To parse values from Alamofire responses:
