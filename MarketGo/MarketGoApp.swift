@@ -12,6 +12,7 @@ import FirebaseCore
 @main
 struct MarketGoApp: App {
     @StateObject var userModel = UserModel()
+    @StateObject private var storePost = StorePostViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     //파이어베이스 연결부분
@@ -19,6 +20,8 @@ struct MarketGoApp: App {
         WindowGroup {
             SignInView()
                 .environmentObject(userModel)
+                .environmentObject(storePost)
+                
                 
         }
     }

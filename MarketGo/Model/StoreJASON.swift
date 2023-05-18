@@ -22,10 +22,10 @@ struct StoreElement: Codable, Identifiable {
     var storeRatings: Double?
     var storePhonenum, storeInfo, cardAvail, localAvail: String?
     var storeNum: Int?
-    var storeMarketID: StoreMarketID?
+    var storeMarketID: MarketOne?
     var storeFile: StoreFile?
     var reviewCount: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case storeID = "storeId"
         case storeName, storeAddress1, storeAddress2, storeCategory, storeRatings, storePhonenum, storeInfo, cardAvail, localAvail, storeNum
@@ -34,8 +34,8 @@ struct StoreElement: Codable, Identifiable {
     }
     
     var id: Int? {
-           return storeID
-       }
+        return storeID
+    }
 }
 
 
@@ -52,21 +52,21 @@ struct StoreElement: Codable, Identifiable {
 //    }
 //}
 
-// MARK: - StoreMarketID
-struct StoreMarketID: Codable {
-    var marketID: Int?
-    var marketName, marketAddress1, marketAddress2, marketLocation: String?
-    var marketLatitude, marketLongitude, marketRatings: Double?
-    var marketInfo, parking, toilet, marketPhonenum: String?
-    var marketGiftcard, marketType, updateTime: String?
-    var marketFile, marketMap: StoreFile?
-    var reviewCount: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case marketID = "marketId"
-        case marketName, marketAddress1, marketAddress2, marketLocation, marketLatitude, marketLongitude, marketRatings, marketInfo, parking, toilet, marketPhonenum, marketGiftcard, marketType, updateTime, marketFile, marketMap, reviewCount
-    }
-}
+//// MARK: - StoreMarketID
+//struct StoreMarketID: Codable {
+//    var marketID: Int?
+//    var marketName, marketAddress1, marketAddress2, marketLocation: String?
+//    var marketLatitude, marketLongitude, marketRatings: Double?
+//    var marketInfo, parking, toilet, marketPhonenum: String?
+//    var marketGiftcard, marketType, updateTime: String?
+//    var marketFile, marketMap: StoreFile?
+//    var reviewCount: Int?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case marketID = "marketId"
+//        case marketName, marketAddress1, marketAddress2, marketLocation, marketLatitude, marketLongitude, marketRatings, marketInfo, parking, toilet, marketPhonenum, marketGiftcard, marketType, updateTime, marketFile, marketMap, reviewCount
+//    }
+//}
 
 typealias Store = [StoreElement]
 
@@ -85,15 +85,15 @@ class StoreViewModel: ObservableObject {
             guard let self = self else { return }
             
             switch response.result {
-            case .success(let stores):
-                // Filter stores based on marketId
-                let filteredStores = stores.filter { $0.storeMarketID?.marketID == marketId }
-                self.stores = filteredStores
-                
-            case .failure(let error):
-                print("Error fetching stores: \(error)")
-                // Handle error case
-                
+                case .success(let stores):
+                    // Filter stores based on marketId
+                    let filteredStores = stores.filter { $0.storeMarketID?.marketID == marketId }
+                    self.stores = filteredStores
+                    
+                case .failure(let error):
+                    print("Error fetching stores: \(error)")
+                    // Handle error case
+                    
             }
         }
     }
