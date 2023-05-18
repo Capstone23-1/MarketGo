@@ -21,9 +21,9 @@ struct SellerSignUpView: View {
     
     var body: some View {
         NavigationView {
-            ImageUploadView(category: $imageCate.categoryName, id: $imageCate.categoryID)
+            
             Form {
-                
+                ImageUploadView(category: $imageCate.categoryName, id: $imageCate.categoryID)
                 TextField("가게명", text: $storePost.storeName)
                     .autocapitalization(.none)
                     .padding()
