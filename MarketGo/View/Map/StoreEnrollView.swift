@@ -1,5 +1,5 @@
 import SwiftUI
-
+// TODO: storeNum은 지도가 등록됐을 때 수정창에서 하도록
 struct StoreEnrollView: View {
     //    @StateObject private var vm = SellerSignUpViewModel()
     @EnvironmentObject private var storePost: StorePostViewModel
@@ -107,12 +107,12 @@ struct StoreEnrollView: View {
 //                }
 //            }
             
-            // 저장 버튼
-            Section {
-                Button(action: saveStoreElement) {
-                    Text("저장")
-                }
-            }
+//            // 저장 버튼
+//            Section {
+//                Button(action: saveStoreElement) {
+//                    Text("저장")
+//                }
+//            }
         }
     }
     
