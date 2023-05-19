@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct MyPageView: View {
+struct UserMyPageView: View {
     @State var member: Member
     @State private var nameEditMode = false
     @State private var newName = ""
@@ -76,7 +76,7 @@ struct MyPageView_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationView {
-            MyPageView(member: member)
+            UserMyPageView(member: member)
         }
     }
 }
