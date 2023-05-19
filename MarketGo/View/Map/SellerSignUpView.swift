@@ -1,16 +1,10 @@
-
-//  SellerSignUp.swift
-//  MarketGo
-//
-//  Created by ram on 2023/05/10.
-//
-
 import SwiftUI
 import FirebaseAuth
 import Alamofire
 struct SellerSignUpView: View {
     @State private var selectedImage: UIImage? = nil // 선택된 이미지를 저장할 변수
-    @State private var isLoading: Bool = false
+    @State private var isLoading1: Bool = false
+    @State private var isLoading2: Bool = false
     @StateObject private var viewModel = SellerSignUpViewModel()
     @EnvironmentObject private var storePost: StorePostViewModel
     @State private var moveToSignInView = false
@@ -97,51 +91,7 @@ struct SellerSignUpView: View {
                     }) {
                         StoreEnrollView(storeName: $storeName)
                     }
-                    Button(action: {
-                        isLoading=true
-                        Task {
-                            do {
-                                if let image = self.selectedImage {
-                                    
-                                    imageUploader.uploadImageToServer(image: image, category: imageCate.categoryName, id: String(imageCate.categoryID)) { result in
-                                        switch result {
-                                            case .success(let fileInfo):
-                                                newImage=fileInfo
-                                            case .failure(_): break
-                                                // Handle upload error
-                                        }
-                                    }
-                                    
-                                    storePost.storeFile = newImage.fileID ?? 0
-                                    viewModel.nickName = storePost.storeName
-                                    storePost.storeAddress2 = storePost.storeAddress1
-                                    storePost.marketId = selectedMarket!.marketID
-                                    DispatchQueue.main.async {
-                                        storePost.enrollStore()
-                                        
-                                    }
-                                    
-                                    if let storeID = storePost.newStore?.storeID, let marketID = selectedMarket?.marketID {
-                                        viewModel.storeId = storeID
-                                        viewModel.storeMarketId = marketID
-                                        storePost.newStore?.storeName=storeName
-                                        viewModel.signUp { success in
-                                            if success {
-                                                print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
-                                                self.moveToSignInView = true
-                                            } else {
-                                                print("회원가입 실패")
-                                            }
-                                        }
-                                        isLoading=false
-                                    }
-                                    
-                                }
-                            } catch {
-                                print("Error uploading image: \(error)")
-                            }
-                        }
-                    }) {
+                    Button(action: processSignUp) {
                         Text("회원가입")
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -149,13 +99,13 @@ struct SellerSignUpView: View {
                             .foregroundColor(.white)
                             .cornerRadius(8)
                     }
-                    .disabled(viewModel.isLoading)
+                    .disabled(isLoading1)
                     .fullScreenCover(isPresented: $moveToSignInView) {
                         SignInView()
                     }
                     
                 }.navigationTitle("  상점회원 가입")
-                if isLoading {
+                if isLoading2 {
                     ProgressView()
                         .scaleEffect(2)
                         .progressViewStyle(CircularProgressViewStyle(tint: .blue))
@@ -166,12 +116,59 @@ struct SellerSignUpView: View {
                 }
             }
             .onAppear {
-                isLoading = false
+                isLoading2 = false
             }
         }
         
         
     }
+    func processSignUp() {
+            isLoading1=true
+            Task {
+                do {
+                    if let image = self.selectedImage {
+                        imageUploader.uploadImageToServer(image: image, category: imageCate.categoryName, id: String(imageCate.categoryID)) { result in
+                            switch result {
+                                case .success(let fileInfo):
+                                    newImage=fileInfo
+                                case .failure(let error):
+                                    print(error)
+                            }
+                            print("이미지업로드성공:\(String(describing: newImage.uploadFileName!))")
+                            isLoading2 = true
+                        }
+                        if let id = newImage.fileID {
+                            storePost.storeFile = id
+                            print("file id get : \(storePost.storeFile) id: \(id)")
+                        }
+
+                        viewModel.nickName = storePost.storeName
+                        storePost.storeAddress2 = storePost.storeAddress1
+                        storePost.marketId = selectedMarket!.marketID
+                        DispatchQueue.main.async {
+                            storePost.enrollStore()
+                        }
+                        DispatchQueue.main.async {
+                            if let storeID = storePost.newStore?.storeID, let marketID = selectedMarket?.marketID {
+                                viewModel.storeId = storeID
+                                viewModel.storeMarketId = marketID
+                                storePost.newStore?.storeName=storeName
+                            }
+                            viewModel.signUp { success in
+                                if success {
+                                    print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
+                                    self.moveToSignInView = true
+                                } else {
+                                    print("회원가입 실패")
+                                }
+                            }
+                        }
+                    }
+                } catch {
+                    print("Error uploading image: \(error)")
+                }
+            }
+        }
     func printStorePost() {
         print("storeName: \(storePost.storeName)")
         print("storeAddress1: \(storePost.storeAddress1)")
