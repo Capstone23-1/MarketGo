@@ -98,3 +98,14 @@ class StoreViewModel: ObservableObject {
         }
     }
 }
+
+// MARK: - StoreCategory
+struct StoreCategory: Codable {
+    var categoryID: Int
+    var categoryName: String
+
+    enum CodingKeys: String, CodingKey {
+        case categoryID = "categoryId"
+        case categoryName
+    }
+}

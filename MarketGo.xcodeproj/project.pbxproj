@@ -75,7 +75,6 @@
 		994979C52A12681A00159828 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994979C42A12681A00159828 /* MenuView.swift */; };
 		994979C72A12700E00159828 /* CartJASON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994979C62A12700E00159828 /* CartJASON.swift */; };
 		994B17C52A023653009B77E8 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B17C42A023653009B77E8 /* ReviewView.swift */; };
-		994B17C72A0236DE009B77E8 /* ReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B17C62A0236DE009B77E8 /* ReviewStore.swift */; };
 		998843BE2A04DD5000132079 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843BD2A04DD5000132079 /* MemberModel.swift */; };
 		998843C02A04DE8700132079 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843BF2A04DE8700132079 /* MypageView.swift */; };
 		998843C22A04F76800132079 /* StoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843C12A04F76800132079 /* StoreListView.swift */; };
@@ -88,6 +87,7 @@
 		99CD749629DD95D100D2D782 /* ProductTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CD749529DD95D100D2D782 /* ProductTopView.swift */; };
 		99CD749829DD97B300D2D782 /* FoodItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CD749729DD97B300D2D782 /* FoodItemDetailView.swift */; };
 		99F02DDE2A17522200D827CD /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F02DDD2A17522200D827CD /* RemoteImage.swift */; };
+		99F02DE02A175C6B00D827CD /* MarketReviewJASON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F02DDF2A175C6B00D827CD /* MarketReviewJASON.swift */; };
 		AEC6AFE4A57CD1E7E1E0B310 /* libPods-MarketGo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD43796E872DF5BD291D948 /* libPods-MarketGo.a */; };
 		C1321C8DB9C9AD70C80B8978 /* libPods-MarketGoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B49E4FE25A39961E0AD6073F /* libPods-MarketGoTests.a */; };
 /* End PBXBuildFile section */
@@ -184,7 +184,6 @@
 		994979C42A12681A00159828 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		994979C62A12700E00159828 /* CartJASON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartJASON.swift; sourceTree = "<group>"; };
 		994B17C42A023653009B77E8 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
-		994B17C62A0236DE009B77E8 /* ReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStore.swift; sourceTree = "<group>"; };
 		998843BD2A04DD5000132079 /* MemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
 		998843BF2A04DE8700132079 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		998843C12A04F76800132079 /* StoreListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListView.swift; sourceTree = "<group>"; };
@@ -197,6 +196,7 @@
 		99CD749529DD95D100D2D782 /* ProductTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTopView.swift; sourceTree = "<group>"; };
 		99CD749729DD97B300D2D782 /* FoodItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemDetailView.swift; sourceTree = "<group>"; };
 		99F02DDD2A17522200D827CD /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		99F02DDF2A175C6B00D827CD /* MarketReviewJASON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewJASON.swift; sourceTree = "<group>"; };
 		B49E4FE25A39961E0AD6073F /* libPods-MarketGoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MarketGoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E1540A8396BD0BF889E2A7 /* Pods-MarketGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo.release.xcconfig"; path = "Target Support Files/Pods-MarketGo/Pods-MarketGo.release.xcconfig"; sourceTree = "<group>"; };
 		D6CA2ACBA4F75A9AF49AF4C5 /* Pods-MarketGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGoTests.release.xcconfig"; path = "Target Support Files/Pods-MarketGoTests/Pods-MarketGoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -304,9 +304,9 @@
 				994979C02A119A5100159828 /* StoreJASON.swift */,
 				994979C62A12700E00159828 /* CartJASON.swift */,
 				99B1697E2A14D651007FC25F /* StoreReviewJASON.swift */,
+				99F02DDF2A175C6B00D827CD /* MarketReviewJASON.swift */,
 				2144FE6E29DD6A58008913C4 /* LocationModel.swift */,
 				21470AB729FE620100A7CEE7 /* MarketAPIModel.swift */,
-				994B17C62A0236DE009B77E8 /* ReviewStore.swift */,
 				998843BD2A04DD5000132079 /* MemberModel.swift */,
 				214871D12A055EDB00C6FD1D /* MarketOneModel.swift */,
 				210861FB2A06AE0900EC3A60 /* Config.swift */,
@@ -667,7 +667,6 @@
 			files = (
 				21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */,
 				21470AB629FE588000A7CEE7 /* MarketViewModel.swift in Sources */,
-				994B17C72A0236DE009B77E8 /* ReviewStore.swift in Sources */,
 				21D006962A15300200C404C3 /* StoreInfoWrite.swift in Sources */,
 				21470AB429FD87E400A7CEE7 /* UITableViewWrapper.swift in Sources */,
 				998843C42A05035D00132079 /* FoodItemListView.swift in Sources */,
@@ -684,6 +683,7 @@
 				2181EDDA2A127E8300B879B2 /* HomeView.swift in Sources */,
 				215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */,
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
+				99F02DE02A175C6B00D827CD /* MarketReviewJASON.swift in Sources */,
 				998BFBC32A0DCC1F005F4652 /* TestView.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,
 				21FAE1F22A0BB829006593D9 /* UserSignInView.swift in Sources */,

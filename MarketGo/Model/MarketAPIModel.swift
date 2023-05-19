@@ -11,6 +11,9 @@
 //   let MarketJSONData = try? JSONDecoder().decode(MarketJSONData.self, from: jsonData)
 
 import Foundation
+import Foundation
+import Alamofire
+
 
 // MARK: - MarketJSONData
 struct MarketAPIModel: Codable{
@@ -87,8 +90,6 @@ struct SameName: Codable {
 //     }
 //   }
 
-import Foundation
-import Alamofire
 
 
 //// MARK: - StoreInfo

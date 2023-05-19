@@ -7,7 +7,7 @@ import Foundation
 
 // MARK: - StoreReviewElement
 struct StoreReviewElement: Codable, Identifiable {
-
+    
     var storeReviewID: Int?
     var storeID: StoreID?
     var memberID: MemberID?
@@ -23,8 +23,8 @@ struct StoreReviewElement: Codable, Identifiable {
     }
     
     var id: Int? {
-             return storeReviewID
-         }
+           return storeReviewID
+       }
 }
 
 // MARK: - MemberID
@@ -96,15 +96,15 @@ struct StoreID: Codable {
     }
 }
 
-// MARK: - StoreCategory
-struct StoreCategory: Codable {
-    var categoryID: Int
-    var categoryName: String
-
-    enum CodingKeys: String, CodingKey {
-        case categoryID = "categoryId"
-        case categoryName
-    }
-}
+//// MARK: - StoreCategory
+//struct StoreCategory: Codable {
+//    var categoryID: Int?
+//    var categoryName: String?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case categoryID = "categoryId"
+//        case categoryName
+//    }
+//}
 
 typealias StoreReview = [StoreReviewElement]
