@@ -92,7 +92,7 @@ struct SellerSignUpView: View {
                         .frame(maxWidth: .infinity)
                 }
                 .sheet(isPresented: $moveToWriteView, onDismiss: {
-                    print(storePost.storeNum)
+                    printStorePost()
                 }) {
                     StoreEnrollView()
                 }
@@ -103,21 +103,22 @@ struct SellerSignUpView: View {
                                 
                                 imageUploader.uploadImageToServer(image: image, category: imageCate.categoryName, id: String(imageCate.categoryID)) { result in
                                     switch result {
-                                    case .success(let fileInfo):
+                                        case .success(let fileInfo):
                                             newImage=fileInfo
                                         case .failure(let error): break
-                                        // Handle upload error
+                                            // Handle upload error
                                     }
                                 }
-
+                                
                                 storePost.storeFile = newImage.fileID ?? 0
                                 viewModel.nickName = storePost.storeName
                                 storePost.storeAddress2 = storePost.storeAddress1
                                 storePost.marketId = selectedMarket!.marketID
                                 DispatchQueue.main.async {
                                     storePost.enrollStore()
-                                    viewModel.storeId = (storePost.newStore?.id)!
+                                    
                                 }
+                                viewModel.storeId = (storePost.newStore?.storeID)!
                                 viewModel.signUp { success in
                                     if success {
                                         print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
@@ -144,54 +145,13 @@ struct SellerSignUpView: View {
         }
         
     }
-}
-class StorePostViewModel: ObservableObject {
-    @Published var newStore: StoreElement? // newStore를 옵셔널 타입으로 선언
-    
-    var storeName: String = ""
-    var storeAddress1: String = ""
-    var storeAddress2: String = ""
-    var storeRatings: Double = 0.0
-    var storePhonenum: String = ""
-    var storeInfo: String = ""
-    var cardAvail: String = "가능"
-    var localAvail: String = "가능"
-    var storeNum: Int = 0
-    var marketId: Int = 17
-    var storeFile: Int = 24
-    var storeCategory: Int = 0
-    
-    func enrollStore() {
-        let parameters: [String: Any] = [
-            "storeName": storeName,
-            "storeAddress1": storeAddress1,
-            "storeAddress2": storeAddress2,
-            "storeRatings": storeRatings,
-            "storePhonenum": storePhonenum,
-            "storeInfo": storeInfo,
-            "cardAvail": cardAvail,
-            "localAvail": localAvail,
-            "storeNum": storeNum,
-            "marketId": marketId,
-            "storeFile": storeFile,
-            "storeCategory": storeCategory
-        ]
-        
-        let url = "http://3.34.33.15:8080/store"
-        
-        AF.request(url, method: .post, parameters: parameters)
-            .validate()
-            .responseDecodable(of: StoreElement.self) { (response) in
-                switch response.result {
-                    case .success(let storeElement):
-                        DispatchQueue.main.async {
-                            self.newStore = storeElement
-                            print(self.newStore?.cardAvail! as Any)
-                        }
-                    case .failure(let error):
-                        print(error)
-                }
-            }
-        
+    func printStorePost() {
+        print("storeName: \(storePost.storeName)")
+        print("storeAddress1: \(storePost.storeAddress1)")
+        print("storeCategory: \(storePost.storeCategory)")
+        print("storePhonenum: \(storePost.storePhonenum)")
+        print("storeInfo: \(storePost.storeInfo)")
+        print("cardAvail: \(storePost.cardAvail)")
+        print("localAvail: \(storePost.localAvail)")
     }
 }

@@ -13,6 +13,7 @@
 		210862022A06D67900EC3A60 /* MapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210862012A06D67900EC3A60 /* MapLinkView.swift */; };
 		211F53DB2A16A152003DA011 /* ImagePickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53DA2A16A152003DA011 /* ImagePickerModel.swift */; };
 		211F53DE2A17A57D003DA011 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53DD2A17A57D003DA011 /* ImageUploader.swift */; };
+		211F53E02A17B3CB003DA011 /* StorePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53DF2A17B3CB003DA011 /* StorePostViewModel.swift */; };
 		2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5729D1CEBA00B78C6C /* Assets.xcassets */; };
 		2140BC5B29D1CEBA00B78C6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */; };
 		2140BC6529D1CEBA00B78C6C /* MarketGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC6429D1CEBA00B78C6C /* MarketGoTests.swift */; };
@@ -117,6 +118,7 @@
 		210862012A06D67900EC3A60 /* MapLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLinkView.swift; sourceTree = "<group>"; };
 		211F53DA2A16A152003DA011 /* ImagePickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerModel.swift; sourceTree = "<group>"; };
 		211F53DD2A17A57D003DA011 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		211F53DF2A17B3CB003DA011 /* StorePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePostViewModel.swift; sourceTree = "<group>"; };
 		2140BC5029D1CEB900B78C6C /* MarketGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2140BC5729D1CEBA00B78C6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				211F53DA2A16A152003DA011 /* ImagePickerModel.swift */,
 				99F02DDD2A17522200D827CD /* RemoteImage.swift */,
 				211F53DD2A17A57D003DA011 /* ImageUploader.swift */,
+				211F53DF2A17B3CB003DA011 /* StorePostViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				99CD749629DD95D100D2D782 /* ProductTopView.swift in Sources */,
 				214871D22A055EDB00C6FD1D /* MarketOneModel.swift in Sources */,
 				21416B762A0BBEF9008EA3C5 /* SellerSignInView.swift in Sources */,
+				211F53E02A17B3CB003DA011 /* StorePostViewModel.swift in Sources */,
 				994B17C52A023653009B77E8 /* ReviewView.swift in Sources */,
 				998BFBC52A0DD01C005F4652 /* CategoryView.swift in Sources */,
 				998843C22A04F76800132079 /* StoreListView.swift in Sources */,

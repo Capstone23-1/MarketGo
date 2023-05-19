@@ -39,10 +39,16 @@ struct StoreEnrollView: View {
                     .onChange(of: cardAvail) { newValue in
                         storePost.cardAvail = newValue ? "가능" : "이용불가"
                     }
+                    .onAppear {
+                        cardAvail = storePost.cardAvail == "가능"
+                    }
                 
                 Toggle("지역 화폐 가능 여부", isOn: $localAvail)
                     .onChange(of: localAvail) { newValue in
                         storePost.localAvail = newValue ? "가능" : "이용불가"
+                    }
+                    .onAppear {
+                        localAvail = storePost.localAvail == "가능"
                     }
             }
          
