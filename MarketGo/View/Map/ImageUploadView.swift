@@ -22,7 +22,9 @@ struct ImageUploadView: View {
     
     var body: some View {
         
-        VStack {
+        HStack(alignment:.center){
+            Spacer()
+            VStack(alignment:.center) {
             // 이미지가 선택되었을 경우 이미지 표시
             if let image = selectedImage {
                 Image(uiImage: image)
@@ -52,6 +54,8 @@ struct ImageUploadView: View {
             }
             
         }.padding()
+            Spacer()
+        }
     }
 }
 

@@ -42,7 +42,7 @@ class StorePostViewModel: ObservableObject {
                     case .success(let storeElement):
                         DispatchQueue.main.async {
                             self.newStore = storeElement
-                            print(self.newStore?.cardAvail! as Any)
+
                         }
                     case .failure(let error):
                         print(error)

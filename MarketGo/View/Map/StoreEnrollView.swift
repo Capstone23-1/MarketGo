@@ -4,7 +4,8 @@ struct StoreEnrollView: View {
     @EnvironmentObject private var storePost: StorePostViewModel
     @State private var cardAvail = false
     @State private var localAvail = false
-
+    @State private var storeCategory = 0
+    @Binding var storeName :String
     var categories = [
         (id: 0, name: "분류"),
         (id: 1, name: "농산물"),
@@ -20,12 +21,16 @@ struct StoreEnrollView: View {
     var body: some View {
         Form {
             Section(header: Text("가게 정보")) {
-                TextField("가게 이름", text: $storePost.storeName)
+                TextField("가게 이름", text: $storeName)
                 TextField("시장 내 상세주소", text: $storePost.storeAddress1)
-                Picker(selection: $storePost.storeCategory, label: Text("가게 분류")) {
-                    ForEach(0..<categories.count) { index in
+                Picker(selection: $storeCategory, label: Text("가게 분류")) {
+                    ForEach(0..<9) { index in
                         Text(categories[index].name).tag(index)
                     }
+                }.onChange(of:storeCategory) { _ in
+                    storePost.storeCategory=storeCategory
+                    storePost.storeName=storeName
+                    
                 }
                 TextField("전화번호 ex: 010-1234-1234", text: $storePost.storePhonenum)
             }
@@ -49,6 +54,7 @@ struct StoreEnrollView: View {
                     }
                     .onAppear {
                         localAvail = storePost.localAvail == "가능"
+                        storePost.storeName=storeName
                     }
             }
          
