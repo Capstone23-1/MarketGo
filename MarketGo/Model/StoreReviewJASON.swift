@@ -7,8 +7,7 @@ import Foundation
 
 // MARK: - StoreReviewElement
 struct StoreReviewElement: Codable, Identifiable {
-    
-    var id: Int?
+
     var storeReviewID: Int?
     var storeID: StoreID?
     var memberID: MemberID?
@@ -22,6 +21,10 @@ struct StoreReviewElement: Codable, Identifiable {
         case memberID = "memberId"
         case ratings, reviewContent, reviewDate, storeReviewFile
     }
+    
+    var id: Int? {
+             return storeReviewID
+         }
 }
 
 // MARK: - MemberID
