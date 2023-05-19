@@ -96,35 +96,36 @@ struct SellerSignUpView: View {
                     StoreEnrollView()
                 }
                 Button(action: {
-                    viewModel.nickName=storePost.storeName
-                    storePost.storeAddress2=storePost.storeAddress1
-                    storePost.marketId = selectedMarket!.marketID
-                    storePost.storeFile=newImage.fileID ?? 0
-                    DispatchQueue.main.async {
-                        storePost.enrollStore()
-                        
-                    }
-                    viewModel.storeId = (storePost.newStore?.storeID)! //에러발생
-                    viewModel.signUp { success in
-                        if success {
-                            print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
-                            self.moveToSignInView = true
-                        } else {
-                            print("회원가입 실패")
-                        }
-                    }
-                }) {
-                    Text("회원가입")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.accentColor)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-                .disabled(viewModel.isLoading || self.isLoading)
-                .fullScreenCover(isPresented: $moveToSignInView) {
-                    SignInView()
-                }
+                         
+                         viewModel.nickName=storePost.storeName
+                         storePost.storeAddress2=storePost.storeAddress1
+                         storePost.marketId = selectedMarket!.marketID
+                         storePost.storeFile=newImage.fileID ?? 0
+                         DispatchQueue.main.async {
+                             storePost.enrollStore()
+                             viewModel.storeId = (storePost.newStore?.id)!
+                         }
+                         viewModel.signUp { success in
+                             if success {
+                                 print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
+                                 self.moveToSignInView = true
+                             } else {
+                                 print("회원가입 실패")
+                             }
+                         }
+                     }) {
+                         Text("회원가입")
+                             .frame(maxWidth: .infinity)
+                             .padding()
+                             .background(Color.accentColor)
+                             .foregroundColor(.white)
+                             .cornerRadius(8)
+                     }
+                     .disabled(viewModel.isLoading)
+                     .fullScreenCover(isPresented: $moveToSignInView) {
+                         SignInView()
+                     }
+                
             }.navigationTitle("  상점회원 가입")
         }
         
