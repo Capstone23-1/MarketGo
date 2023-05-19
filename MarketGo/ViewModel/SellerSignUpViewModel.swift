@@ -18,6 +18,7 @@ class SellerSignUpViewModel: ObservableObject {
     @Published var uid: String? = nil // 추가된 프로퍼티
     @Published var nickName = ""
     @Published var storeId=0
+    @Published var storeMarketId = 0
 
     
     func signUp(completion: @escaping (Bool) -> Void) {
@@ -30,7 +31,7 @@ class SellerSignUpViewModel: ObservableObject {
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
             guard let strongSelf = self else { return }
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 strongSelf.isLoading = false
                 
                 if let error = error {
@@ -40,7 +41,7 @@ class SellerSignUpViewModel: ObservableObject {
                     
                     // 회원가입 성공 시 uid 저장
                     strongSelf.uid = Auth.auth().currentUser?.uid
-                    let newMemberInfo = MemberInfo(memberID: nil, memberToken: strongSelf.uid, memberName: self?.nickName, interestMarket: nil, cartID: nil, storeID: 0, recentLatitude: nil, recentLongitude: nil)
+                    let newMemberInfo = MemberInfo(memberID: nil, memberToken: strongSelf.uid, memberName: self?.nickName, interestMarket: self?.storeMarketId, cartID: nil, storeID: self?.storeId, recentLatitude: nil, recentLongitude: nil)
                     postUserMemberInfo(memberInfo: newMemberInfo) { result in
                         switch result {
                             case .success(let data):
