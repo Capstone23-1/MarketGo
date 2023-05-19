@@ -43,19 +43,20 @@ struct GoodsFile: Codable {
     }
 }
 
-
 struct GoodsImage: View {
     let url: URL?
     let placeholder: Image
-
+    
     init(url: URL?, placeholder: Image = Image(systemName: "photo")) {
         self.url = url
         self.placeholder = placeholder
     }
-
+    
+    @State private var imageData: Data?
+    
     var body: some View {
         Group {
-            if let url = url, let imageData = try? Data(contentsOf: url), let uiImage = UIImage(data: imageData) {
+            if let imageData = imageData, let uiImage = UIImage(data: imageData) {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -65,8 +66,19 @@ struct GoodsImage: View {
                     .aspectRatio(contentMode: .fit)
             }
         }
+        .onAppear {
+            if let url = url {
+                AF.request(url).responseData { response in
+                    if case .success(let data) = response.result {
+                        self.imageData = data
+                    }
+                }
+            }
+        }
     }
 }
+
+
 
 // MARK: - GoodsMarket
 struct GoodsMarket: Codable {
