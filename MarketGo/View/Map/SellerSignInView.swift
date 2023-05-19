@@ -11,7 +11,7 @@ import SwiftUI
 struct SellerSignInView: View {
     
     @Binding var moveToProfileView: Bool
-    @ObservedObject private var viewModel = UserSignInViewModel()
+    @ObservedObject private var viewModel = SellerSignInViewModel()
     @Binding var showSignUpView: Bool
     @State var moveToMarketSearchView = false
     @State var currentUser: MemberInfo? = nil

@@ -45,7 +45,7 @@ struct MainView: View {
                                 }
                                 .tag(3)
                             
-                                MyPageView(member: member)
+                                UserMyPageView(member: member)
                                 .tabItem {
                                     Image(systemName: "person")
                                     Text("My")
