@@ -70,8 +70,8 @@ struct ReviewRow: View {
                 .padding(.vertical, 7)
             
             VStack(alignment: .leading) {
-                
-                GoodsImage(url: URL(string: review.storeReviewFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
+                RemoteImage(url: URL(string: review.storeReviewFile?.uploadFileURL ?? ""))
+                            .frame(width: 80, height: 80)
                 }
         }
         .padding()

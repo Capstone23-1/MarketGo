@@ -3,7 +3,6 @@
 //  MarketGo
 //
 //  Created by 김주현 on 2023/05/15.
-//  이부분때문에 서버에서 이미지 받아올때 느려지는거같다.
 
 import SwiftUI
 import Alamofire
