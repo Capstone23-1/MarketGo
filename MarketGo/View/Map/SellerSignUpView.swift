@@ -17,7 +17,9 @@ struct SellerSignUpView: View {
     @State private var newImage = FileInfo()
     @State private var imageUploader = ImageUploader()
     @State var storeName = ""
-    @State private var passwordsMatch: Bool = false
+    @State private var confirmPasswordMatch: Bool = false
+    @State private var passwordValid: Bool = false // 패스워드 유효성을 확인하는 변수
+    
     var body: some View {
         NavigationView {
             ZStack{
@@ -52,62 +54,72 @@ struct SellerSignUpView: View {
                             SellerMarketChoiceView(selectedMarket: $selectedMarket, isPresented: $moveToCoiceView, marketName: $marketName)
                         }
                     }
+                    Section(header:Text("추가적인 가게 정보를 입력해주세요")){
+                        Button(action: {
+                            self.moveToWriteView = true
+                        }) {
+                            Text("가게정보입력")//입력되지않으면 회원가입이 안되도록
+                                .background(Color.white)
+                                .foregroundColor(.accentColor)
+                                .cornerRadius(8)
+                                .frame(maxWidth: .infinity)
+                        }
+                        .sheet(isPresented: $moveToWriteView, onDismiss: {
+                            printStorePost()
+                        }) {
+                            StoreEnrollView(storeName: $storeName)
+                        }
+                    }
                     
                     
                     
                     
-                    
-                    TextField("이메일", text: $viewModel.email)
-                        .autocapitalization(.none)
-                        .keyboardType(.emailAddress)
-                        .disableAutocorrection(true)
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                    
-                    SecureField("비밀번호", text: $viewModel.password)
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                    
-              
-                    
-                    HStack {
+                    Section(header:Text("이메일")){
+                        TextField("go@market.com", text: $viewModel.email)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+
+                    }
+                    Section(header: Text("6글자 이상의 비밀번호를 입력해주세요")) {
+                        SecureField("비밀번호", text: $viewModel.password)
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+                            .onChange(of: viewModel.password) { newValue in
+                                passwordValid = newValue.count >= 6 // 비밀번호가 6자 이상인지 확인
+                                confirmPasswordMatch = newValue == viewModel.confirmPassword // 비밀번호와 비밀번호 확인이 같은지 확인
+                            }
+                            .overlay(
+                                HStack {
+                                    Spacer()
+                                    Image(systemName: passwordValid ? "checkmark.circle.fill" : "xmark.circle.fill")
+                                        .foregroundColor(passwordValid ? .green : .red)
+                                }.padding(.horizontal)
+                            )
+                        
                         SecureField("비밀번호 확인", text: $viewModel.confirmPassword)
                             .padding()
                             .background(Color(.systemGray6))
                             .cornerRadius(8)
-                        
-                        if isPasswordValid() {
-                            
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
-                        } else {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.red)
-                        }
-                        
+                            .onChange(of: viewModel.confirmPassword) { newValue in
+                                confirmPasswordMatch = newValue == viewModel.password // 비밀번호와 비밀번호 확인이 같은지 확인
+                            }
+                            .overlay(
+                                HStack {
+                                    Spacer()
+                                    Image(systemName: confirmPasswordMatch ? "checkmark.circle.fill" : "xmark.circle.fill")
+                                        .foregroundColor(confirmPasswordMatch ? .green : .red)
+                                }.padding(.horizontal)
+                            )
                     }
-                    
                     if let error = viewModel.error {
                         Text(error)
                             .foregroundColor(.red)
                     }
-                    Button(action: {
-                        self.moveToWriteView = true
-                    }) {
-                        Text("가게정보입력")//입력되지않으면 회원가입이 안되도록
-                            .padding()
-                            .background(Color.white)
-                            .foregroundColor(.accentColor)
-                            .cornerRadius(8)
-                            .frame(maxWidth: .infinity)
-                    }
-                    .sheet(isPresented: $moveToWriteView, onDismiss: {
-                        printStorePost()
-                    }) {
-                        StoreEnrollView(storeName: $storeName)
-                    }
+                   
                     Button(action: processSignUp) {
                         Text("회원가입")
                             .frame(maxWidth: .infinity)
@@ -121,7 +133,8 @@ struct SellerSignUpView: View {
                         SignInView()
                     }
                     
-                }.navigationTitle("  상점회원 가입")
+                }
+                
                 if isLoading2 {
                     ProgressView()
                         .scaleEffect(2)
