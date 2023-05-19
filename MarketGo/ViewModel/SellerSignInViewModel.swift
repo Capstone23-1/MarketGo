@@ -4,7 +4,7 @@ import Firebase
 import Alamofire
 // MARK: 소비자 로그인 UI
 // SignInViewModel 클래스는 ObservableObject 프로토콜을 채택하여 로그인 관련 상태를 관리합니다.
-class UserSignInViewModel: ObservableObject {
+class SellerSignInViewModel: ObservableObject {
     // 사용자 이메일 입력을 위한 변수
     @Published var email = ""
     // 사용자 비밀번호 입력을 위한 변수
@@ -66,8 +66,3 @@ class UserSignInViewModel: ObservableObject {
     }
     
 }
-
-class UserModel: ObservableObject {
-    @Published var currentUser: MemberInfo? = nil
-}
-
