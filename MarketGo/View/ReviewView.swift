@@ -113,35 +113,35 @@ struct ReviewView: View {
     }
     
     func saveReview() {
-        
-        let marketReview = MarketReview(marketId: 123, memberId: 456, memberName: "John", ratings: Double(rating), reviewContent: reviewContent, marketReviewFile: 0)
-        guard let reviewData = try? JSONEncoder().encode(marketReview) else {
-            print("Failed to encode review data")
-            return
-        }
-        // reviewData를 서버에 전송하는 로직
-
-
-        guard let url = URL(string: "http://3.34.33.15:8080/marketReview") else {
-            print("Invalid URL")
-            return
-        }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = reviewData
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                print("Failed to send review")
-                return
-            }
-
-            DispatchQueue.main.async {
-                isPresented = false
-            }
-        }.resume()
+//
+//        let marketReview = MarketReview(marketId: 123, memberId: 456, memberName: "John", ratings: Double(rating), reviewContent: reviewContent, marketReviewFile: 0)
+//        guard let reviewData = try? JSONEncoder().encode(marketReview) else {
+//            print("Failed to encode review data")
+//            return
+//        }
+//        // reviewData를 서버에 전송하는 로직
+//
+//
+//        guard let url = URL(string: "http://3.34.33.15:8080/marketReview") else {
+//            print("Invalid URL")
+//            return
+//        }
+//
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.httpBody = reviewData
+//
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+//                print("Failed to send review")
+//                return
+//            }
+//
+//            DispatchQueue.main.async {
+//                isPresented = false
+//            }
+//        }.resume()
     }
 
     
