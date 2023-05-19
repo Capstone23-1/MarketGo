@@ -15,11 +15,6 @@ struct ShopView: View {
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
 
-    @State var marketId: Int? = 0
-
-    // Check if the value is not nil before accessing its properties
-
-    
     @State private var searchText = ""
     @State private var placeHolder: String = "시장 또는 물품 검색"
     
@@ -74,8 +69,11 @@ struct ShopView: View {
                                         HStack {
                                             
                                             VStack {
+                                               
                                                 if let fileData = store.storeFile {
-                                                    URLImage(url: URL(string: fileData.uploadFileURL ?? "")) // Pass the URL directly
+                                                    RemoteImage(url: URL(string: fileData.uploadFileURL ?? ""))
+                                                                .frame(width: 80, height: 80)
+//                                                    URLImage(url: URL(string: fileData.uploadFileURL ?? "")) // Pass the URL directly
                                                 } else {
                                                     Text("Loading...")
                                                 }
