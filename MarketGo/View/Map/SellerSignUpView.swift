@@ -17,6 +17,7 @@ struct SellerSignUpView: View {
     @State private var newImage = FileInfo()
     @State private var imageUploader = ImageUploader()
     @State var storeName = ""
+    @State private var passwordsMatch: Bool = false
     var body: some View {
         NavigationView {
             ZStack{
@@ -68,10 +69,26 @@ struct SellerSignUpView: View {
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
-                    SecureField("비밀번호 확인", text: $viewModel.confirmPassword)
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
+                    
+              
+                    
+                    HStack {
+                        SecureField("비밀번호 확인", text: $viewModel.confirmPassword)
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+                        
+                        if isPasswordValid() {
+                            
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                        } else {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.red)
+                        }
+                        
+                    }
+                    
                     if let error = viewModel.error {
                         Text(error)
                             .foregroundColor(.red)
@@ -123,52 +140,53 @@ struct SellerSignUpView: View {
         
     }
     func processSignUp() {
-            isLoading1=true
-            Task {
-                do {
-                    if let image = self.selectedImage {
-                        imageUploader.uploadImageToServer(image: image, category: imageCate.categoryName, id: String(imageCate.categoryID)) { result in
-                            switch result {
-                                case .success(let fileInfo):
-                                    newImage=fileInfo
-                                case .failure(let error):
-                                    print(error)
-                            }
-                            print("이미지업로드성공:\(String(describing: newImage.uploadFileName!))")
-                            isLoading2 = true
+        isLoading1=true
+        Task {
+            do {
+                if let image = self.selectedImage {
+                    imageUploader.uploadImageToServer(image: image, category: imageCate.categoryName, id: String(imageCate.categoryID)) { result in
+                        switch result {
+                            case .success(let fileInfo):
+                                newImage=fileInfo
+                            case .failure(let error):
+                                print(error)
                         }
-                        if let id = newImage.fileID {
-                            storePost.storeFile = id
-                            print("file id get : \(storePost.storeFile) id: \(id)")
-                        }
-
-                        viewModel.nickName = storePost.storeName
-                        storePost.storeAddress2 = storePost.storeAddress1
-                        storePost.marketId = selectedMarket!.marketID
-                        DispatchQueue.main.async {
-                            storePost.enrollStore()
-                        }
-                        DispatchQueue.main.async {
-                            if let storeID = storePost.newStore?.storeID, let marketID = selectedMarket?.marketID {
-                                viewModel.storeId = storeID
-                                viewModel.storeMarketId = marketID
-                                storePost.newStore?.storeName=storeName
-                            }
-                            viewModel.signUp { success in
-                                if success {
-                                    print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
-                                    self.moveToSignInView = true
-                                } else {
-                                    print("회원가입 실패")
-                                }
+                        print("이미지업로드성공:\(String(describing: newImage.uploadFileName!))")
+                        isLoading2 = true
+                    }
+                    if let id = newImage.fileID {
+                        storePost.storeFile = id
+                        print("file id get : \(storePost.storeFile) id: \(id)")
+                    }
+                    
+                    viewModel.nickName = storePost.storeName
+                    storePost.storeAddress2 = storePost.storeAddress1
+                    storePost.marketId = selectedMarket!.marketID
+                    DispatchQueue.main.async {
+                        storePost.enrollStore()
+                    }
+                    if let storeID = storePost.newStore?.storeID, let marketID = selectedMarket?.marketID {
+                        viewModel.storeId = storeID
+                        viewModel.storeMarketId = marketID
+                        storePost.newStore?.storeName=storeName
+                    }
+                    DispatchQueue.main.async {
+                        
+                        viewModel.signUp { success in
+                            if success {
+                                print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
+                                self.moveToSignInView = true
+                            } else {
+                                print("회원가입 실패")
                             }
                         }
                     }
-                } catch {
-                    print("Error uploading image: \(error)")
                 }
+            } catch {
+                print("Error uploading image: \(error)")
             }
         }
+    }
     func printStorePost() {
         print("storeName: \(storePost.storeName)")
         print("storeAddress1: \(storePost.storeAddress1)")
@@ -178,4 +196,8 @@ struct SellerSignUpView: View {
         print("cardAvail: \(storePost.cardAvail)")
         print("localAvail: \(storePost.localAvail)")
     }
+    func isPasswordValid() -> Bool {
+        return viewModel.password.count >= 6 && viewModel.password == viewModel.confirmPassword
+    }
+    
 }

@@ -13,19 +13,15 @@ struct SellerSignInView: View {
     @Binding var moveToProfileView: Bool
     @ObservedObject private var viewModel = SellerSignInViewModel()
     @Binding var showSignUpView: Bool
-    @State var moveToMarketSearchView = false
-    @State var currentUser: MemberInfo? = nil
+    @State var moveToNextView = false
     @EnvironmentObject var userViewModel: UserModel
     
     
     var body: some View {
         
-        
         VStack {
             
             VStack(spacing: 20) {
-                
-                
                 // 이메일 입력 필드
                 TextField("이메일", text: $viewModel.email)
                     .autocapitalization(.none)
@@ -53,8 +49,8 @@ struct SellerSignInView: View {
                     // 버튼 클릭 시 로그인 시도
                     viewModel.SignIn(userViewModel: userViewModel) { success in
                         if success {
-                            // 로그인 성공 시 moveToMarketSearchView 상태를 true로 변경하여 MarketSearchView로 전환
-                            self.moveToMarketSearchView = true
+                            // 로그인 성공 시 moveToNextView 상태를 true로 변경하여 MarketSearchView로 전환
+                            self.moveToNextView = true
                         } else {
                             print("로그인 실패")
                         }
@@ -68,8 +64,8 @@ struct SellerSignInView: View {
                         .cornerRadius(8)
                 }
                 .disabled(viewModel.isLoading) // 로딩 중일 때는 버튼 비활성화
-                .fullScreenCover(isPresented: $moveToMarketSearchView) {
-                    MarketSearchView()
+                .fullScreenCover(isPresented: $moveToNextView) {
+                    SellerTempView()
                 }
                 
                 
@@ -84,8 +80,6 @@ struct SellerSignInView: View {
                 .sheet(isPresented: $showSignUpView) {
                     SellerSignUpView()
                 }
-                
-                
             }
             .padding()
             
@@ -103,7 +97,7 @@ struct SellerSignInView: View {
 //    @Binding var moveToProfileView: Bool
 //    @ObservedObject private var viewModel = UserSignInViewModel()
 ////    @Binding var showSignUpView: Bool
-//    @State var moveToMarketSearchView = false
+//    @State var moveToNextView = false
 //
 //
 //
@@ -142,8 +136,8 @@ struct SellerSignInView: View {
 //                    // 버튼 클릭 시 로그인 시도
 //                    viewModel.SignIn { success in
 //                        if success {
-//                            // 로그인 성공 시 moveToMarketSearchView 상태를 true로 변경하여 MarketSearchView로 전환
-//                            self.moveToMarketSearchView = true
+//                            // 로그인 성공 시 moveToNextView 상태를 true로 변경하여 MarketSearchView로 전환
+//                            self.moveToNextView = true
 //                        } else {
 //                            print("로그인 실패")
 //                        }
@@ -157,7 +151,7 @@ struct SellerSignInView: View {
 //                        .cornerRadius(8)
 //                }
 //                .disabled(viewModel.isLoading) // 로딩 중일 때는 버튼 비활성화
-//                .fullScreenCover(isPresented: $moveToMarketSearchView) {
+//                .fullScreenCover(isPresented: $moveToNextView) {
 ////                    MarketSearchView()
 //                }
 //
