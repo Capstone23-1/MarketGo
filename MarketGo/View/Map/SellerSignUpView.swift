@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseAuth
 import Alamofire
 struct SellerSignUpView: View {
+    @State private var selectedImage: UIImage? = nil // 선택된 이미지를 저장할 변수
     @State private var isLoading: Bool = false
     @StateObject private var viewModel = SellerSignUpViewModel()
     @EnvironmentObject private var storePost: StorePostViewModel
@@ -20,12 +21,12 @@ struct SellerSignUpView: View {
     @State private var newStore: StoreElement?
     @State private var imageCate = StoreCategory(categoryID: 0,categoryName: "store")
     @State private var newImage = FileInfo()
-    
+    @State private var imageUploader = ImageUploader()
     var body: some View {
         NavigationView {
             
             Form {
-                ImageUploadView(category: $imageCate.categoryName, did: $imageCate.categoryID, newImage: $newImage)
+                ImageUploadView(category: $imageCate.categoryName, did: $imageCate.categoryID, selectedImage: $selectedImage, newImage: $newImage)
                 
                 TextField("가게명", text: $storePost.storeName)
                     .autocapitalization(.none)
@@ -96,35 +97,48 @@ struct SellerSignUpView: View {
                     StoreEnrollView()
                 }
                 Button(action: {
-                         
-                         viewModel.nickName=storePost.storeName
-                         storePost.storeAddress2=storePost.storeAddress1
-                         storePost.marketId = selectedMarket!.marketID
-                         storePost.storeFile=newImage.fileID ?? 0
-                         DispatchQueue.main.async {
-                             storePost.enrollStore()
-                             viewModel.storeId = (storePost.newStore?.id)!
-                         }
-                         viewModel.signUp { success in
-                             if success {
-                                 print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
-                                 self.moveToSignInView = true
-                             } else {
-                                 print("회원가입 실패")
-                             }
-                         }
-                     }) {
-                         Text("회원가입")
-                             .frame(maxWidth: .infinity)
-                             .padding()
-                             .background(Color.accentColor)
-                             .foregroundColor(.white)
-                             .cornerRadius(8)
-                     }
-                     .disabled(viewModel.isLoading)
-                     .fullScreenCover(isPresented: $moveToSignInView) {
-                         SignInView()
-                     }
+                    Task {
+                        do {
+                            if let image = self.selectedImage {
+                                
+                                imageUploader.uploadImageToServer(image: image, category: imageCate.categoryName, id: String(imageCate.categoryID)) { result in
+                                    switch result {
+                                    case .success(let fileInfo):
+                                            newImage=fileInfo
+                                        case .failure(let error): break
+                                        // Handle upload error
+                                    }
+                                }
+
+                                storePost.storeFile = newImage.fileID ?? 0
+                                viewModel.nickName = storePost.storeName
+                                storePost.storeAddress2 = storePost.storeAddress1
+                                storePost.marketId = selectedMarket!.marketID
+                                DispatchQueue.main.async {
+                                    storePost.enrollStore()
+                                    viewModel.storeId = (storePost.newStore?.id)!
+                                }
+                                viewModel.signUp { success in
+                                    if success {
+                                        print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
+                                        self.moveToSignInView = true
+                                    } else {
+                                        print("회원가입 실패")
+                                    }
+                                }
+                            }
+                        } catch {
+                            print("Error uploading image: \(error)")
+                        }
+                    }
+                }) {
+                    Text("회원가입")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.accentColor)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
                 
             }.navigationTitle("  상점회원 가입")
         }

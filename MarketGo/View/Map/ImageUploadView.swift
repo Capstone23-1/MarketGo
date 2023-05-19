@@ -15,6 +15,7 @@ struct ImageUploadView: View {
         )
     }
     let imageUploader = ImageUploader()
+    @Binding var selectedImage: UIImage? // 선택된 이미지를 저장할 변수
     
     @Binding var newImage: FileInfo
     let imageSize = 100.0
@@ -23,7 +24,7 @@ struct ImageUploadView: View {
         
         VStack {
             // 이미지가 선택되었을 경우 이미지 표시
-            if let image = image {
+            if let image = selectedImage {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -45,23 +46,16 @@ struct ImageUploadView: View {
             }
             .sheet(isPresented: $showImagePicker, onDismiss: {
                 self.showImagePicker = false
+                
             }) {
-                ImagePickerModel(selectedImage: self.$image, sourceType: self.sourceType)
+                ImagePickerModel(selectedImage: self.$selectedImage, sourceType: self.sourceType)
             }
             
-//            Button("서버에 이미지 업로드") {
-//                
-//                if let image = self.image {
-//                    self.imageUploader.uploadImageToServer(image: image, category: category, id: String(did)) { newImage in
-//                        self.newImage = newImage
-//                    }
-//                }
-//            }
-            .padding()
-        }
+        }.padding()
     }
-    
-    
-    
-    
 }
+
+
+
+
+
