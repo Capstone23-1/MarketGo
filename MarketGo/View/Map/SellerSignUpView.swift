@@ -105,7 +105,7 @@ struct SellerSignUpView: View {
                                     switch result {
                                         case .success(let fileInfo):
                                             newImage=fileInfo
-                                        case .failure(let error): break
+                                        case .failure(_): break
                                             // Handle upload error
                                     }
                                 }
@@ -118,15 +118,21 @@ struct SellerSignUpView: View {
                                     storePost.enrollStore()
                                     
                                 }
-                                viewModel.storeId = (storePost.newStore?.storeID)!
-                                viewModel.signUp { success in
-                                    if success {
-                                        print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
-                                        self.moveToSignInView = true
-                                    } else {
-                                        print("회원가입 실패")
+                                
+                                if let storeID = storePost.newStore?.storeID, let marketID = selectedMarket?.marketID {
+                                    viewModel.storeId = storeID
+                                    viewModel.storeMarketId = marketID
+                                    
+                                    viewModel.signUp { success in
+                                        if success {
+                                            print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
+                                            self.moveToSignInView = true
+                                        } else {
+                                            print("회원가입 실패")
+                                        }
                                     }
                                 }
+
                             }
                         } catch {
                             print("Error uploading image: \(error)")
