@@ -65,7 +65,6 @@ struct StoreListView: View {
                 }
             }
         }
-        .navigationBarHidden(true)
         .onAppear {
             storeModel.fetchStores(forMarketId: marketModel.currentMarket?.marketID ?? 0) // Provide the desired marketId here
             goodsViewModel.fetchGoods(forStoreMarketID: marketModel.currentMarket?.marketID ?? 0) // Provide the desired marketId here

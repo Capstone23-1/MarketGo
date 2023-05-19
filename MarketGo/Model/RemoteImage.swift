@@ -25,9 +25,15 @@ struct RemoteImage: View {
             if let imageData = imageData, let uiImage = UIImage(data: imageData) {
                 Image(uiImage: uiImage)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 80, height: 80)
+                    .cornerRadius(1)
             } else {
                 placeholder
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 80, height: 80)
+                    .cornerRadius(1)
             }
         }
         .onAppear {
