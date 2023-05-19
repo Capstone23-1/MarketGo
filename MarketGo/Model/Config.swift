@@ -20,10 +20,10 @@ func postUserMemberInfo(memberInfo: MemberInfo, completion: @escaping (Result<Da
     let headers: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
-    let encodeName = makeStringKoreanEncoded(memberInfo.memberName!)
+    let encodeName = makeStringKoreanEncoded(memberInfo.memberName)
 
-    let requestURL = "http://3.34.33.15:8080/member?memberId=&memberToken=\(memberInfo.memberToken ?? "null")&memberName=\(encodeName)&interestMarket=0&cartId=0&storeId=0&recentLatitude=0&recentLongitude=0"
-    print(requestURL)
+    let requestURL = "http://3.34.33.15:8080/member?memberId=&memberToken=\(memberInfo.memberToken ?? "null")&memberName=\(encodeName)&interestMarket=\(String(describing: memberInfo.interestMarket))&cartId=0&storeId=\(String(describing: memberInfo.storeID!))&recentLatitude=0&recentLongitude=0)"
+//    print(requestURL)
     AF.request(requestURL, method: .post, parameters: memberInfo, encoder: JSONParameterEncoder.default, headers: headers).responseData { response in
         switch response.result {
         case .success(let data):

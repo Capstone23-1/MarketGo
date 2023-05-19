@@ -2,7 +2,20 @@ import Alamofire
 import UIKit
 
 class ImageUploader {
-    func uploadImageToServer(image: UIImage, category: String, id: String, completionHandler: @escaping (Result<FileInfo, Error>) -> Void) {
+    func uploadImageToServer(image: UIImage, category: String, id: String) async throws -> FileInfo {
+        return try await withCheckedThrowingContinuation { continuation in
+            self.uploadImageToServer(image: image, category: category, id: id) { result in
+                switch result {
+                case .success(let fileInfo):
+                    continuation.resume(returning: fileInfo)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
+    
+    private func uploadImageToServer(image: UIImage, category: String, id: String, completionHandler: @escaping (Result<FileInfo, Error>) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             completionHandler(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Image compression failed"])))
             return

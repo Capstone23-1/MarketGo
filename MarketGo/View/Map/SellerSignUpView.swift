@@ -81,10 +81,11 @@ struct SellerSignUpView: View {
                             .padding()
                             .background(Color(.systemGray6))
                             .cornerRadius(8)
-
+                        
                     }
                     Section(header: Text("6글자 이상의 비밀번호를 입력해주세요")) {
                         SecureField("비밀번호", text: $viewModel.password)
+                            .autocapitalization(.none)
                             .padding()
                             .background(Color(.systemGray6))
                             .cornerRadius(8)
@@ -102,6 +103,7 @@ struct SellerSignUpView: View {
                         
                         SecureField("비밀번호 확인", text: $viewModel.confirmPassword)
                             .padding()
+                            .autocapitalization(.none)
                             .background(Color(.systemGray6))
                             .cornerRadius(8)
                             .onChange(of: viewModel.confirmPassword) { newValue in
@@ -119,8 +121,12 @@ struct SellerSignUpView: View {
                         Text(error)
                             .foregroundColor(.red)
                     }
-                   
-                    Button(action: processSignUp) {
+                    
+                    Button {
+                        Task {
+                            await processSignUp()
+                        }
+                    } label: {
                         Text("회원가입")
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -132,6 +138,7 @@ struct SellerSignUpView: View {
                     .fullScreenCover(isPresented: $moveToSignInView) {
                         SignInView()
                     }
+                    
                     
                 }
                 
@@ -152,54 +159,57 @@ struct SellerSignUpView: View {
         
         
     }
-    func processSignUp() {
-        isLoading1=true
-        Task {
-            do {
-                if let image = self.selectedImage {
-                    imageUploader.uploadImageToServer(image: image, category: imageCate.categoryName, id: String(imageCate.categoryID)) { result in
-                        switch result {
-                            case .success(let fileInfo):
-                                newImage=fileInfo
-                            case .failure(let error):
-                                print(error)
-                        }
-                        print("이미지업로드성공:\(String(describing: newImage.uploadFileName!))")
-                        isLoading2 = true
-                    }
-                    if let id = newImage.fileID {
-                        storePost.storeFile = id
-                        print("file id get : \(storePost.storeFile) id: \(id)")
-                    }
-                    
-                    viewModel.nickName = storePost.storeName
-                    storePost.storeAddress2 = storePost.storeAddress1
-                    storePost.marketId = selectedMarket!.marketID
-                    DispatchQueue.main.async {
-                        storePost.enrollStore()
-                    }
-                    if let storeID = storePost.newStore?.storeID, let marketID = selectedMarket?.marketID {
-                        viewModel.storeId = storeID
-                        viewModel.storeMarketId = marketID
-                        storePost.newStore?.storeName=storeName
-                    }
-                    DispatchQueue.main.async {
-                        
-                        viewModel.signUp { success in
-                            if success {
-                                print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
-                                self.moveToSignInView = true
-                            } else {
-                                print("회원가입 실패")
-                            }
-                        }
-                    }
+    
+    func processSignUp() async {
+        isLoading1 = true
+        do {
+            if let image = self.selectedImage {
+                let result = try await imageUploader.uploadImageToServer(image: image, category: imageCate.categoryName, id: String(imageCate.categoryID))
+                print("이미지업로드성공:\(String(describing: result.uploadFileName!))")
+                isLoading2 = true
+                if let id = result.fileID {
+                    storePost.storeFile = id
+                    print("file id get : \(storePost.storeFile) id: \(id)")
                 }
-            } catch {
-                print("Error uploading image: \(error)")
+            } else {
+                print("이미지를 선택하지 않았습니다.")
+                return
             }
+            
+            let enroll = try await storePost.enrollStore { result in
+                switch result {
+                    case .success(let storeElement):
+                        viewModel.storeId = storeElement.storeID!
+                        viewModel.storeMarketId=storeElement.storeMarketID!.marketID
+                        
+                       
+                        print("-------")
+                        print(viewModel.storeId)
+                    case .failure(let error):
+                        // 에러가 발생했을 때의 동작
+                        print("Error enrolling store: \(error)")
+                }
+            }
+            
+            DispatchQueue.main.async {
+                viewModel.signUp { (success, error) in
+                    if success {
+                        print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
+                        self.moveToSignInView = true
+                    } else {
+                        print("회원가입 실패: \(error?.localizedDescription ?? "")")
+                    }
+                    isLoading1 = false
+                    isLoading2 = false
+                }
+            }
+        } catch {
+            print("Error uploading image: \(error)")
+            isLoading1 = false
         }
     }
+    
+    
     func printStorePost() {
         print("storeName: \(storePost.storeName)")
         print("storeAddress1: \(storePost.storeAddress1)")

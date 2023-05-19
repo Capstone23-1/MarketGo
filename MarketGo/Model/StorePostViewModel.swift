@@ -17,7 +17,7 @@ class StorePostViewModel: ObservableObject {
     var storeFile: Int = 24
     var storeCategory: Int = 0
     
-    func enrollStore() {
+    func enrollStore(completion: @escaping (Result<StoreElement, Error>) -> Void) {
         let parameters: [String: Any] = [
             "storeName": storeName,
             "storeAddress1": storeAddress1,
@@ -32,22 +32,26 @@ class StorePostViewModel: ObservableObject {
             "storeFile": storeFile,
             "storeCategory": storeCategory
         ]
-        
+
         let url = "http://3.34.33.15:8080/store"
-        
+
         AF.request(url, method: .post, parameters: parameters)
             .validate()
             .responseDecodable(of: StoreElement.self) { (response) in
                 switch response.result {
                     case .success(let storeElement):
+                        print(storeElement)
+                        self.newStore = storeElement
                         DispatchQueue.main.async {
                             self.newStore = storeElement
-
                         }
+                        completion(.success(storeElement))
                     case .failure(let error):
                         print(error)
+                        completion(.failure(error))
                 }
             }
-        
     }
+
+
 }

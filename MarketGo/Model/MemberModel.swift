@@ -28,12 +28,12 @@ public struct Member {
 
 // MARK: - MemberInfo
 struct MemberInfo: Codable {
-    var memberID: Int?
-    var memberToken, memberName: String?
-    var interestMarket: Int?
+    var memberID: Int
+    var memberToken, memberName: String
+    var interestMarket: Int
     var cartID: Int?
     var storeID: Int?
-    var recentLatitude, recentLongitude: Int?
+    var recentLatitude, recentLongitude: Double?
 
     enum CodingKeys: String, CodingKey {
         case memberID = "memberId"
