@@ -18,10 +18,11 @@ class StorePostViewModel: ObservableObject {
     var storeCategory: Int = 0
     
     func enrollStore(completion: @escaping (Result<StoreElement, Error>) -> Void) {
+        
         let parameters: [String: Any] = [
             "storeName": storeName,
             "storeAddress1": storeAddress1,
-            "storeAddress2": storeAddress2,
+            "storeAddress2": storeAddress1,
             "storeRatings": storeRatings,
             "storePhonenum": storePhonenum,
             "storeInfo": storeInfo,

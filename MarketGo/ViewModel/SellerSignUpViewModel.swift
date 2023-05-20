@@ -39,7 +39,7 @@ class SellerSignUpViewModel: ObservableObject {
                     strongSelf.error = error.localizedDescription
                     completion(false, error)
                 } else {
-                    
+                    print("마지막 storeMarketId:\(self?.storeMarketId)")
                     // 회원가입 성공 시 uid 저장
                     strongSelf.uid = Auth.auth().currentUser?.uid
                     let newMemberInfo = MemberInfo(memberID: 0, memberToken: strongSelf.uid!, memberName: self!.nickName, interestMarket: self!.storeMarketId, cartID: nil, storeID: self?.storeId, recentLatitude: nil, recentLongitude: nil)
