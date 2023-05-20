@@ -43,7 +43,7 @@ class SellerSignUpViewModel: ObservableObject {
                     // 회원가입 성공 시 uid 저장
                     strongSelf.uid = Auth.auth().currentUser?.uid
                     let newMemberInfo = MemberInfo(memberID: 0, memberToken: strongSelf.uid!, memberName: self!.nickName, interestMarket: self!.storeMarketId, cartID: nil, storeID: self?.storeId, recentLatitude: nil, recentLongitude: nil)
-                    postUserMemberInfo(memberInfo: newMemberInfo) { result in
+                    Config().postSellerMemberInfo(memberInfo: newMemberInfo) { result in
                         switch result {
                             case .success(let data):
                                 // 요청 성공
