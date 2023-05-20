@@ -1,9 +1,3 @@
-//
-//  TopView.swift
-//  MarketGo
-//
-//  Created by ram on 2023/03/27.
-//
 
 import SwiftUI
 
@@ -32,11 +26,5 @@ struct TobView: View {
         
         
 
-    }
-}
-
-struct TobView_Previews: PreviewProvider {
-    static var previews: some View {
-        TobView()
     }
 }

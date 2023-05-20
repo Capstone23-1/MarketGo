@@ -21,7 +21,7 @@ class SellerSignUpViewModel: ObservableObject {
     @Published var storeMarketId = 0
 
     
-    func signUp(completion: @escaping (Bool) -> Void) {
+    func signUp(completion: @escaping (Bool, Error?) -> Void) {
         isLoading = true
         guard password == confirmPassword else {
             error = "비밀번호가 일치하지 않습니다."
@@ -33,34 +33,35 @@ class SellerSignUpViewModel: ObservableObject {
             
             DispatchQueue.main.async { [self] in
                 strongSelf.isLoading = false
-                
+                print("여기는 signUp")
+                print(self?.storeMarketId)
                 if let error = error {
                     strongSelf.error = error.localizedDescription
-                    completion(false)
+                    completion(false, error)
                 } else {
-                    
+                    print("마지막 storeMarketId:\(self?.storeMarketId)")
                     // 회원가입 성공 시 uid 저장
                     strongSelf.uid = Auth.auth().currentUser?.uid
-                    let newMemberInfo = MemberInfo(memberID: nil, memberToken: strongSelf.uid, memberName: self?.nickName, interestMarket: self?.storeMarketId, cartID: nil, storeID: self?.storeId, recentLatitude: nil, recentLongitude: nil)
-                    postUserMemberInfo(memberInfo: newMemberInfo) { result in
+                    let newMemberInfo = MemberInfo(memberID: 0, memberToken: strongSelf.uid!, memberName: self!.nickName, interestMarket: self!.storeMarketId, cartID: nil, storeID: self?.storeId, recentLatitude: nil, recentLongitude: nil)
+                    Config().postSellerMemberInfo(memberInfo: newMemberInfo) { result in
                         switch result {
                             case .success(let data):
                                 // 요청 성공
                                 // 데이터를 처리하는 코드 작성
                                 print(data)
+                                completion(true, nil)
                             case .failure(let error):
                                 // 요청 실패
                                 // 에러를 처리하는 코드 작성
                                 print(error)
+                                completion(false, error)
                         }
                     }
-                    
-                    
-                    completion(true)
                 }
             }
         }
     }
+
 }
 
 class StoreVM: ObservableObject{
