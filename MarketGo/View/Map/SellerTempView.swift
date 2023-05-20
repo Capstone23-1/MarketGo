@@ -9,12 +9,15 @@ import SwiftUI
 
 struct SellerTempView: View {
     @EnvironmentObject var userViewModel: UserModel
+    @EnvironmentObject var marketModel: MarketModel
     var body: some View {
         VStack{
-            Text((userViewModel.currentUser?.memberName)!)
-            Text(String((userViewModel.currentUser?.memberID)!))
-            Text(String((userViewModel.currentUser?.storeID)!))
+            Text("\(userViewModel.currentUser?.memberName ?? "")")
+            Text("\(String(describing:userViewModel.currentUser?.memberID))")
+            Text("\(userViewModel.currentUser?.memberToken ?? "")")
         }
+       
+        
     }
 }
 

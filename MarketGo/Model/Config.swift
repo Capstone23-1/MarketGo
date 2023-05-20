@@ -13,14 +13,14 @@ class Config{
     public let bundleID: String="com.capstone.MarketGo"
     
 
-    func postSellerMemberInfo(memberInfo :MemberInfo, completion: @escaping (Result<Data, AFError>) -> Void) {
+    func postSellerMemberInfo(memberPostInfo :MemberPostInfo, completion: @escaping (Result<Data, AFError>) -> Void) {
         let url = "http://3.34.33.15:8080/member"
         let parameters: [String: Any] = [
-            "memberToken": memberInfo.memberToken,
-            "memberName": memberInfo.memberName,
-            "interestMarket": memberInfo.interestMarket,
+            "memberToken": memberPostInfo.memberToken,
+            "memberName": memberPostInfo.memberName,
+            "interestMarket": memberPostInfo.interestMarket,
             "cartId": 0,
-            "storeId": memberInfo.storeID!,
+            "storeId": memberPostInfo.storeID!,
             "recentLatitude": 0,
             "recentLongitude": 0,
         ]
@@ -37,16 +37,16 @@ class Config{
             }
     }
 
-    func postUserMemberInfo(memberInfo: MemberInfo, completion: @escaping (Result<Data, Error>) -> Void) {
+    func postUserMemberInfo(memberPostInfo: MemberPostInfo, completion: @escaping (Result<Data, Error>) -> Void) {
         
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
         ]
-        let encodeName = makeStringKoreanEncoded(memberInfo.memberName)
+        let encodeName = makeStringKoreanEncoded(memberPostInfo.memberName)
 
-        let requestURL = "http://3.34.33.15:8080/member?memberId=&memberToken=\(memberInfo.memberToken ?? "null")&memberName=\(encodeName)&interestMarket=0&cartId=0&storeId=0&recentLatitude=0&recentLongitude=0"
+        let requestURL = "http://3.34.33.15:8080/member?memberId=&memberToken=\(memberPostInfo.memberToken)&memberName=\(encodeName)&interestMarket=0&cartId=0&storeId=0&recentLatitude=0&recentLongitude=0"
         print(requestURL)
-        AF.request(requestURL, method: .post, parameters: memberInfo, encoder: JSONParameterEncoder.default, headers: headers).responseData { response in
+        AF.request(requestURL, method: .post, parameters: memberPostInfo, encoder: JSONParameterEncoder.default, headers: headers).responseData { response in
             switch response.result {
             case .success(let data):
                 completion(.success(data))
