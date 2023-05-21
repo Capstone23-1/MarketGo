@@ -9,9 +9,7 @@ import SwiftUI
 
 
 struct UserMyPageView: View {
-    @State var member: Member
-    @State private var nameEditMode = false
-    @State private var newName = ""
+    @EnvironmentObject var userModel: UserModel
 
     var body: some View {
         VStack(spacing: 20) {
@@ -25,40 +23,24 @@ struct UserMyPageView: View {
             HStack {
                 Text("이름")
                 Spacer()
-                if nameEditMode {
-                    TextField("이름", text: $newName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(width: 150)
-                    Button(action: {
-                        member.memberName = newName
-                        nameEditMode = false
-                    }) {
-                        Text("완료")
-                    }
-                } else {
-                    Text(member.memberName)
-                    Button(action: {
-                        nameEditMode = true
-                        newName = member.memberName
-                    }) {
-                        Text("수정")
-                    }
-                }
+                Text("\(userModel.currentUser?.memberName ?? "")")
+                
+                
             }
             HStack {
                 Text("관심 시장")
                 Spacer()
-                Text("\(member.interestMarket)")
+                Text("\(userModel.currentUser?.interestMarket?.marketName ?? "")")
             }
             HStack {
                 Text("장바구니")
                 Spacer()
-                Text("\(member.cartId)")
+                //Text("\(userModel.currentUser?.cartID ?? 0)")
             }
             HStack {
-                Text("Token")
+                Text("member id")
                 Spacer()
-                Text(member.memberToken)
+                Text("\(userModel.currentUser?.memberID ?? 0)")
                     .font(.footnote)
                     .foregroundColor(.gray)
             }
@@ -66,17 +48,5 @@ struct UserMyPageView: View {
         }
         .padding()
         .navigationBarTitle("My Page", displayMode: .inline)
-    }
-}
-
-
-
-struct MyPageView_Previews: PreviewProvider {
-    static let member = Member(memberToken: "1234567890", memberName: "John Doe", interestMarket: 1, cartId: 123, storeId: 456, recentLatitude: 37.567, recentLongitude: 126.978)
-    
-    static var previews: some View {
-        NavigationView {
-            UserMyPageView(member: member)
-        }
     }
 }
