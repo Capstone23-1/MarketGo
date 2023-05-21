@@ -2,7 +2,7 @@ import SwiftUI
 import Alamofire
 
 struct StoreUpdateView: View {
-    @ObservedObject var observableStoreElement: ObservableStoreElement
+    @ObservedObject var obse: ObservableStoreElement
     @State private var storeName: String = ""
     @State private var storeAddress1: String = ""
     @State private var storeAddress2: String = ""
@@ -19,9 +19,9 @@ struct StoreUpdateView: View {
             .onAppear(perform: loadStoreData)
             .navigationTitle("Update Store")
             .navigationBarItems(trailing: Button("Save Changes") {
-                observableStoreElement.storeElement.storeName = storeName
-                observableStoreElement.storeElement.storeAddress1 = storeAddress1
-                observableStoreElement.storeElement.storeAddress2 = storeAddress2
+                obse.storeElement.storeName = storeName
+                obse.storeElement.storeAddress1 = storeAddress1
+                obse.storeElement.storeAddress2 = storeAddress2
                 updateStoreData()
             })
 
@@ -37,27 +37,45 @@ struct StoreUpdateView: View {
     }
     
     func loadStoreData() {
-        storeName = observableStoreElement.storeElement.storeName ?? ""
-        storeAddress1 = observableStoreElement.storeElement.storeAddress1 ?? ""
-        storeAddress2 = observableStoreElement.storeElement.storeAddress2 ?? ""
+        storeName = obse.storeElement.storeName ?? ""
+        storeAddress1 = obse.storeElement.storeAddress1 ?? ""
+        storeAddress2 = obse.storeElement.storeAddress2 ?? ""
     }
 
 
     func updateStoreData() {
-//        storeElement.storeName = storeName
+        
+        obse.storeElement.storeName = storeName
         print(storeName)
-//        print(storeElement.storeName)
-//        storeElement.storeAddress1 = storeAddress1
-//        storeElement.storeAddress2 = storeAddress2
-//
-//        let url = "http://3.34.33.15:8080/store"
-//        let headers: HTTPHeaders = ["Content-Type": "application/json"]
-//        guard let parameters = try? storeElement.asDictionary() else { return }
-//
-//        AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-//            .response { response in
-//                debugPrint(response)
-//            }
+        print(obse.storeElement.storeName)
+        obse.storeElement.storeAddress1 = storeAddress1
+        obse.storeElement.storeAddress2 = storeAddress2
+        print(obse.storeElement.storeRatings)
+        print(obse.storeElement.storeInfo)
+        let parameters: [String: Any] = [
+            "storeName": obse.storeElement.storeName!,
+            "storeAddress1": obse.storeElement.storeAddress1!,
+            "storeAddress2": obse.storeElement.storeAddress2!,
+            "storeRatings": 0.0,
+            "storePhonenum": "Store Phone Number",
+            "storeInfo": "Store Information",
+            "cardAvail": "Card Availability Information",
+            "localAvail": "Local Availability Information",
+            "storeNum": 0,
+            "marketId": 0,
+            "storeFile": 0,
+            "storeCategory": 0
+        ]
+
+        let url = "http://3.34.33.15:8080/store/96"
+        let headers: HTTPHeaders = ["Content-Type": "application/json"]
+        
+
+        AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .response { response in
+                debugPrint(response)
+            }
+        
     }
 }
 
