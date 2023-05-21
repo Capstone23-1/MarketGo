@@ -6,12 +6,6 @@ struct MarketReviewView: View {
 
     var body: some View {
         VStack {
-            Text("\(marketModel.currentMarket?.marketName ?? "") Review")
-            
-            
-                .font(.title)
-                .fontWeight(.bold)
-                .padding()
             
             ScrollView {
                 LazyVStack {
@@ -69,7 +63,7 @@ struct MarketReviewRow: View {
             
             VStack(alignment: .leading) {
                 RemoteImage2(url: URL(string: review.marketReviewFile?.uploadFileURL ?? ""))
-                            .frame(width: 80, height: 80)
+                           // .frame(width: 100, height: 100)
                 }
             
         }

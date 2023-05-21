@@ -66,13 +66,11 @@ struct RemoteImage2: View {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 80, height: 80)
                     .cornerRadius(1)
             } else if url != nil {
                 placeholder
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 80, height: 80)
                     .cornerRadius(1)
             } else {
                 EmptyView()
