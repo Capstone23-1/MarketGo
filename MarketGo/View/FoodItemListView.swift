@@ -18,7 +18,7 @@ struct FoodItemListView: View {
         GridItem(.flexible()),
     ]
     
-    var filteredGoods: [Good] {
+    var filteredGoods: [GoodOne] {
         if searchText.isEmpty {
             return goodsViewModel.goods
         } else {

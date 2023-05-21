@@ -60,9 +60,9 @@ import Foundation
 struct MemberInfo: Codable {
     var memberID: Int
     var memberToken, memberName: String?
-    var interestMarket: MrMarketID?
+    var interestMarket: MarketOne?
     var cartID: [String: Int?]?
-    var storeID: StoreID?
+    var storeID: StoreElement?
     var recentLatitude, recentLongitude: Int?
 
     enum CodingKeys: String, CodingKey {

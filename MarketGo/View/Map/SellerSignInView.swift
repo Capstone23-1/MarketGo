@@ -47,6 +47,7 @@ struct SellerSignInView: View {
                     // 버튼 클릭 시 로그인 시도
                     viewModel.SignIn(userViewModel: userViewModel) { success in
                         if success {
+                            print(userViewModel.currentUser)
                             // 로그인 성공 시 moveToMarketSearchView 상태를 true로 변경하여 MarketSearchView로 전환
                             self.moveToMarketSearchView = true
                             isLoading=true

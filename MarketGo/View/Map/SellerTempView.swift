@@ -24,11 +24,18 @@ struct SellerTempView: View {
                     .cornerRadius(8)
             }
             .sheet(isPresented: $move) {
-                SellerEditInfoView()
-            }
+                if let storeElement = userViewModel.currentUser?.storeID {
+                    StoreUpdateView(obse: ObservableStoreElement(storeElement: storeElement))
 
+
+                } else {
+                    // Provide a view for when storeElement is nil
+                    Text("No store data available")
+                }
+            }
+            
         }
-       
+        
         
     }
 }
