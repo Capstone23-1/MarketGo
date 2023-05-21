@@ -24,7 +24,7 @@ struct MainView: View {
                               Text("장보기")
                           }
                           .tag(0)
-                                Text("Second View")
+                                EatingHouseView()
                                 .tabItem {
                                     Image(systemName: "fork.knife")
                                     Text("맛집찾기")

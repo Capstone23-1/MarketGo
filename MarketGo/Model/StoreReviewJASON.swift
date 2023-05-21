@@ -8,7 +8,7 @@ import Foundation
 // MARK: - StoreReviewElement
 struct StoreReviewElement: Codable, Identifiable {
     var storeReviewID: Int?
-    var storeID: MrMarketID?
+    var storeID: StoreElement?
     var memberID: MrMemberID?
     var ratings: Int?
     var reviewContent, reviewDate: String?
