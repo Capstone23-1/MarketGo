@@ -52,26 +52,12 @@ struct StoreUpdateView: View {
         obse.storeElement.storeAddress2 = storeAddress2
         print(obse.storeElement.storeRatings)
         print(obse.storeElement.storeInfo)
-        let parameters: [String: Any] = [
-            "storeName": obse.storeElement.storeName!,
-            "storeAddress1": obse.storeElement.storeAddress1!,
-            "storeAddress2": obse.storeElement.storeAddress2!,
-            "storeRatings": 0.0,
-            "storePhonenum": "Store Phone Number",
-            "storeInfo": "Store Information",
-            "cardAvail": "Card Availability Information",
-            "localAvail": "Local Availability Information",
-            "storeNum": 0,
-            "marketId": 0,
-            "storeFile": 0,
-            "storeCategory": 0
-        ]
-
-        let url = "http://3.34.33.15:8080/store/96"
+        
+        let url = "http://3.34.33.15:8080/store/96?storeName=judy&storeAddress1=Strin&storeAddress2=String&storeRatings=0&storePhonenum=String&storeInfo=String&cardAvail=String&localAvail=String&storeNum=0&marketId=0&storeFile=0&storeCategory=0"
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
 
-        AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        AF.request(url, method: .put, headers: headers)
             .response { response in
                 debugPrint(response)
             }
