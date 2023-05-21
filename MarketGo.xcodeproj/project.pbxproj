@@ -91,6 +91,8 @@
 		99CD749829DD97B300D2D782 /* FoodItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CD749729DD97B300D2D782 /* FoodItemDetailView.swift */; };
 		99F02DDE2A17522200D827CD /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F02DDD2A17522200D827CD /* RemoteImage.swift */; };
 		99F02DE02A175C6B00D827CD /* MarketReviewJASON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F02DDF2A175C6B00D827CD /* MarketReviewJASON.swift */; };
+		99F02DE22A176D4100D827CD /* MarketReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F02DE12A176D4100D827CD /* MarketReviewView.swift */; };
+		99F74F602A19C389004D5E82 /* MarketReviewTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F74F5F2A19C389004D5E82 /* MarketReviewTestView.swift */; };
 		AEC6AFE4A57CD1E7E1E0B310 /* libPods-MarketGo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD43796E872DF5BD291D948 /* libPods-MarketGo.a */; };
 		C1321C8DB9C9AD70C80B8978 /* libPods-MarketGoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B49E4FE25A39961E0AD6073F /* libPods-MarketGoTests.a */; };
 /* End PBXBuildFile section */
@@ -203,6 +205,8 @@
 		99CD749729DD97B300D2D782 /* FoodItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemDetailView.swift; sourceTree = "<group>"; };
 		99F02DDD2A17522200D827CD /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		99F02DDF2A175C6B00D827CD /* MarketReviewJASON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewJASON.swift; sourceTree = "<group>"; };
+		99F02DE12A176D4100D827CD /* MarketReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewView.swift; sourceTree = "<group>"; };
+		99F74F5F2A19C389004D5E82 /* MarketReviewTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewTestView.swift; sourceTree = "<group>"; };
 		B49E4FE25A39961E0AD6073F /* libPods-MarketGoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MarketGoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E1540A8396BD0BF889E2A7 /* Pods-MarketGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo.release.xcconfig"; path = "Target Support Files/Pods-MarketGo/Pods-MarketGo.release.xcconfig"; sourceTree = "<group>"; };
 		D6CA2ACBA4F75A9AF49AF4C5 /* Pods-MarketGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGoTests.release.xcconfig"; path = "Target Support Files/Pods-MarketGoTests/Pods-MarketGoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -399,6 +403,8 @@
 				993AD3A42A0A72500069A27F /* ContentView.swift */,
 				998BFBC22A0DCC1F005F4652 /* TestView.swift */,
 				998BFBC42A0DD01C005F4652 /* CategoryView.swift */,
+				99F02DE12A176D4100D827CD /* MarketReviewView.swift */,
+				99F74F5F2A19C389004D5E82 /* MarketReviewTestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -734,6 +740,7 @@
 				2188126429E96F4700F315EF /* ParkingLotViewModel.swift in Sources */,
 				21470AB829FE620100A7CEE7 /* MarketAPIModel.swift in Sources */,
 				214871DA2A06894700C6FD1D /* MarketOneMapView.swift in Sources */,
+				99F02DE22A176D4100D827CD /* MarketReviewView.swift in Sources */,
 				99CD749829DD97B300D2D782 /* FoodItemDetailView.swift in Sources */,
 				21FAE1EA2A0AC0AF006593D9 /* ProfileView.swift in Sources */,
 				2144FE7129DD6A79008913C4 /* TopView.swift in Sources */,
@@ -747,6 +754,7 @@
 				99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */,
 				211F53E22A17E6A5003DA011 /* SellerSignInViewModel.swift in Sources */,
 				21D006982A15DB9200C404C3 /* StoreEnrollView.swift in Sources */,
+				99F74F602A19C389004D5E82 /* MarketReviewTestView.swift in Sources */,
 				994979C32A119ADE00159828 /* URLImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

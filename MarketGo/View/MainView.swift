@@ -38,7 +38,7 @@ struct MainView: View {
                                 }
                                 .tag(2)
                             
-                            ReviewView(isPresented: Binding.constant(false), storeName: "영찬과일")
+                                MarketReviewView()
                                 .tabItem {
                                     Image(systemName: "ellipsis.message")
                                     Text("시장리뷰")

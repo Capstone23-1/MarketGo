@@ -8,7 +8,7 @@ import Foundation
 // MARK: - StoreReviewElement
 struct StoreReviewElement: Codable, Identifiable {
     
-    var storeReviewID: Int?
+    var storeReviewID: Int
     var storeID: StoreID?
     var memberID: MemberID?
     var ratings: Int?
@@ -22,7 +22,7 @@ struct StoreReviewElement: Codable, Identifiable {
         case ratings, reviewContent, reviewDate, storeReviewFile
     }
     
-    var id: Int? {
+    var id: Int {
            return storeReviewID
        }
 }
@@ -77,34 +77,34 @@ struct StoreReviewFile: Codable {
 }
 
 // MARK: - StoreID
-struct StoreID: Codable {
-    var storeID: Int?
-    var storeName, storeAddress1, storeAddress2: String?
-    var storeCategory: StoreCategory?
-    var storeRatings: Double?
-    var storePhonenum, storeInfo, cardAvail, localAvail: String?
-    var storeNum: Int?
-    var storeMarketID: InterestMarket?
-    var storeFile: StoreReviewFile?
-    var reviewCount: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case storeID = "storeId"
-        case storeName, storeAddress1, storeAddress2, storeCategory, storeRatings, storePhonenum, storeInfo, cardAvail, localAvail, storeNum
-        case storeMarketID = "storeMarketId"
-        case storeFile, reviewCount
-    }
-}
-
-//// MARK: - StoreCategory
-//struct StoreCategory: Codable {
-//    var categoryID: Int?
-//    var categoryName: String?
+//struct StoreID: Codable {
+//    var storeID: Int?
+//    var storeName, storeAddress1, storeAddress2: String?
+//    var storeCategory: StoreCategory2?
+//    var storeRatings: Double?
+//    var storePhonenum, storeInfo, cardAvail, localAvail: String?
+//    var storeNum: Int?
+//    var storeMarketID: InterestMarket?
+//    var storeFile: StoreReviewFile?
+//    var reviewCount: Int?
 //
 //    enum CodingKeys: String, CodingKey {
-//        case categoryID = "categoryId"
-//        case categoryName
+//        case storeID = "storeId"
+//        case storeName, storeAddress1, storeAddress2, storeCategory, storeRatings, storePhonenum, storeInfo, cardAvail, localAvail, storeNum
+//        case storeMarketID = "storeMarketId"
+//        case storeFile, reviewCount
 //    }
 //}
+
+// MARK: - StoreCategory
+struct StoreCategory2: Codable {
+    var categoryID: Int?
+    var categoryName: String?
+
+    enum CodingKeys: String, CodingKey {
+        case categoryID = "categoryId"
+        case categoryName
+    }
+}
 
 typealias StoreReview = [StoreReviewElement]
