@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct StoreReviewListView: View {
     let store: StoreElement
@@ -79,5 +80,28 @@ struct ReviewRow: View {
         .background(Color.white)
         .cornerRadius(5)
         .shadow(radius: 2, y: 1)
+    }
+}
+
+class TestViewModel: ObservableObject {
+    @Published var reviews: [StoreReviewElement]?
+    @Published var isLoading = false
+
+    func fetchReviews(for storeId: Int) {
+        isLoading = true
+
+        let url = "http://3.34.33.15:8080/storeReview/storeId/\(storeId)"
+        AF.request(url).responseDecodable(of: StoreReview.self) { response in
+            defer { self.isLoading = false }
+
+            switch response.result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.reviews = data
+                }
+            case .failure(let error):
+                print("Failed to fetch reviews: \(error)")
+            }
+        }
     }
 }

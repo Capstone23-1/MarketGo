@@ -1,15 +1,16 @@
 import SwiftUI
 import Alamofire
 
-struct TestView: View {
-    @StateObject private var viewModel = TestViewModel()
+
+struct StoreReviewTestView: View {
+    @StateObject private var viewModel = StoreReviewViewModel()
 
     var body: some View {
         VStack {
             if viewModel.isLoading {
                 ProgressView()
-            } else if let reviews = viewModel.reviews {
-                List(reviews) { review in
+            } else if let storeReviews = viewModel.storeReviews {
+                ForEach(storeReviews) { review in
                     Text(review.reviewContent ?? "")
                 }
             } else {
@@ -17,36 +18,31 @@ struct TestView: View {
             }
         }
         .onAppear {
-            viewModel.fetchReviews(for: 9) // Replace 9 with the desired storeId
+            viewModel.fetchStoreReviews()
         }
     }
 }
 
-struct TestView_Previews: PreviewProvider {
+struct StoreReviewTestView_Previews: PreviewProvider {
     static var previews: some View {
-        TestView()
+        StoreReviewTestView()
     }
 }
 
-
-class TestViewModel: ObservableObject {
-    @Published var reviews: [StoreReviewElement]?
+class StoreReviewViewModel: ObservableObject {
+    @Published var storeReviews: [StoreReviewElement]?
     @Published var isLoading = false
-
-    func fetchReviews(for storeId: Int) {
+    
+    func fetchStoreReviews() {
         isLoading = true
-
-        let url = "http://3.34.33.15:8080/storeReview/storeId/\(storeId)"
+        
+        let url = URL(string: "http://3.34.33.15:8080/storeReview/all")!
+        
         AF.request(url).responseDecodable(of: StoreReview.self) { response in
-            defer { self.isLoading = false }
-
-            switch response.result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self.reviews = data
-                }
-            case .failure(let error):
-                print("Failed to fetch reviews: \(error)")
+            self.isLoading = false
+            
+            if case .success(let storeReviews) = response.result {
+                self.storeReviews = storeReviews
             }
         }
     }
