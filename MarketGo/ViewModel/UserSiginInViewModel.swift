@@ -34,6 +34,7 @@ class UserSignInViewModel: ObservableObject {
                 } else {
                     // 로그인 성공 시 uid 저장
                     strongSelf.uid = Auth.auth().currentUser?.uid
+                    
                     self?.fetchMemberInfo(uid: strongSelf.uid!) { result in
                         print(result)
                         switch result {

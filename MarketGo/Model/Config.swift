@@ -37,24 +37,30 @@ class Config{
             }
     }
 
-    func postUserMemberInfo(memberPostInfo: MemberPostInfo, completion: @escaping (Result<Data, Error>) -> Void) {
-        
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json"
+    func postUserMemberInfo(memberPostInfo :MemberPostInfo, completion: @escaping (Result<Data, AFError>) -> Void) {
+        let url = "http://3.34.33.15:8080/member"
+        let parameters: [String: Any] = [
+            "memberToken": memberPostInfo.memberToken,
+            "memberName": memberPostInfo.memberName,
+            "interestMarket": memberPostInfo.interestMarket,
+            "cartId": memberPostInfo.cartID!,
+            "storeId": 0,
+            "recentLatitude": 0,
+            "recentLongitude": 0,
         ]
-        let encodeName = makeStringKoreanEncoded(memberPostInfo.memberName)
 
-        let requestURL = "http://3.34.33.15:8080/member?memberId=&memberToken=\(memberPostInfo.memberToken)&memberName=\(encodeName)&interestMarket=0&cartId=0&storeId=0&recentLatitude=0&recentLongitude=0"
-        print(requestURL)
-        AF.request(requestURL, method: .post, parameters: memberPostInfo, encoder: JSONParameterEncoder.default, headers: headers).responseData { response in
-            switch response.result {
-            case .success(let data):
-                completion(.success(data))
-            case .failure(let error):
-                completion(.failure(error))
+        AF.request(url, method: .post, parameters: parameters)
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(let data):
+                    completion(.success(data ?? Data()))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
-        }
     }
+
 }
 func makeStringKoreanEncoded(_ string: String) -> String {
     return string.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? string

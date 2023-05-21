@@ -6,11 +6,11 @@
 //
 import SwiftUI
 import FirebaseAuth
-
+import Alamofire
 struct UserSignUpView: View {
     @StateObject private var viewModel = UserSignUpViewModel()
     @State private var moveToSignInView = false
-    
+    @State private var isLoading: Bool = false
     var body: some View {
         VStack {
             Text("일반회원 회원가입")
@@ -44,16 +44,9 @@ struct UserSignUpView: View {
             }
             
             Button(action: {
-                viewModel.signUp { success in
-                    if success {
-                        
-                        print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
-                        self.moveToSignInView = true
-                    } else {
-                        print("회원가입 실패")
-                    }
-                }
-            }) {
+                Task {
+                    await processSignUp()
+                }           }) {
                 Text("회원가입")
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -67,5 +60,38 @@ struct UserSignUpView: View {
             }
         }
         .padding()
+    }
+    func processSignUp() async {
+        isLoading = true
+        do {
+            
+            
+            await postCartData { result in
+                switch result {
+                    case .success(let cart):
+                        viewModel.cartId=cart.cartID!
+                        print(cart)
+                        
+                    case .failure(let error):
+                        // 에러가 발생했을 때의 동작
+                        print("Error enrolling store: \(error)")
+                }
+            }
+            
+            DispatchQueue.main.async {
+                viewModel.signUp { success in
+                                    if success {
+                                        
+                                        print("회원가입 성공, uid: \(viewModel.uid ?? "N/A")")
+                                        self.moveToSignInView = true
+                                    } else {
+                                        print("회원가입 실패")
+                                    }
+                                }
+            }
+        } catch {
+            print("Error uploading image: \(error)")
+            isLoading = false
+        }
     }
 }
