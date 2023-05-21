@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct MenuItemRow: View {
-    var goods: Good
+    var goods: GoodOne
     let storeID: Int // Store ID
     
     var body: some View {

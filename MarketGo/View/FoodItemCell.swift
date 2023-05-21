@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct FoodItemCell: View {
-    var goods: Good
+    var goods: GoodOne
     
     var body: some View {
         VStack {
