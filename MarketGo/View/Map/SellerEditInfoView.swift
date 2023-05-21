@@ -63,15 +63,7 @@ struct SellerEditInfoView: View {
                                 sellervm.currentUser?.storeID?.storeAddress1 = address
                                 sellervm.currentUser?.storeID?.storeAddress2 = address
                             }
-//                        Picker(selection: $storeCategory, label: Text("가게 분류")) {
-//                            ForEach(0..<9) { index in
-//                                Text(categories[index].name).tag(index)
-//                            }
-//                        }.onChange(of:storeCategory) { _ in
-//                            storePost.storeCategory=storeCategory
-//                            storePost.storeName=storeName
-//
-//                        }
+
                         TextField("전화번호 ex: 010-1234-1234", text: $phone)
                             .autocapitalization(.none)
                             .onAppear {
@@ -92,30 +84,7 @@ struct SellerEditInfoView: View {
                                 // 값이 변경될 때 사용자 모델 업데이트
                                 sellervm.currentUser?.storeID?.storeInfo = storeInfo
                             }
-//
-//
-//                        Section(header: Text("가게 상세 정보")) {
-//                            TextField("가게 정보", text: $storePost.storeInfo)
-//                        }
-//
-//                        Section(header: Text("가능 여부")) {
-//                            Toggle("카드 이용 가능 여부", isOn: $cardAvail)
-//                                .onChange(of: cardAvail) { newValue in
-//                                    storePost.cardAvail = newValue ? "가능" : "이용불가"
-//                                }
-//                                .onAppear {
-//                                    cardAvail = storePost.cardAvail == "가능"
-//                                }
-//
-//                            Toggle("지역 화폐 가능 여부", isOn: $localAvail)
-//                                .onChange(of: localAvail) { newValue in
-//                                    storePost.localAvail = newValue ? "가능" : "이용불가"
-//                                }
-//                                .onAppear {
-//                                    localAvail = storePost.localAvail == "가능"
-//                                    storePost.storeName=storeName
-//                                }
-//                        }
+
                     }
                     
                 }

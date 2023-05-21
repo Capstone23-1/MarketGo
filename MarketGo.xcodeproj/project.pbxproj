@@ -363,16 +363,16 @@
 				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */,
+				211F53E72A1A5256003DA011 /* SellerEditInfoView.swift */,
 				21416B8B2A1025F0008EA3C5 /* SellerMarketChoiceView.swift */,
 				21416B752A0BBEF9008EA3C5 /* SellerSignInView.swift */,
 				21FAE1ED2A0B65EC006593D9 /* SellerSignUpView.swift */,
+				211F53E52A17F306003DA011 /* SellerTempView.swift */,
 				21FAE1E52A0AA787006593D9 /* SignInView.swift */,
 				21D006972A15DB9200C404C3 /* StoreEnrollView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
-				211F53E52A17F306003DA011 /* SellerTempView.swift */,
-				211F53E72A1A5256003DA011 /* SellerEditInfoView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";

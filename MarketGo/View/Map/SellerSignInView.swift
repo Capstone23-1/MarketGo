@@ -11,11 +11,11 @@ struct SellerSignInView: View {
     @State var currentUser: MemberInfo? = nil
     @EnvironmentObject var userViewModel: UserModel
     @StateObject var marketModel = MarketModel()
-    
+    @State var isLoading: Bool = false
     var body: some View {
         
         
-        VStack {
+        ZStack {
             
             VStack(spacing: 20) {
                 
@@ -44,11 +44,12 @@ struct SellerSignInView: View {
                 
                 // 로그인 버튼
                 Button(action: {
-                // 버튼 클릭 시 로그인 시도
+                    // 버튼 클릭 시 로그인 시도
                     viewModel.SignIn(userViewModel: userViewModel) { success in
                         if success {
                             // 로그인 성공 시 moveToMarketSearchView 상태를 true로 변경하여 MarketSearchView로 전환
                             self.moveToMarketSearchView = true
+                            isLoading=true
                         } else {
                             print("로그인 실패")
                         }
@@ -64,7 +65,7 @@ struct SellerSignInView: View {
                 .disabled(viewModel.isLoading) // 로딩 중일 때는 버튼 비활성화
                 .fullScreenCover(isPresented: $moveToMarketSearchView) {
                     SellerTempView()
-
+                    
                 }
                 
                 
@@ -83,7 +84,15 @@ struct SellerSignInView: View {
                 
             }
             .padding()
-            
+            if isLoading {
+                ProgressView()
+                    .scaleEffect(2)
+                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                    .frame(width: 100, height: 100)
+                    .background(Color.white.opacity(0.8))
+                    .cornerRadius(20)
+                    .shadow(radius: 10)
+            }
             
             
             
