@@ -25,7 +25,9 @@ struct SellerTempView: View {
             }
             .sheet(isPresented: $move) {
                 if let storeElement = userViewModel.currentUser?.storeID {
-                    StoreUpdateView(storeElement: .constant(storeElement))
+                    StoreUpdateView(observableStoreElement: ObservableStoreElement(storeElement: storeElement))
+
+
                 } else {
                     // Provide a view for when storeElement is nil
                     Text("No store data available")
