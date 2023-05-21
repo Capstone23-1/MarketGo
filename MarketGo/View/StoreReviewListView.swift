@@ -15,7 +15,7 @@ struct StoreReviewListView: View {
     var body: some View {
         VStack {
             Text("\(store.storeName ?? "") Review")
-                .font(.title)
+                .font(.title3)
                 .fontWeight(.bold)
                 .padding()
             
