@@ -7,18 +7,24 @@
 
 import Foundation
 
+// MARK: - MrMemberID
+struct Member: Codable {
+    var memberID: Int?
+    var memberToken, memberName: String?
+    var interestMarket: MrMarketID?
+    var cartID: [String: Int?]?
+    var storeID: StoreID?
+    var recentLatitude, recentLongitude: Int?
 
-public struct Member {
-    
-    let memberToken: String
-    var memberName: String
-    var interestMarket: Int
-    let cartId: Int
-    var storeId: Int
-    var recentLatitude: Double
-    var recentLongitude: Double
-
+    enum CodingKeys: String, CodingKey {
+        case memberID = "memberId"
+        case memberToken, memberName, interestMarket
+        case cartID = "cartId"
+        case storeID = "storeId"
+        case recentLatitude, recentLongitude
+    }
 }
+
 
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
@@ -54,7 +60,7 @@ import Foundation
 struct MemberInfo: Codable {
     var memberID: Int
     var memberToken, memberName: String?
-    var interestMarket: InterestMarket?
+    var interestMarket: MrMarketID?
     var cartID: [String: Int?]?
     var storeID: StoreID?
     var recentLatitude, recentLongitude: Int?
@@ -67,43 +73,6 @@ struct MemberInfo: Codable {
         case recentLatitude, recentLongitude
     }
 }
-
-
-
-
-
-//// MARK: - InterestMarket
-//struct InterestMarket: Codable {
-//    var marketID: Int?
-//    var marketName, marketAddress1, marketAddress2, marketLocation: String?
-//    var marketLatitude, marketLongitude, marketRatings: JSONNull?
-//    var marketInfo, parking, toilet, marketPhonenum: String?
-//    var marketGiftcard: String?
-//    var marketType, updateTime, marketFile, marketMap: JSONNull?
-//    var reviewCount: JSONNull?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case marketID = "marketId"
-//        case marketName, marketAddress1, marketAddress2, marketLocation, marketLatitude, marketLongitude, marketRatings, marketInfo, parking, toilet, marketPhonenum, marketGiftcard, marketType, updateTime, marketFile, marketMap, reviewCount
-//    }
-//}
-//
-//// MARK: - StoreID
-//struct StoreID: Codable {
-//    var storeID: Int?
-//    var storeName, storeAddress1, storeAddress2: String?
-//    var storeCategory, storeRatings: JSONNull?
-//    var storePhonenum, storeInfo, cardAvail, localAvail: String?
-//    var storeNum, storeMarketID, storeFile, reviewCount: JSONNull?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case storeID = "storeId"
-//        case storeName, storeAddress1, storeAddress2, storeCategory, storeRatings, storePhonenum, storeInfo, cardAvail, localAvail, storeNum
-//        case storeMarketID = "storeMarketId"
-//        case storeFile, reviewCount
-//    }
-//}
-
 
 // MARK: - Encode/decode helpers
 

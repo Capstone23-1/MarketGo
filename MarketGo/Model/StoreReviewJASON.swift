@@ -7,10 +7,9 @@ import Foundation
 
 // MARK: - StoreReviewElement
 struct StoreReviewElement: Codable, Identifiable {
-    
     var storeReviewID: Int?
-    var storeID: StoreID?
-    var memberID: MemberID?
+    var storeID: StoreElement?
+    var memberID: MrMemberID?
     var ratings: Int?
     var reviewContent, reviewDate: String?
     var storeReviewFile: StoreReviewFile?
@@ -22,10 +21,11 @@ struct StoreReviewElement: Codable, Identifiable {
         case ratings, reviewContent, reviewDate, storeReviewFile
     }
     
-    var id: Int? {
-           return storeReviewID
-       }
+    var id: Int?{
+        return storeReviewID
+    }
 }
+
 
 // MARK: - MemberID
 struct MemberID: Codable {
@@ -33,7 +33,7 @@ struct MemberID: Codable {
     var memberToken, memberName: String?
     var interestMarket: InterestMarket?
     var cartID: [String: Int?]?
-    var storeID: StoreID?
+    var storeID: StoreElement?
     var recentLatitude, recentLongitude: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -49,8 +49,7 @@ struct MemberID: Codable {
 struct InterestMarket: Codable {
     var marketID: Int?
     var marketName, marketAddress1, marketAddress2, marketLocation: String?
-    var marketLatitude, marketLongitude: Double?
-    var marketRatings: Int?
+    var marketLatitude, marketLongitude, marketRatings: Double?
     var marketInfo, parking, toilet, marketPhonenum: String?
     var marketGiftcard: String?
     var marketType, updateTime: String?
@@ -77,10 +76,10 @@ struct StoreReviewFile: Codable {
 }
 
 // MARK: - StoreID
-struct StoreID: Codable {
+struct srStoreID: Codable {
     var storeID: Int?
     var storeName, storeAddress1, storeAddress2: String?
-    var storeCategory: StoreCategory?
+    var storeCategory: StoreCategory2?
     var storeRatings: Double?
     var storePhonenum, storeInfo, cardAvail, localAvail: String?
     var storeNum: Int?
@@ -96,15 +95,15 @@ struct StoreID: Codable {
     }
 }
 
-//// MARK: - StoreCategory
-//struct StoreCategory: Codable {
-//    var categoryID: Int?
-//    var categoryName: String?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case categoryID = "categoryId"
-//        case categoryName
-//    }
-//}
+// MARK: - StoreCategory
+struct StoreCategory2: Codable {
+    var categoryID: Int?
+    var categoryName: String?
+
+    enum CodingKeys: String, CodingKey {
+        case categoryID = "categoryId"
+        case categoryName
+    }
+}
 
 typealias StoreReview = [StoreReviewElement]

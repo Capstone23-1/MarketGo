@@ -9,9 +9,6 @@ import SwiftUI
 struct MainView: View {
     @State private var selectedTab = 0
     @State public var topTitle = "시장"
-    
-    let member = Member(memberToken: "1234567890", memberName: "John Doe", interestMarket: 1, cartId: 123, storeId: 456, recentLatitude: 37.567, recentLongitude: 126.978)
-    
 
     var body: some View {
         NavigationView {
@@ -24,7 +21,7 @@ struct MainView: View {
                               Text("장보기")
                           }
                           .tag(0)
-                                Text("Second View")
+                                EatingHouseView()
                                 .tabItem {
                                     Image(systemName: "fork.knife")
                                     Text("맛집찾기")
@@ -38,14 +35,14 @@ struct MainView: View {
                                 }
                                 .tag(2)
                             
-                            ReviewView(isPresented: Binding.constant(false), storeName: "영찬과일")
+                                MarketReviewView()
                                 .tabItem {
                                     Image(systemName: "ellipsis.message")
                                     Text("시장리뷰")
                                 }
                                 .tag(3)
                             
-                                UserMyPageView(member: member)
+                                UserMyPageView()
                                 .tabItem {
                                     Image(systemName: "person")
                                     Text("My")

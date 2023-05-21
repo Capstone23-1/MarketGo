@@ -1,29 +1,17 @@
-//
-//  StoreReviewListView.swift
-//  MarketGo
-//
-//  Created by 김주현 on 2023/05/04.
-//
-
 import SwiftUI
-import Alamofire
 
-struct StoreReviewListView: View {
-    let store: StoreElement
-    @StateObject private var viewModel = TestViewModel()
-    
+struct MarketReviewView: View {
+    @StateObject private var viewModel = MarketReviewViewModel()
+    @EnvironmentObject var marketModel: MarketModel
+
     var body: some View {
         VStack {
-            Text("\(store.storeName ?? "") Review")
-                .font(.title3)
-                .fontWeight(.bold)
-                .padding()
             
             ScrollView {
                 LazyVStack {
-                    if let reviews = viewModel.reviews {
+                    if let reviews = viewModel.marketReviews {
                         ForEach(reviews) { review in
-                            ReviewRow(review: review)
+                            MarketReviewRow(review: review)
                         }
                     } else {
                         ProgressView()
@@ -33,13 +21,16 @@ struct StoreReviewListView: View {
             .padding()
         }
         .onAppear {
-            viewModel.fetchReviews(for: store.storeID ?? 0)
+            viewModel.fetchMarketReviews(for: marketModel.currentMarket?.marketID ?? 0)
         }
     }
 }
 
-struct ReviewRow: View {
-    let review: StoreReviewElement
+import SwiftUI
+
+
+struct MarketReviewRow: View {
+    let review: MarketReviewElement
     @State private var image: UIImage? = nil
     
     var body: some View {
@@ -60,7 +51,7 @@ struct ReviewRow: View {
                 }
                 .padding(.leading, 5)
                 
-                Text(review.memberID?.memberName ?? "")
+                Text(review.mrMemberID?.memberName ?? "")
                     .font(.headline)
                     .fontWeight(.bold)
             }
@@ -71,37 +62,15 @@ struct ReviewRow: View {
                 .padding(.vertical, 7)
             
             VStack(alignment: .leading) {
-                RemoteImage(url: URL(string: review.storeReviewFile?.uploadFileURL ?? ""))
-                            .frame(width: 80, height: 80)
+                RemoteImage2(url: URL(string: review.marketReviewFile?.uploadFileURL ?? ""))
+                           // .frame(width: 100, height: 100)
                 }
+            
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .cornerRadius(5)
         .shadow(radius: 2, y: 1)
-    }
-}
-
-class TestViewModel: ObservableObject {
-    @Published var reviews: [StoreReviewElement]?
-    @Published var isLoading = false
-
-    func fetchReviews(for storeId: Int) {
-        isLoading = true
-
-        let url = "http://3.34.33.15:8080/storeReview/storeId/\(storeId)"
-        AF.request(url).responseDecodable(of: StoreReview.self) { response in
-            defer { self.isLoading = false }
-
-            switch response.result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self.reviews = data
-                }
-            case .failure(let error):
-                print("Failed to fetch reviews: \(error)")
-            }
-        }
     }
 }

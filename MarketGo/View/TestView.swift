@@ -1,53 +1,94 @@
 import SwiftUI
 import Alamofire
 
-struct TestView: View {
-    @StateObject private var viewModel = TestViewModel()
-
+struct MarketReviewSubmissionView: View {
+    @State private var marketId: Int = 0
+    @State private var memberId: Int = 0
+    @State private var ratings: Double = 0.0
+    @State private var reviewContent: String = ""
+    @State private var marketReviewFile: Int = 0
+    
+    @StateObject private var viewModel = MarketReviewPostViewModel()
+    
     var body: some View {
         VStack {
-            if viewModel.isLoading {
-                ProgressView()
-            } else if let reviews = viewModel.reviews {
-                List(reviews) { review in
-                    Text(review.reviewContent ?? "")
-                }
-            } else {
-                Text("No reviews found")
+            TextField("Market ID", value: $marketId, formatter: NumberFormatter())
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            TextField("Member ID", value: $memberId, formatter: NumberFormatter())
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            TextField("Ratings", value: $ratings, formatter: NumberFormatter())
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            TextField("Review Content", text: $reviewContent)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            TextField("Market Review File ID", value: $marketReviewFile, formatter: NumberFormatter())
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            Button("Submit") {
+                viewModel.submitMarketReview(marketId: marketId, memberId: memberId, ratings: ratings, reviewContent: reviewContent, marketReviewFile: marketReviewFile)
             }
+            .padding()
+            .disabled(viewModel.isLoading)
         }
+        .alert(isPresented: $viewModel.showingAlert) {
+            Alert(title: Text("Error"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
+        }
+        .padding()
         .onAppear {
-            viewModel.fetchReviews(for: 9) // Replace 9 with the desired storeId
+            viewModel.reset()
         }
     }
 }
 
-struct TestView_Previews: PreviewProvider {
+struct MarketReviewSubmissionView_Previews: PreviewProvider {
     static var previews: some View {
-        TestView()
+        MarketReviewSubmissionView()
     }
 }
 
-
-class TestViewModel: ObservableObject {
-    @Published var reviews: [StoreReviewElement]?
+class MarketReviewPostViewModel: ObservableObject {
     @Published var isLoading = false
-
-    func fetchReviews(for storeId: Int) {
+    @Published var showingAlert = false
+    @Published var errorMessage = ""
+    
+    func submitMarketReview(marketId: Int, memberId: Int, ratings: Double, reviewContent: String, marketReviewFile: Int) {
         isLoading = true
-
-        let url = "http://3.34.33.15:8080/storeReview/storeId/\(storeId)"
-        AF.request(url).responseDecodable(of: StoreReview.self) { response in
-            defer { self.isLoading = false }
-
+        
+        let parameters: [String: Any] = [
+            "marketId": marketId,
+            "memberId": memberId,
+            "ratings": ratings,
+            "reviewContent": reviewContent,
+            "marketReviewFile": marketReviewFile
+        ]
+        
+        let url = URL(string: "http://3.34.33.15:8080/marketReview")!
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { response in
+            self.isLoading = false
+            
             switch response.result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self.reviews = data
-                }
+            case .success:
+                // Successful submission, do any additional handling if needed
+                break
             case .failure(let error):
-                print("Failed to fetch reviews: \(error)")
+                self.errorMessage = error.localizedDescription
+                self.showingAlert = true
             }
         }
+    }
+    
+    func reset() {
+        isLoading = false
+        showingAlert = false
+        errorMessage = ""
     }
 }

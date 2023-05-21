@@ -22,7 +22,6 @@ struct MarketGoApp: App {
                 .environmentObject(userModel)
                 .environmentObject(storePost)
                 
-                
         }
     }
 }
