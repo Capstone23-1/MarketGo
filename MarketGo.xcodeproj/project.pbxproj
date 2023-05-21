@@ -16,6 +16,7 @@
 		211F53E02A17B3CB003DA011 /* StorePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53DF2A17B3CB003DA011 /* StorePostViewModel.swift */; };
 		211F53E22A17E6A5003DA011 /* SellerSignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53E12A17E6A5003DA011 /* SellerSignInViewModel.swift */; };
 		211F53E62A17F306003DA011 /* SellerTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53E52A17F306003DA011 /* SellerTempView.swift */; };
+		211F53E82A1A5256003DA011 /* SellerEditInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53E72A1A5256003DA011 /* SellerEditInfoView.swift */; };
 		2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5729D1CEBA00B78C6C /* Assets.xcassets */; };
 		2140BC5B29D1CEBA00B78C6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */; };
 		2140BC6529D1CEBA00B78C6C /* MarketGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140BC6429D1CEBA00B78C6C /* MarketGoTests.swift */; };
@@ -123,6 +124,7 @@
 		211F53DF2A17B3CB003DA011 /* StorePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePostViewModel.swift; sourceTree = "<group>"; };
 		211F53E12A17E6A5003DA011 /* SellerSignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignInViewModel.swift; sourceTree = "<group>"; };
 		211F53E52A17F306003DA011 /* SellerTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerTempView.swift; sourceTree = "<group>"; };
+		211F53E72A1A5256003DA011 /* SellerEditInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerEditInfoView.swift; sourceTree = "<group>"; };
 		2140BC5029D1CEB900B78C6C /* MarketGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2140BC5729D1CEBA00B78C6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2140BC5A29D1CEBA00B78C6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -363,15 +365,16 @@
 				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */,
+				211F53E72A1A5256003DA011 /* SellerEditInfoView.swift */,
 				21416B8B2A1025F0008EA3C5 /* SellerMarketChoiceView.swift */,
 				21416B752A0BBEF9008EA3C5 /* SellerSignInView.swift */,
 				21FAE1ED2A0B65EC006593D9 /* SellerSignUpView.swift */,
+				211F53E52A17F306003DA011 /* SellerTempView.swift */,
 				21FAE1E52A0AA787006593D9 /* SignInView.swift */,
 				21D006972A15DB9200C404C3 /* StoreEnrollView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
-				211F53E52A17F306003DA011 /* SellerTempView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */,
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
 				99F02DE02A175C6B00D827CD /* MarketReviewJASON.swift in Sources */,
+				211F53E82A1A5256003DA011 /* SellerEditInfoView.swift in Sources */,
 				998BFBC32A0DCC1F005F4652 /* TestView.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,
 				21FAE1F22A0BB829006593D9 /* UserSignInView.swift in Sources */,

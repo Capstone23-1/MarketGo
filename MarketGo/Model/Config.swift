@@ -60,6 +60,19 @@ class Config{
                 }
             }
     }
+    func fetchMemberInfo(uid: String, completion: @escaping (Result<MemberInfo, Error>) -> Void) {
+        
+        let url = "http://3.34.33.15:8080/member/memberToken/\(uid)"
+        print(url)
+        AF.request(url).responseDecodable(of: MemberInfo.self) { response in
+            switch response.result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
+            }
+        }
+    }
 
 }
 func makeStringKoreanEncoded(_ string: String) -> String {

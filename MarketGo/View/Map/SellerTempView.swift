@@ -10,11 +10,23 @@ import SwiftUI
 struct SellerTempView: View {
     @EnvironmentObject var userViewModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
+    @State var move = false
     var body: some View {
         VStack{
-            Text("\(userViewModel.currentUser?.memberName ?? "")")
-            Text("\(String(describing:userViewModel.currentUser?.memberID))")
-            Text("\(userViewModel.currentUser?.memberToken ?? "")")
+            Button {
+                move=true
+            } label: {
+                Text("정보수정창")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.accentColor)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+            .sheet(isPresented: $move) {
+                SellerEditInfoView()
+            }
+
         }
        
         
