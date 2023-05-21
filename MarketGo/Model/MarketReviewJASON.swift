@@ -8,7 +8,7 @@ import Alamofire
 //   let marketReview = try? JSONDecoder().decode(MarketReview.self, from: jsonData)
 
 // MARK: - MarketReviewElement
-struct MarketReviewElement: Codable {
+struct MarketReviewElement: Codable, Identifiable {
     var marketReviewID: Int?
     var mrMarketID: MrMarketID?
     var mrMemberID: MrMemberID?
@@ -21,6 +21,10 @@ struct MarketReviewElement: Codable {
         case mrMarketID = "mrMarketId"
         case mrMemberID = "mrMemberId"
         case ratings, reviewContent, reviewDate, marketReviewFile
+    }
+    
+    var id: Int? {
+        return marketReviewID
     }
 }
 
@@ -99,17 +103,10 @@ class MarketReviewViewModel: ObservableObject {
         isLoading = true
         let urlString = "http://3.34.33.15:8080/marketReview/marketId/\(marketId)"
         
-        AF.request(urlString).responseJSON { response in
+        AF.request(urlString).responseDecodable(of: [MarketReviewElement].self) { response in
             switch response.result {
-            case .success(let data):
-                if let jsonData = try? JSONSerialization.data(withJSONObject: data, options: []) {
-                    do {
-                        let decoder = JSONDecoder()
-                        self.marketReviews = try decoder.decode([MarketReviewElement].self, from: jsonData)
-                    } catch {
-                        print("Error decoding market reviews: \(error)")
-                    }
-                }
+            case .success(let marketReviews):
+                self.marketReviews = marketReviews
             case .failure(let error):
                 print("Error fetching market reviews: \(error)")
             }
@@ -118,6 +115,7 @@ class MarketReviewViewModel: ObservableObject {
         }
     }
 }
+
 
 
 // MARK: - Encode/decode helpers

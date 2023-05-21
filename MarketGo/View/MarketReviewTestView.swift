@@ -29,8 +29,9 @@ struct MarketReviewTestView: View {
     }
 }
 
+
 struct MarketReviewTestView_Previews: PreviewProvider {
     static var previews: some View {
-        MarketReviewTestView(marketId: 18)
+        MarketReviewTestView(marketId: 17)
     }
 }

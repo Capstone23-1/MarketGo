@@ -6,18 +6,77 @@ struct MarketReviewView: View {
 
     var body: some View {
         VStack {
-            if viewModel.isLoading {
-                ProgressView()
-            } else if let marketReviews = viewModel.marketReviews {
-                ForEach(marketReviews, id: \.marketReviewID) { review in
-                    Text("")
+            Text("\(marketModel.currentMarket?.marketName ?? "") Review")
+            
+            
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+            
+            ScrollView {
+                LazyVStack {
+                    if let reviews = viewModel.marketReviews {
+                        ForEach(reviews) { review in
+                            MarketReviewRow(review: review)
+                        }
+                    } else {
+                        ProgressView()
+                    }
                 }
-            } else {
-                Text("No reviews found")
             }
+            .padding()
         }
         .onAppear {
             viewModel.fetchMarketReviews(for: marketModel.currentMarket?.marketID ?? 0)
         }
+    }
+}
+
+import SwiftUI
+
+
+struct MarketReviewRow: View {
+    let review: MarketReviewElement
+    @State private var image: UIImage? = nil
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack(alignment: .top) {
+                Text("\(review.ratings ?? 0)점")
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, 5)
+                    .background(Color.yellow)
+                    .cornerRadius(10)
+                
+                HStack(spacing: 0) {
+                    ForEach(0..<5) { index in
+                        Image(systemName: "star.fill")
+                            .foregroundColor(index < (review.ratings ?? 0) ? .yellow : .gray)
+                    }
+                }
+                .padding(.leading, 5)
+                
+                Text(review.mrMemberID?.memberName ?? "")
+                    .font(.headline)
+                    .fontWeight(.bold)
+            }
+            
+            Text(review.reviewContent ?? "")
+                .font(.body)
+                .padding(.horizontal, 1)
+                .padding(.vertical, 7)
+            
+            VStack(alignment: .leading) {
+                RemoteImage(url: URL(string: review.marketReviewFile?.uploadFileURL ?? ""))
+                            .frame(width: 80, height: 80)
+                }
+            
+        }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
+        .cornerRadius(5)
+        .shadow(radius: 2, y: 1)
     }
 }
