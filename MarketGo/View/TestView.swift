@@ -3,10 +3,10 @@ import Alamofire
 
 struct TestView: View {
     @State private var marketID: Int = 18
-    @State private var memberID: Int = 13
+    @State private var memberID: Int = 61
     @State private var ratings: Double = 0.0
     @State private var reviewContent: String = ""
-    @State private var marketReviewFile: Int = 1
+    @State private var marketReviewFile: Int = 106
     @State private var isLoading: Bool = false
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
@@ -73,7 +73,7 @@ struct TestView: View {
             showAlert(message: "Please enter Review Content.")
             return
         }
-        
+
         isLoading = true
         
         let reviewPost = MarketReviewPost(
@@ -83,15 +83,19 @@ struct TestView: View {
             reviewContent: reviewContent,
             marketReviewFile: marketReviewFile
         )
-        
-        AF.request(apiUrl, method: .post, parameters: reviewPost, encoder: JSONParameterEncoder.default)
+        let encoContent = makeStringKoreanEncoded(reviewContent)
+
+        let url = "http://3.34.33.15:8080/marketReview?marketId=\(String(describing:marketID))&memberId=\(String(describing:memberID))&ratings=\(String(describing: ratings))&reviewContent=\(encoContent)&marketReviewFile=\(String(describing: marketReviewFile))"
+        let headers: HTTPHeaders = ["Content-Type": "application/json"]
+        AF.request(url, method: .post,headers: headers)
             .responseJSON { response in
-                switch response.result {
-                case .success:
-                    showAlert(message: "Review submitted successfully.")
-                case .failure(let error):
-                    showAlert(message: "Failed to submit review. \(error.localizedDescription)")
-                }
+                debugPrint(response)
+//                switch response.result {
+//                case .success:
+//                    showAlert(message: "Review submitted successfully.")
+//                case .failure(let error):
+//                    showAlert(message: "Failed to submit review. \(error.localizedDescription)")
+//                }
                 isLoading = false
             }
     }
@@ -101,6 +105,7 @@ struct TestView: View {
         alertMessage = message
         showAlert = true
     }
+    
 }
 
 struct TestView_Previews: PreviewProvider {
