@@ -12,7 +12,7 @@ struct Member: Codable {
     var memberID: Int?
     var memberToken, memberName: String?
     var interestMarket: MrMarketID?
-    var cartID: [String: Int?]?
+    var cartID: CartID?
     var storeID: StoreElement?
     var recentLatitude, recentLongitude: Int?
 
