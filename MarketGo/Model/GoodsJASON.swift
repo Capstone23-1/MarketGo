@@ -12,7 +12,7 @@ struct GoodOne: Codable, Identifiable {
     var goodsID: Int?
     var goodsName: String?
     var goodsMarket: MarketOne?
-    var goodsStore: StoreID?
+    var goodsStore: StoreElement?
     var goodsFile: FileInfo?
     var goodsPrice: Int?
     var goodsUnit, goodsInfo: String?
@@ -29,6 +29,7 @@ struct GoodOne: Codable, Identifiable {
            return goodsID
        }
 }
+
 
 
 struct GoodsImage: View {
@@ -65,6 +66,7 @@ struct GoodsImage: View {
         }
     }
 }
+
 
 typealias Goods = [GoodOne]
 
@@ -152,4 +154,3 @@ class GoodsViewModel3: ObservableObject {
         }
     }
 }
-

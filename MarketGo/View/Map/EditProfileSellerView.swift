@@ -5,7 +5,7 @@ struct StoreUpdateView: View {
     @ObservedObject var obse: ObservableStoreElement
     @State private var storeName: String = ""
     @State private var storeAddress1: String = ""
-    @State private var storeAddress2: String = ""
+    
 
     
     var body: some View {
@@ -13,7 +13,7 @@ struct StoreUpdateView: View {
             Form {
                 TextField("Store Name", text: $storeName)
                 TextField("Store Address 1", text: $storeAddress1)
-                TextField("Store Address 2", text: $storeAddress2)
+                
                 // Add more fields as needed
             }
             .onAppear(perform: loadStoreData)
@@ -21,7 +21,6 @@ struct StoreUpdateView: View {
             .navigationBarItems(trailing: Button("Save Changes") {
                 obse.storeElement.storeName = storeName
                 obse.storeElement.storeAddress1 = storeAddress1
-                obse.storeElement.storeAddress2 = storeAddress2
                 updateStoreData()
             })
 
@@ -39,7 +38,6 @@ struct StoreUpdateView: View {
     func loadStoreData() {
         storeName = obse.storeElement.storeName ?? ""
         storeAddress1 = obse.storeElement.storeAddress1 ?? ""
-        storeAddress2 = obse.storeElement.storeAddress2 ?? ""
     }
 
 
@@ -49,11 +47,15 @@ struct StoreUpdateView: View {
         print(storeName)
         print(obse.storeElement.storeName)
         obse.storeElement.storeAddress1 = storeAddress1
-        obse.storeElement.storeAddress2 = storeAddress2
         print(obse.storeElement.storeRatings)
         print(obse.storeElement.storeInfo)
-        
-        let url = "http://3.34.33.15:8080/store/96?storeName=judy&storeAddress1=Strin&storeAddress2=String&storeRatings=0&storePhonenum=String&storeInfo=String&cardAvail=String&localAvail=String&storeNum=0&marketId=0&storeFile=0&storeCategory=0"
+        let enStoreName=makeStringKoreanEncoded(obse.storeElement.storeName!)
+        let enAddress=makeStringKoreanEncoded(obse.storeElement.storeAddress1!)
+        let enPhoneNum=makeStringKoreanEncoded(obse.storeElement.storePhonenum!)
+        let enInfo=makeStringKoreanEncoded(obse.storeElement.storeInfo!)
+        let enCard=makeStringKoreanEncoded(obse.storeElement.cardAvail!)
+        let enLocal=makeStringKoreanEncoded(obse.storeElement.localAvail!)
+        let url = "http://3.34.33.15:8080/store/96?storeName=\(enStoreName)&storeAddress1=\(enAddress)&storeAddress2=\(enAddress)&storeRatings=0&storePhonenum=\(enPhoneNum)&storeInfo=\(enInfo)&cardAvail=\(enCard)&localAvail=\(enLocal)&storeNum=0&marketId=\(String(describing: (obse.storeElement.storeMarketID?.marketID)!))&storeFile=\(String(describing: (obse.storeElement.storeFile?.fileID)!))&storeCategory=\(String(describing: (obse.storeElement.storeCategory?.categoryID)!))"
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
 
