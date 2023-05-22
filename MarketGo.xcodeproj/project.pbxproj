@@ -81,6 +81,8 @@
 		994979C52A12681A00159828 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994979C42A12681A00159828 /* MenuView.swift */; };
 		994979C72A12700E00159828 /* CartJASON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994979C62A12700E00159828 /* CartJASON.swift */; };
 		994B17C52A023653009B77E8 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B17C42A023653009B77E8 /* ReviewView.swift */; };
+		997BD55F2A1B30C400E7A7EE /* MarketReviewPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD55E2A1B30C400E7A7EE /* MarketReviewPostModel.swift */; };
+		997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */; };
 		998843BE2A04DD5000132079 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843BD2A04DD5000132079 /* MemberModel.swift */; };
 		998843C02A04DE8700132079 /* UserMypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843BF2A04DE8700132079 /* UserMypageView.swift */; };
 		998843C22A04F76800132079 /* StoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843C12A04F76800132079 /* StoreListView.swift */; };
@@ -197,6 +199,8 @@
 		994979C42A12681A00159828 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		994979C62A12700E00159828 /* CartJASON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartJASON.swift; sourceTree = "<group>"; };
 		994B17C42A023653009B77E8 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		997BD55E2A1B30C400E7A7EE /* MarketReviewPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewPostModel.swift; sourceTree = "<group>"; };
+		997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewPostView.swift; sourceTree = "<group>"; };
 		998843BD2A04DD5000132079 /* MemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
 		998843BF2A04DE8700132079 /* UserMypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMypageView.swift; sourceTree = "<group>"; };
 		998843C12A04F76800132079 /* StoreListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListView.swift; sourceTree = "<group>"; };
@@ -314,6 +318,7 @@
 		2140BC8129D1CFA900B78C6C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				997BD55E2A1B30C400E7A7EE /* MarketReviewPostModel.swift */,
 				994979BE2A11999D00159828 /* GoodsJASON.swift */,
 				994979C02A119A5100159828 /* StoreJASON.swift */,
 				994979C62A12700E00159828 /* CartJASON.swift */,
@@ -353,10 +358,12 @@
 		2144FE7C29DD6BC0008913C4 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */,
+				99F02DE12A176D4100D827CD /* MarketReviewView.swift */,
 				21470AAF29FD0FFD00A7CEE7 /* EatingHouseMapView.swift */,
 				21470AAD29FD0F7F00A7CEE7 /* EatingHouseView.swift */,
-				21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */,
 				210861FF2A06AF8F00EC3A60 /* FindPathView.swift */,
+				21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */,
 				2181EDD92A127E8300B879B2 /* HomeView.swift */,
 				21D006932A15057E00C404C3 /* ImageUploadView.swift */,
 				2144FE7D29DD6BCF008913C4 /* LocationManager.swift */,
@@ -410,7 +417,6 @@
 				993AD3A42A0A72500069A27F /* ContentView.swift */,
 				998BFBC22A0DCC1F005F4652 /* TestView.swift */,
 				998BFBC42A0DD01C005F4652 /* CategoryView.swift */,
-				99F02DE12A176D4100D827CD /* MarketReviewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -699,6 +705,7 @@
 				21FAE1E82A0AA7A2006593D9 /* UserSiginInViewModel.swift in Sources */,
 				211F53E62A17F306003DA011 /* SellerTempView.swift in Sources */,
 				217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */,
+				997BD55F2A1B30C400E7A7EE /* MarketReviewPostModel.swift in Sources */,
 				21470AB029FD0FFD00A7CEE7 /* EatingHouseMapView.swift in Sources */,
 				2144FE7329DD6AAA008913C4 /* CartView.swift in Sources */,
 				21470AB229FD125100A7CEE7 /* EatingHouseViewModel.swift in Sources */,
@@ -761,6 +768,7 @@
 				21416B7E2A0CF25F008EA3C5 /* MarketTableWrapper.swift in Sources */,
 				21FAE1EC2A0AC2A6006593D9 /* EditProfileView.swift in Sources */,
 				99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */,
+				997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */,
 				211F53E22A17E6A5003DA011 /* SellerSignInViewModel.swift in Sources */,
 				21D006982A15DB9200C404C3 /* StoreEnrollView.swift in Sources */,
 				994979C32A119ADE00159828 /* URLImage.swift in Sources */,

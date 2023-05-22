@@ -3,10 +3,10 @@ import SwiftUI
 struct MarketReviewView: View {
     @StateObject private var viewModel = MarketReviewViewModel()
     @EnvironmentObject var marketModel: MarketModel
+    @State private var isWritingReview = false
 
     var body: some View {
         VStack {
-            
             ScrollView {
                 LazyVStack {
                     if let reviews = viewModel.marketReviews {
@@ -19,7 +19,23 @@ struct MarketReviewView: View {
                 }
             }
             .padding()
+            
+            Button(action: {
+                isWritingReview = true
+            }, label: {
+                Text("Write a Review")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            })
+            .padding()
         }
+        .sheet(isPresented: $isWritingReview, content: {
+            // Present the view for writing a review
+            TestView()
+        })
         .onAppear {
             viewModel.fetchMarketReviews(for: marketModel.currentMarket?.marketID ?? 0)
         }
