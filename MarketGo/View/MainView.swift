@@ -13,7 +13,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TobView()
+                
                 TabView(selection: $selectedTab) {
                            ShopView()
                           .tabItem {
@@ -52,7 +52,11 @@ struct MainView: View {
                 
             }
         }
-        .navigationBarHidden(true)
+        . navigationBarItems(trailing:NavigationLink(destination: CartView()) {
+            Image(systemName: "cart")
+                .resizable()
+        })
+        
         
 
 
