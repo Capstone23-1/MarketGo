@@ -21,7 +21,7 @@ struct ReviewView: View {
     let starWidth: CGFloat = 30.0
     
     var body: some View {
-        VStack {
+        ScrollView{VStack {
             //Text("\(userModel.currentUser?.memberID ?? 0)") //김주현 memberId : 13
             
             Text("만족도 평가 및 리뷰")
@@ -65,13 +65,13 @@ struct ReviewView: View {
                 
             }
             
-          
+            
             Spacer()
             
             HStack{
-
+                
                 VStack(alignment: .leading){
-
+                    
                     Button(action: {
                         showImagePicker()
                     }) {
@@ -81,11 +81,11 @@ struct ReviewView: View {
                             .frame(width: 50, height: 50)
                             .foregroundColor(.black)
                     }
-
+                    
                     Text("사진추가")
                 }
                 Spacer()
-
+                
             }.padding(30)
             
             Button(action: {
@@ -103,8 +103,8 @@ struct ReviewView: View {
             .padding()
             
             Spacer()
-
-        }
+            
+        }}
         .navigationBarTitle("리뷰 작성")
     }
     
