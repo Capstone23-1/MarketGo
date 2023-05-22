@@ -3,11 +3,12 @@ import Alamofire
 
 struct StoreUpdateView: View {
     @ObservedObject var obse: ObservableStoreElement
+    @EnvironmentObject var userViewModel: UserModel
     @State private var storeName: String = ""
     @State private var storeAddress1: String = ""
     @State var phone = ""
     @State var storeInfo = ""
-    
+    @State var storeCategory = 0
     
 
     
@@ -18,7 +19,11 @@ struct StoreUpdateView: View {
                 TextField("Store Address 1", text: $storeAddress1)
                 TextField("전화번호 ex: 010-1234-1234", text: $phone)
                 TextField("가게 정보", text: $storeInfo)
-                
+                Picker(selection: $storeCategory, label: Text("가게 분류")) {
+                    ForEach(0..<9) { index in
+                        Text(categories[index].name).tag(index)
+                    }
+                }
                 // Add more fields as needed
             }
             .onAppear(perform: loadStoreData)
@@ -28,6 +33,7 @@ struct StoreUpdateView: View {
                 obse.storeElement.storeAddress1 = storeAddress1
                 obse.storeElement.storePhonenum=phone
                 obse.storeElement.storeInfo=storeInfo
+                obse.storeElement.storeCategory?.categoryID=storeCategory
                 updateStoreData()
             })
 
@@ -47,6 +53,7 @@ struct StoreUpdateView: View {
         storeAddress1 = obse.storeElement.storeAddress1 ?? ""
         phone=obse.storeElement.storePhonenum ?? ""
         storeInfo=obse.storeElement.storeInfo ?? ""
+        storeCategory=obse.storeElement.storeCategory!.categoryID
     }
 
 
@@ -54,6 +61,7 @@ struct StoreUpdateView: View {
         
         obse.storeElement.storeName = storeName
         obse.storeElement.storeAddress1 = storeAddress1
+        obse.storeElement.storeCategory?.categoryID=storeCategory
         
 
         let enStoreName=makeStringKoreanEncoded(obse.storeElement.storeName!)
