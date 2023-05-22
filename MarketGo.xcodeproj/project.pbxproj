@@ -83,6 +83,7 @@
 		994B17C52A023653009B77E8 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B17C42A023653009B77E8 /* ReviewView.swift */; };
 		997BD55F2A1B30C400E7A7EE /* MarketReviewPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD55E2A1B30C400E7A7EE /* MarketReviewPostModel.swift */; };
 		997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */; };
+		997BD5632A1B846B00E7A7EE /* StoreReviewPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD5622A1B846B00E7A7EE /* StoreReviewPostModel.swift */; };
 		998843BE2A04DD5000132079 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843BD2A04DD5000132079 /* MemberModel.swift */; };
 		998843C02A04DE8700132079 /* UserMypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843BF2A04DE8700132079 /* UserMypageView.swift */; };
 		998843C22A04F76800132079 /* StoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843C12A04F76800132079 /* StoreListView.swift */; };
@@ -201,6 +202,7 @@
 		994B17C42A023653009B77E8 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		997BD55E2A1B30C400E7A7EE /* MarketReviewPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewPostModel.swift; sourceTree = "<group>"; };
 		997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewPostView.swift; sourceTree = "<group>"; };
+		997BD5622A1B846B00E7A7EE /* StoreReviewPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewPostModel.swift; sourceTree = "<group>"; };
 		998843BD2A04DD5000132079 /* MemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
 		998843BF2A04DE8700132079 /* UserMypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMypageView.swift; sourceTree = "<group>"; };
 		998843C12A04F76800132079 /* StoreListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListView.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 		2140BC8129D1CFA900B78C6C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				997BD5622A1B846B00E7A7EE /* StoreReviewPostModel.swift */,
 				997BD55E2A1B30C400E7A7EE /* MarketReviewPostModel.swift */,
 				994979BE2A11999D00159828 /* GoodsJASON.swift */,
 				994979C02A119A5100159828 /* StoreJASON.swift */,
@@ -768,6 +771,7 @@
 				21416B7E2A0CF25F008EA3C5 /* MarketTableWrapper.swift in Sources */,
 				21FAE1EC2A0AC2A6006593D9 /* EditProfileView.swift in Sources */,
 				99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */,
+				997BD5632A1B846B00E7A7EE /* StoreReviewPostModel.swift in Sources */,
 				997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */,
 				211F53E22A17E6A5003DA011 /* SellerSignInViewModel.swift in Sources */,
 				21D006982A15DB9200C404C3 /* StoreEnrollView.swift in Sources */,

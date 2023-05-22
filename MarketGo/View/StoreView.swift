@@ -17,6 +17,7 @@ import SwiftUI
 struct StoreView: View {
     let store: StoreElement
     @ObservedObject var goodsViewModel = GoodsViewModel2()
+    @State private var isWritingReview = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -112,7 +113,23 @@ struct StoreView: View {
                 
             }
             
-            }
+            Button(action: {
+                isWritingReview = true
+            }, label: {
+                Text("Write a Review")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            })
+            .padding()
+            
+            } .sheet(isPresented: $isWritingReview, content: {
+                // Present the view for writing a review
+                TestView()
+            })
+        
         }
 }
     
