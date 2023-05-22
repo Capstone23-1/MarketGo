@@ -6,6 +6,7 @@ struct StoreUpdateView: View {
     @State private var storeName: String = ""
     @State private var storeAddress1: String = ""
     
+    
 
     
     var body: some View {
@@ -60,6 +61,7 @@ struct StoreUpdateView: View {
         
 
         AF.request(url, method: .put, headers: headers)
+            .validate(statusCode: 200..<300)
             .response { response in
                 debugPrint(response)
             }
