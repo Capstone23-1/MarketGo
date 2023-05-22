@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 import Alamofire
+
 // MARK: 판매자 회원가입 창
 class SellerSignUpViewModel: ObservableObject {
     @Published var email: String = ""

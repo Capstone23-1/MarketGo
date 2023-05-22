@@ -1,94 +1,110 @@
 import SwiftUI
 import Alamofire
 
-struct MarketReviewSubmissionView: View {
-    @State private var marketId: Int = 0
-    @State private var memberId: Int = 0
+struct TestView: View {
+    @State private var marketID: Int = 18
+    @State private var memberID: Int = 13
     @State private var ratings: Double = 0.0
     @State private var reviewContent: String = ""
-    @State private var marketReviewFile: Int = 0
+    @State private var marketReviewFile: Int = 1
+    @State private var isLoading: Bool = false
+    @State private var showAlert: Bool = false
+    @State private var alertMessage: String = ""
     
-    @StateObject private var viewModel = MarketReviewPostViewModel()
+    let apiUrl = "http://3.34.33.15:8080/marketReview"
     
     var body: some View {
-        VStack {
-            TextField("Market ID", value: $marketId, formatter: NumberFormatter())
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            TextField("Member ID", value: $memberId, formatter: NumberFormatter())
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            TextField("Ratings", value: $ratings, formatter: NumberFormatter())
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            TextField("Review Content", text: $reviewContent)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            TextField("Market Review File ID", value: $marketReviewFile, formatter: NumberFormatter())
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            Button("Submit") {
-                viewModel.submitMarketReview(marketId: marketId, memberId: memberId, ratings: ratings, reviewContent: reviewContent, marketReviewFile: marketReviewFile)
+        NavigationView {
+            Form {
+                Section(header: Text("Market Information")) {
+                    TextField("Market ID", value: $marketID, formatter: NumberFormatter())
+                        .keyboardType(.numberPad)
+                    TextField("Member ID", value: $memberID, formatter: NumberFormatter())
+                        .keyboardType(.numberPad)
+                }
+                
+                Section(header: Text("Review")) {
+                    HStack {
+                        Text("Ratings")
+                        Slider(value: $ratings, in: 0...5, step: 0.5)
+                        Text(String(format: "%.1f", ratings))
+                    }
+                    TextEditor(text: $reviewContent)
+                        .frame(height: 100)
+                }
+                
+                Button(action: {
+                    submitReview()
+                    
+                }, label: {
+                    Text("Submit")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                })
+                .disabled(isLoading)
             }
-            .padding()
-            .disabled(viewModel.isLoading)
-        }
-        .alert(isPresented: $viewModel.showingAlert) {
-            Alert(title: Text("Error"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
-        }
-        .padding()
-        .onAppear {
-            viewModel.reset()
+            .navigationBarTitle("Market Review")
+            .alert(isPresented: $showAlert, content: {
+                Alert(title: Text("Notification"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            })
         }
     }
-}
-
-struct MarketReviewSubmissionView_Previews: PreviewProvider {
-    static var previews: some View {
-        MarketReviewSubmissionView()
-    }
-}
-
-class MarketReviewPostViewModel: ObservableObject {
-    @Published var isLoading = false
-    @Published var showingAlert = false
-    @Published var errorMessage = ""
     
-    func submitMarketReview(marketId: Int, memberId: Int, ratings: Double, reviewContent: String, marketReviewFile: Int) {
+    func submitReview() {
+        guard marketID != 0 else {
+            showAlert(message: "Please enter Market ID.")
+            return
+        }
+        
+        guard memberID != 0 else {
+            showAlert(message: "Please enter Member ID.")
+            return
+        }
+        
+        guard ratings > 0 else {
+            showAlert(message: "Please select Ratings.")
+            return
+        }
+        
+        guard !reviewContent.isEmpty else {
+            showAlert(message: "Please enter Review Content.")
+            return
+        }
+        
         isLoading = true
         
-        let parameters: [String: Any] = [
-            "marketId": marketId,
-            "memberId": memberId,
-            "ratings": ratings,
-            "reviewContent": reviewContent,
-            "marketReviewFile": marketReviewFile
-        ]
+        let reviewPost = MarketReviewPost(
+            mrMarketID: marketID,
+            mrMemberID: memberID,
+            ratings: ratings,
+            reviewContent: reviewContent,
+            marketReviewFile: marketReviewFile
+        )
         
-        let url = URL(string: "http://3.34.33.15:8080/marketReview")!
-        
-        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { response in
-            self.isLoading = false
-            
-            switch response.result {
-            case .success:
-                // Successful submission, do any additional handling if needed
-                break
-            case .failure(let error):
-                self.errorMessage = error.localizedDescription
-                self.showingAlert = true
+        AF.request(apiUrl, method: .post, parameters: reviewPost, encoder: JSONParameterEncoder.default)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    showAlert(message: "Review submitted successfully.")
+                case .failure(let error):
+                    showAlert(message: "Failed to submit review. \(error.localizedDescription)")
+                }
+                isLoading = false
             }
-        }
     }
+
     
-    func reset() {
-        isLoading = false
-        showingAlert = false
-        errorMessage = ""
+    func showAlert(message: String) {
+        alertMessage = message
+        showAlert = true
+    }
+}
+
+struct TestView_Previews: PreviewProvider {
+    static var previews: some View {
+        TestView()
     }
 }
