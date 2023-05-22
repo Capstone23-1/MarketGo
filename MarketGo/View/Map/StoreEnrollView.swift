@@ -6,18 +6,7 @@ struct StoreEnrollView: View {
     @State private var localAvail = false
     @State private var storeCategory = 0
     @Binding var storeName :String
-    var categories = [
-        (id: 0, name: "분류"),
-        (id: 1, name: "농산물"),
-        (id: 2, name: "수산물"),
-        (id: 3, name: "축산물"),
-        (id: 4, name: "반찬"),
-        (id: 5, name: "가공식품"),
-        (id: 6, name: "건강식품"),
-        (id: 7, name: "생활용품"),
-        (id: 8, name: "기타"),
-    ]
-
+   
     var body: some View {
         Form {
             Section(header: Text("가게 정보")) {
