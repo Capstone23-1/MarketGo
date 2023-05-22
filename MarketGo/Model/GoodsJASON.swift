@@ -11,9 +11,9 @@ import SwiftUI
 struct GoodOne: Codable, Identifiable {
     var goodsID: Int?
     var goodsName: String?
-    var goodsMarket: MarketOne?
-    var goodsStore: StoreID?
-    var goodsFile: FileInfo?
+    var goodsMarket: GoodsMarket?
+    var goodsStore: GoodsStore?
+    var goodsFile: GoodsFile?
     var goodsPrice: Int?
     var goodsUnit, goodsInfo: String?
     var updateTime: String?
@@ -30,6 +30,18 @@ struct GoodOne: Codable, Identifiable {
        }
 }
 
+// MARK: - GoodsFile
+struct GoodsFile: Codable {
+    var fileID: Int?
+    var originalFileName, uploadFileName, uploadFilePath: String?
+    var uploadFileURL: String?
+
+    enum CodingKeys: String, CodingKey {
+        case fileID = "fileId"
+        case originalFileName, uploadFileName, uploadFilePath
+        case uploadFileURL = "uploadFileUrl"
+    }
+}
 
 struct GoodsImage: View {
     let url: URL?
@@ -63,6 +75,44 @@ struct GoodsImage: View {
                 }
             }
         }
+    }
+}
+
+
+
+// MARK: - GoodsMarket
+struct GoodsMarket: Codable {
+    var marketID: Int?
+    var marketName, marketAddress1, marketAddress2, marketLocation: String?
+    var marketLatitude, marketLongitude, marketRatings: Double?
+    var marketInfo, parking, toilet, marketPhonenum: String?
+    var marketGiftcard, marketType, updateTime: String?
+    var marketFile, marketMap: GoodsFile?
+    var reviewCount: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case marketID = "marketId"
+        case marketName, marketAddress1, marketAddress2, marketLocation, marketLatitude, marketLongitude, marketRatings, marketInfo, parking, toilet, marketPhonenum, marketGiftcard, marketType, updateTime, marketFile, marketMap, reviewCount
+    }
+}
+
+// MARK: - GoodsStore
+struct GoodsStore: Codable {
+    var storeID: Int?
+    var storeName, storeAddress1, storeAddress2: String?
+    var storeCategory: StoreCategory?
+    var storeRatings: Double?
+    var storePhonenum, storeInfo, cardAvail, localAvail: String?
+    var storeNum: Int?
+    var storeMarketID: GoodsMarket?
+    var storeFile: GoodsFile?
+    var reviewCount: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case storeID = "storeId"
+        case storeName, storeAddress1, storeAddress2, storeCategory, storeRatings, storePhonenum, storeInfo, cardAvail, localAvail, storeNum
+        case storeMarketID = "storeMarketId"
+        case storeFile, reviewCount
     }
 }
 
@@ -152,4 +202,3 @@ class GoodsViewModel3: ObservableObject {
         }
     }
 }
-
