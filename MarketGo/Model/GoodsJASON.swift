@@ -11,9 +11,9 @@ import SwiftUI
 struct GoodOne: Codable, Identifiable {
     var goodsID: Int?
     var goodsName: String?
-    var goodsMarket: GoodsMarket?
-    var goodsStore: GoodsStore?
-    var goodsFile: GoodsFile?
+    var goodsMarket: MarketOne?
+    var goodsStore: StoreElement?
+    var goodsFile: FileInfo?
     var goodsPrice: Int?
     var goodsUnit, goodsInfo: String?
     var updateTime: String?

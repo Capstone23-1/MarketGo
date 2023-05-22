@@ -22,7 +22,7 @@ struct StoreInfo: Codable {
 
 class APIService {
     
-    func putStoreInfo(store: StoreID,completion: @escaping (Result<AFDataResponse<Data?>, Error>) -> Void) {
+    func putStoreInfo(store: StoreElement,completion: @escaping (Result<AFDataResponse<Data?>, Error>) -> Void) {
         // 파라미터 초기화
         let storeInfo = StoreInfo(storeName: "StoreName",
                                   storeAddress1: "StoreAddress1",

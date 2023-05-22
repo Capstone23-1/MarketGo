@@ -13,7 +13,7 @@ struct Member: Codable {
     var memberToken, memberName: String?
     var interestMarket: MrMarketID?
     var cartID: [String: Int?]?
-    var storeID: StoreID?
+    var storeID: StoreElement?
     var recentLatitude, recentLongitude: Int?
 
     enum CodingKeys: String, CodingKey {

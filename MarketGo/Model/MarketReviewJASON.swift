@@ -76,21 +76,6 @@ struct MrMemberID: Codable {
     }
 }
 
-// MARK: - StoreID 
-struct StoreID: Codable {
-    var storeID: Int?
-    var storeName, storeAddress1, storeAddress2: String?
-    var storeCategory, storeRatings: JSONNull?
-    var storePhonenum, storeInfo, cardAvail, localAvail: String?
-    var storeNum, storeMarketID, storeFile, reviewCount: JSONNull?
-
-    enum CodingKeys: String, CodingKey {
-        case storeID = "storeId"
-        case storeName, storeAddress1, storeAddress2, storeCategory, storeRatings, storePhonenum, storeInfo, cardAvail, localAvail, storeNum
-        case storeMarketID = "storeMarketId"
-        case storeFile, reviewCount
-    }
-}
 
 
 typealias MarketReview = [MarketReviewElement]

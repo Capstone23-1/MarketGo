@@ -35,7 +35,7 @@ struct GoodsID: Codable, Equatable {
     var goodsID: Int?
     var goodsName: String?
     var goodsMarket: MarketOne?
-    var goodsStore: StoreID?
+    var goodsStore: StoreElement?
     var goodsFile: FileInfo?
     var goodsPrice: Int?
     var goodsUnit, goodsInfo, updateTime, goodsOrigin: String?
