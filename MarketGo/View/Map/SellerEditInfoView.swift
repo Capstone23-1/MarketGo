@@ -28,7 +28,7 @@ struct SellerEditInfoView: View {
         NavigationView {
             ZStack{
                 Form {
-                    //                    ImageUploadView(category: $imageCate.categoryName, did: $imageCate.categoryID, selectedImage: $selectedImage, newImage: $newImage)
+                    ImageUploadView(category: $imageCate.categoryName, selectedImage: $selectedImage, newImage: $newImage)
                     Section(header: Text("가게 정보")) {
                         TextField("가게 이름", text: $storeName)
                             .autocapitalization(.none)

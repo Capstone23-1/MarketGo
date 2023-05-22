@@ -7,13 +7,8 @@ struct ImageUploadView: View {
     @State var image: UIImage?
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var category: String
-    @Binding var did: Int
-    var id: Binding<String> {
-        Binding<String>(
-            get: { String(did) },
-            set: { did = Int($0) ?? 0 }
-        )
-    }
+    
+  
     let imageUploader = ImageUploader()
     @Binding var selectedImage: UIImage? // 선택된 이미지를 저장할 변수
     
