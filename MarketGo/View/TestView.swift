@@ -77,8 +77,8 @@ struct TestView: View {
         isLoading = true
         
         let reviewPost = MarketReviewPost(
-            mrMarketID: marketID,
-            mrMemberID: memberID,
+            marketId: marketID,
+            memberId: memberID,
             ratings: ratings,
             reviewContent: reviewContent,
             marketReviewFile: marketReviewFile

@@ -12,7 +12,7 @@ struct MarketReviewPostView: View {
     @State private var memberID: Int = 0
     @State private var ratings: Double = 0.0
     @State private var reviewContent: String = ""
-    @State private var marketReviewFile: Int = 0
+    @State private var marketReviewFile: Int = 1
     @State private var isLoading: Bool = false
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
@@ -82,8 +82,8 @@ struct MarketReviewPostView: View {
         isLoading = true
         
         let reviewPost = MarketReviewPost(
-            mrMarketID: marketID,
-            mrMemberID: memberID,
+            marketId: marketID,
+            memberId: memberID,
             ratings: ratings,
             reviewContent: reviewContent,
             marketReviewFile: marketReviewFile

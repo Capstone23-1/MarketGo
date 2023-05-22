@@ -15,17 +15,20 @@ import Alamofire
 
 // MARK: - MarketReviewPost
 struct MarketReviewPost: Codable {
-    var mrMarketID, mrMemberID: Int
+    var marketId, memberId: Int
     var ratings: Double
     var reviewContent: String
     var marketReviewFile: Int
 
     enum CodingKeys: String, CodingKey {
-        case mrMarketID = "marketId"
-        case mrMemberID = "memberId"
-        case ratings, reviewContent, marketReviewFile
+        case marketId
+        case memberId
+        case ratings
+        case reviewContent
+        case marketReviewFile
     }
 }
+
 
 
 class MarketReviewPostViewModel: ObservableObject {
