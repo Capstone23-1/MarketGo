@@ -16,17 +16,7 @@ struct SellerEditInfoView: View {
     @State private var cardAvail = false
     @State private var localAvail = false
     @State private var storeCategory = 0
-    var categories = [
-        (id: 0, name: "분류"),
-        (id: 1, name: "농산물"),
-        (id: 2, name: "수산물"),
-        (id: 3, name: "축산물"),
-        (id: 4, name: "반찬"),
-        (id: 5, name: "가공식품"),
-        (id: 6, name: "건강식품"),
-        (id: 7, name: "생활용품"),
-        (id: 8, name: "기타"),
-    ]
+    
     @State var storeName = ""
     @State var address=""
     @State var phone=""
@@ -38,7 +28,7 @@ struct SellerEditInfoView: View {
         NavigationView {
             ZStack{
                 Form {
-//                    ImageUploadView(category: $imageCate.categoryName, did: $imageCate.categoryID, selectedImage: $selectedImage, newImage: $newImage)
+                    //                    ImageUploadView(category: $imageCate.categoryName, did: $imageCate.categoryID, selectedImage: $selectedImage, newImage: $newImage)
                     Section(header: Text("가게 정보")) {
                         TextField("가게 이름", text: $storeName)
                             .autocapitalization(.none)
@@ -63,7 +53,7 @@ struct SellerEditInfoView: View {
                                 sellervm.currentUser?.storeID?.storeAddress1 = address
                                 sellervm.currentUser?.storeID?.storeAddress2 = address
                             }
-
+                        
                         TextField("전화번호 ex: 010-1234-1234", text: $phone)
                             .autocapitalization(.none)
                             .onAppear {
@@ -84,7 +74,7 @@ struct SellerEditInfoView: View {
                                 // 값이 변경될 때 사용자 모델 업데이트
                                 sellervm.currentUser?.storeID?.storeInfo = storeInfo
                             }
-
+                        
                     }
                     
                 }
