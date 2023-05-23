@@ -7,7 +7,9 @@ struct GoodsListSellerView: View {
     @State private var storeID = 0
     @State private var searchText = ""
     @State var placeHolder = "상품명으로 검색하세요"
-    
+    @State private var selectedGoods: [GoodsOne] = [] // 추가한 부분
+    @State var offAvail = 0
+        
     var filteredGoodsList: [GoodsOne] {
         if searchText.isEmpty {
             return goodsList.filter { $0.goodsStore?.storeID == storeID }
@@ -17,56 +19,78 @@ struct GoodsListSellerView: View {
     }
     
     var body: some View {
-        NavigationView{VStack {
-            SearchBar(searchText: $searchText, placeHolder: $placeHolder)
-                .padding(.horizontal)
-            
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 10) {
-                    ForEach(filteredGoodsList, id: \.goodsID) { goods in
-                        HStack {
-                            
+        NavigationView{
+            VStack {
+                SearchBar(searchText: $searchText, placeHolder: $placeHolder)
+                    .padding(.horizontal)
+                
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 10) {
+                        ForEach(filteredGoodsList, id: \.goodsID) { goods in
                             HStack {
-                                if let fileData = goods.goodsFile, let uploadFileURL = fileData.uploadFileURL, let url = URL(string: uploadFileURL) {
-                                    URLImage(url: url)
-                                } else {
-                                    Text("Loading...")
-                                }
-                            }
-                            VStack(alignment: .leading, spacing: 10) {
-                                // 가게 이름 표시
-                                Text(goods.goodsName ?? "")
-                                    .font(.headline)
-                                    .foregroundColor(.black)
-                                Text( "\(goods.goodsUnit!) \(String(describing: goods.goodsPrice!)) 원")
-                            }
-                            
-                            Spacer()
-                            NavigationLink(destination: EditGoodsView(goods: goods)) {
-                                Text("Edit")
+                                Image(systemName: selectedGoods.contains(where: { $0.goodsID == goods.goodsID }) ? "checkmark.circle.fill" : "circle")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
                                     .foregroundColor(.blue)
-                                    .padding(.all, 10)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.blue, lineWidth: 1)
-                                    )
+                                    .onTapGesture {
+                                        if let index = selectedGoods.firstIndex(where: { $0.goodsID == goods.goodsID }) {
+                                            selectedGoods.remove(at: index)
+                                        } else {
+                                            selectedGoods.append(goods)
+                                        }
+                                    }
+                                HStack {
+                                    if let fileData = goods.goodsFile, let uploadFileURL = fileData.uploadFileURL, let url = URL(string: uploadFileURL) {
+                                        URLImage(url: url)
+                                    } else {
+                                        Text("Loading...")
+                                    }
+                                }
+                                VStack(alignment: .leading, spacing: 10) {
+                                    // 가게 이름 표시
+                                    Text(goods.goodsName ?? "")
+                                        .font(.headline)
+                                        .foregroundColor(.black)
+                                    Text( "\(goods.goodsUnit!) \(String(describing: goods.goodsPrice!)) 원")
+                                }
+                                
+                                Spacer()
+                                NavigationLink(destination: EditGoodsView(viewModel: EditGoodsViewModel(goods: goods))) {
+                                    Text("Edit")
+                                        .foregroundColor(.blue)
+                                        .padding(.all, 10)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color.blue, lineWidth: 1)
+                                        )
+                                }
+
                             }
                         }
                     }
-                    .onDelete(perform: delete)
-                    
                 }
-                
-                
+//                Button(action: {
+//                    print(selectedGoods)
+//                    selectedGoods.forEach { goods in
+//                        let viewModel = EditGoodsViewModel(goods: goods)
+//                        viewModel.isAvail = offAvail
+//                        Task {
+//                            viewModel.updateGoods()
+//                        }
+//                    }
+//                }) {
+//                    Text("판매중인 물품에서 제거하기")
+//                }
+
+               
             }
-        }}
-        .onAppear {
-            storeID = (userViewModel.currentUser?.storeID?.storeID)!
-            Task {
-                await fetchGoodsData()
+            .onAppear {
+                storeID = (userViewModel.currentUser?.storeID?.storeID)!
+                Task {
+                    await fetchGoodsData()
+                }
             }
         }
-        
     }
     
     func fetchGoodsData() async {
@@ -77,10 +101,10 @@ struct GoodsListSellerView: View {
             let data = try await withCheckedThrowingContinuation { continuation in
                 request.responseData { response in
                     switch response.result {
-                        case .success(let data):
-                            continuation.resume(returning: data)
-                        case .failure(let error):
-                            continuation.resume(throwing: error)
+                    case .success(let data):
+                        continuation.resume(returning: data)
+                    case .failure(let error):
+                        continuation.resume(throwing: error)
                     }
                 }
             }
@@ -91,10 +115,5 @@ struct GoodsListSellerView: View {
         } catch {
             print("Failed to decode JSON: \(error)")
         }
-    }
-    
-
-    func delete(at offsets: IndexSet) {
-        goodsList.remove(atOffsets: offsets)
     }
 }
