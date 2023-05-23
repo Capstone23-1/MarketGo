@@ -46,25 +46,6 @@ struct SignInView: View {
                             default:
                                 Text("잘못된 선택")
                         }
-                        
-                        
-                        
-                        // 메인화면 바로가기 버튼
-                        Button(action: {
-                            // 버튼 클릭 시 moveToMarketSearchViewDirectly 상태를 true로 변경하여 MarketSearchView로 전환
-                            self.moveToMarketSearchViewDirectly = true
-                        }) {
-                            Text("메인화면 바로가기")
-                                .foregroundColor(.blue)
-                        }
-                        .fullScreenCover(isPresented: $moveToMarketSearchViewDirectly) {
-                            MarketSearchView()
-                        }
-                        NavigationLink(destination:EditProfileView()){
-                            Text("회원정보수정")
-                        }
-                        
-                        
                     }
                     .padding()
                     Spacer()

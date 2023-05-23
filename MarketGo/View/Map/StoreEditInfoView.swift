@@ -1,7 +1,7 @@
 import SwiftUI
 import FirebaseAuth
 import Alamofire
-struct SellerEditInfoView: View {
+struct StoreEditInfoView: View {
     @EnvironmentObject var sellervm: UserModel
     @State private var selectedImage: UIImage? = nil // 선택된 이미지를 저장할 변수
     @State private var isLoading: Bool = false

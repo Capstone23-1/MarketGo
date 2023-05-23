@@ -9,14 +9,27 @@ import SwiftUI
 import Alamofire
 
 struct MarketReviewPostView: View {
+    @State private var selectedImage: UIImage? = nil // 선택된 이미지를 저장할 변수
+    @State private var imageCate = StoreCategory(categoryID: 3,categoryName: "store")
+    @State private var imageUploader = ImageUploader()
+    @State private var newImage = FileInfo()
+    
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
     
-    @State private var marketID: Int = 0
-    @State private var memberID: Int = 61
+    var marketID: Int{
+        marketModel.currentMarket?.marketID ?? 0
+    }
+    
+    var memberID: Int{
+        userModel.currentUser?.memberID ?? 0
+    }
+//    @State private var marketID: Int = 0
+//    @State private var memberID: Int = 61
+    
     @State private var ratings: Double = 0.0
     @State private var reviewContent: String = ""
-    @State private var marketReviewFile: Int = 106
+    @State private var marketReviewFile: Int = 1
     @State private var isLoading: Bool = false
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
@@ -28,12 +41,8 @@ struct MarketReviewPostView: View {
     var body: some View {
         NavigationView {
             Form {
-//                Section(header: Text("Market Information")) {
-//                    TextField("Market ID", value: $marketID, formatter: NumberFormatter())
-//                        .keyboardType(.numberPad)
-//                    TextField("Member ID", value: $memberID, formatter: NumberFormatter())
-//                        .keyboardType(.numberPad)
-//                }
+                
+                ImageUploadView(category: $imageCate.categoryName,  selectedImage: $selectedImage, newImage: $newImage)
                 
                 Section(header: Text("Review")) {
                     
@@ -61,6 +70,7 @@ struct MarketReviewPostView: View {
                     }
                     TextEditor(text: $reviewContent)
                         .frame(height: 100)
+
                 }
                 
                 
@@ -109,8 +119,8 @@ struct MarketReviewPostView: View {
         isLoading = true
         
         let reviewPost = MarketReviewPost(
-            marketId: marketModel.currentMarket?.marketID ?? 0,
-            memberId: userModel.currentUser?.memberID ?? 0,
+            marketId: marketID,
+            memberId: memberID,
             ratings: ratings,
             reviewContent: reviewContent,
             marketReviewFile: marketReviewFile
@@ -122,12 +132,12 @@ struct MarketReviewPostView: View {
         AF.request(url, method: .post,headers: headers)
             .responseJSON { response in
                 debugPrint(response)
-//                switch response.result {
-//                case .success:
-//                    showAlert(message: "Review submitted successfully.")
-//                case .failure(let error):
-//                    showAlert(message: "Failed to submit review. \(error.localizedDescription)")
-//                }
+                switch response.result {
+                case .success:
+                    showAlert(message: "Review submitted successfully.")
+                case .failure(let error):
+                    showAlert(message: "Failed to submit review. \(error.localizedDescription)")
+                }
                 isLoading = false
             }
     }

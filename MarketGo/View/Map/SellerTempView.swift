@@ -27,7 +27,7 @@ struct SellerTempView: View {
             }
             .sheet(isPresented: $move1) {
                 if let storeElement = userViewModel.currentUser?.storeID {
-                    StoreUpdateView(obse: ObservableStoreElement(storeElement: storeElement))
+                    EditSellerView(obse: ObservableStoreElement(storeElement: storeElement))
 
 
                 } else {

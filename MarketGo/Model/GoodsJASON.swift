@@ -83,7 +83,7 @@ typealias Goods = [GoodOne]
 class GoodsViewModel: ObservableObject {
     @Published var goods: [GoodOne] = []
 
-    func fetchGoods(forStoreMarketID storeMarketID: Int) {
+    func fetchMarketGoods(forStoreMarketID storeMarketID: Int) {
         let url = "http://3.34.33.15:8080/goods/all"
 
         AF.request(url).responseData { response in
@@ -94,6 +94,28 @@ class GoodsViewModel: ObservableObject {
                     var allGoods = try decoder.decode(Goods.self, from: data)
                     // Filter goods based on storeMarketID
                     allGoods = allGoods.filter { $0.goodsMarket?.marketID == storeMarketID }
+                    DispatchQueue.main.async {
+                        self.goods = allGoods
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func fetchStoreGoods(storeID: Int) {
+        let url = "http://3.34.33.15:8080/goods/all"
+
+        AF.request(url).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    var allGoods = try decoder.decode(Goods.self, from: data)
+                    // Filter goods based on storeMarketID
+                    allGoods = allGoods.filter { $0.goodsStore?.storeID == storeID }
                     DispatchQueue.main.async {
                         self.goods = allGoods
                     }

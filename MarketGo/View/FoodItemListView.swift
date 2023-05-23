@@ -47,7 +47,7 @@ struct FoodItemListView: View {
         }
         .foregroundColor(.black)
         .onAppear {
-            goodsViewModel.fetchGoods(forStoreMarketID: marketId)
+            goodsViewModel.fetchMarketGoods(forStoreMarketID: marketId)
         }
     }
     

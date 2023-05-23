@@ -20,9 +20,7 @@ struct GoodsPostView: View {
     @State var storeId = 0
     @State var marketId = 0
     
-    
-    
-    
+
     var body: some View {
         VStack {
             Form {
@@ -48,10 +46,8 @@ struct GoodsPostView: View {
                 .foregroundColor(.white)
                 .cornerRadius(10)
         }
-        
     }
-    
-    
+
     func loadView() {
         storeId = (userViewModel.currentUser?.storeID?.storeID)!
         marketId = (userViewModel.currentUser?.storeID?.storeMarketID!.marketID)!

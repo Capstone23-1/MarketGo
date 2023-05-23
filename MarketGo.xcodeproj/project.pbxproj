@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		0105F9E59D5FB8A37852C587 /* libPods-MarketGo-MarketGoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C5ED25F851D0B3E94785A /* libPods-MarketGo-MarketGoUITests.a */; };
 		210704B12A1BBA2A00643140 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B02A1BBA2A00643140 /* ImageDownloader.swift */; };
-		210704B32A1CB3D900643140 /* GoodsPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B22A1CB3D900643140 /* GoodsPostViewModel.swift */; };
 		210704B52A1CB58A00643140 /* GoodsPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B42A1CB58A00643140 /* GoodsPostView.swift */; };
 		210704B72A1CCAA900643140 /* GoodsEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B62A1CCAA900643140 /* GoodsEditView.swift */; };
 		210704B92A1CD93A00643140 /* GoodsSellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B82A1CD93A00643140 /* GoodsSellerView.swift */; };
+		210704BB2A1CEFFC00643140 /* GoodsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704BA2A1CEFFC00643140 /* GoodsListView.swift */; };
 		210861FC2A06AE0900EC3A60 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210861FB2A06AE0900EC3A60 /* Config.swift */; };
 		210862002A06AF8F00EC3A60 /* FindPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210861FF2A06AF8F00EC3A60 /* FindPathView.swift */; };
 		210862022A06D67900EC3A60 /* MapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210862012A06D67900EC3A60 /* MapLinkView.swift */; };
@@ -21,7 +21,7 @@
 		211F53E02A17B3CB003DA011 /* StorePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53DF2A17B3CB003DA011 /* StorePostViewModel.swift */; };
 		211F53E22A17E6A5003DA011 /* SellerSignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53E12A17E6A5003DA011 /* SellerSignInViewModel.swift */; };
 		211F53E62A17F306003DA011 /* SellerTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53E52A17F306003DA011 /* SellerTempView.swift */; };
-		211F53E82A1A5256003DA011 /* SellerEditInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53E72A1A5256003DA011 /* SellerEditInfoView.swift */; };
+		211F53E82A1A5256003DA011 /* StoreEditInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53E72A1A5256003DA011 /* StoreEditInfoView.swift */; };
 		211F53EC2A1A9611003DA011 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53EB2A1A9611003DA011 /* APIService.swift */; };
 		211F53EE2A1AA91D003DA011 /* EditProfileSellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53ED2A1AA91D003DA011 /* EditProfileSellerView.swift */; };
 		2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5729D1CEBA00B78C6C /* Assets.xcassets */; };
@@ -64,7 +64,7 @@
 		21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */; };
 		21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006912A15047100C404C3 /* UserSignUpView.swift */; };
 		21D006942A15057E00C404C3 /* ImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006932A15057E00C404C3 /* ImageUploadView.swift */; };
-		21D006982A15DB9200C404C3 /* StoreEnrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006972A15DB9200C404C3 /* StoreEnrollView.swift */; };
+		21D006982A15DB9200C404C3 /* PostStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006972A15DB9200C404C3 /* PostStoreView.swift */; };
 		21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1C9BC29DD69870022113A /* MarketInfoView.swift */; };
 		21FAE1D52A0AA3F7006593D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */; };
 		21FAE1D82A0AA422006593D9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 21FAE1D72A0AA422006593D9 /* FirebaseAnalytics */; };
@@ -128,10 +128,10 @@
 /* Begin PBXFileReference section */
 		0BD43796E872DF5BD291D948 /* libPods-MarketGo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MarketGo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		210704B02A1BBA2A00643140 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		210704B22A1CB3D900643140 /* GoodsPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsPostViewModel.swift; sourceTree = "<group>"; };
 		210704B42A1CB58A00643140 /* GoodsPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsPostView.swift; sourceTree = "<group>"; };
 		210704B62A1CCAA900643140 /* GoodsEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsEditView.swift; sourceTree = "<group>"; };
 		210704B82A1CD93A00643140 /* GoodsSellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsSellerView.swift; sourceTree = "<group>"; };
+		210704BA2A1CEFFC00643140 /* GoodsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsListView.swift; sourceTree = "<group>"; };
 		210861FB2A06AE0900EC3A60 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		210861FF2A06AF8F00EC3A60 /* FindPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPathView.swift; sourceTree = "<group>"; };
 		210862012A06D67900EC3A60 /* MapLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLinkView.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 		211F53DF2A17B3CB003DA011 /* StorePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePostViewModel.swift; sourceTree = "<group>"; };
 		211F53E12A17E6A5003DA011 /* SellerSignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignInViewModel.swift; sourceTree = "<group>"; };
 		211F53E52A17F306003DA011 /* SellerTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerTempView.swift; sourceTree = "<group>"; };
-		211F53E72A1A5256003DA011 /* SellerEditInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerEditInfoView.swift; sourceTree = "<group>"; };
+		211F53E72A1A5256003DA011 /* StoreEditInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEditInfoView.swift; sourceTree = "<group>"; };
 		211F53EB2A1A9611003DA011 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		211F53ED2A1AA91D003DA011 /* EditProfileSellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileSellerView.swift; sourceTree = "<group>"; };
 		2140BC5029D1CEB900B78C6C /* MarketGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,7 +186,7 @@
 		21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpViewModel.swift; sourceTree = "<group>"; };
 		21D006912A15047100C404C3 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		21D006932A15057E00C404C3 /* ImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadView.swift; sourceTree = "<group>"; };
-		21D006972A15DB9200C404C3 /* StoreEnrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEnrollView.swift; sourceTree = "<group>"; };
+		21D006972A15DB9200C404C3 /* PostStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStoreView.swift; sourceTree = "<group>"; };
 		21E7A4B029D6D995009EB220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21F1C9BC29DD69870022113A /* MarketInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfoView.swift; sourceTree = "<group>"; };
 		21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -367,7 +367,6 @@
 				2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */,
 				21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */,
 				211F53E12A17E6A5003DA011 /* SellerSignInViewModel.swift */,
-				210704B22A1CB3D900643140 /* GoodsPostViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -375,13 +374,15 @@
 		2144FE7C29DD6BC0008913C4 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				997BD5642A1B86E800E7A7EE /* StoreReviewPostView.swift */,
-				997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */,
-				99F02DE12A176D4100D827CD /* MarketReviewView.swift */,
 				21470AAF29FD0FFD00A7CEE7 /* EatingHouseMapView.swift */,
 				21470AAD29FD0F7F00A7CEE7 /* EatingHouseView.swift */,
-				210861FF2A06AF8F00EC3A60 /* FindPathView.swift */,
+				211F53ED2A1AA91D003DA011 /* EditProfileSellerView.swift */,
 				21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */,
+				210861FF2A06AF8F00EC3A60 /* FindPathView.swift */,
+				210704B62A1CCAA900643140 /* GoodsEditView.swift */,
+				210704BA2A1CEFFC00643140 /* GoodsListView.swift */,
+				210704B42A1CB58A00643140 /* GoodsPostView.swift */,
+				210704B82A1CD93A00643140 /* GoodsSellerView.swift */,
 				2181EDD92A127E8300B879B2 /* HomeView.swift */,
 				21D006932A15057E00C404C3 /* ImageUploadView.swift */,
 				2144FE7D29DD6BCF008913C4 /* LocationManager.swift */,
@@ -391,24 +392,23 @@
 				214871D72A0685C300C6FD1D /* MarketListView.swift */,
 				215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */,
 				214871D92A06894700C6FD1D /* MarketOneMapView.swift */,
+				997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */,
+				99F02DE12A176D4100D827CD /* MarketReviewView.swift */,
 				21416B7D2A0CF25F008EA3C5 /* MarketTableWrapper.swift */,
 				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
+				21D006972A15DB9200C404C3 /* PostStoreView.swift */,
 				21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */,
-				211F53E72A1A5256003DA011 /* SellerEditInfoView.swift */,
 				21416B8B2A1025F0008EA3C5 /* SellerMarketChoiceView.swift */,
 				21416B752A0BBEF9008EA3C5 /* SellerSignInView.swift */,
 				21FAE1ED2A0B65EC006593D9 /* SellerSignUpView.swift */,
 				211F53E52A17F306003DA011 /* SellerTempView.swift */,
 				21FAE1E52A0AA787006593D9 /* SignInView.swift */,
-				21D006972A15DB9200C404C3 /* StoreEnrollView.swift */,
+				211F53E72A1A5256003DA011 /* StoreEditInfoView.swift */,
+				997BD5642A1B86E800E7A7EE /* StoreReviewPostView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
-				211F53ED2A1AA91D003DA011 /* EditProfileSellerView.swift */,
-				210704B42A1CB58A00643140 /* GoodsPostView.swift */,
-				210704B62A1CCAA900643140 /* GoodsEditView.swift */,
-				210704B82A1CD93A00643140 /* GoodsSellerView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -418,26 +418,26 @@
 			children = (
 				2144FE7C29DD6BC0008913C4 /* Map */,
 				2144FE7229DD6AAA008913C4 /* CartView.swift */,
+				998BFBC42A0DD01C005F4652 /* CategoryView.swift */,
+				993AD3A42A0A72500069A27F /* ContentView.swift */,
 				99CD749329DD904600D2D782 /* FoodItemCell.swift */,
 				99CD749729DD97B300D2D782 /* FoodItemDetailView.swift */,
-				2144FE7829DD6B4F008913C4 /* MarketSearchView.swift */,
+				998843C32A05035D00132079 /* FoodItemListView.swift */,
 				2144FE7629DD6B11008913C4 /* MainView.swift */,
+				2144FE7829DD6B4F008913C4 /* MarketSearchView.swift */,
 				990D2C9629E23678002ED379 /* MenuItemRow.swift */,
 				994979C42A12681A00159828 /* MenuView.swift */,
 				99CD749529DD95D100D2D782 /* ProductTopView.swift */,
 				2144FE6A29DD69B5008913C4 /* ProfileImageView.swift */,
+				994B17C42A023653009B77E8 /* ReviewView.swift */,
 				2144FE7429DD6AF6008913C4 /* SearchBar.swift */,
 				2144FE7A29DD6B88008913C4 /* ShopView.swift */,
-				993AF1C429DE474F00031A7B /* StoreView.swift */,
-				2144FE7029DD6A79008913C4 /* TopView.swift */,
-				994B17C42A023653009B77E8 /* ReviewView.swift */,
-				99926D082A03419F00071E3C /* StoreReviewListView.swift */,
-				998843BF2A04DE8700132079 /* UserMypageView.swift */,
 				998843C12A04F76800132079 /* StoreListView.swift */,
-				998843C32A05035D00132079 /* FoodItemListView.swift */,
-				993AD3A42A0A72500069A27F /* ContentView.swift */,
+				99926D082A03419F00071E3C /* StoreReviewListView.swift */,
+				993AF1C429DE474F00031A7B /* StoreView.swift */,
 				998BFBC22A0DCC1F005F4652 /* TestView.swift */,
-				998BFBC42A0DD01C005F4652 /* CategoryView.swift */,
+				2144FE7029DD6A79008913C4 /* TopView.swift */,
+				998843BF2A04DE8700132079 /* UserMypageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -737,7 +737,7 @@
 				215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */,
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
 				99F02DE02A175C6B00D827CD /* MarketReviewJASON.swift in Sources */,
-				211F53E82A1A5256003DA011 /* SellerEditInfoView.swift in Sources */,
+				211F53E82A1A5256003DA011 /* StoreEditInfoView.swift in Sources */,
 				210704B92A1CD93A00643140 /* GoodsSellerView.swift in Sources */,
 				997BD5652A1B86E800E7A7EE /* StoreReviewPostView.swift in Sources */,
 				998BFBC32A0DCC1F005F4652 /* TestView.swift in Sources */,
@@ -768,8 +768,8 @@
 				21FAE1E62A0AA787006593D9 /* SignInView.swift in Sources */,
 				2144FE6F29DD6A58008913C4 /* LocationModel.swift in Sources */,
 				2144FE7929DD6B4F008913C4 /* MarketSearchView.swift in Sources */,
-				210704B32A1CB3D900643140 /* GoodsPostViewModel.swift in Sources */,
 				2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */,
+				210704BB2A1CEFFC00643140 /* GoodsListView.swift in Sources */,
 				21416B8C2A1025F0008EA3C5 /* SellerMarketChoiceView.swift in Sources */,
 				2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */,
 				21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */,
@@ -798,7 +798,7 @@
 				997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */,
 				210704B52A1CB58A00643140 /* GoodsPostView.swift in Sources */,
 				211F53E22A17E6A5003DA011 /* SellerSignInViewModel.swift in Sources */,
-				21D006982A15DB9200C404C3 /* StoreEnrollView.swift in Sources */,
+				21D006982A15DB9200C404C3 /* PostStoreView.swift in Sources */,
 				994979C32A119ADE00159828 /* URLImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -133,7 +133,7 @@ struct ShopView: View {
                             .padding([.top, .leading, .trailing], 16.0)
                         }
                         .onAppear {
-                            goodsModel.fetchGoods(forStoreMarketID: marketModel.currentMarket?.marketID ?? 0)
+                            goodsModel.fetchMarketGoods(forStoreMarketID: marketModel.currentMarket?.marketID ?? 0)
                         }
                         
                     }
