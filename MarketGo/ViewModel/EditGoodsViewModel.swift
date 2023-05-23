@@ -42,38 +42,49 @@ class EditGoodsViewModel: ObservableObject {
         }
 
     }
-    
+   
     
     func updateGoods(isAvail:Binding<Int>) async {
-        do {
-            if let image = self.selectedImage {
-                let result = try await imageUploader.uploadImageToServer(image: image, category: imageCate.categoryName, id: String(imageCate.categoryID))
-                print("이미지업로드성공:\(String(describing: result.uploadFileName!))")
-                
-                if let id = result.fileID {
-                    fileId = id
-                    //                    print("file id get : \(storePost.storeFile) id: \(id)")
-                    
-                }
-            } else {
-                print("이미지를 선택하지 않았습니다.")
-                return
-            }
-        }
-            catch {
-                print("Error uploading image: \(error)")
-                isLoading = false
-            }
-        
-            
-        goods.goodsName=goodsName
-        
+         
+       
         let enGoodsName = makeStringKoreanEncoded(goodsName)
         let enUnit = makeStringKoreanEncoded(goodsUnit)
         let enGoodsInfo = makeStringKoreanEncoded(goodsInfo)
         let enOrigin = makeStringKoreanEncoded(goodsOrigin)
         let realAvail = String(describing: goods.isAvail!)
         let url = "http://3.34.33.15:8080/goods/\(String(describing: goods.goodsID!))?goodsName=\(enGoodsName)&marketId=\(String(describing: (goods.goodsMarket?.marketID)!))&storeId=\(String(describing: (goods.goodsStore?.storeID)!))&goodsFile=\(String(describing: (goods.goodsFile?.fileID)!))&goodsPrice=\(goodsPrice)&goodsUnit=\(enUnit)&goodsInfo=\(enGoodsInfo)&goodsOrigin=\(enOrigin)&isAvail=\(String(describing: goods.isAvail!))"
+        let headers: HTTPHeaders = ["Content-Type": "application/json"]
+        
+        
+        AF.request(url, method: .put, headers: headers)
+            .responseJSON{ response in
+                debugPrint(response)
+            }
+
+        
+    }
+}
+import SwiftUI
+import Alamofire
+
+class OffAvailGoodsViewModel: ObservableObject {
+    @Published var isAvail = 0
+    @Published var goods: GoodsOne
+
+    init(goods: GoodsOne) {
+        self.goods = goods
+        
+    }
+    
+    
+    func updateGoods(isAvail:Binding<Int>) async {
+
+        let enGoodsName = makeStringKoreanEncoded(goods.goodsName!)
+        let enUnit = makeStringKoreanEncoded(goods.goodsUnit!)
+        let enGoodsInfo = makeStringKoreanEncoded(goods.goodsInfo!)
+        let enOrigin = makeStringKoreanEncoded(goods.goodsOrigin!)
+        let realAvail = String(describing: self.isAvail)
+        let url = "http://3.34.33.15:8080/goods/\(String(describing: goods.goodsID!))?goodsName=\(enGoodsName)&marketId=\(String(describing: (goods.goodsMarket?.marketID)!))&storeId=\(String(describing: (goods.goodsStore?.storeID)!))&goodsFile=\(String(describing: (goods.goodsFile?.fileID)!))&goodsPrice=\(goods.goodsPrice!)&goodsUnit=\(enUnit)&goodsInfo=\(enGoodsInfo)&goodsOrigin=\(enOrigin)&isAvail=\(String(describing: realAvail))"
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
         

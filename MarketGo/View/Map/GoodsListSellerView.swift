@@ -69,18 +69,18 @@ struct GoodsListSellerView: View {
                         }
                     }
                 }
-//                Button(action: {
-//                    print(selectedGoods)
-//                    selectedGoods.forEach { goods in
-//                        let viewModel = EditGoodsViewModel(goods: goods)
-//                        viewModel.isAvail = offAvail
-//                        Task {
-//                            viewModel.updateGoods()
-//                        }
-//                    }
-//                }) {
-//                    Text("판매중인 물품에서 제거하기")
-//                }
+                Button(action: {
+                    print(selectedGoods)
+                    selectedGoods.forEach { goods in
+                        let viewModel = OffAvailGoodsViewModel(goods: goods)
+                        viewModel.isAvail = offAvail
+                        Task {
+                            await viewModel.updateGoods(isAvail: $offAvail)
+                        }
+                    }
+                }) {
+                    Text("판매중인 물품에서 제거하기")
+                }
 
                
             }
