@@ -11,6 +11,8 @@
 		210704B12A1BBA2A00643140 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B02A1BBA2A00643140 /* ImageDownloader.swift */; };
 		210704B32A1CB3D900643140 /* GoodsPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B22A1CB3D900643140 /* GoodsPostViewModel.swift */; };
 		210704B52A1CB58A00643140 /* GoodsPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B42A1CB58A00643140 /* GoodsPostView.swift */; };
+		210704B72A1CCAA900643140 /* GoodsEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B62A1CCAA900643140 /* GoodsEditView.swift */; };
+		210704B92A1CD93A00643140 /* GoodsSellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B82A1CD93A00643140 /* GoodsSellerView.swift */; };
 		210861FC2A06AE0900EC3A60 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210861FB2A06AE0900EC3A60 /* Config.swift */; };
 		210862002A06AF8F00EC3A60 /* FindPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210861FF2A06AF8F00EC3A60 /* FindPathView.swift */; };
 		210862022A06D67900EC3A60 /* MapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210862012A06D67900EC3A60 /* MapLinkView.swift */; };
@@ -128,6 +130,8 @@
 		210704B02A1BBA2A00643140 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		210704B22A1CB3D900643140 /* GoodsPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsPostViewModel.swift; sourceTree = "<group>"; };
 		210704B42A1CB58A00643140 /* GoodsPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsPostView.swift; sourceTree = "<group>"; };
+		210704B62A1CCAA900643140 /* GoodsEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsEditView.swift; sourceTree = "<group>"; };
+		210704B82A1CD93A00643140 /* GoodsSellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsSellerView.swift; sourceTree = "<group>"; };
 		210861FB2A06AE0900EC3A60 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		210861FF2A06AF8F00EC3A60 /* FindPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPathView.swift; sourceTree = "<group>"; };
 		210862012A06D67900EC3A60 /* MapLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLinkView.swift; sourceTree = "<group>"; };
@@ -403,6 +407,8 @@
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
 				211F53ED2A1AA91D003DA011 /* EditProfileSellerView.swift */,
 				210704B42A1CB58A00643140 /* GoodsPostView.swift */,
+				210704B62A1CCAA900643140 /* GoodsEditView.swift */,
+				210704B82A1CD93A00643140 /* GoodsSellerView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -712,6 +718,7 @@
 				21470AB429FD87E400A7CEE7 /* UITableViewWrapper.swift in Sources */,
 				998843C42A05035D00132079 /* FoodItemListView.swift in Sources */,
 				211F53DE2A17A57D003DA011 /* ImageUploader.swift in Sources */,
+				210704B72A1CCAA900643140 /* GoodsEditView.swift in Sources */,
 				211F53EE2A1AA91D003DA011 /* EditProfileSellerView.swift in Sources */,
 				2144FE8029DD6BEC008913C4 /* ParkingLotMapView.swift in Sources */,
 				2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */,
@@ -731,6 +738,7 @@
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
 				99F02DE02A175C6B00D827CD /* MarketReviewJASON.swift in Sources */,
 				211F53E82A1A5256003DA011 /* SellerEditInfoView.swift in Sources */,
+				210704B92A1CD93A00643140 /* GoodsSellerView.swift in Sources */,
 				997BD5652A1B86E800E7A7EE /* StoreReviewPostView.swift in Sources */,
 				998BFBC32A0DCC1F005F4652 /* TestView.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,

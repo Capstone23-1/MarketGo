@@ -12,6 +12,7 @@ struct SellerTempView: View {
     @EnvironmentObject var marketModel: MarketModel
     @State var move1 = false
     @State var move2 = false
+    @State var move3 = false
     var body: some View {
         VStack{
             Button {
@@ -46,6 +47,20 @@ struct SellerTempView: View {
             }
             .sheet(isPresented: $move2) {
                 GoodsPostView()
+                
+            }
+            Button {
+                move3=true
+            } label: {
+                Text("상품 등록 창")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.accentColor)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+            .sheet(isPresented: $move3) {
+                GoodsSellerView()
                 
             }
             
