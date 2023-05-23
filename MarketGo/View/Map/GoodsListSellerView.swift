@@ -5,7 +5,6 @@ struct GoodsListSellerView: View {
     @State private var goodsList: [GoodsOne] = []
     @EnvironmentObject var userViewModel: UserModel
     @State private var storeID = 0
-    @State private var selectedGoodsIDs: [Int] = []
     @State private var searchText = ""
     @State var placeHolder = "상품명으로 검색하세요"
     
@@ -26,13 +25,7 @@ struct GoodsListSellerView: View {
                 LazyVStack(alignment: .leading, spacing: 10) {
                     ForEach(filteredGoodsList, id: \.goodsID) { goods in
                         HStack {
-                            Image(systemName: selectedGoodsIDs.contains(goods.goodsID!) ? "checkmark.circle.fill" : "circle")
-                                .resizable()
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(.blue)
-                                .onTapGesture {
-                                    toggleGoodsSelection(goodsID: goods.goodsID!)
-                                }
+                            
                             HStack {
                                 if let fileData = goods.goodsFile, let uploadFileURL = fileData.uploadFileURL, let url = URL(string: uploadFileURL) {
                                     URLImage(url: url)
@@ -49,7 +42,7 @@ struct GoodsListSellerView: View {
                             }
                             
                             Spacer()
-                            NavigationLink(destination: UpdateGoodsView(goods: goods)) {
+                            NavigationLink(destination: EditGoodsView(goods: goods)) {
                                 Text("Edit")
                                     .foregroundColor(.blue)
                                     .padding(.all, 10)
@@ -104,22 +97,8 @@ struct GoodsListSellerView: View {
         }
     }
     
-    func toggleGoodsSelection(goodsID: Int) {
-        if selectedGoodsIDs.contains(goodsID) {
-            selectedGoodsIDs.removeAll { $0 == goodsID }
-        } else {
-            selectedGoodsIDs.append(goodsID)
-        }
-    }
+
     func delete(at offsets: IndexSet) {
         goodsList.remove(atOffsets: offsets)
-    }
-}
-struct UpdateGoodsView: View {
-    @State var goods: GoodsOne
-
-    var body: some View {
-        // 상품 정보 표시 및 수정 UI 작성
-        Text("gi")
     }
 }
