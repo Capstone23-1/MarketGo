@@ -1,9 +1,3 @@
-//
-//  SellerTempView.swift
-//  MarketGo
-//
-//  Created by ram on 2023/05/20.
-//
 
 import SwiftUI
 
@@ -27,7 +21,7 @@ struct SellerTempView: View {
             }
             .sheet(isPresented: $move1) {
                 if let storeElement = userViewModel.currentUser?.storeID {
-                    StoreUpdateView(obse: ObservableStoreElement(storeElement: storeElement))
+                    EditStoreView(obse: ObservableStoreElement(storeElement: storeElement))
 
 
                 } else {

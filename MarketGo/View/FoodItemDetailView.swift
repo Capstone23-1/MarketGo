@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct FoodItemDetailView: View {
-    var goods: GoodOne
+    var goods: GoodsOne
     
     var body: some View {
         ScrollView{

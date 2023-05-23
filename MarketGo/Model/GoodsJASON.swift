@@ -8,7 +8,7 @@ import Alamofire
 import SwiftUI
 
 // MARK: - Good
-struct GoodOne: Codable, Identifiable {
+struct GoodsOne: Codable, Identifiable {
     var goodsID: Int?
     var goodsName: String?
     var goodsMarket: MarketOne?
@@ -68,13 +68,13 @@ struct GoodsImage: View {
 }
 
 
-typealias Goods = [GoodOne]
+typealias Goods = [GoodsOne]
 
 // MARK: - Encode/decode helpers
 
 //MarketId를 입력받아 특정 시장 내의 모든 goods들을 가져옴
 class GoodsViewModel: ObservableObject {
-    @Published var goods: [GoodOne] = []
+    @Published var goods: [GoodsOne] = []
 
     func fetchGoods(forStoreMarketID storeMarketID: Int) {
         let url = "http://3.34.33.15:8080/goods/all"
@@ -103,7 +103,7 @@ class GoodsViewModel: ObservableObject {
 
 
 class GoodsViewModel2: ObservableObject {
-    @Published var goods: [GoodOne] = []
+    @Published var goods: [GoodsOne] = []
 
     func fetchGoods(forGoodsStoreID storeID: Int) {
         let url = "http://3.34.33.15:8080/goods/all"
@@ -113,7 +113,7 @@ class GoodsViewModel2: ObservableObject {
             case .success(let data):
                 do {
                     let decoder = JSONDecoder()
-                    let goodsList = try decoder.decode([GoodOne].self, from: data)
+                    let goodsList = try decoder.decode([GoodsOne].self, from: data)
                     DispatchQueue.main.async {
                         self.goods = goodsList.filter { $0.goodsStore?.storeID == storeID }
                     }

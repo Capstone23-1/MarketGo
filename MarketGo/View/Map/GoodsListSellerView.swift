@@ -2,14 +2,14 @@ import SwiftUI
 import Alamofire
 
 struct GoodsListSellerView: View {
-    @State private var goodsList: [GoodOne] = []
+    @State private var goodsList: [GoodsOne] = []
     @EnvironmentObject var userViewModel: UserModel
     @State private var storeID = 0
     @State private var selectedGoodsIDs: [Int] = []
     @State private var searchText = ""
     @State var placeHolder = "상품명으로 검색하세요"
     
-    var filteredGoodsList: [GoodOne] {
+    var filteredGoodsList: [GoodsOne] {
         if searchText.isEmpty {
             return goodsList.filter { $0.goodsStore?.storeID == storeID }
         } else {
@@ -95,7 +95,7 @@ struct GoodsListSellerView: View {
                     }
                 }
             }
-            let goodsList = try JSONDecoder().decode([GoodOne].self, from: data)
+            let goodsList = try JSONDecoder().decode([GoodsOne].self, from: data)
             DispatchQueue.main.async {
                 self.goodsList = goodsList
             }

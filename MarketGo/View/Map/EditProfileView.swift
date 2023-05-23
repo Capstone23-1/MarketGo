@@ -59,9 +59,3 @@ struct EditProfileView: View {
         .padding()
     }
 }
-
-struct EditProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditProfileView()
-    }
-}

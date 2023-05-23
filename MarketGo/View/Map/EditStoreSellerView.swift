@@ -1,7 +1,7 @@
 import SwiftUI
 import Alamofire
 
-struct StoreUpdateView: View {
+struct EditStoreView: View {
     @State private var imageUploader = ImageUploader()
     @ObservedObject var obse: ObservableStoreElement
     @EnvironmentObject var userViewModel: UserModel
