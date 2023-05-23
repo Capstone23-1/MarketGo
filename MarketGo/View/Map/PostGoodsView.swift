@@ -2,11 +2,10 @@ import SwiftUI
 import Alamofire
 import UIKit
 
-struct GoodsPostView: View {
+struct PostGoodsView: View {
     @State private var imageUploader = ImageUploader()
     @EnvironmentObject var userViewModel: UserModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State var selectedMarket: MarketOne?
     @State var newImage = FileInfo()
     @State var imageCate = StoreCategory(categoryID: 0,categoryName: "goods")
     @State var selectedImage: UIImage? = nil
@@ -19,9 +18,7 @@ struct GoodsPostView: View {
     @State var goodsPrice = ""
     @State var storeId = 0
     @State var marketId = 0
-    
-    
-    
+    @State var isAvail = 1 // 추가: 게시여부 토글 상태
     
     var body: some View {
         VStack {
@@ -32,6 +29,7 @@ struct GoodsPostView: View {
                 TextField("단위", text: $goodsUnit)
                 TextField("원산지", text: $goodsOrigin)
                 TextField("물품 설명", text: $goodsInfo)
+                
             }
         }
         .navigationTitle("물품 등록")
@@ -48,9 +46,7 @@ struct GoodsPostView: View {
                 .foregroundColor(.white)
                 .cornerRadius(10)
         }
-        
     }
-    
     
     func loadView() {
         storeId = (userViewModel.currentUser?.storeID?.storeID)!
@@ -86,13 +82,13 @@ struct GoodsPostView: View {
         let enOrigin = makeStringKoreanEncoded(goodsOrigin)
         
         let url = "http://3.34.33.15:8080/goods?goodsName=\(enGoodsName)&marketId=\(String(describing: marketId))&storeId=\(String(describing: storeId))&goodsFile=\(String(describing: fileId))&goodsPrice=\(goodsPrice)&goodsUnit=\(enUnit)&goodsInfo=\(enGoodsInfo)&goodsOrigin=\(enOrigin)&isAvail=1"
-            let headers: HTTPHeaders = ["Content-Type": "application/json"]
+        let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
         
         AF.request(url, method: .post, headers: headers)
             .responseJSON{ response in
-                    debugPrint(response)
-                }
+                debugPrint(response)
+            }
         
     }
     

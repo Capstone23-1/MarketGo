@@ -7,6 +7,7 @@ struct SellerTempView: View {
     @State var move1 = false
     @State var move2 = false
     @State var move3 = false
+    
     var body: some View {
         VStack{
             Button {
@@ -40,7 +41,7 @@ struct SellerTempView: View {
                     .cornerRadius(8)
             }
             .sheet(isPresented: $move2) {
-                GoodsPostView()
+                PostGoodsView()
                 
             }
             Button {

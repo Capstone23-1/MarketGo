@@ -49,7 +49,7 @@ struct GoodsListSellerView: View {
                             }
                             
                             Spacer()
-                            NavigationLink(destination: GoodsPostView()) {
+                            NavigationLink(destination: UpdateGoodsView(goods: goods)) {
                                 Text("Edit")
                                     .foregroundColor(.blue)
                                     .padding(.all, 10)
@@ -113,5 +113,13 @@ struct GoodsListSellerView: View {
     }
     func delete(at offsets: IndexSet) {
         goodsList.remove(atOffsets: offsets)
+    }
+}
+struct UpdateGoodsView: View {
+    @State var goods: GoodsOne
+
+    var body: some View {
+        // 상품 정보 표시 및 수정 UI 작성
+        Text("gi")
     }
 }
