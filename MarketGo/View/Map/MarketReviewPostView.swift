@@ -12,11 +12,19 @@ struct MarketReviewPostView: View {
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
     
-    @State private var marketID: Int = 0
-    @State private var memberID: Int = 61
+    var marketID: Int{
+        marketModel.currentMarket?.marketID ?? 0
+    }
+    
+    var memberID: Int{
+        userModel.currentUser?.memberID ?? 0
+    }
+//    @State private var marketID: Int = 0
+//    @State private var memberID: Int = 61
+    
     @State private var ratings: Double = 0.0
     @State private var reviewContent: String = ""
-    @State private var marketReviewFile: Int = 106
+    @State private var marketReviewFile: Int = 1
     @State private var isLoading: Bool = false
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
@@ -61,6 +69,9 @@ struct MarketReviewPostView: View {
                     }
                     TextEditor(text: $reviewContent)
                         .frame(height: 100)
+                    Text("marketID: \(marketID)")
+                    Text("memberID: \(memberID)")
+                    Text("ratings: \(ratings)")
                 }
                 
                 
@@ -109,8 +120,8 @@ struct MarketReviewPostView: View {
         isLoading = true
         
         let reviewPost = MarketReviewPost(
-            marketId: marketModel.currentMarket?.marketID ?? 0,
-            memberId: userModel.currentUser?.memberID ?? 0,
+            marketId: marketID,
+            memberId: memberID,
             ratings: ratings,
             reviewContent: reviewContent,
             marketReviewFile: marketReviewFile
@@ -122,12 +133,12 @@ struct MarketReviewPostView: View {
         AF.request(url, method: .post,headers: headers)
             .responseJSON { response in
                 debugPrint(response)
-//                switch response.result {
-//                case .success:
-//                    showAlert(message: "Review submitted successfully.")
-//                case .failure(let error):
-//                    showAlert(message: "Failed to submit review. \(error.localizedDescription)")
-//                }
+                switch response.result {
+                case .success:
+                    showAlert(message: "Review submitted successfully.")
+                case .failure(let error):
+                    showAlert(message: "Failed to submit review. \(error.localizedDescription)")
+                }
                 isLoading = false
             }
     }
