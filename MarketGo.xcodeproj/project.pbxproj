@@ -19,7 +19,6 @@
 		211F53E02A17B3CB003DA011 /* StorePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53DF2A17B3CB003DA011 /* StorePostViewModel.swift */; };
 		211F53E22A17E6A5003DA011 /* SellerSignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53E12A17E6A5003DA011 /* SellerSignInViewModel.swift */; };
 		211F53E62A17F306003DA011 /* SellerTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53E52A17F306003DA011 /* SellerTempView.swift */; };
-		211F53E82A1A5256003DA011 /* SellerEditInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53E72A1A5256003DA011 /* SellerEditInfoView.swift */; };
 		211F53EC2A1A9611003DA011 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53EB2A1A9611003DA011 /* APIService.swift */; };
 		211F53EE2A1AA91D003DA011 /* EditProfileSellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F53ED2A1AA91D003DA011 /* EditProfileSellerView.swift */; };
 		2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2140BC5729D1CEBA00B78C6C /* Assets.xcassets */; };
@@ -135,7 +134,6 @@
 		211F53DF2A17B3CB003DA011 /* StorePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePostViewModel.swift; sourceTree = "<group>"; };
 		211F53E12A17E6A5003DA011 /* SellerSignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignInViewModel.swift; sourceTree = "<group>"; };
 		211F53E52A17F306003DA011 /* SellerTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerTempView.swift; sourceTree = "<group>"; };
-		211F53E72A1A5256003DA011 /* SellerEditInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerEditInfoView.swift; sourceTree = "<group>"; };
 		211F53EB2A1A9611003DA011 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		211F53ED2A1AA91D003DA011 /* EditProfileSellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileSellerView.swift; sourceTree = "<group>"; };
 		2140BC5029D1CEB900B78C6C /* MarketGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,11 +366,13 @@
 		2144FE7C29DD6BC0008913C4 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				99F02DE12A176D4100D827CD /* MarketReviewView.swift */,
 				21470AAF29FD0FFD00A7CEE7 /* EatingHouseMapView.swift */,
 				21470AAD29FD0F7F00A7CEE7 /* EatingHouseView.swift */,
-				210861FF2A06AF8F00EC3A60 /* FindPathView.swift */,
+				211F53ED2A1AA91D003DA011 /* EditProfileSellerView.swift */,
 				21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */,
+				210861FF2A06AF8F00EC3A60 /* FindPathView.swift */,
+				210704BC2A1D1F9800643140 /* GoodsPostView.swift */,
+				210704BE2A1D1FB100643140 /* GoodsSellerView.swift */,
 				2181EDD92A127E8300B879B2 /* HomeView.swift */,
 				21D006932A15057E00C404C3 /* ImageUploadView.swift */,
 				2144FE7D29DD6BCF008913C4 /* LocationManager.swift */,
@@ -382,23 +382,20 @@
 				214871D72A0685C300C6FD1D /* MarketListView.swift */,
 				215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */,
 				214871D92A06894700C6FD1D /* MarketOneMapView.swift */,
+				99F02DE12A176D4100D827CD /* MarketReviewView.swift */,
 				21416B7D2A0CF25F008EA3C5 /* MarketTableWrapper.swift */,
 				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
+				21D006972A15DB9200C404C3 /* PostStoreView.swift */,
 				21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */,
-				211F53E72A1A5256003DA011 /* SellerEditInfoView.swift */,
 				21416B8B2A1025F0008EA3C5 /* SellerMarketChoiceView.swift */,
 				21416B752A0BBEF9008EA3C5 /* SellerSignInView.swift */,
 				21FAE1ED2A0B65EC006593D9 /* SellerSignUpView.swift */,
 				211F53E52A17F306003DA011 /* SellerTempView.swift */,
 				21FAE1E52A0AA787006593D9 /* SignInView.swift */,
-				21D006972A15DB9200C404C3 /* PostStoreView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
-				211F53ED2A1AA91D003DA011 /* EditProfileSellerView.swift */,
-				210704BC2A1D1F9800643140 /* GoodsPostView.swift */,
-				210704BE2A1D1FB100643140 /* GoodsSellerView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -728,7 +725,6 @@
 				215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */,
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
 				99F02DE02A175C6B00D827CD /* MarketReviewJASON.swift in Sources */,
-				211F53E82A1A5256003DA011 /* SellerEditInfoView.swift in Sources */,
 				210704BF2A1D1FB100643140 /* GoodsSellerView.swift in Sources */,
 				998BFBC32A0DCC1F005F4652 /* TestView.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,
