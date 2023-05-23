@@ -34,7 +34,7 @@ struct MarketReviewView: View {
         }
         .sheet(isPresented: $isWritingReview, content: {
             // Present the view for writing a review
-            TestView()
+            MarketReviewPostView()
         })
         .onAppear {
             viewModel.fetchMarketReviews(for: marketModel.currentMarket?.marketID ?? 0)

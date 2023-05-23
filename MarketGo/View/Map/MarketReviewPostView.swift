@@ -6,18 +6,21 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct MarketReviewPostView: View {
-    @State private var marketID: Int = 0
-    @State private var memberID: Int = 0
+    @EnvironmentObject var userModel: UserModel
+    @EnvironmentObject var marketModel: MarketModel
+    
+    @State private var marketID: Int = 18
+    @State private var memberID: Int = 61
     @State private var ratings: Double = 0.0
     @State private var reviewContent: String = ""
-    @State private var marketReviewFile: Int = 1
+    @State private var marketReviewFile: Int = 106
     @State private var isLoading: Bool = false
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
     
-    @ObservedObject private var viewModel = MarketReviewPostViewModel()
     
     var body: some View {
         NavigationView {
@@ -41,6 +44,7 @@ struct MarketReviewPostView: View {
                 
                 Button(action: {
                     submitReview()
+                    
                 }, label: {
                     Text("Submit")
                         .foregroundColor(.white)
@@ -78,7 +82,7 @@ struct MarketReviewPostView: View {
             showAlert(message: "Please enter Review Content.")
             return
         }
-        
+
         isLoading = true
         
         let reviewPost = MarketReviewPost(
@@ -88,22 +92,29 @@ struct MarketReviewPostView: View {
             reviewContent: reviewContent,
             marketReviewFile: marketReviewFile
         )
-        
-        viewModel.submitMarketReview(reviewPost: reviewPost) { result in
-            switch result {
-            case .success:
-                showAlert(message: "Review submitted successfully.")
-            case .failure(let error):
-                showAlert(message: "Failed to submit review. \(error.localizedDescription)")
+        let encoContent = makeStringKoreanEncoded(reviewContent)
+
+        let url = "http://3.34.33.15:8080/marketReview?marketId=\(String(describing:marketID))&memberId=\(String(describing:memberID))&ratings=\(String(describing: ratings))&reviewContent=\(encoContent)&marketReviewFile=\(String(describing: marketReviewFile))"
+        let headers: HTTPHeaders = ["Content-Type": "application/json"]
+        AF.request(url, method: .post,headers: headers)
+            .responseJSON { response in
+                debugPrint(response)
+//                switch response.result {
+//                case .success:
+//                    showAlert(message: "Review submitted successfully.")
+//                case .failure(let error):
+//                    showAlert(message: "Failed to submit review. \(error.localizedDescription)")
+//                }
+                isLoading = false
             }
-            isLoading = false
-        }
     }
+
     
     func showAlert(message: String) {
         alertMessage = message
         showAlert = true
     }
+    
 }
 
 struct MarketReviewPostView_Previews: PreviewProvider {
