@@ -62,7 +62,7 @@
 		21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */; };
 		21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006912A15047100C404C3 /* UserSignUpView.swift */; };
 		21D006942A15057E00C404C3 /* ImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006932A15057E00C404C3 /* ImageUploadView.swift */; };
-		21D006982A15DB9200C404C3 /* StoreEnrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006972A15DB9200C404C3 /* StoreEnrollView.swift */; };
+		21D006982A15DB9200C404C3 /* PostStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006972A15DB9200C404C3 /* PostStoreView.swift */; };
 		21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1C9BC29DD69870022113A /* MarketInfoView.swift */; };
 		21FAE1D52A0AA3F7006593D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */; };
 		21FAE1D82A0AA422006593D9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 21FAE1D72A0AA422006593D9 /* FirebaseAnalytics */; };
@@ -182,7 +182,7 @@
 		21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpViewModel.swift; sourceTree = "<group>"; };
 		21D006912A15047100C404C3 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		21D006932A15057E00C404C3 /* ImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadView.swift; sourceTree = "<group>"; };
-		21D006972A15DB9200C404C3 /* StoreEnrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEnrollView.swift; sourceTree = "<group>"; };
+		21D006972A15DB9200C404C3 /* PostStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStoreView.swift; sourceTree = "<group>"; };
 		21E7A4B029D6D995009EB220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21F1C9BC29DD69870022113A /* MarketInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfoView.swift; sourceTree = "<group>"; };
 		21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -396,7 +396,7 @@
 				21FAE1ED2A0B65EC006593D9 /* SellerSignUpView.swift */,
 				211F53E52A17F306003DA011 /* SellerTempView.swift */,
 				21FAE1E52A0AA787006593D9 /* SignInView.swift */,
-				21D006972A15DB9200C404C3 /* StoreEnrollView.swift */,
+				21D006972A15DB9200C404C3 /* PostStoreView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
@@ -790,7 +790,7 @@
 				997BD5632A1B846B00E7A7EE /* StoreReviewPostModel.swift in Sources */,
 				997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */,
 				211F53E22A17E6A5003DA011 /* SellerSignInViewModel.swift in Sources */,
-				21D006982A15DB9200C404C3 /* StoreEnrollView.swift in Sources */,
+				21D006982A15DB9200C404C3 /* PostStoreView.swift in Sources */,
 				994979C32A119ADE00159828 /* URLImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
