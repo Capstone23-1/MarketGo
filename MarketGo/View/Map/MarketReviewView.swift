@@ -42,8 +42,6 @@ struct MarketReviewView: View {
     }
 }
 
-import SwiftUI
-
 
 struct MarketReviewRow: View {
     let review: MarketReviewElement

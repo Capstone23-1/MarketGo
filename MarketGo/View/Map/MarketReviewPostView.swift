@@ -12,7 +12,7 @@ struct MarketReviewPostView: View {
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
     
-    @State private var marketID: Int = 18
+    @State private var marketID: Int = 0
     @State private var memberID: Int = 61
     @State private var ratings: Double = 0.0
     @State private var reviewContent: String = ""
@@ -21,26 +21,49 @@ struct MarketReviewPostView: View {
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
     
+    let starColor = Color(red: 255/255, green: 202/255, blue: 40/255)
+    let starWidth: CGFloat = 30.0
+    
     
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Market Information")) {
-                    TextField("Market ID", value: $marketID, formatter: NumberFormatter())
-                        .keyboardType(.numberPad)
-                    TextField("Member ID", value: $memberID, formatter: NumberFormatter())
-                        .keyboardType(.numberPad)
-                }
+//                Section(header: Text("Market Information")) {
+//                    TextField("Market ID", value: $marketID, formatter: NumberFormatter())
+//                        .keyboardType(.numberPad)
+//                    TextField("Member ID", value: $memberID, formatter: NumberFormatter())
+//                        .keyboardType(.numberPad)
+//                }
                 
                 Section(header: Text("Review")) {
-                    HStack {
-                        Text("Ratings")
-                        Slider(value: $ratings, in: 0...5, step: 0.5)
+                    
+//                    HStack {
+//                        Text("Ratings")
+//                        Slider(value: $ratings, in: 0...5, step: 0.5)
+//                        Text(String(format: "%.1f", ratings))
+//                    }
+                    
+                    HStack(spacing: 10) {
+
+                        Text("별점")
+                        Spacer()
+                        ForEach(0..<5) { index in
+                            Image(systemName: index < Int(ratings) ? "star.fill" : "star")
+                                .resizable()
+                                .foregroundColor(starColor)
+                                .frame(width: starWidth, height: starWidth)
+                                .onTapGesture {
+                                    ratings = Double(index + 1)
+                                }
+                        }
+                        Spacer()
                         Text(String(format: "%.1f", ratings))
                     }
                     TextEditor(text: $reviewContent)
                         .frame(height: 100)
                 }
+                
+                
                 
                 Button(action: {
                     submitReview()
@@ -86,8 +109,8 @@ struct MarketReviewPostView: View {
         isLoading = true
         
         let reviewPost = MarketReviewPost(
-            marketId: marketID,
-            memberId: memberID,
+            marketId: marketModel.currentMarket?.marketID ?? 0,
+            memberId: userModel.currentUser?.memberID ?? 0,
             ratings: ratings,
             reviewContent: reviewContent,
             marketReviewFile: marketReviewFile
