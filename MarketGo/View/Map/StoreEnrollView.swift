@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct StoreEnrollView: View {
+struct PostStoreView: View {
     @EnvironmentObject private var storePost: StorePostViewModel
     @State private var cardAvail = false
     @State private var localAvail = false

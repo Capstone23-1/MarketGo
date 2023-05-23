@@ -13,13 +13,8 @@ struct UserSignInView: View {
     @StateObject var marketModel = MarketModel()
     
     var body: some View {
-        
-        
         VStack {
-            
             VStack(spacing: 20) {
-                
-                
                 // 이메일 입력 필드
                 TextField("이메일", text: $viewModel.email)
                     .autocapitalization(.none)
@@ -66,8 +61,7 @@ struct UserSignInView: View {
                     MarketSearchView()
                         .environmentObject(marketModel)
                 }
-                
-                
+
                 // 회원가입 버튼
                 Button(action: {
                     // 버튼 클릭 시 회원가입 창 표시
@@ -79,8 +73,7 @@ struct UserSignInView: View {
                 .sheet(isPresented: $showSignUpView) {
                     UserSignUpView()
                 }
-                
-                
+   
             }
             .padding()
             

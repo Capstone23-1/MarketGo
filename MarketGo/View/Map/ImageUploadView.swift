@@ -25,7 +25,7 @@ struct ImageUploadView: View {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: imageSize, height: imageSize)
+                    .frame(width: imageSize+50, height: imageSize+50)
                     .clipShape(Circle())
                     .padding(.top)
             } else {

@@ -69,7 +69,7 @@ struct SellerSignUpView: View {
                         .sheet(isPresented: $moveToWriteView, onDismiss: {
                             printStorePost()
                         }) {
-                            StoreEnrollView(storeName: $storeName)
+                            PostStoreView(storeName: $storeName)
                         }
                     }
                     
