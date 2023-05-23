@@ -11,7 +11,6 @@ struct TestView: View {
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
     
-    let apiUrl = "http://3.34.33.15:8080/marketReview"
     
     var body: some View {
         NavigationView {
