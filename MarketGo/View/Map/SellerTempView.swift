@@ -60,7 +60,7 @@ struct SellerTempView: View {
                     .cornerRadius(8)
             }
             .sheet(isPresented: $move3) {
-                GoodsSellerView()
+                GoodsListSellerView()
                 
             }
             

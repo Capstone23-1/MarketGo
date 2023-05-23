@@ -1,7 +1,7 @@
 import SwiftUI
 import Alamofire
 
-struct GoodsSellerView: View {
+struct GoodsListSellerView: View {
     @State private var goodsList: [GoodOne] = []
     @EnvironmentObject var userViewModel: UserModel
     @State private var storeID = 0
