@@ -36,12 +36,6 @@ struct MarketReviewPostView: View {
     var body: some View {
         NavigationView {
             Form {
-//                Section(header: Text("Market Information")) {
-//                    TextField("Market ID", value: $marketID, formatter: NumberFormatter())
-//                        .keyboardType(.numberPad)
-//                    TextField("Member ID", value: $memberID, formatter: NumberFormatter())
-//                        .keyboardType(.numberPad)
-//                }
                 
                 Section(header: Text("Review")) {
                     
@@ -69,9 +63,7 @@ struct MarketReviewPostView: View {
                     }
                     TextEditor(text: $reviewContent)
                         .frame(height: 100)
-                    Text("marketID: \(marketID)")
-                    Text("memberID: \(memberID)")
-                    Text("ratings: \(ratings)")
+
                 }
                 
                 
