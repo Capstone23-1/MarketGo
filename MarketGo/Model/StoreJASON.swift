@@ -39,35 +39,6 @@ struct StoreElement: Codable, Identifiable {
 }
 
 
-// MARK: - StoreFile
-//struct StoreFile: Codable {
-//    var fileID: Int?
-//    var originalFileName, uploadFileName, uploadFilePath: String?
-//    var uploadFileURL: String?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case fileID = "fileId"
-//        case originalFileName, uploadFileName, uploadFilePath
-//        case uploadFileURL = "uploadFileUrl"
-//    }
-//}
-
-//// MARK: - StoreMarketID
-//struct StoreMarketID: Codable {
-//    var marketID: Int?
-//    var marketName, marketAddress1, marketAddress2, marketLocation: String?
-//    var marketLatitude, marketLongitude, marketRatings: Double?
-//    var marketInfo, parking, toilet, marketPhonenum: String?
-//    var marketGiftcard, marketType, updateTime: String?
-//    var marketFile, marketMap: StoreFile?
-//    var reviewCount: Int?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case marketID = "marketId"
-//        case marketName, marketAddress1, marketAddress2, marketLocation, marketLatitude, marketLongitude, marketRatings, marketInfo, parking, toilet, marketPhonenum, marketGiftcard, marketType, updateTime, marketFile, marketMap, reviewCount
-//    }
-//}
-
 typealias Store = [StoreElement]
 
 class StoreViewModel: ObservableObject {

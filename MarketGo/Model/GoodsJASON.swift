@@ -30,6 +30,13 @@ struct GoodOne: Codable, Identifiable {
        }
 }
 
+// MARK: - GoodsPost
+struct GoodsPost: Codable {
+    var goodsName,goodsUnit,goodsInfo,goodsOrigin,isAvail: String?
+    var marketId,storeId,goodsFileId,goodsPrice: Int?
+
+}
+
 
 
 struct GoodsImage: View {

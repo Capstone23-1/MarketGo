@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0105F9E59D5FB8A37852C587 /* libPods-MarketGo-MarketGoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C5ED25F851D0B3E94785A /* libPods-MarketGo-MarketGoUITests.a */; };
 		210704B12A1BBA2A00643140 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B02A1BBA2A00643140 /* ImageDownloader.swift */; };
+		210704B32A1CB3D900643140 /* GoodsPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B22A1CB3D900643140 /* GoodsPostViewModel.swift */; };
+		210704B52A1CB58A00643140 /* GoodsPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210704B42A1CB58A00643140 /* GoodsPostView.swift */; };
 		210861FC2A06AE0900EC3A60 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210861FB2A06AE0900EC3A60 /* Config.swift */; };
 		210862002A06AF8F00EC3A60 /* FindPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210861FF2A06AF8F00EC3A60 /* FindPathView.swift */; };
 		210862022A06D67900EC3A60 /* MapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210862012A06D67900EC3A60 /* MapLinkView.swift */; };
@@ -124,6 +126,8 @@
 /* Begin PBXFileReference section */
 		0BD43796E872DF5BD291D948 /* libPods-MarketGo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MarketGo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		210704B02A1BBA2A00643140 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		210704B22A1CB3D900643140 /* GoodsPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsPostViewModel.swift; sourceTree = "<group>"; };
+		210704B42A1CB58A00643140 /* GoodsPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsPostView.swift; sourceTree = "<group>"; };
 		210861FB2A06AE0900EC3A60 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		210861FF2A06AF8F00EC3A60 /* FindPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPathView.swift; sourceTree = "<group>"; };
 		210862012A06D67900EC3A60 /* MapLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLinkView.swift; sourceTree = "<group>"; };
@@ -359,6 +363,7 @@
 				2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */,
 				21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */,
 				211F53E12A17E6A5003DA011 /* SellerSignInViewModel.swift */,
+				210704B22A1CB3D900643140 /* GoodsPostViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
 				211F53ED2A1AA91D003DA011 /* EditProfileSellerView.swift */,
+				210704B42A1CB58A00643140 /* GoodsPostView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -754,6 +760,7 @@
 				21FAE1E62A0AA787006593D9 /* SignInView.swift in Sources */,
 				2144FE6F29DD6A58008913C4 /* LocationModel.swift in Sources */,
 				2144FE7929DD6B4F008913C4 /* MarketSearchView.swift in Sources */,
+				210704B32A1CB3D900643140 /* GoodsPostViewModel.swift in Sources */,
 				2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */,
 				21416B8C2A1025F0008EA3C5 /* SellerMarketChoiceView.swift in Sources */,
 				2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */,
@@ -781,6 +788,7 @@
 				99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */,
 				997BD5632A1B846B00E7A7EE /* StoreReviewPostModel.swift in Sources */,
 				997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */,
+				210704B52A1CB58A00643140 /* GoodsPostView.swift in Sources */,
 				211F53E22A17E6A5003DA011 /* SellerSignInViewModel.swift in Sources */,
 				21D006982A15DB9200C404C3 /* StoreEnrollView.swift in Sources */,
 				994979C32A119ADE00159828 /* URLImage.swift in Sources */,
