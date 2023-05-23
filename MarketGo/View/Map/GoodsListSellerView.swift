@@ -66,11 +66,7 @@ struct GoodsListSellerView: View {
                 await fetchGoodsData()
             }
         }
-        Button(action: {
-            print(selectedGoodsIDs)
-        }) {
-            Text("Print Selected Goods")
-        }
+        
     }
     
     func fetchGoodsData() async {
