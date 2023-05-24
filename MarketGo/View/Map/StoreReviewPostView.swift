@@ -16,18 +16,19 @@ import SwiftUI
 import Alamofire
 
 struct StoreReviewPostView: View {
+    let store: StoreElement
+    
     @State private var selectedImage: UIImage? = nil // 선택된 이미지를 저장할 변수
-    @State private var imageCate = StoreCategory(categoryID: 4,categoryName: "m_review")
+    @State private var imageCate = StoreCategory(categoryID: 5,categoryName: "s_review")
     @State private var imageUploader = ImageUploader()
     @State private var newImage = FileInfo()
     
     @EnvironmentObject private var storePost: StorePostViewModel
     
     @EnvironmentObject var userModel: UserModel
-    @EnvironmentObject var marketModel: MarketModel
     
-    var marketID: Int{
-        marketModel.currentMarket?.marketID ?? 0
+    var storeId: Int{
+        store.storeID ?? 0
     }
     
     var memberID: Int{
@@ -38,13 +39,13 @@ struct StoreReviewPostView: View {
     
     @State private var ratings: Double = 0.0
     @State private var reviewContent: String = ""
-    @State private var marketReviewFile: Int = 1
+    @State private var storeReviewFile: Int = 1
     @State private var isLoading: Bool = false
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
     
     let starColor = Color(red: 255/255, green: 202/255, blue: 40/255)
-    let starWidth: CGFloat = 30.0
+    let starWidth: CGFloat = 27.0
     
     
     var body: some View {
@@ -108,7 +109,7 @@ struct StoreReviewPostView: View {
     }
     
     func submitReview() async {
-        guard marketID != 0 else {
+        guard storeId != 0 else {
             showAlert(message: "Please enter Market ID.")
             return
         }
@@ -139,7 +140,7 @@ struct StoreReviewPostView: View {
                 if let id = result.fileID {
                     self.newImage = result // Update the newImage property
                     print("file id get : \(newImage.fileID) id: \(id)")
-                    marketReviewFile = id // Update the marketReviewFile property
+                    storeReviewFile = id // Update the marketReviewFile property
                 }
             } else {
                 print("이미지를 선택하지 않았습니다.")
