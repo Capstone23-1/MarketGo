@@ -10,7 +10,7 @@ import Alamofire
 
 struct MarketReviewPostView: View {
     @State private var selectedImage: UIImage? = nil // 선택된 이미지를 저장할 변수
-    @State private var imageCate = StoreCategory(categoryID: 3,categoryName: "store")
+    @State private var imageCate = StoreCategory(categoryID: 4,categoryName: "review")
     @State private var imageUploader = ImageUploader()
     @State private var newImage = FileInfo()
     
@@ -42,7 +42,7 @@ struct MarketReviewPostView: View {
         NavigationView {
             Form {
                 
-                ImageUploadView(category: $imageCate.categoryName,  selectedImage: $selectedImage, newImage: $newImage)
+                ReviewImageUploadView(category: $imageCate.categoryName,  selectedImage: $selectedImage, newImage: $newImage)
                 
                 Section(header: Text("Review")) {
                     
