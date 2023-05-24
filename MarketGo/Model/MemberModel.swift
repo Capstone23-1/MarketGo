@@ -78,9 +78,9 @@ struct MemberInfo: Codable {
 struct CartID: Codable {
     var cartID: Int?
     var cartDate: String?
-    var goodsId1, goodsId2, goodsId3, goodsId4: [String: Int?]?
-    var goodsId5, goodsId6, goodsId7, goodsId8: [String: Int?]?
-    var goodsId9, goodsId10: [String: Int?]?
+    var goodsId1, goodsId2, goodsId3, goodsId4: GoodsOne?
+    var goodsId5, goodsId6, goodsId7, goodsId8: GoodsOne?
+    var goodsId9, goodsId10: GoodsOne?
     var unit1, unit2, unit3, unit4: Int?
     var unit5, unit6, unit7, unit8: Int?
     var unit9, unit10: Int?

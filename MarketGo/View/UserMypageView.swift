@@ -53,6 +53,7 @@ struct UserMyPageView: View {
                     .foregroundColor(.gray)
             }
             Spacer()
+            
         }
         .padding()
         .navigationBarTitle("My Page", displayMode: .inline)
