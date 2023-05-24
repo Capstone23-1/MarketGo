@@ -43,7 +43,8 @@ struct FindPathView: View {
                 if UIApplication.shared.canOpenURL(naverURL) {
                     UIApplication.shared.open(naverURL)
                 } else {
-                    let webURL = URL(string: "https://m.map.naver.com/directions/?waypoint=\(selectedMarket?.marketLatitude! ?? cauLocation.lat),\(selectedMarket?.marketLongitude! ?? cauLocation.lng)")
+                    
+                    let webURL = URL(string: "https://map.naver.com/v5/search?query=\(name)")
                     UIApplication.shared.open(webURL!)
                 }
             }

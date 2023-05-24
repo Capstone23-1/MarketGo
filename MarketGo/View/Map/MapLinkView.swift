@@ -32,7 +32,8 @@ struct MapLinkView: View {
     }
     
     func naverMapURL() -> URL {
-        let urlString = "https://map.naver.com/v5/search?query=\(place.latitude),\(place.longitude)"
+//        let placeName = makeStringKoreanEncoded()
+        let urlString = "https://map.naver.com/v5/search?query=hi"
         return URL(string: urlString)!
     }
     

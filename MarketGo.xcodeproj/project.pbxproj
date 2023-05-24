@@ -965,6 +965,9 @@
 				INFOPLIST_FILE = MarketGo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MarketGo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "정보를 제공하기 위하여 Always and When In Use";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "정보를 제공하기 위하여 Always";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "정보를 제공하기 위하여 When In Usage";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -999,6 +1002,9 @@
 				INFOPLIST_FILE = MarketGo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MarketGo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "정보를 제공하기 위하여 Always and When In Use";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "정보를 제공하기 위하여 Always";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "정보를 제공하기 위하여 When In Usage";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
