@@ -11,7 +11,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>market-go</string>
+				<string>marketgo</string>
 			</array>
 		</dict>
 		<dict/>
