@@ -79,27 +79,28 @@ struct StoreView: View {
                    
                     
                 }
+                Divider()
                                 
                                                     
                     if let market = store.storeMarketID {
-                        Text("Market: \(market.marketName ?? "")")
+                        Text("\(market.marketName ?? "")")
                             .foregroundColor(.black)
 
-                        Text("Market Address: \(market.marketAddress1 ?? "") \(market.marketAddress2 ?? "")")
+                        Text("시장 주소 : \(market.marketAddress1 ?? "") \(market.marketAddress2 ?? "")")
                             .foregroundColor(.black)
 
-                        Text("Market Location: \(market.marketLocation ?? "")")
-                            .foregroundColor(.black)
-                        Divider()
-
-                        Text("Parking: \(market.parking ?? "")")
-                            .foregroundColor(.black)
-
-                        Text("Toilet: \(market.toilet ?? "")")
+                        Text("시장 위치: \(market.marketLocation ?? "")")
                             .foregroundColor(.black)
                         Divider()
 
-                        Text("Market Phone: \(market.marketPhonenum ?? "")")
+                        Text("주차 가능 여부 : \(market.parking ?? "")")
+                            .foregroundColor(.black)
+
+                        Text("화장실 유무: \(market.toilet ?? "")")
+                            .foregroundColor(.black)
+                        Divider()
+
+                        Text("시장 전화번호 : \(market.marketPhonenum ?? "")")
                             .foregroundColor(.black)
 
                         Text("Market Giftcard: \(market.marketGiftcard ?? "")")
@@ -108,15 +109,12 @@ struct StoreView: View {
 
                     }
 
-                   
-                    
-                
             }
             
             Button(action: {
                 isWritingReview = true
             }, label: {
-                Text("Write a Review")
+                Text("리뷰 작성하기")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
