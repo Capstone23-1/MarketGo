@@ -16,7 +16,11 @@ struct MenuView: View {
             // Menu Board
             if !goodsViewModel.goods.isEmpty {
                 List(goodsViewModel.goods) { good in
-                    MenuItemRow(goods: good, storeID: good.goodsStore?.storeID ?? 0)
+                    NavigationLink(destination: FoodItemDetailView(goods: good)) {
+                        MenuItemRow(goods: good, storeID: good.goodsStore?.storeID ?? 0)
+                            .foregroundColor(.black)
+                    }
+                    
                 }
             } else {
                 Text("No menu items available")

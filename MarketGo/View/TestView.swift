@@ -15,7 +15,7 @@ struct TestView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Market Information")) {
+                Section(header: Text(" Information")) {
                     TextField("Market ID", value: $marketID, formatter: NumberFormatter())
                         .keyboardType(.numberPad)
                     TextField("Member ID", value: $memberID, formatter: NumberFormatter())
