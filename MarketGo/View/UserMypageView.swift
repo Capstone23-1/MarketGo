@@ -44,7 +44,16 @@ struct UserMyPageView: View {
                     .font(.footnote)
                     .foregroundColor(.gray)
             }
+           
+            HStack {
+                Text("cart id")
+                Spacer()
+                Text("\(userModel.currentUser?.cartID?.cartID ?? 0)")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+            }
             Spacer()
+            
         }
         .padding()
         .navigationBarTitle("My Page", displayMode: .inline)

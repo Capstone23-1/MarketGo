@@ -56,8 +56,8 @@ struct GoodsID: Codable, Equatable {
 class CartViewModel: ObservableObject {
     @Published var cart: Cart?
     
-    func fetchCart(forUserId userId: Int) {
-        let url = "http://3.34.33.15:8080/cart/\(userId)"
+    func fetchCart(forUserId cartId: Int) {
+        let url = "http://3.34.33.15:8080/cart/\(cartId)"
         
         AF.request(url).responseData { response in
             switch response.result {
