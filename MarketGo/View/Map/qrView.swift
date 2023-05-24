@@ -2,16 +2,17 @@ import SwiftUI
 import QRCode
 
 struct qrView: View {
-    
     @State private var qrCodeString = "marketgo://98" // QR 생성 데이터
     @State private var info = "싱글탱글생성회"
     
     var body: some View {
         VStack {
-            Text("QR 코드 생성기")
-                .font(.headline)
+            Text("자세한 가게 정보를 보려면 QR 코드를 인식해주세요")
+                .font(.largeTitle) // 대문자 폰트로 변경
             QRCodeView(qrCodeString: $qrCodeString)
-            TextField("qrcode 뒤에 넣을꺼", text: $info)
+            Text(info)
+                .font(.title) // 커다란 제목 폰트로 변경
+                .frame(maxWidth: .infinity, alignment: .center) // 가로 방향으로 정중앙 정렬
                 .padding()
         }
     }
