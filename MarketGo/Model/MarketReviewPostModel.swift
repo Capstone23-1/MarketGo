@@ -48,3 +48,4 @@ class MarketReviewPostViewModel: ObservableObject {
     }
 }
 
+
