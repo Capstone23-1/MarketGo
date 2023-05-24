@@ -1,4 +1,3 @@
-
 import SwiftUI
 import FirebaseCore
 
@@ -8,43 +7,33 @@ struct MarketGoApp: App {
     @StateObject private var storePost = StorePostViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) var scenePhase
-    @State var storeId: String? = nil
-    @State var store:   StoreElement? = nil
+    
+    @State private var deepLinkStoreId: String?
+    @State private var fetchedStore: StoreElement?
+    @State private var isLoading = false
     
     var body: some Scene {
         WindowGroup {
-            if let store = store {
-                StoreView(store: store)
-            
-            } else {
-                SignInView()
-                    .environmentObject(userModel)
-                    .environmentObject(storePost)
+            ZStack {
+                if isLoading {
+                    ProgressView("Loading...")
+                } else if let storeId = deepLinkStoreId, let store = fetchedStore {
+                    StoreView(store: store)
+                } else {
+                    SignInView()
+                        .environmentObject(userModel)
+                        .environmentObject(storePost)
+                }
             }
-        }.onChange(of: scenePhase) { phase in
-            if phase == .active {
-                NotificationCenter.default.addObserver(forName: .openStore, object: nil, queue: .main) { notification in
-                    if let storeId = notification.userInfo?["storeId"] as? String {
-                        self.storeId = storeId
-                        fetchStore()
-                    }
+            .onOpenURL { url in
+                guard let host = url.host else { return }
+                deepLinkStoreId = host
+                isLoading = true
+                Task {
+                    fetchedStore = try? await Config().fetchStoreById(deepLinkStoreId!)
+                    isLoading = false
                 }
             }
         }
     }
-    
-    func fetchStore() {
-        if let storeId = storeId {
-            Task {
-                do {
-                    self.store = try await Config().fetchStoreById(storeId)
-                } catch {
-                    // handle error
-                }
-            }
-        }
-    }
-}
-extension NSNotification.Name {
-    static let openStore = NSNotification.Name("openStore")
 }

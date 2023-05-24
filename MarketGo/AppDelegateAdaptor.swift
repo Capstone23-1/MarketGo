@@ -1,24 +1,23 @@
+
 import SwiftUI
 import Firebase
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
-        
-        return true
-    }
+    var storeIdToOpen: Int? // Add this line
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    FirebaseApp.configure()
+
+    return true
+  }
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        // Parse the URL
-        let urlPath = url.path
-        let pathComponents = urlPath.components(separatedBy: "/")
-        if pathComponents.count > 1 {
-            let storeIdString = pathComponents[1]
-            if let storeId = Int(storeIdString) {
-                // Store the storeId in some global state
-                // Then navigate to the StoreView with this storeId
-            }
+        let urlString = url.absoluteString
+        let components = urlString.split(separator: "/")
+
+        if let lastComponent = components.last, let storeId = Int(lastComponent) {
+            storeIdToOpen = storeId
         }
+
         return true
-    }
+      }
     
 }

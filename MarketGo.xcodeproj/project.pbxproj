@@ -60,6 +60,7 @@
 		2181EDDA2A127E8300B879B2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD92A127E8300B879B2 /* HomeView.swift */; };
 		2188126429E96F4700F315EF /* ParkingLotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126329E96F4700F315EF /* ParkingLotViewModel.swift */; };
 		2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126529E972ED00F315EF /* ParkingLotView.swift */; };
+		21A789B72A1E514700DD9456 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789B62A1E514700DD9456 /* AppState.swift */; };
 		21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */; };
 		21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006912A15047100C404C3 /* UserSignUpView.swift */; };
 		21D006942A15057E00C404C3 /* ImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006932A15057E00C404C3 /* ImageUploadView.swift */; };
@@ -182,6 +183,7 @@
 		2188126329E96F4700F315EF /* ParkingLotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotViewModel.swift; sourceTree = "<group>"; };
 		2188126529E972ED00F315EF /* ParkingLotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotView.swift; sourceTree = "<group>"; };
 		2198B6DE943CEFFEB56B33D7 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		21A789B62A1E514700DD9456 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpViewModel.swift; sourceTree = "<group>"; };
 		21D006912A15047100C404C3 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		21D006932A15057E00C404C3 /* ImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadView.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				211F53DF2A17B3CB003DA011 /* StorePostViewModel.swift */,
 				211F53EB2A1A9611003DA011 /* APIService.swift */,
 				210704B02A1BBA2A00643140 /* ImageDownloader.swift */,
+				21A789B62A1E514700DD9456 /* AppState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */,
 				997BD5632A1B846B00E7A7EE /* StoreReviewPostModel.swift in Sources */,
 				997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */,
+				21A789B72A1E514700DD9456 /* AppState.swift in Sources */,
 				211F53E22A17E6A5003DA011 /* SellerSignInViewModel.swift in Sources */,
 				998910E52A1DD29A0062C1C9 /* StoreReviewPostView.swift in Sources */,
 				21D006982A15DB9200C404C3 /* PostStoreView.swift in Sources */,
