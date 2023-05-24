@@ -23,7 +23,7 @@ struct MarketReviewView: View {
             Button(action: {
                 isWritingReview = true
             }, label: {
-                Text("Write a Review")
+                Text("\(marketModel.currentMarket?.marketName ?? "") 리뷰 작성")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()

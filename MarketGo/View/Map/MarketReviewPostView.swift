@@ -10,9 +10,11 @@ import Alamofire
 
 struct MarketReviewPostView: View {
     @State private var selectedImage: UIImage? = nil // 선택된 이미지를 저장할 변수
-    @State private var imageCate = StoreCategory(categoryID: 3,categoryName: "store")
+    @State private var imageCate = StoreCategory(categoryID: 4,categoryName: "m_review")
     @State private var imageUploader = ImageUploader()
     @State private var newImage = FileInfo()
+    
+    @EnvironmentObject private var storePost: StorePostViewModel
     
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
@@ -42,7 +44,7 @@ struct MarketReviewPostView: View {
         NavigationView {
             Form {
                 
-                ImageUploadView(category: $imageCate.categoryName,  selectedImage: $selectedImage, newImage: $newImage)
+                ReviewImageUploadView(category: $imageCate.categoryName,  selectedImage: $selectedImage, newImage: $newImage)
                 
                 Section(header: Text("Review")) {
                     
@@ -76,7 +78,10 @@ struct MarketReviewPostView: View {
                 
                 
                 Button(action: {
-                    submitReview()
+                    Task{
+                        await submitReview()
+                    }
+                    
                     
                 }, label: {
                     Text("Submit")
@@ -95,7 +100,7 @@ struct MarketReviewPostView: View {
         }
     }
     
-    func submitReview() {
+    func submitReview() async {
         guard marketID != 0 else {
             showAlert(message: "Please enter Market ID.")
             return
@@ -106,7 +111,7 @@ struct MarketReviewPostView: View {
             return
         }
         
-        guard ratings > 0 else {
+        guard ratings >= 0 else {
             showAlert(message: "Please select Ratings.")
             return
         }
@@ -115,32 +120,52 @@ struct MarketReviewPostView: View {
             showAlert(message: "Please enter Review Content.")
             return
         }
-
+        
         isLoading = true
         
-        let reviewPost = MarketReviewPost(
-            marketId: marketID,
-            memberId: memberID,
-            ratings: ratings,
-            reviewContent: reviewContent,
-            marketReviewFile: marketReviewFile
-        )
-        let encoContent = makeStringKoreanEncoded(reviewContent)
-
-        let url = "http://3.34.33.15:8080/marketReview?marketId=\(String(describing:marketID))&memberId=\(String(describing:memberID))&ratings=\(String(describing: ratings))&reviewContent=\(encoContent)&marketReviewFile=\(String(describing: marketReviewFile))"
-        let headers: HTTPHeaders = ["Content-Type": "application/json"]
-        AF.request(url, method: .post,headers: headers)
-            .responseJSON { response in
-                debugPrint(response)
-                switch response.result {
-                case .success:
-                    showAlert(message: "Review submitted successfully.")
-                case .failure(let error):
-                    showAlert(message: "Failed to submit review. \(error.localizedDescription)")
+        do {
+            if let image = self.selectedImage {
+                let result = try await imageUploader.uploadImageToServer(image: image, category: imageCate.categoryName, id: String(imageCate.categoryID))
+                
+                print("이미지업로드성공:\(String(describing: result.uploadFileName!))")
+                
+                if let id = result.fileID {
+                    self.newImage = result // Update the newImage property
+                    print("file id get : \(newImage.fileID) id: \(id)")
+                    marketReviewFile = id // Update the marketReviewFile property
                 }
-                isLoading = false
+            } else {
+                print("이미지를 선택하지 않았습니다.")
+                return
             }
+            
+            let reviewPost = MarketReviewPost(
+                marketId: marketID,
+                memberId: memberID,
+                ratings: ratings,
+                reviewContent: reviewContent,
+                marketReviewFile: marketReviewFile
+            )
+            let encoContent = makeStringKoreanEncoded(reviewContent)
+            
+            let url = "http://3.34.33.15:8080/marketReview?marketId=\(String(describing:marketID))&memberId=\(String(describing:memberID))&ratings=\(String(describing: ratings))&reviewContent=\(encoContent)&marketReviewFile=\(String(describing: marketReviewFile))"
+            let headers: HTTPHeaders = ["Content-Type": "application/json"]
+            AF.request(url, method: .post, headers: headers)
+                .responseJSON { response in
+                    debugPrint(response)
+                    switch response.result {
+                    case .success:
+                        showAlert(message: "리뷰 작성이 완료되었습니다.")
+                    case .failure(let error):
+                        showAlert(message: "리뷰 작성 실패 \(error.localizedDescription)")
+                    }
+                    isLoading = false
+                }
+        } catch {
+            print("Error uploading image: \(error)")
+        }
     }
+
 
     
     func showAlert(message: String) {
