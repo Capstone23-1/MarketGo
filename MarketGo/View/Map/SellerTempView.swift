@@ -7,6 +7,8 @@ struct SellerTempView: View {
     @State var move1 = false
     @State var move2 = false
     @State var move3 = false
+    @State var move4 = false
+    @State var move5 = false
     
     var body: some View {
         VStack{
@@ -56,6 +58,20 @@ struct SellerTempView: View {
             }
             .sheet(isPresented: $move3) {
                 GoodsListSellerView()
+                
+            }
+            Button {
+                move4=true
+            } label: {
+                Text("qr 생성")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.accentColor)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+            .sheet(isPresented: $move4) {
+                qrView()
                 
             }
             
