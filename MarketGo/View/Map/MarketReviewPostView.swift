@@ -174,9 +174,3 @@ struct MarketReviewPostView: View {
     }
     
 }
-
-struct MarketReviewPostView_Previews: PreviewProvider {
-    static var previews: some View {
-        MarketReviewPostView()
-    }
-}
