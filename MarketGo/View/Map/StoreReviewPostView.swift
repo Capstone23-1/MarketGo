@@ -1,4 +1,11 @@
 //
+//  StoreReviewPostView.swift
+//  MarketGo
+//
+//  Created by 김주현 on 2023/05/24.
+//
+
+//
 //  MarketReviewPostView.swift
 //  MarketGo
 //
@@ -8,7 +15,7 @@
 import SwiftUI
 import Alamofire
 
-struct MarketReviewPostView: View {
+struct StoreReviewPostView: View {
     @State private var selectedImage: UIImage? = nil // 선택된 이미지를 저장할 변수
     @State private var imageCate = StoreCategory(categoryID: 4,categoryName: "m_review")
     @State private var imageUploader = ImageUploader()
