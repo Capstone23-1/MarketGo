@@ -111,7 +111,7 @@ struct MarketReviewPostView: View {
             return
         }
         
-        guard ratings > 0 else {
+        guard ratings >= 0 else {
             showAlert(message: "Please select Ratings.")
             return
         }
@@ -155,9 +155,9 @@ struct MarketReviewPostView: View {
                     debugPrint(response)
                     switch response.result {
                     case .success:
-                        showAlert(message: "Review submitted successfully.")
+                        showAlert(message: "리뷰 작성이 완료되었습니다.")
                     case .failure(let error):
-                        showAlert(message: "Failed to submit review. \(error.localizedDescription)")
+                        showAlert(message: "리뷰 작성 실패 \(error.localizedDescription)")
                     }
                     isLoading = false
                 }
