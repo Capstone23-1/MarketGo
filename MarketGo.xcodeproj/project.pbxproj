@@ -61,6 +61,8 @@
 		2188126429E96F4700F315EF /* ParkingLotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126329E96F4700F315EF /* ParkingLotViewModel.swift */; };
 		2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126529E972ED00F315EF /* ParkingLotView.swift */; };
 		21A789B72A1E514700DD9456 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789B62A1E514700DD9456 /* AppState.swift */; };
+		21A789BA2A1E6A3800DD9456 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789B92A1E6A3800DD9456 /* QRCode */; };
+		21A789BD2A1E6AF600DD9456 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789BC2A1E6AF600DD9456 /* PinLayout */; };
 		21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */; };
 		21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006912A15047100C404C3 /* UserSignUpView.swift */; };
 		21D006942A15057E00C404C3 /* ImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006932A15057E00C404C3 /* ImageUploadView.swift */; };
@@ -241,6 +243,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21A789BD2A1E6AF600DD9456 /* PinLayout in Frameworks */,
+				21A789BA2A1E6A3800DD9456 /* QRCode in Frameworks */,
 				AEC6AFE4A57CD1E7E1E0B310 /* libPods-MarketGo.a in Frameworks */,
 				2150934129DEF1A40001C788 /* Alamofire in Frameworks */,
 				21FAE1D82A0AA422006593D9 /* FirebaseAnalytics in Frameworks */,
@@ -490,6 +494,8 @@
 				2150934029DEF1A40001C788 /* Alamofire */,
 				21FAE1D72A0AA422006593D9 /* FirebaseAnalytics */,
 				21FAE1D92A0AA422006593D9 /* FirebaseAuth */,
+				21A789B92A1E6A3800DD9456 /* QRCode */,
+				21A789BC2A1E6AF600DD9456 /* PinLayout */,
 			);
 			productName = MarketGo;
 			productReference = 2140BC5029D1CEB900B78C6C /* MarketGo.app */;
@@ -569,6 +575,8 @@
 			packageReferences = (
 				2150933F29DEF1A40001C788 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				21FAE1D62A0AA422006593D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				21A789B82A1E6A3800DD9456 /* XCRemoteSwiftPackageReference "QRCode" */,
+				21A789BB2A1E6AF600DD9456 /* XCRemoteSwiftPackageReference "PinLayout" */,
 			);
 			productRefGroup = 2140BC5129D1CEB900B78C6C /* Products */;
 			projectDirPath = "";
@@ -1158,6 +1166,22 @@
 				kind = branch;
 			};
 		};
+		21A789B82A1E6A3800DD9456 /* XCRemoteSwiftPackageReference "QRCode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmrschmidt/QRCode";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		21A789BB2A1E6AF600DD9456 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		21FAE1D62A0AA422006593D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1173,6 +1197,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2150933F29DEF1A40001C788 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		21A789B92A1E6A3800DD9456 /* QRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21A789B82A1E6A3800DD9456 /* XCRemoteSwiftPackageReference "QRCode" */;
+			productName = QRCode;
+		};
+		21A789BC2A1E6AF600DD9456 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21A789BB2A1E6AF600DD9456 /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
 		};
 		21FAE1D72A0AA422006593D9 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
