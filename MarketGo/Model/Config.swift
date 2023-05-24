@@ -74,6 +74,27 @@ class Config{
         }
     }
 
+    
+
+    func fetchStoreById(_ storeId: String) async throws -> StoreElement {
+        return try await withCheckedContinuation { continuation in
+            let url = "http://3.34.33.15:8080/store/\(storeId)"
+            AF.request(url, method: .get)
+              .validate()
+              .responseDecodable(of: StoreElement.self) { response in
+                  switch response.result {
+                  case .success(let storeElement):
+                      continuation.resume(returning: storeElement)
+                  case .failure(let error):
+                          continuation.resume(throwing: error as Error as! Never)
+                  }
+              }
+        }
+    }
+
+
+
+
 }
 func makeStringKoreanEncoded(_ string: String) -> String {
     return string.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? string

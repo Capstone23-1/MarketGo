@@ -1,10 +1,3 @@
-////
-////  StoreView.swift
-////  MarketGo
-////
-////  Created by 김주현 on 2023/04/06.
-////
-//
 
 //  StoreView.swift
 //  MarketGo
