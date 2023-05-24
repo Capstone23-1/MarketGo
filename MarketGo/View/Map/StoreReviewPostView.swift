@@ -27,7 +27,7 @@ struct StoreReviewPostView: View {
     
     @EnvironmentObject var userModel: UserModel
     
-    var storeId: Int{
+    var storeID: Int{
         store.storeID ?? 0
     }
     
@@ -55,12 +55,6 @@ struct StoreReviewPostView: View {
                 ReviewImageUploadView(category: $imageCate.categoryName,  selectedImage: $selectedImage, newImage: $newImage)
                 
                 Section(header: Text("Review")) {
-                    
-//                    HStack {
-//                        Text("Ratings")
-//                        Slider(value: $ratings, in: 0...5, step: 0.5)
-//                        Text(String(format: "%.1f", ratings))
-//                    }
                     
                     HStack(spacing: 10) {
 
@@ -101,7 +95,7 @@ struct StoreReviewPostView: View {
                 })
                 .disabled(isLoading)
             }
-            .navigationBarTitle("Market Review")
+            .navigationBarTitle("\(store.storeName ?? "") Review")
             .alert(isPresented: $showAlert, content: {
                 Alert(title: Text("Notification"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             })
@@ -109,7 +103,7 @@ struct StoreReviewPostView: View {
     }
     
     func submitReview() async {
-        guard storeId != 0 else {
+        guard storeID != 0 else {
             showAlert(message: "Please enter Market ID.")
             return
         }
@@ -125,7 +119,7 @@ struct StoreReviewPostView: View {
         }
         
         guard !reviewContent.isEmpty else {
-            showAlert(message: "Please enter Review Content.")
+            showAlert(message: "리뷰를 작성해주세요.")
             return
         }
         
@@ -147,16 +141,16 @@ struct StoreReviewPostView: View {
                 return
             }
             
-            let reviewPost = MarketReviewPost(
-                marketId: marketID,
+            let reviewPost = StoreReviewPost(
+                storeId: storeID,
                 memberId: memberID,
                 ratings: ratings,
                 reviewContent: reviewContent,
-                marketReviewFile: marketReviewFile
+                storeReviewFile: storeReviewFile
             )
             let encoContent = makeStringKoreanEncoded(reviewContent)
             
-            let url = "http://3.34.33.15:8080/marketReview?marketId=\(String(describing:marketID))&memberId=\(String(describing:memberID))&ratings=\(String(describing: ratings))&reviewContent=\(encoContent)&marketReviewFile=\(String(describing: marketReviewFile))"
+            let url = "http://3.34.33.15:8080/storeReview?storeId=\(String(describing:storeID))&memberId=\(String(describing:memberID))&ratings=\(String(describing: ratings))&reviewContent=\(encoContent)&storeReviewFile=\(String(describing: storeReviewFile))"
             let headers: HTTPHeaders = ["Content-Type": "application/json"]
             AF.request(url, method: .post, headers: headers)
                 .responseJSON { response in
@@ -183,8 +177,3 @@ struct StoreReviewPostView: View {
     
 }
 
-struct MarketReviewPostView_Previews: PreviewProvider {
-    static var previews: some View {
-        MarketReviewPostView()
-    }
-}

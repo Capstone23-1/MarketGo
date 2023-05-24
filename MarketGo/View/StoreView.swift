@@ -127,7 +127,7 @@ struct StoreView: View {
             
             } .sheet(isPresented: $isWritingReview, content: {
                 // Present the view for writing a review
-                TestView()
+                StoreReviewPostView(store: store)
             })
         
         }
