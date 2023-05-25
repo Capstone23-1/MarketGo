@@ -1,38 +1,39 @@
-//
-//  MarketGoApp.swift
-//  MarketGo
-//
-//  Created by ram on 2023/03/27.
-//
-
 import SwiftUI
 import FirebaseCore
-
 
 @main
 struct MarketGoApp: App {
     @StateObject var userModel = UserModel()
     @StateObject private var storePost = StorePostViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @Environment(\.scenePhase) var scenePhase
     
-    //파이어베이스 연결부분
+    @State private var deepLinkStoreId: String?
+    @State private var fetchedStore: StoreElement?
+    @State private var isLoading = false
+    
     var body: some Scene {
         WindowGroup {
-            SignInView()
-                .environmentObject(userModel)
-                .environmentObject(storePost)
-                .onOpenURL { url in
-                    if (url.scheme! == "where-board" && url.host! == "invite") {
-                        print("이곳은")
-                        if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
-                            for query in components.queryItems! {
-                                print(query.name)
-                                print(query.value!)
-                            }
-                        }
-                    }
+            ZStack {
+                if isLoading {
+                    ProgressView("Loading...")
+                } else if let storeId = deepLinkStoreId, let store = fetchedStore {
+                    StoreView(store: store)
+                } else {
+                    SignInView()
+                        .environmentObject(userModel)
+                        .environmentObject(storePost)
                 }
-                
+            }
+            .onOpenURL { url in
+                guard let host = url.host else { return }
+                deepLinkStoreId = host
+                isLoading = true
+                Task {
+                    fetchedStore = try? await Config().fetchStoreById(deepLinkStoreId!)
+                    isLoading = false
+                }
+            }
         }
     }
 }
