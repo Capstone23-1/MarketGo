@@ -86,51 +86,11 @@ struct QRCodeReaderView: View {
             .sheet(isPresented: $showingScanner) {
                 QRCodeScannerView(showingScanner: $showingScanner, qrCodeString: $qrCodeString)
             }
-        }
-    }
-}
 
-struct QRCodeGeneratorView: View {
-    @State private var qrCodeString = "marketgo://98"
-
-    var body: some View {
-        VStack {
-            Image(uiImage: generateQRCodeImage(from: qrCodeString))
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200)
-
-            Button(action: {
-                openURL(with: qrCodeString)
-            }) {
-                Text("Open QR Code URL")
-                    .font(.title2)
+            if !qrCodeString.isEmpty {
+                Text("QR Code URL: \(qrCodeString)")
                     .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
             }
-        }
-    }
-
-    private func generateQRCodeImage(from string: String) -> UIImage {
-        let filter = CIFilter.qrCodeGenerator()
-        let data = Data(string.utf8)
-        filter.setValue(data, forKey: "inputMessage")
-
-        if let outputImage = filter.outputImage {
-            let context = CIContext()
-            if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
-                return UIImage(cgImage: cgImage)
-            }
-        }
-
-        return UIImage(systemName: "xmark") ?? UIImage()
-    }
-
-    private func openURL(with urlString: String) {
-        if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 }

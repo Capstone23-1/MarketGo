@@ -82,7 +82,7 @@ struct SellerTempView: View {
                     .cornerRadius(8)
             }
             .fullScreenCover(isPresented: $move5) {
-                QRCodeGeneratorView()
+                QRCodeReaderView()
             }
 
         }
