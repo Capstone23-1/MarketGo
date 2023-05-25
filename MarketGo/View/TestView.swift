@@ -1,5 +1,23 @@
 import SwiftUI
 
+struct GoodsUnit: Hashable, Identifiable {
+    let goodsID: Int
+    let unit: Int?
+    let goodsName: String?
+    let price: Int?
+    
+    var id: Int{
+        return goodsID
+    }
+    
+    init(goodsID: Int, unit: Int?, goodsName: String?, price: Int?) {
+        self.goodsID = goodsID
+        self.unit = unit
+        self.goodsName = goodsName
+        self.price = price
+    }
+}
+
 struct CartView: View {
     @ObservedObject var cartViewModel: CartViewModel = CartViewModel()
     @EnvironmentObject var userModel: UserModel
@@ -15,13 +33,15 @@ struct CartView: View {
                         }
                         
                         Section(header: Text("Goods")) {
-                            ForEach(1...10, id: \.self) { index in
-                                if let goodsId = getGoodsId(for: index, from: cart), goodsId.goodsID != 0 {
-                                    HStack {
-                                        Text("Goods ID \(index): \(goodsId.goodsID ?? 0)")
-                                        Spacer()
-                                        Text("Goods Name \(index): \(goodsId.goodsName ?? "")")
-                                    }
+                            ForEach(getGoodsAndUnits(from: cart)) { goodsUnit in
+                                HStack {
+                                    Text("Goods ID: \(goodsUnit.goodsID)")
+                                    Spacer()
+                                    Text("Goods Name: \(goodsUnit.goodsName ?? "")")
+                                    Spacer()
+                                    Text("Unit: \(goodsUnit.unit ?? 0)")
+                                    Spacer()
+                                    Text("Price: \(goodsUnit.price ?? 0)")
                                 }
                             }
                         }
@@ -37,19 +57,51 @@ struct CartView: View {
         }
     }
     
-    private func getGoodsId(for index: Int, from cart: Cart) -> GoodsID? {
-        switch index {
-        case 1: return cart.goodsId1
-        case 2: return cart.goodsId2
-        case 3: return cart.goodsId3
-        case 4: return cart.goodsId4
-        case 5: return cart.goodsId5
-        case 6: return cart.goodsId6
-        case 7: return cart.goodsId7
-        case 8: return cart.goodsId8
-        case 9: return cart.goodsId9
-        case 10: return cart.goodsId10
-        default: return nil
+    private func getGoodsAndUnits(from cart: Cart) -> [GoodsUnit] {
+        var goodsAndUnits: [GoodsUnit] = []
+        
+        if let goodsId1 = cart.goodsId1, let unit1 = cart.unit1, goodsId1.goodsID != 0 {
+            let goodsUnit = GoodsUnit(goodsID: goodsId1.goodsID ?? 0,
+                                      unit: unit1,
+                                      goodsName: goodsId1.goodsName,
+                                      price: goodsId1.goodsPrice)
+            goodsAndUnits.append(goodsUnit)
         }
+        
+        if let goodsId2 = cart.goodsId2, let unit2 = cart.unit2, goodsId2.goodsID != 0 {
+            let goodsUnit = GoodsUnit(goodsID: goodsId2.goodsID ?? 0,
+                                      unit: unit2,
+                                      goodsName: goodsId2.goodsName,
+                                      price: goodsId2.goodsPrice)
+            goodsAndUnits.append(goodsUnit)
+        }
+        
+        if let goodsId3 = cart.goodsId3, let unit3 = cart.unit3, goodsId3.goodsID != 0 {
+            let goodsUnit = GoodsUnit(goodsID: goodsId3.goodsID ?? 0,
+                                      unit: unit3,
+                                      goodsName: goodsId3.goodsName,
+                                      price: goodsId3.goodsPrice)
+            goodsAndUnits.append(goodsUnit)
+        }
+        
+        if let goodsId4 = cart.goodsId3, let unit4 = cart.unit4, goodsId4.goodsID != 0 {
+            let goodsUnit = GoodsUnit(goodsID: goodsId4.goodsID ?? 0,
+                                      unit: unit4,
+                                      goodsName: goodsId4.goodsName,
+                                      price: goodsId4.goodsPrice)
+            goodsAndUnits.append(goodsUnit)
+        }
+       
+        if let goodsId5 = cart.goodsId5, let unit5 = cart.unit5, goodsId5.goodsID != 0 {
+            let goodsUnit = GoodsUnit(goodsID: goodsId5.goodsID ?? 0,
+                                      unit: unit5,
+                                      goodsName: goodsId5.goodsName,
+                                      price: goodsId5.goodsPrice)
+            goodsAndUnits.append(goodsUnit)
+        }
+       
+       
+        
+        return goodsAndUnits
     }
 }
