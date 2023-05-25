@@ -1,107 +1,95 @@
 import SwiftUI
 
-struct GoodsUnit: Hashable, Identifiable {
-    let goodsID: Int
+struct CartItem: Hashable, Identifiable {
+    let id = UUID()
+    let goodsID: GoodsID?
     let unit: Int?
-    let goodsName: String?
-    let price: Int?
     
-    var id: Int{
-        return goodsID
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
     
-    init(goodsID: Int, unit: Int?, goodsName: String?, price: Int?) {
-        self.goodsID = goodsID
-        self.unit = unit
-        self.goodsName = goodsName
-        self.price = price
+    static func ==(lhs: CartItem, rhs: CartItem) -> Bool {
+        return lhs.id == rhs.id && lhs.goodsID == rhs.goodsID && lhs.unit == rhs.unit
     }
 }
 
+
 struct CartView: View {
-    @ObservedObject var cartViewModel: CartViewModel = CartViewModel()
     @EnvironmentObject var userModel: UserModel
-    
+    @ObservedObject var cartViewModel = CartViewModel()
+    @State private var cartItems: [CartItem] = []
+
     var body: some View {
-        NavigationView {
-            VStack {
-                if let cart = cartViewModel.cart {
-                    List {
-                        Section(header: Text("Cart Information")) {
-                            Text("Cart ID: \(cart.cartID ?? 0)")
-                            Text("Cart Date: \(cart.cartDate ?? "")")
-                        }
-                        
-                        Section(header: Text("Goods")) {
-                            ForEach(getGoodsAndUnits(from: cart)) { goodsUnit in
-                                HStack {
-                                    Text("Goods ID: \(goodsUnit.goodsID)")
-                                    Spacer()
-                                    Text("Goods Name: \(goodsUnit.goodsName ?? "")")
-                                    Spacer()
-                                    Text("Unit: \(goodsUnit.unit ?? 0)")
-                                    Spacer()
-                                    Text("Price: \(goodsUnit.price ?? 0)")
-                                }
-                            }
-                        }
+        VStack {
+            List(cartItems) { cartItem in
+                if let goodsName = cartItem.goodsID?.goodsName,
+                   let unit = cartItem.unit {
+                    VStack(alignment: .leading) {
+                        Text(goodsName)
+                            .fontWeight(.semibold)
+                        Text("Unit: \(unit)")
+                            .font(.system(size: 14))
+                        // Add more information about the goods unit if needed
                     }
-                } else {
-                    Text("Cart is empty")
                 }
             }
-            .navigationBarTitle("Cart")
             .onAppear {
-                cartViewModel.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0) // Replace 11 with the actual user ID
+                fetchGoodsUnits()
             }
         }
+        .navigationBarTitle("장바구니")
+        .onAppear {
+            cartViewModel.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0) // Fetch cart using cartId
+        }
     }
-    
-    private func getGoodsAndUnits(from cart: Cart) -> [GoodsUnit] {
-        var goodsAndUnits: [GoodsUnit] = []
-        
-        if let goodsId1 = cart.goodsId1, let unit1 = cart.unit1, goodsId1.goodsID != 0 {
-            let goodsUnit = GoodsUnit(goodsID: goodsId1.goodsID ?? 0,
-                                      unit: unit1,
-                                      goodsName: goodsId1.goodsName,
-                                      price: goodsId1.goodsPrice)
-            goodsAndUnits.append(goodsUnit)
+
+    func fetchGoodsUnits() {
+        guard let cart = cartViewModel.cart else {
+            return
         }
-        
-        if let goodsId2 = cart.goodsId2, let unit2 = cart.unit2, goodsId2.goodsID != 0 {
-            let goodsUnit = GoodsUnit(goodsID: goodsId2.goodsID ?? 0,
-                                      unit: unit2,
-                                      goodsName: goodsId2.goodsName,
-                                      price: goodsId2.goodsPrice)
-            goodsAndUnits.append(goodsUnit)
+
+        let goodsIds: [GoodsID?] = [
+            cart.goodsId1, cart.goodsId2, cart.goodsId3, cart.goodsId4, cart.goodsId5,
+            cart.goodsId6, cart.goodsId7, cart.goodsId8, cart.goodsId9, cart.goodsId10
+        ]
+
+        var units: [CartItem] = []
+        for i in 0..<goodsIds.count {
+            if let goodsID = goodsIds[i],
+               let unit = getUnit(forGoodsID: goodsID) {
+                let cartItem = CartItem(goodsID: goodsID, unit: unit)
+                units.append(cartItem)
+            }
         }
-        
-        if let goodsId3 = cart.goodsId3, let unit3 = cart.unit3, goodsId3.goodsID != 0 {
-            let goodsUnit = GoodsUnit(goodsID: goodsId3.goodsID ?? 0,
-                                      unit: unit3,
-                                      goodsName: goodsId3.goodsName,
-                                      price: goodsId3.goodsPrice)
-            goodsAndUnits.append(goodsUnit)
+
+        cartItems = units
+    }
+
+    func getUnit(forGoodsID goodsID: GoodsID?) -> Int? {
+        switch goodsID {
+        case cartViewModel.cart?.goodsId1:
+            return cartViewModel.cart?.unit1
+        case cartViewModel.cart?.goodsId2:
+            return cartViewModel.cart?.unit2
+        case cartViewModel.cart?.goodsId3:
+            return cartViewModel.cart?.unit3
+        case cartViewModel.cart?.goodsId4:
+            return cartViewModel.cart?.unit4
+        case cartViewModel.cart?.goodsId5:
+            return cartViewModel.cart?.unit5
+        case cartViewModel.cart?.goodsId6:
+            return cartViewModel.cart?.unit6
+        case cartViewModel.cart?.goodsId7:
+            return cartViewModel.cart?.unit7
+        case cartViewModel.cart?.goodsId8:
+            return cartViewModel.cart?.unit8
+        case cartViewModel.cart?.goodsId9:
+            return cartViewModel.cart?.unit9
+        case cartViewModel.cart?.goodsId10:
+            return cartViewModel.cart?.unit10
+        default:
+            return nil
         }
-        
-        if let goodsId4 = cart.goodsId3, let unit4 = cart.unit4, goodsId4.goodsID != 0 {
-            let goodsUnit = GoodsUnit(goodsID: goodsId4.goodsID ?? 0,
-                                      unit: unit4,
-                                      goodsName: goodsId4.goodsName,
-                                      price: goodsId4.goodsPrice)
-            goodsAndUnits.append(goodsUnit)
-        }
-       
-        if let goodsId5 = cart.goodsId5, let unit5 = cart.unit5, goodsId5.goodsID != 0 {
-            let goodsUnit = GoodsUnit(goodsID: goodsId5.goodsID ?? 0,
-                                      unit: unit5,
-                                      goodsName: goodsId5.goodsName,
-                                      price: goodsId5.goodsPrice)
-            goodsAndUnits.append(goodsUnit)
-        }
-       
-       
-        
-        return goodsAndUnits
     }
 }
