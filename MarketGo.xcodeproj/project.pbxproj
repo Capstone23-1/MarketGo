@@ -65,6 +65,7 @@
 		21A789BD2A1E6AF600DD9456 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789BC2A1E6AF600DD9456 /* PinLayout */; };
 		21A789C12A1E6C1300DD9456 /* UIImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789C02A1E6C1300DD9456 /* UIImageModel.swift */; };
 		21A789C32A1E6C2A00DD9456 /* qrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789C22A1E6C2A00DD9456 /* qrView.swift */; };
+		21A789C52A1EE02900DD9456 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789C42A1EE02900DD9456 /* QRReaderView.swift */; };
 		21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */; };
 		21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006912A15047100C404C3 /* UserSignUpView.swift */; };
 		21D006942A15057E00C404C3 /* ImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006932A15057E00C404C3 /* ImageUploadView.swift */; };
@@ -190,6 +191,7 @@
 		21A789B62A1E514700DD9456 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		21A789C02A1E6C1300DD9456 /* UIImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageModel.swift; sourceTree = "<group>"; };
 		21A789C22A1E6C2A00DD9456 /* qrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrView.swift; sourceTree = "<group>"; };
+		21A789C42A1EE02900DD9456 /* QRReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderView.swift; sourceTree = "<group>"; };
 		21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpViewModel.swift; sourceTree = "<group>"; };
 		21D006912A15047100C404C3 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		21D006932A15057E00C404C3 /* ImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadView.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				998910E42A1DD29A0062C1C9 /* StoreReviewPostView.swift */,
 				998910E22A1DAFC70062C1C9 /* ReviewImageUploadView.swift */,
 				21A789C22A1E6C2A00DD9456 /* qrView.swift */,
+				21A789C42A1EE02900DD9456 /* QRReaderView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				211F53E02A17B3CB003DA011 /* StorePostViewModel.swift in Sources */,
 				994B17C52A023653009B77E8 /* ReviewView.swift in Sources */,
 				998BFBC52A0DD01C005F4652 /* CategoryView.swift in Sources */,
+				21A789C52A1EE02900DD9456 /* QRReaderView.swift in Sources */,
 				998843C22A04F76800132079 /* StoreListView.swift in Sources */,
 				21FAE1DC2A0AA468006593D9 /* AppDelegateAdaptor.swift in Sources */,
 				2181EDD82A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift in Sources */,

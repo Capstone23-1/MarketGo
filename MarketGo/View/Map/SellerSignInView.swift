@@ -64,10 +64,10 @@ struct SellerSignInView: View {
                         .cornerRadius(8)
                 }
                 .disabled(viewModel.isLoading) // 로딩 중일 때는 버튼 비활성화
-                .fullScreenCover(isPresented: $moveToMarketSearchView) {
+                .fullScreenCover(isPresented: $moveToMarketSearchView){
                     SellerTempView()
-                    
                 }
+
                 
                 
                 // 회원가입 버튼
