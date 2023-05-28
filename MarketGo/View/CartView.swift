@@ -9,7 +9,7 @@ struct CartView: View {
    var body: some View {
        
        List($cart.cartItems) { $cartItem in
-          NavigationLink(destination: CartItemDetail(cartItem: $cartItem)) {
+           NavigationLink(destination: FoodItemDetailView(goods: $cartItem.product.wrappedValue)) {
              CartItemRow(cartItem:  $cartItem)}
        }
        .onAppear{
