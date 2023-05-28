@@ -15,25 +15,53 @@ struct CartView: View {
        .onAppear{
            cart.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
        }
+       
+       TotalPriceView()
 }}
 
 
 
 struct CartItemRow: View {
-   @Binding var cartItem: CartItem
-   var body: some View {
-   HStack {
-       GoodsImage(url: URL(string: cartItem.product.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo")).frame(width: 100, height: 100).clipShape(Circle())
-       
-      VStack(alignment: .leading) {
-          Text(cartItem.product.goodsName ?? "").fontWeight(.semibold)
-          Text("\(cartItem.product.goodsPrice ?? 0) | \(cartItem.product.goodsMarket?.marketName ?? "") | \(cartItem.product.goodsStore?.storeName ?? "")")
-         Button("Show details"){}.foregroundColor(.gray)
-      }
-      Spacer()
-      Text("\(cartItem.count)")
-   }
-}}
+    @Binding var cartItem: CartItem
+    
+    var body: some View {
+        HStack {
+            GoodsImage(url: URL(string: cartItem.product.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
+                .frame(width: 80, height: 80)
+                .clipShape(Circle())
+            
+            VStack(alignment: .leading) {
+                Text(cartItem.product.goodsName ?? "")
+                    .fontWeight(.semibold)
+                Text("\(cartItem.product.goodsPrice ?? 0)원 | \(cartItem.product.goodsMarket?.marketName ?? "")")
+                Text(" \(cartItem.product.goodsStore?.storeName ?? "") ")
+                    .foregroundColor(.gray)
+            }
+            
+            Spacer()
+            
+            Stepper(value: $cartItem.count, in: 0...Int.max, label: {
+                Text("\(cartItem.count)")
+            })
+        }
+    }
+}
+
+
+struct TotalPriceView: View {
+    @EnvironmentObject var cart: cart
+    
+    var totalPrice: Int {
+        cart.cartItems.reduce(0) { $0 + ($1.product.goodsPrice ?? 0) * $1.count }
+    }
+    
+    var body: some View {
+        HStack {
+            Text("총 가격: ")
+            Text("\(totalPrice)원")
+        }
+    }
+}
 
 
 struct CartItemDetail: View {
@@ -47,3 +75,4 @@ struct CartItemDetail: View {
 .multilineTextAlignment(.center).padding(.all, 20.0)
    }
 }}
+
