@@ -5,7 +5,6 @@ import FirebaseCore
 struct MarketGoApp: App {
     @StateObject var userModel = UserModel()
     @StateObject private var storePost = StorePostViewModel()
-    @ObservedObject var cart: cart
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) var scenePhase
@@ -22,10 +21,10 @@ struct MarketGoApp: App {
                 } else if let storeId = deepLinkStoreId, let store = fetchedStore {
                     StoreView(store: store)
                 } else {
-                    SignInView()
+                    SignInView(cart: cart())
                         .environmentObject(userModel)
                         .environmentObject(storePost)
-                        .environmentObject(cart)
+                        
                 }
             }
             .onOpenURL { url in
