@@ -49,6 +49,35 @@ class cart: ObservableObject {
     @Published var cartItems: [CartItem] = []
     var subtotal = 0.0
     
+    func updateCartItemsOnServer(cartId: Int) {
+           let url = "http://3.34.33.15:8080/cart/\(cartId)"
+           
+           // Prepare query parameters
+           var queryParams: [String: Any] = [:]
+           
+           for (index, item) in cartItems.enumerated() {
+               let goodsIndex = index + 1
+               queryParams["goodsId\(goodsIndex)"] = item.product.goodsID
+               queryParams["unit\(goodsIndex)"] = item.count
+           }
+           
+           // Fill remaining parameters with 0
+           for goodsIndex in (cartItems.count + 1)...10 {
+               queryParams["goodsId\(goodsIndex)"] = 0
+               queryParams["unit\(goodsIndex)"] = 0
+           }
+           
+           AF.request(url, method: .put, parameters: queryParams)
+               .responseData { response in
+                   switch response.result {
+                   case .success(let data):
+                       print("put success \(data)")
+                   case .failure(let error):
+                       print(error.localizedDescription)
+                   }
+               }
+       }
+    
     func fetchCart(forUserId cartId: Int) {
         let url = "http://3.34.33.15:8080/cart/\(cartId)"
         

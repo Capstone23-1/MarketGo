@@ -101,12 +101,22 @@ class ViewController: UIViewController {
 
 //버튼 디자인
 struct RoundedButton: View {
+    
    var imageName: String
    var text: String
+    
    var body: some View {
        HStack(alignment: .center) {
+           
+           Spacer()
+           
       Image(systemName: imageName).font(.title)
-      Text(text).fontWeight(.semibold).font(.title)
-   }.padding().foregroundColor(.white).background(Color.orange)
-.cornerRadius(40)
+      Spacer()
+      Text(text).fontWeight(.semibold).font(.title3)
+           
+           Spacer()
+   }
+       .padding()
+       .foregroundColor(.white).background(Color.orange)
+       .cornerRadius(40)
 }}
