@@ -68,7 +68,7 @@ struct SellerTempView: View {
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
-            .fullScreenCover(isPresented: $move4) {
+            .sheet(isPresented: $move4) {
                 QRCodeView()
             }
             Button {

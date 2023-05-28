@@ -1,26 +1,31 @@
 import SwiftUI
 import QRCode
+
 struct QRCodeView: View {
-    
-    @State var qrCodeString = "gkgkgkgk"
-    
+    @EnvironmentObject var userViewModel: UserModel
+    @State private var qrCodeString = "marketgo://"
+    @State private var showingAlert = false
+
     var body: some View {
         VStack {
-            Button(action: {
-                if let image = generateQRCodeWithText(qrCodeString, text: "싱싱사철회") {
-                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            // The content of your view goes here
+            // This is just a placeholder
+            Text("QR Code Generator")
+                .onAppear {
+                    qrCodeString += String(describing: (userViewModel.currentUser?.storeID?.storeID)!)
+                    text = userViewModel.currentUser?.storeID?.storeName ?? ""
+                    print(qrCodeString)
                 }
-            }) {
-                Text("Save to Gallery")
-                    .font(.title)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
+            generateImage()
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Saved"), message: Text("Your image has been saved to your Photos."), dismissButton: .default(Text("OK")))
         }
     }
-    func generateQRCodeWithText(_ qrCodeString: String, text: String) -> UIImage? {
+    
+    @State private var text: String = ""
+
+    private func generateImage() -> some View {
         var qrCode = QRCode(string: qrCodeString)
         qrCode?.color = UIColor.black
         qrCode?.backgroundColor = UIColor.white
@@ -28,37 +33,57 @@ struct QRCodeView: View {
         qrCode?.scale = 1.0
         qrCode?.inputCorrection = .quartile
 
-        guard let qrImage = try? qrCode?.image(),
-            let textImage = text.asImage() else {
-            print("Failed to create images")
-            return nil
+        var uiImage: UIImage?
+
+        do {
+            let image = try qrCode?.image() // Now using 'try'
+            uiImage = UIImage(cgImage: image!.cgImage!)
+        } catch {
+            print("Failed to create QR code image: \(error)")
         }
-
-        let finalImage = qrImage.combined(with: textImage)
-        return finalImage
-    }
-
-}
-extension String {
-    func asImage(font: UIFont = UIFont.systemFont(ofSize: 16)) -> UIImage? {
-        let size = self.size(withAttributes: [NSAttributedString.Key.font: font])
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        self.draw(in: CGRect(origin: .zero, size: size), withAttributes: [NSAttributedString.Key.font: font])
-        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        let texthigh = "자세한 가게 정보를 보려면 \n QR 코드를 인식해주세요"
+        // Create texthigh image
+        let texthighFont = UIFont(name: "Helvetica", size: 20)!
+        let texthighAttributes: [NSAttributedString.Key: Any] = [.font: texthighFont]
+        let texthighSize = texthigh.size(withAttributes: texthighAttributes)
+        UIGraphicsBeginImageContextWithOptions(texthighSize, false, 0.0)
+        texthigh.draw(at: .zero, withAttributes: texthighAttributes)
+        let texthighImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
-    }
-}
-extension UIImage {
-    func combined(with image: UIImage) -> UIImage? {
-        let size = CGSize(width: max(self.size.width, image.size.width), height: self.size.height + image.size.height)
-        UIGraphicsBeginImageContext(size)
-
-        self.draw(in: CGRect(origin: CGPoint(x: (size.width - self.size.width)/2, y: 0), size: self.size))
-        image.draw(in: CGRect(origin: CGPoint(x: (size.width - image.size.width)/2, y: self.size.height), size: image.size))
-
-        let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        let text = userViewModel.currentUser?.storeID?.storeName
+        // Create text image
+        let textFont = UIFont(name: "Helvetica-Bold", size: 20)!
+        let textAttributes: [NSAttributedString.Key: Any] = [.font: textFont]
+        let textSize = text!.size(withAttributes: textAttributes)
+        UIGraphicsBeginImageContextWithOptions(textSize, false, 0.0)
+        text!.draw(at: .zero, withAttributes: textAttributes)
+        let textImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return finalImage
+        
+        // Combine QR code, texthigh, and text images
+        let finalSize = CGSize(width: max(uiImage!.size.width, textImage!.size.width, texthighImage!.size.width), height: uiImage!.size.height + textImage!.size.height + texthighImage!.size.height)
+        UIGraphicsBeginImageContextWithOptions(finalSize, false, 0.0)
+        texthighImage!.draw(at: CGPoint(x: (finalSize.width - texthighSize.width) / 2, y: 0))
+        uiImage!.draw(at: CGPoint(x: (finalSize.width - uiImage!.size.width) / 2, y: texthighImage!.size.height))
+        textImage!.draw(at: CGPoint(x: (finalSize.width - textSize.width) / 2, y: uiImage!.size.height + texthighImage!.size.height))
+        let combinedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // Save to photo library
+        let button = Button("Save to Gallery") {
+            UIImageWriteToSavedPhotosAlbum(combinedImage!, nil, nil, nil)
+            self.showingAlert = true
+        }
+        
+        // If the image failed to create, this will just display an empty image
+        return VStack {
+            Image(uiImage: combinedImage ?? UIImage())
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 200, height: 200)
+            button
+        }
     }
 }
