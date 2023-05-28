@@ -8,7 +8,6 @@ struct QRCodeView: View {
 
     var body: some View {
         VStack {
-   
             generateQRAndTextImage()
         }
         .onAppear {
@@ -70,7 +69,7 @@ struct QRCodeView: View {
         UIGraphicsEndImageContext()
         
         // Save to photo library
-        let button = Button("Save to Gallery") {
+        let button = Button("사진첩에 저장") {
             UIImageWriteToSavedPhotosAlbum(combinedImage!, nil, nil, nil)
             self.showingAlert = true
         }
