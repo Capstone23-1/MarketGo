@@ -13,6 +13,7 @@ struct FoodItemDetailView: View {
     @State private var showNotification: Bool = false
     @EnvironmentObject var cart: cart // CartviewModel
     @EnvironmentObject var userModel: UserModel
+    @State private var showCartNotification: Bool = false
     
     var body: some View {
         ScrollView {
@@ -36,9 +37,6 @@ struct FoodItemDetailView: View {
                     .padding(.leading, 10)
                 
                 Spacer().frame(height: 20)
-                
-                
-
             }
         }
         VStack(alignment: .center){
@@ -46,41 +44,21 @@ struct FoodItemDetailView: View {
                 cart.addProduct(product: goods)
                 print(cart.cartItems)
                 cart.updateCartItemsOnServer(cartId: userModel.currentUser?.cartID?.cartID ?? 0)
+                showCartNotification = true
             }){
                RoundedButton(imageName: "cart.badge.plus", text: "장바구니에 담기")
             }
         }.frame(maxWidth: .infinity)
+        .alert(isPresented: $showCartNotification, content: {
+            Alert(title: Text("장바구니에 담겼습니다."), message: nil, dismissButton: .default(Text("닫기")))
+        })
+        .navigationBarItems(trailing:
+            NavigationLink(destination: CartView()) {
+                Image(systemName: "cart")
+                    .padding(.horizontal)
+                    .imageScale(.large)
+            }
+        )
     }
 }
 
-struct QuantitySelectionView: View {
-    @Binding var quantity: Int
-    var addToCart: () -> Void
-    
-    var body: some View {
-        VStack {
-            Text("물품 개수 선택")
-                .font(.system(size: 20, weight: .bold))
-                .padding()
-            
-            Stepper(value: $quantity, in: 1...10) {
-                Text("개수: \(quantity)")
-                    .font(.system(size: 16))
-            }
-            .padding()
-            
-            Button(action: {
-                addToCart() // Call the addToCart closure to perform add to cart action
-            }, label: {
-                Text("장바구니에 추가")
-                    .font(.system(size: 16))
-                    .foregroundColor(.white)
-            })
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.blue)
-            .cornerRadius(10)
-        }
-        .padding()
-    }
-}
