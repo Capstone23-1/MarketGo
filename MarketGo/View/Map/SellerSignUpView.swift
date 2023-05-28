@@ -140,7 +140,7 @@ struct SellerSignUpView: View {
                     }
                     .disabled(isLoading1)
                     .fullScreenCover(isPresented: $moveToSignInView) {
-                        SignInView()
+                        SignInView(cart: cart())
                     }
                     
                     
