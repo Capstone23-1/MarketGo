@@ -31,11 +31,23 @@ struct Cart: Codable {
     }
 }
 
+// MARK: - CartItem : 장바구니 데이터 저장을 위한 별도의 구조체
+struct CartItem: Identifiable {
+    var id: UUID
+    var product: GoodsOne
+    var count: Int
+    
+    init(product: GoodsOne, count: Int) {
+        self.id = UUID()
+        self.product = product
+        self.count = count
+    }
+}
 
-
-class CartViewModel: ObservableObject {
+class cart: ObservableObject {
     @Published var cart: Cart?
     @Published var cartItems: [CartItem] = []
+    var subtotal = 0.0
     
     func fetchCart(forUserId cartId: Int) {
         let url = "http://3.34.33.15:8080/cart/\(cartId)"
@@ -48,6 +60,7 @@ class CartViewModel: ObservableObject {
                     let cart = try decoder.decode(Cart.self, from: data)
                     DispatchQueue.main.async {
                         self.cart = cart
+                        self.updateCartItems()
                     }
                 } catch {
                     print(error.localizedDescription)
@@ -115,33 +128,7 @@ class CartViewModel: ObservableObject {
             let cartItem = CartItem(product: goodsId10, count: unit10)
             items.append(cartItem)
         }
-
         
         self.cartItems = items
     }
-
-}
-
-
-// MARK: - GoodsID
-struct GoodsID: Codable, Equatable {
-    var goodsID: Int?
-    var goodsName: String?
-    var goodsMarket: MarketOne?
-    var goodsStore: StoreElement?
-    var goodsFile: FileInfo?
-    var goodsPrice: Int?
-    var goodsUnit, goodsInfo, updateTime, goodsOrigin: String?
-    var isAvail: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case goodsID = "goodsId"
-        case goodsName, goodsMarket, goodsStore, goodsFile, goodsPrice, goodsUnit, goodsInfo, updateTime, goodsOrigin, isAvail
-    }
-    
-    static func ==(lhs: GoodsID, rhs: GoodsID) -> Bool {
-            // Implement the equality comparison logic for GoodsID
-            // Compare the relevant properties to determine equality
-            return lhs.goodsID == rhs.goodsID
-        }
 }
