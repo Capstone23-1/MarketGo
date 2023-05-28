@@ -36,18 +36,15 @@ struct FoodItemDetailView: View {
                 
                 Spacer().frame(height: 20)
                 
-                VStack(alignment: .center){
-                    Button(action: {cart.addProduct(product: goods)}){
-                       RoundedButton(imageName: "cart.badge.plus", text: "장바구니에 담기")
-                    }
-                }.frame(maxWidth: .infinity)
                 
-                
-                
-                
-                Spacer().frame(height: 20)
+
             }
         }
+        VStack(alignment: .center){
+            Button(action: {cart.addProduct(product: goods)}){
+               RoundedButton(imageName: "cart.badge.plus", text: "장바구니에 담기")
+            }
+        }.frame(maxWidth: .infinity)
     }
 }
 

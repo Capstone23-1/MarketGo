@@ -72,13 +72,19 @@ struct TotalPriceView: View {
 
 struct CartItemDetail: View {
    @Binding var cartItem: CartItem
+    
    var body: some View {
+       
    VStack {
+       
        Text(cartItem.product.goodsName ?? "").font(.largeTitle)
+       
        GoodsImage(url: URL(string: cartItem.product.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo")).frame(width: 200, height: 200).clipShape(Circle())
-      Text("\(cartItem.product.goodsPrice ?? 0) | \(cartItem.product.goodsMarket?.marketName ?? "")")
+       
+       Text("\(cartItem.product.goodsPrice ?? 0) | \(cartItem.product.goodsMarket?.marketName ?? "")")
+       
        Text(cartItem.product.goodsInfo ?? "")
-.multilineTextAlignment(.center).padding(.all, 20.0)
+           .multilineTextAlignment(.center).padding(.all, 20.0)
    }
 }}
 
