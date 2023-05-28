@@ -36,12 +36,13 @@ struct CartItemRow: View {
     var body: some View {
         HStack {
             GoodsImage(url: URL(string: cartItem.product.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
-                .frame(width: 70, height: 70)
+                .frame(width: 50, height: 50)
             
             VStack(alignment: .leading) {
                 Spacer()
                 Text(cartItem.product.goodsName ?? "")
                     .fontWeight(.semibold)
+                    .font(.footnote)
                 Text("\(totalPrice)원").font(.footnote)
                 Text("\(cartItem.product.goodsMarket?.marketName ?? "")")
                     .foregroundColor(.gray)
