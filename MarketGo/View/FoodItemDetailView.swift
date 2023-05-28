@@ -11,6 +11,7 @@ struct FoodItemDetailView: View {
     var goods: GoodsOne
     @State private var quantity: Int = 1
     @State private var showNotification: Bool = false
+    @EnvironmentObject var cart: cart // CartviewModel
     
     var body: some View {
         ScrollView {
@@ -35,34 +36,18 @@ struct FoodItemDetailView: View {
                 
                 Spacer().frame(height: 20)
                 
-                HStack {
-                    
-                    Button(action: {
-                        // Show quantity selection view
-                        quantity = 1 // Reset quantity to default value
-                        showNotification = false // Reset showNotification to false
-                    }, label: {
-                        Text("장바구니 담기")
-                            .font(.system(size: 16))
-                            .foregroundColor(.white)
-                    })
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .onTapGesture {
-                        showNotification = true // Show notification when item is added to cart
+                VStack(alignment: .center){
+                    Button(action: {cart.addProduct(product: goods)}){
+                       RoundedButton(imageName: "cart.badge.plus", text: "장바구니에 담기")
                     }
-                    
-                    Spacer()
-                }
+                }.frame(maxWidth: .infinity)
+                
+                
+                
                 
                 Spacer().frame(height: 20)
             }
         }
-        .alert(isPresented: $showNotification, content: {
-            Alert(title: Text("Notification"), message: Text("물품이 장바구니에 추가되었습니다."), dismissButton: .default(Text("확인")))
-        })
     }
 }
 

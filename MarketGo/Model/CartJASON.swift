@@ -71,6 +71,21 @@ class cart: ObservableObject {
         }
     }
     
+    func addProduct(product: GoodsOne){
+       var addNewProduct = true
+       for (index, item) in cartItems.enumerated() {
+          if item.product.id == product.id {
+             cartItems[index].count = cartItems[index].count + 1
+             addNewProduct = false
+          }
+       }
+       if addNewProduct {
+          cartItems.append(CartItem(product: product, count: 1))
+       }
+    }
+    
+    
+    
     private func updateCartItems() {
         guard let cart = self.cart else {
             self.cartItems = []

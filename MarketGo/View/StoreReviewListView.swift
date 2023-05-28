@@ -75,8 +75,9 @@ struct ReviewRow: View {
                             .frame(width: 80, height: 80)
                 }
         }
+        .frame(maxWidth: .infinity)
         .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        //.frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .cornerRadius(5)
         .shadow(radius: 2, y: 1)

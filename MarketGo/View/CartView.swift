@@ -7,7 +7,6 @@ struct CartView: View {
     @EnvironmentObject var cart: cart
 
    var body: some View {
-       Text("장바구니").font(.title)
 
        List($cart.cartItems) { $cartItem in
           NavigationLink(destination: CartItemDetail(cartItem: $cartItem)) {
@@ -16,6 +15,7 @@ struct CartView: View {
        .onAppear{
            cart.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
        }
+       .navigationTitle("장바구니")
        
        TotalPriceView()
 }}
@@ -31,12 +31,15 @@ struct CartItemRow: View {
                 .frame(width: 70, height: 70)
             
             VStack(alignment: .leading) {
+                Spacer()
                 Text(cartItem.product.goodsName ?? "")
                     .fontWeight(.semibold)
-                Text("\(cartItem.product.goodsPrice ?? 0)원")
+                Text("\(cartItem.product.goodsPrice ?? 0)원").font(.footnote)
                 Text("\(cartItem.product.goodsMarket?.marketName ?? "")")
                     .foregroundColor(.gray)
-            }.font(.footnote)
+                    .font(.footnote)
+                Spacer()
+            }
             
             Spacer()
             
