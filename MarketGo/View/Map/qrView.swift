@@ -1,57 +1,26 @@
 import SwiftUI
 import QRCode
-struct qrView: View {
-    @State private var qrCodeString = "marketgo://98" // QR 생성 데이터
-    @State private var info = "싱글탱글생성회"
-    @State private var showingAlert = false // 알림창 표시 여부를 결정하는 State
+struct QRCodeView: View {
+    
+    @State var qrCodeString = "gkgkgkgk"
     
     var body: some View {
         VStack {
-            Text("자세한 가게 정보를 보려면 QR 코드를 인식해주세요")
-                .font(.largeTitle)
-            QRCodeView(qrCodeString: $qrCodeString)
-            Text(info)
-                .font(.title)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding()
             Button(action: {
-                saveImageToCameraRoll()
+                if let image = generateQRCodeWithText(qrCodeString, text: "싱싱사철회") {
+                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                }
             }) {
-                Text("Save QR Code")
-                    .font(.title2)
+                Text("Save to Gallery")
+                    .font(.title)
+                    .foregroundColor(.white)
                     .padding()
                     .background(Color.blue)
-                    .foregroundColor(.white)
                     .cornerRadius(10)
             }
-            .alert(isPresented: $showingAlert) {
-                Alert(title: Text("Saved!"), message: Text("Your QR code has been saved to your Photos."), dismissButton: .default(Text("OK")))
-            }
         }
     }
-    
-    // QR 코드 이미지를 카메라 롤에 저장
-    private func saveImageToCameraRoll() {
-        var qrCode = QRCode(string: qrCodeString)
-        qrCode?.size = CGSize(width: 200, height: 200)
-        qrCode?.scale = 1.0
-        qrCode?.inputCorrection = .quartile
-
-        if let image = try? qrCode?.image() { // Add 'try?' here
-            let uiImage = UIImage(cgImage: image.cgImage!)
-            UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
-            showingAlert = true // 성공 알림창을 표시
-        } else {
-            print("Failed to generate QR code image")
-        }
-    }
-}
-
-struct QRCodeView: View {
-    
-    @Binding var qrCodeString: String
-    
-    var body: some View {
+    func generateQRCodeWithText(_ qrCodeString: String, text: String) -> UIImage? {
         var qrCode = QRCode(string: qrCodeString)
         qrCode?.color = UIColor.black
         qrCode?.backgroundColor = UIColor.white
@@ -59,18 +28,37 @@ struct QRCodeView: View {
         qrCode?.scale = 1.0
         qrCode?.inputCorrection = .quartile
 
-        var uiImage: UIImage?
-
-        if let image = try? qrCode?.image() { // Add 'try?' here
-            uiImage = UIImage(cgImage: image.cgImage!)
-        } else {
-            print("Failed to create QR code image")
+        guard let qrImage = try? qrCode?.image(),
+            let textImage = text.asImage() else {
+            print("Failed to create images")
+            return nil
         }
 
-        // If the image failed to create, this will just display an empty image
-        return Image(uiImage: uiImage ?? UIImage())
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 200, height: 200)
+        let finalImage = qrImage.combined(with: textImage)
+        return finalImage
+    }
+
+}
+extension String {
+    func asImage(font: UIFont = UIFont.systemFont(ofSize: 16)) -> UIImage? {
+        let size = self.size(withAttributes: [NSAttributedString.Key.font: font])
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        self.draw(in: CGRect(origin: .zero, size: size), withAttributes: [NSAttributedString.Key.font: font])
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+extension UIImage {
+    func combined(with image: UIImage) -> UIImage? {
+        let size = CGSize(width: max(self.size.width, image.size.width), height: self.size.height + image.size.height)
+        UIGraphicsBeginImageContext(size)
+
+        self.draw(in: CGRect(origin: CGPoint(x: (size.width - self.size.width)/2, y: 0), size: self.size))
+        image.draw(in: CGRect(origin: CGPoint(x: (size.width - image.size.width)/2, y: self.size.height), size: image.size))
+
+        let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return finalImage
     }
 }

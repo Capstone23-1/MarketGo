@@ -69,7 +69,7 @@ struct SellerTempView: View {
                     .cornerRadius(8)
             }
             .fullScreenCover(isPresented: $move4) {
-                qrView()
+                QRCodeView()
             }
             Button {
                 move5 = true
