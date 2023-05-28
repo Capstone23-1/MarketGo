@@ -60,7 +60,7 @@ struct UserSignUpView: View {
                 }
                 .disabled(viewModel.isLoading)
                 .fullScreenCover(isPresented: $moveToSignInView) {
-                    SignInView()
+                    SignInView(cart: cart())
                 }
         }
         .padding()
