@@ -7,7 +7,7 @@ struct CartView: View {
     @EnvironmentObject var cart: cart
 
    var body: some View {
-
+       
        List($cart.cartItems) { $cartItem in
           NavigationLink(destination: CartItemDetail(cartItem: $cartItem)) {
              CartItemRow(cartItem:  $cartItem)}
