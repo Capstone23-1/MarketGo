@@ -8,11 +8,8 @@ struct QRCodeView: View {
 
     var body: some View {
         VStack {
-            // The content of your view goes here
-            // This is just a placeholder
-            
-                
-            generateImage()
+   
+            generateQRAndTextImage()
         }
         .onAppear {
             qrCodeString += String(describing: (userViewModel.currentUser?.storeID?.storeID)!)
@@ -26,7 +23,7 @@ struct QRCodeView: View {
     
     @State private var text: String = ""
 
-    private func generateImage() -> some View {
+    private func generateQRAndTextImage() -> some View {
         var qrCode = QRCode(string: qrCodeString)
         qrCode?.color = UIColor.black
         qrCode?.backgroundColor = UIColor.white

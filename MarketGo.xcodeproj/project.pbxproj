@@ -63,7 +63,7 @@
 		21A789B72A1E514700DD9456 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789B62A1E514700DD9456 /* AppState.swift */; };
 		21A789BA2A1E6A3800DD9456 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789B92A1E6A3800DD9456 /* QRCode */; };
 		21A789BD2A1E6AF600DD9456 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789BC2A1E6AF600DD9456 /* PinLayout */; };
-		21A789C32A1E6C2A00DD9456 /* qrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789C22A1E6C2A00DD9456 /* qrView.swift */; };
+		21A789C32A1E6C2A00DD9456 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */; };
 		21A789C52A1EE02900DD9456 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789C42A1EE02900DD9456 /* QRReaderView.swift */; };
 		21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */; };
 		21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006912A15047100C404C3 /* UserSignUpView.swift */; };
@@ -188,7 +188,7 @@
 		2188126529E972ED00F315EF /* ParkingLotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotView.swift; sourceTree = "<group>"; };
 		2198B6DE943CEFFEB56B33D7 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21A789B62A1E514700DD9456 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		21A789C22A1E6C2A00DD9456 /* qrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrView.swift; sourceTree = "<group>"; };
+		21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		21A789C42A1EE02900DD9456 /* QRReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderView.swift; sourceTree = "<group>"; };
 		21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpViewModel.swift; sourceTree = "<group>"; };
 		21D006912A15047100C404C3 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
@@ -420,7 +420,7 @@
 				997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */,
 				998910E42A1DD29A0062C1C9 /* StoreReviewPostView.swift */,
 				998910E22A1DAFC70062C1C9 /* ReviewImageUploadView.swift */,
-				21A789C22A1E6C2A00DD9456 /* qrView.swift */,
+				21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */,
 				21A789C42A1EE02900DD9456 /* QRReaderView.swift */,
 			);
 			path = Map;
@@ -733,7 +733,7 @@
 				21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */,
 				21470AB629FE588000A7CEE7 /* MarketViewModel.swift in Sources */,
 				21470AB429FD87E400A7CEE7 /* UITableViewWrapper.swift in Sources */,
-				21A789C32A1E6C2A00DD9456 /* qrView.swift in Sources */,
+				21A789C32A1E6C2A00DD9456 /* QRCodeView.swift in Sources */,
 				998843C42A05035D00132079 /* FoodItemListView.swift in Sources */,
 				211F53DE2A17A57D003DA011 /* ImageUploader.swift in Sources */,
 				211F53EE2A1AA91D003DA011 /* EditStoreSellerView.swift in Sources */,
