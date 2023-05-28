@@ -27,6 +27,8 @@ struct CartItemRow: View {
     @EnvironmentObject var cart: cart
     @EnvironmentObject var userModel: UserModel
     
+    @State private var showingConfirmationAlert = false
+    
     var body: some View {
         HStack {
             GoodsImage(url: URL(string: cartItem.product.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
@@ -52,11 +54,31 @@ struct CartItemRow: View {
                 }
             })
             .onChange(of: cartItem.count) { newValue in
-                            cart.updateCartItemsOnServer(cartId: userModel.currentUser?.cartID?.cartID ?? 0 )
-                        }
+                cart.updateCartItemsOnServer(cartId: userModel.currentUser?.cartID?.cartID ?? 0)
+            }
+            
+            Button(action: {
+                showingConfirmationAlert = true
+            }) {
+                Image(systemName: "trash")
+                    .foregroundColor(.red)
+            }
+            .buttonStyle(PlainButtonStyle()) // Disable button styling
+            .alert(isPresented: $showingConfirmationAlert) {
+                Alert(
+                    title: Text("삭제 확인"),
+                    message: Text("정말로 이 항목을 삭제하시겠습니까?"),
+                    primaryButton: .destructive(Text("삭제"), action: {
+                        cart.removeProduct(productID: cartItem.product.goodsID ?? 0)
+                    }),
+                    secondaryButton: .cancel(Text("취소"))
+                )
+            }
         }
     }
 }
+
+
 
 
 struct TotalPriceView: View {

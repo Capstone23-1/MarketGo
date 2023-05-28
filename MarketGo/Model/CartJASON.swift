@@ -47,7 +47,15 @@ struct CartItem: Identifiable {
 class cart: ObservableObject {
     @Published var cart: Cart?
     @Published var cartItems: [CartItem] = []
-    var subtotal = 0.0
+    
+    func removeProduct(productID: Int) { //상품 삭제 함수
+            guard let index = cartItems.firstIndex(where: { $0.product.goodsID == productID }) else {
+                return
+            }
+            cartItems.remove(at: index)
+            updateCartItemsOnServer(cartId: cart?.cartID ?? 0)
+        }
+
     
     
     func updateCartItemsOnServer(cartId: Int) { //장바구니 정보 PUT
