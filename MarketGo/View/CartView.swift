@@ -52,14 +52,18 @@ struct CartItemRow: View {
             
             Spacer()
             
-            Stepper(value: $cartItem.count, in: 1...Int.max, label: {
-                HStack {
-                    Spacer()
-                    Text("\(cartItem.count)").font(.system(size: 15))
+            VStack(alignment: .trailing){
+                Stepper(value: $cartItem.count, in: 1...Int.max, label: {
+                    HStack {
+                        Spacer()
+                        Text("\(cartItem.count)").font(.system(size: 15))
+                    }
+                })
+                .onChange(of: cartItem.count) { newValue in
+                    cart.updateCartItemsOnServer(cartId: userModel.currentUser?.cartID?.cartID ?? 0)
                 }
-            })
-            .onChange(of: cartItem.count) { newValue in
-                cart.updateCartItemsOnServer(cartId: userModel.currentUser?.cartID?.cartID ?? 0)
+                
+                Text("\(cartItem.product.goodsPrice ?? 0)원 (단위: \(cartItem.product.goodsUnit ?? "개"))").font(.system(size: 10))
             }
             
             Button(action: {
@@ -79,6 +83,7 @@ struct CartItemRow: View {
                     secondaryButton: .cancel(Text("취소"))
                 )
             }
+
         }
     }
 }
