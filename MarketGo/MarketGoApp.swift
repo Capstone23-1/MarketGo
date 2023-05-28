@@ -25,7 +25,7 @@ struct MarketGoApp: App {
                     SignInView()
                         .environmentObject(userModel)
                         .environmentObject(storePost)
-                        .environment(cart)
+                        .environmentObject(cart)
                 }
             }
             .onOpenURL { url in
