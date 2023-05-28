@@ -24,6 +24,8 @@ struct CartView: View {
 
 struct CartItemRow: View {
     @Binding var cartItem: CartItem
+    @EnvironmentObject var cart: cart
+    @EnvironmentObject var userModel: UserModel
     
     var body: some View {
         HStack {
@@ -49,6 +51,9 @@ struct CartItemRow: View {
                     Text("\(cartItem.count)").font(.system(size: 15))
                 }
             })
+            .onChange(of: cartItem.count) { newValue in
+                            cart.updateCartItemsOnServer(cartId: userModel.currentUser?.cartID?.cartID ?? 0 )
+                        }
         }
     }
 }

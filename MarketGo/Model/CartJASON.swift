@@ -49,7 +49,8 @@ class cart: ObservableObject {
     @Published var cartItems: [CartItem] = []
     var subtotal = 0.0
     
-    func updateCartItemsOnServer(cartId: Int) {
+    
+    func updateCartItemsOnServer(cartId: Int) { //장바구니 정보 PUT
            let url = "http://3.34.33.15:8080/cart/\(cartId)"
            
            // Prepare query parameters
