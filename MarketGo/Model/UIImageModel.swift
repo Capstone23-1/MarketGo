@@ -38,8 +38,8 @@ import QRCode
 
 
 class ViewController: UIViewController {
-    
-    
+
+
     /*
     MARK: [QR 코드 생성 및 레이아웃 설정 필요 사항]
     1. QR 생성 라이브러리 설치 git [Up to Next Major] : https://github.com/dmrschmidt/QRCode
@@ -50,9 +50,9 @@ class ViewController: UIViewController {
        - import QRCode
     4. 필요 extension : UIColor , UIImageView
     */
-    
-    
-    
+
+
+
     // MARK: [액티비티 메모리 로드 수행 실시]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,11 +62,11 @@ class ViewController: UIViewController {
         print("[ViewController >> viewDidLoad() :: 액티비티 메모리 로드 실시]")
         print("===============================")
         print("")
-        
+
         // [기본 뷰 배경 색상 변경 실시 : 검정색]
         self.view.backgroundColor = UIColor.init(rgb: 0x000000).withAlphaComponent(1.0) // 흰색 배경 색상 설정
-        
-        
+
+
         // [QR 코드 속성 정의 실시]
         var qrCode = QRCode(string: "twok1234") // QR 생성 데이터
         //var qrCode = QRCode(url: URL(string: "https://example.com")) // QR 생성 데이터
@@ -75,24 +75,24 @@ class ViewController: UIViewController {
         qrCode!.size = CGSize(width: 200, height: 200) // QR 코드 사이즈 정의
         qrCode!.scale = 1.0 // scaling
         qrCode!.inputCorrection = .quartile
-        
-        
+
+
         // [이미지 뷰 생성 실시 및 QR 속성 지정 실시]
         let imageView = UIImageView.init(qrCode: qrCode! as QRCode)
-        
-        
+
+
         // [뷰 컨트롤러에 추가 실시]
         self.view.addSubview(imageView)
-        
-        
+
+
         // [위치 퍼센트 사용해 지정 실시]
         imageView.pin.horizontally().top(30%).width(200).justify(.center) // 이미지 뷰 크기도 동일 값 설정 / 가로 중앙 정렬
-                
-        
+
+
         // [크기 퍼센트 사용해 지정 실시]
         imageView.pin.height(200) // 이미지 뷰 크기도 동일 값 설정
 
-        
+
         // [뷰 컨트롤러에서 제거 실시]
         //imageView.removeFromSuperview()
     }
