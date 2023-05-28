@@ -7,6 +7,7 @@ struct CartView: View {
     @EnvironmentObject var cart: cart
 
    var body: some View {
+       Text("장바구니").font(.title)
 
        List($cart.cartItems) { $cartItem in
           NavigationLink(destination: CartItemDetail(cartItem: $cartItem)) {
@@ -27,21 +28,23 @@ struct CartItemRow: View {
     var body: some View {
         HStack {
             GoodsImage(url: URL(string: cartItem.product.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
-                .frame(width: 80, height: 80)
-                .clipShape(Circle())
+                .frame(width: 70, height: 70)
             
             VStack(alignment: .leading) {
                 Text(cartItem.product.goodsName ?? "")
                     .fontWeight(.semibold)
-                Text("\(cartItem.product.goodsPrice ?? 0)원 | \(cartItem.product.goodsMarket?.marketName ?? "")")
-                Text(" \(cartItem.product.goodsStore?.storeName ?? "") ")
+                Text("\(cartItem.product.goodsPrice ?? 0)원")
+                Text("\(cartItem.product.goodsMarket?.marketName ?? "")")
                     .foregroundColor(.gray)
-            }
+            }.font(.footnote)
             
             Spacer()
             
             Stepper(value: $cartItem.count, in: 0...Int.max, label: {
-                Text("\(cartItem.count)")
+                HStack {
+                    Spacer()
+                    Text("\(cartItem.count)").font(.system(size: 15))
+                }
             })
         }
     }
