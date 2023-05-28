@@ -11,6 +11,8 @@ struct UserSignInView: View {
     @State var currentUser: MemberInfo? = nil
     @EnvironmentObject var userViewModel: UserModel
     @StateObject var marketModel = MarketModel()
+    @EnvironmentObject var cart: cart
+    
     
     var body: some View {
         VStack {
@@ -44,6 +46,7 @@ struct UserSignInView: View {
                         if success {
                             // 로그인 성공 시 moveToMarketSearchView 상태를 true로 변경하여 MarketSearchView로 전환
                             self.moveToMarketSearchView = true
+                            
                         } else {
                             print("로그인 실패")
                         }

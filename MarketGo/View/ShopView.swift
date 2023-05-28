@@ -12,6 +12,7 @@ struct ShopView: View {
     @ObservedObject var storeModel = StoreViewModel()
     @ObservedObject var goodsModel = GoodsViewModel()
     
+    @EnvironmentObject var cart: cart
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
 
@@ -106,6 +107,8 @@ struct ShopView: View {
                         
                     }.onAppear {
                         storeModel.fetchStores(forMarketId: marketModel.currentMarket?.marketID ?? 0)
+                        cart.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
+                        cart.updateCartItems()
                     }
                     
                     VStack(alignment: .leading) {

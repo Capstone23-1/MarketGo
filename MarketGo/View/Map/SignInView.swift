@@ -22,7 +22,7 @@ struct SignInView: View {
     // 소비자와 상인을 선택할 수 있는 Picker에 사용할 데이터
     @State var tempUser: MemberInfo?
     @ObservedObject var cart: cart
-    @EnvironmentObject var userModel: UserModel
+    
     
     var body: some View {
         NavigationView{
@@ -43,9 +43,6 @@ struct SignInView: View {
                             case 0:
                                 UserSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
                                 .environmentObject(cart)
-                                .onAppear{
-                                    cart.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
-                                }
                                 
                             case 1:
                                 SellerSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)

@@ -124,7 +124,7 @@ class cart: ObservableObject {
     
     
     
-    private func updateCartItems() {
+    func updateCartItems() {
         guard let cart = self.cart else {
             self.cartItems = []
             return
