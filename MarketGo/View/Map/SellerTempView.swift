@@ -22,7 +22,7 @@ struct SellerTempView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
-                .fullScreenCover(isPresented: $move1) {
+                .sheet(isPresented: $move1) {
                     if let storeElement = userViewModel.currentUser?.storeID {
                         EditStoreView(obse: ObservableStoreElement(storeElement: storeElement))
                     } else {
@@ -41,7 +41,7 @@ struct SellerTempView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
-                .fullScreenCover(isPresented: $move2) {
+                .sheet(isPresented: $move2) {
                     PostGoodsView()
                 }
                 
@@ -55,7 +55,7 @@ struct SellerTempView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
-                .fullScreenCover(isPresented: $move3) {
+                .sheet(isPresented: $move3) {
                     GoodsListSellerView()
                 }
                 NavigationLink(destination: QRCodeView()) {
