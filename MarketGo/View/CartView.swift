@@ -29,6 +29,10 @@ struct CartItemRow: View {
     
     @State private var showingConfirmationAlert = false
     
+    var totalPrice: Int {
+        (cartItem.product.goodsPrice ?? 0) * cartItem.count
+    }
+    
     var body: some View {
         HStack {
             GoodsImage(url: URL(string: cartItem.product.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
@@ -38,7 +42,7 @@ struct CartItemRow: View {
                 Spacer()
                 Text(cartItem.product.goodsName ?? "")
                     .fontWeight(.semibold)
-                Text("\(cartItem.product.goodsPrice ?? 0)원").font(.footnote)
+                Text("\(totalPrice)원").font(.footnote)
                 Text("\(cartItem.product.goodsMarket?.marketName ?? "")")
                     .foregroundColor(.gray)
                     .font(.footnote)
@@ -47,7 +51,7 @@ struct CartItemRow: View {
             
             Spacer()
             
-            Stepper(value: $cartItem.count, in: 0...Int.max, label: {
+            Stepper(value: $cartItem.count, in: 1...Int.max, label: {
                 HStack {
                     Spacer()
                     Text("\(cartItem.count)").font(.system(size: 15))
@@ -77,6 +81,7 @@ struct CartItemRow: View {
         }
     }
 }
+
 
 
 
