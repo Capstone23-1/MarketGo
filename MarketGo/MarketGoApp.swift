@@ -5,6 +5,8 @@ import FirebaseCore
 struct MarketGoApp: App {
     @StateObject var userModel = UserModel()
     @StateObject private var storePost = StorePostViewModel()
+    @ObservedObject var cart: cart
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) var scenePhase
     
@@ -23,6 +25,7 @@ struct MarketGoApp: App {
                     SignInView()
                         .environmentObject(userModel)
                         .environmentObject(storePost)
+                        .environment(cart)
                 }
             }
             .onOpenURL { url in

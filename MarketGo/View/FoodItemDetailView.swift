@@ -36,6 +36,7 @@ struct FoodItemDetailView: View {
                 Spacer().frame(height: 20)
                 
                 HStack {
+                    
                     Button(action: {
                         // Show quantity selection view
                         quantity = 1 // Reset quantity to default value
@@ -59,12 +60,6 @@ struct FoodItemDetailView: View {
                 Spacer().frame(height: 20)
             }
         }
-        .sheet(isPresented: $showNotification, content: {
-            QuantitySelectionView(quantity: $quantity, addToCart: {
-                // Perform add to cart action
-                showNotification = true // Show notification when item is added to cart
-            })
-        })
         .alert(isPresented: $showNotification, content: {
             Alert(title: Text("Notification"), message: Text("물품이 장바구니에 추가되었습니다."), dismissButton: .default(Text("확인")))
         })

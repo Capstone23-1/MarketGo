@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import QRCode
+import SwiftUI
 
 
 
@@ -96,3 +97,16 @@ class ViewController: UIViewController {
         //imageView.removeFromSuperview()
     }
 }
+
+
+//버튼 디자인
+struct RoundedButton: View {
+   var imageName: String
+   var text: String
+   var body: some View {
+   HStack {
+      Image(systemName: imageName).font(.title)
+      Text(text).fontWeight(.semibold).font(.title)
+   }.padding().foregroundColor(.white).background(Color.orange)
+.cornerRadius(40)
+}}
