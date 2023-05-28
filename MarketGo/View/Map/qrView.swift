@@ -10,16 +10,17 @@ struct QRCodeView: View {
         VStack {
             // The content of your view goes here
             // This is just a placeholder
-            Text("QR Code Generator")
-                .onAppear {
-                    qrCodeString += String(describing: (userViewModel.currentUser?.storeID?.storeID)!)
-                    text = userViewModel.currentUser?.storeID?.storeName ?? ""
-                    print(qrCodeString)
-                }
+            
+                
             generateImage()
         }
+        .onAppear {
+            qrCodeString += String(describing: (userViewModel.currentUser?.storeID?.storeID)!)
+            text = userViewModel.currentUser?.storeID?.storeName ?? ""
+            print(qrCodeString)
+        }
         .alert(isPresented: $showingAlert) {
-            Alert(title: Text("Saved"), message: Text("Your image has been saved to your Photos."), dismissButton: .default(Text("OK")))
+            Alert(title: Text("사진첩에 저장"), message: Text("QR 코드는 갤러리에 저장됐습니다."), dismissButton: .default(Text("OK")))
         }
     }
     
@@ -82,7 +83,7 @@ struct QRCodeView: View {
             Image(uiImage: combinedImage ?? UIImage())
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200)
+                .frame(width: 400, height: 400)
             button
         }
     }
