@@ -8,7 +8,6 @@ import SwiftUI
 
 struct MarketInfoView: View {
     @State private var selectedTab = 0
-    @Binding var selected: Document?
     @Binding var selectedMarket: MarketOne?
     @EnvironmentObject var marketModel: MarketModel
     @State private var isLinkActive = false
@@ -62,6 +61,6 @@ struct MarketInfoView: View {
             }
             
         }
-        .navigationTitle((selected?.placeName ?? "시장정보"))
+        .navigationTitle((selectedMarket?.marketName ?? "시장정보"))
     }
 }

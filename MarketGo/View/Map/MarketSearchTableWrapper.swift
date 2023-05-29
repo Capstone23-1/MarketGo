@@ -35,7 +35,7 @@ struct MarketSearchTableWrapper: View {
                         .foregroundColor(.black)
                 }
                 .background(
-                    NavigationLink(destination: MarketInfoView(selected: $selected, selectedMarket: $selectedMarket), isActive: $isLinkActive) {
+                    NavigationLink(destination: MarketInfoView(selectedMarket: $selectedMarket), isActive: $isLinkActive) {
                         EmptyView()
                     }
                         .hidden()
