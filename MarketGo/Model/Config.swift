@@ -60,7 +60,7 @@ class Config{
                 }
             }
     }
-    func fetchMemberInfo(uid: String, completion: @escaping (Result<MemberInfo, Error>) -> Void) {
+    func getMemberInfo(uid: String, completion: @escaping (Result<MemberInfo, Error>) -> Void) {
         
         let url = "http://3.34.33.15:8080/member/memberToken/\(uid)"
         print(url)

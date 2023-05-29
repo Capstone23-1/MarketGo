@@ -40,7 +40,7 @@ struct MarketSearchView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
                     
-                    NavigationLink(destination: OtherMarketSearchView()) {
+                    NavigationLink(destination: OtherMarketSearchView(searchText: $searchText, placeHoldr: $placeHolder)) {
                         Image(systemName: "magnifyingglass")
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
                     }

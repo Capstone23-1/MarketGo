@@ -11,6 +11,7 @@ struct MarketInfoView: View {
     @Binding var selectedMarket: MarketOne?
     @EnvironmentObject var marketModel: MarketModel
     @State private var isLinkActive = false
+    @EnvironmentObject var userModel: UserModel
     
     var body: some View {
         GeometryReader { geometry in
@@ -52,6 +53,7 @@ struct MarketInfoView: View {
                         .onTapGesture {
                             self.marketModel.currentMarket = selectedMarket
                             self.isLinkActive = true
+                            //userModel.interestMarket 수정해야해
                             
                         }
                     

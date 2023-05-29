@@ -3,9 +3,12 @@ import Alamofire
 
 struct OtherMarketSearchView: View {
     @StateObject private var vm = OtherMarketSearchViewModel()
-
+    @Binding var searchText :String
+    @Binding var placeHoldr :String
+    
     var body: some View {
         VStack {
+            SearchBar(searchText: $searchText,placeHolder: $placeHoldr)
             HStack {
                 Spacer()
                 Picker(selection: $vm.sortOption, label: Text("지역")) {
@@ -24,7 +27,7 @@ struct OtherMarketSearchView: View {
                     }
                 }
             }
-            MarketOtherTableWrapper(data: vm.marketList)
+            MarketOtherTableWrapper(data: vm.marketList, searchText: $searchText)
         }
         .onAppear(perform: vm.loadData)
     }
@@ -48,4 +51,5 @@ class OtherMarketSearchViewModel: ObservableObject {
             }
         }
     }
+    
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EditProfileView: View {
+    @EnvironmentObject var userModel: UserModel
     @State private var username: String = ""
     @State private var email: String = ""
     @State private var password: String = ""

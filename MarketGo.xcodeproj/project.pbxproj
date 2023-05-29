@@ -63,6 +63,7 @@
 		218F54272A24F7E100A9A6EF /* MarketOtherTableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54262A24F7E100A9A6EF /* MarketOtherTableWrapper.swift */; };
 		218F54292A24F8EF00A9A6EF /* MarketOtherSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54282A24F8EF00A9A6EF /* MarketOtherSearchView.swift */; };
 		218F542B2A2501A500A9A6EF /* OtherMarketSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F542A2A2501A500A9A6EF /* OtherMarketSearchView.swift */; };
+		218F542D2A25178C00A9A6EF /* MemberProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F542C2A25178C00A9A6EF /* MemberProfileEditView.swift */; };
 		21A789B72A1E514700DD9456 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789B62A1E514700DD9456 /* AppState.swift */; };
 		21A789BA2A1E6A3800DD9456 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789B92A1E6A3800DD9456 /* QRCode */; };
 		21A789BD2A1E6AF600DD9456 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789BC2A1E6AF600DD9456 /* PinLayout */; };
@@ -192,6 +193,7 @@
 		218F54262A24F7E100A9A6EF /* MarketOtherTableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketOtherTableWrapper.swift; sourceTree = "<group>"; };
 		218F54282A24F8EF00A9A6EF /* MarketOtherSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketOtherSearchView.swift; sourceTree = "<group>"; };
 		218F542A2A2501A500A9A6EF /* OtherMarketSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMarketSearchView.swift; sourceTree = "<group>"; };
+		218F542C2A25178C00A9A6EF /* MemberProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileEditView.swift; sourceTree = "<group>"; };
 		2198B6DE943CEFFEB56B33D7 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21A789B62A1E514700DD9456 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				218F54262A24F7E100A9A6EF /* MarketOtherTableWrapper.swift */,
 				218F54282A24F8EF00A9A6EF /* MarketOtherSearchView.swift */,
 				218F542A2A2501A500A9A6EF /* OtherMarketSearchView.swift */,
+				218F542C2A25178C00A9A6EF /* MemberProfileEditView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -807,6 +810,7 @@
 				21FAE1EE2A0B65EC006593D9 /* SellerSignUpView.swift in Sources */,
 				2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */,
 				21FAE1DE2A0AA49D006593D9 /* UserSignUpViewModel.swift in Sources */,
+				218F542D2A25178C00A9A6EF /* MemberProfileEditView.swift in Sources */,
 				210862022A06D67900EC3A60 /* MapLinkView.swift in Sources */,
 				2188126429E96F4700F315EF /* ParkingLotViewModel.swift in Sources */,
 				210704C32A1D3D3700643140 /* EditGoodsViewModel.swift in Sources */,

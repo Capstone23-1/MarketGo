@@ -10,7 +10,7 @@ import SwiftUI
 
 struct UserMyPageView: View {
     @EnvironmentObject var userModel: UserModel
-
+    @State var isLinkActive = false
     var body: some View {
         VStack(spacing: 20) {
             Spacer().frame(height: 20)
@@ -54,7 +54,21 @@ struct UserMyPageView: View {
             }
             Spacer()
             
-        }
+            NavigationLink(destination: MemberProfileEditView(), isActive: $isLinkActive) {
+                Text("회원정보 수정")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10.0)
+                    .onTapGesture {
+//                        self.marketModel.currentMarket = selectedMarket
+                        self.isLinkActive = true
+                        
+                    }
+                
+            }}
         .padding()
         .navigationBarTitle("My Page", displayMode: .inline)
     }

@@ -1,48 +1,49 @@
-//
-//  MarketOtherTableWrapper.swift
-//  MarketGo
-//
-//  Created by ram on 2023/05/30.
-//
 import SwiftUI
 import Alamofire
 
 struct MarketOtherTableWrapper: View {
     var data: [MarketOne]
-//    @Binding var selected: MarketOne?
-    var didSelectRowAt: ((Document) -> Void)? //Document -> MarketOne?
-    @State private var isLoading = false // indicator 추가
-    @State private var isLinkActive = false
-    @State var selectedMarket: MarketOne?
-    @EnvironmentObject var marketModel: MarketModel
     
+    @State private var selectedMarket: MarketOne?
+    @State private var isLinkActive = false
+    @EnvironmentObject var marketModel: MarketModel
+    @Binding var searchText:String
+    
+  
+
     var body: some View {
-        List(data,id: \.marketName) { market in
-            HStack {
-                Text(market.marketName!)
-                    .onTapGesture {
-                        selectedMarket = market
-//                        didSelectRowAt?(market)
+        VStack {
+            var filteredData: [MarketOne] {
+                if searchText.isEmpty {
+                    return data
+                } else {
+                    return data.filter { market in
+                        market.marketName?.lowercased().contains(searchText.lowercased()) ?? false
                     }
-                Spacer()
-                Button(action: {
-                    
-                    selectedMarket = market
-                    
-                    isLinkActive = true
-                }) {
-                    Image(systemName: "arrowtriangle.forward")
-                        .foregroundColor(.black)
                 }
-                .background(
-                    NavigationLink(destination: MarketInfoView( selectedMarket: $selectedMarket), isActive: $isLinkActive) {
-                        EmptyView()
+            }
+            List(filteredData, id: \.marketName) { market in
+                HStack {
+                    Text(market.marketName ?? "")
+                        .onTapGesture {
+                            selectedMarket = market
+                        }
+                    Spacer()
+                    Button(action: {
+                        selectedMarket = market
+                        isLinkActive = true
+                    }) {
+                        Image(systemName: "arrowtriangle.forward")
+                            .foregroundColor(.black)
                     }
+                    .background(
+                        NavigationLink(destination: MarketInfoView(selectedMarket: $selectedMarket), isActive: $isLinkActive) {
+                            EmptyView()
+                        }
                         .hidden()
-                )
+                    )
+                }
             }
         }
     }
-    
-    
 }

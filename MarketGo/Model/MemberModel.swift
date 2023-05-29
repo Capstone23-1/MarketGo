@@ -64,7 +64,7 @@ struct MemberInfo: Codable {
     var interestMarket: MarketOne?
     var cartID: CartID?
     var storeID: StoreElement?
-    var recentLatitude, recentLongitude: Int?
+    var recentLatitude, recentLongitude: Double?
 
     enum CodingKeys: String, CodingKey {
         case memberID = "memberId"
