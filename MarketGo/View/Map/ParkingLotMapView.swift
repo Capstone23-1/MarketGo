@@ -46,6 +46,11 @@ struct ParkingLotMapView: UIViewRepresentable {
                         DispatchQueue.main.async {
                             self.selectedParkingLot = parkingLot
                         }
+                        let infoWindow = NMFInfoWindow()
+                        let dataSource = NMFInfoWindowDefaultTextSource.data()
+                        dataSource.title = parkingLot.placeName
+                        infoWindow.dataSource = dataSource
+                        infoWindow.open(with: marker)
                         
                     }
                     return true

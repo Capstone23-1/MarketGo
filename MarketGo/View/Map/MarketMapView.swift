@@ -51,7 +51,6 @@ struct MarketMapView: UIViewRepresentable {
                             vm.selectedID=market.id
                             
                         }
-                       
                         
                     }
                     return true

@@ -42,6 +42,11 @@ struct EatingHouseMapView: UIViewRepresentable {
                             self.SelectedEating = eatingLot
                             vm.selectedID=eatingLot.id
                         }
+                        let infoWindow = NMFInfoWindow()
+                        let dataSource = NMFInfoWindowDefaultTextSource.data()
+                        dataSource.title = eatingLot.placeName
+                        infoWindow.dataSource = dataSource
+                        infoWindow.open(with: marker)
                         
                     }
                     return true
