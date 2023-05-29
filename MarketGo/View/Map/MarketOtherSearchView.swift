@@ -1,14 +1,14 @@
 //
-//  MarketSearchView.swift
+//  MarketOtherSearchView.swift
 //  MarketGo
 //
-//  Created by ram on 2023/03/27.
+//  Created by ram on 2023/05/30.
 //
 
 import SwiftUI
 import UIKit
 
-struct MarketSearchView: View {
+struct MarketOtherSearchView: View {
     @State private var searchText: String = ""
     //드롭다운바 즉,Picker에서 사용하기 위한 사용자가 선택한 옵션을 저장,이 값을 사용하여 리스트를 정렬 1~3까지의 값이 있음,추가될 수 있음
     @State private var sortOption: Int = 0
@@ -33,32 +33,8 @@ struct MarketSearchView: View {
     var body: some View {
         NavigationView{
             VStack {
-//                SearchBar(searchText: $searchText,placeHolder: $placeHolder)
-                HStack {
-                    TextField("\(placeHolder)", text: $searchText)
-                        .foregroundColor(.primary)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-                    
-                    NavigationLink(destination: OtherMarketSearchView()) {
-                        Image(systemName: "magnifyingglass")
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
-                    }
-                }
-
-
-
+                SearchBar(searchText: $searchText,placeHolder: $placeHolder)
                 
-                HStack{
-                    Spacer()
-                    Picker(selection: $sortOption, label: Text("정렬 기준")) {
-                        Text("거리 가까운 순").tag(0)
-                        Text("평점 높은순").tag(1)
-                        Text("이름순").tag(2)
-                    }
-                    .padding(.horizontal)
-                    .foregroundColor(.gray)
-                }
                 if let errorMessage = errorMessage {
                     Text(errorMessage)
                 } else {

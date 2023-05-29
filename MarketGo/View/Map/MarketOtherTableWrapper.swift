@@ -1,13 +1,13 @@
 //
-//  MarketTableWrapper.swift
+//  MarketOtherTableWrapper.swift
 //  MarketGo
 //
-//  Created by ram on 2023/05/11.
+//  Created by ram on 2023/05/30.
 //
 import SwiftUI
 import Alamofire
 
-struct MarketTableWrapper: View {
+struct MarketOtherTableWrapper: View {
     var data: [Document]
     @Binding var selected: Document?
     var didSelectRowAt: ((Document) -> Void)?
