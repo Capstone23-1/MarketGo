@@ -15,6 +15,7 @@ struct MarketSearchTableWrapper: View {
     @State private var isLinkActive = false
     @State var selectedMarket: MarketOne?
     @EnvironmentObject var marketModel: MarketModel
+    @EnvironmentObject var userModel: UserModel
     @ObservedObject var vm:MarketSearchViewModel
     
     var body: some View {
@@ -29,9 +30,13 @@ struct MarketSearchTableWrapper: View {
                         }
                     Spacer()
                     Button(action: {
+                        userModel.NMap = market
                         vm.fetchMarketData(marketName: market.placeName)
                         selected = market
                         isLinkActive = true
+                        
+                        
+                        
                     }) {
                         Image(systemName: "arrowtriangle.forward")
                             .foregroundColor(.black)

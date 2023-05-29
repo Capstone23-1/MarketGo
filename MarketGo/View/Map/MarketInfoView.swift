@@ -29,31 +29,34 @@ struct MarketInfoView: View {
         GeometryReader { geometry in
             VStack {
                 
-                Image("상도시장메인")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                
-                Picker(selection: $selectedTab, label: Text("탭")) {
-                    Text("시장정보").tag(0)
-                    Text("지도보기").tag(1)
-                    Text("가는길 찾기").tag(2)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
-                
-                switch selectedTab {
-                    case 0:
-                        MarketListView(marketData: $selectedMarket)
-                    case 1:
-                        Image("상도시장지도")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                        Spacer().frame(width:20)
-                    case 2:
-                        FindPathView(selectedMarket: $selectedMarket)
-                    default:
-                        Text("잘못된 선택")
-                }
+//                Image("상도시장메인")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//
+                MarketOneMapView(selectedMarket: $selectedMarket)
+                    .frame(height: 200)
+                MarketListView(marketData: $selectedMarket)
+//                Picker(selection: $selectedTab, label: Text("탭")) {
+//                    Text("시장정보").tag(0)
+//                    Text("지도보기").tag(1)
+//                    Text("가는길 찾기").tag(2)
+//                }
+//                .pickerStyle(SegmentedPickerStyle())
+//                .padding()
+//
+//                switch selectedTab {
+//                    case 0:
+//                        MarketListView(marketData: $selectedMarket)
+//                    case 1:
+//                        Image("상도시장지도")
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fill)
+//                        Spacer().frame(width:20)
+//                    case 2:
+//                        FindPathView(selectedMarket: $selectedMarket)
+//                    default:
+//                        Text("잘못된 선택")
+//                }
                 NavigationLink(destination: MainView(), isActive: $isLinkActive) {
                     Text("시장 선택")
                         .font(.headline)

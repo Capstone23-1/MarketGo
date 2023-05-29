@@ -60,5 +60,6 @@ class UserSignInViewModel: ObservableObject {
 
 class UserModel: ObservableObject {
     @Published var currentUser: MemberInfo? = nil
+    @Published var NMap: Document?
 }
 

@@ -20,6 +20,7 @@ struct MarketOtherSearchView: View {
     @ObservedObject var locationManager = LocationManager()
     @State private var selectedMarket: Document?
     @State private var isLoading = false // indicator 추가
+    @StateObject var vm = MarketSearchViewModel()
     
     var sortedClasses: [Document] {
         switch sortOption {
@@ -46,7 +47,7 @@ struct MarketOtherSearchView: View {
                     } else {
                         
 //                        MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
-//                        MarketSearchTableWrapper(data: MarketList, selected: $selectedMarket)
+                        MarketSearchTableWrapper(data: MarketList, selected: $selectedMarket, vm: vm)
                         
                         
                     }

@@ -6,6 +6,7 @@ struct OtherMarketSearchView: View {
     @Binding var searchText :String
     @Binding var placeHoldr :String
     
+    
     var body: some View {
         VStack {
             SearchBar(searchText: $searchText,placeHolder: $placeHoldr)

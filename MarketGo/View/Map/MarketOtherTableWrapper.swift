@@ -7,6 +7,7 @@ struct MarketOtherTableWrapper: View {
     @State private var selectedMarket: MarketOne?
     @State private var isLinkActive = false
     @EnvironmentObject var marketModel: MarketModel
+    @EnvironmentObject var userModel: UserModel
     @Binding var searchText:String
     
   
@@ -30,6 +31,8 @@ struct MarketOtherTableWrapper: View {
                         }
                     Spacer()
                     Button(action: {
+                        
+
                         selectedMarket = market
                         isLinkActive = true
                     }) {
