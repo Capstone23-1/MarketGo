@@ -4,51 +4,73 @@ import Alamofire
 struct MemberProfileEditView: View {
     @EnvironmentObject var userModel: UserModel
     @StateObject private var vm = MemberProfileEditViewModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         NavigationView{
-            VStack {
-                
-                Form {
-                    Section(header: Text("Member ID")) {
-                        TextField("Member ID", value: $vm.memberID, formatter: NumberFormatter())
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
+            ZStack{
+                VStack {
                     
-                    Section(header: Text("Member Token")) {
-                        TextField("Member Token", text: $vm.memberToken)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Form {
+                        Section(header: Text("Member ID")) {
+                            TextField("Member ID", value: $vm.memberID, formatter: NumberFormatter())
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                        Section(header: Text("Member Token")) {
+                            TextField("Member Token", text: $vm.memberToken)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                        
+                        Section(header: Text("Member Name")) {
+                            TextField("Member Name", text: $vm.memberName)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                        
+                        Section(header: Text("Interest Market")) {
+                            TextField("Interest Market", value: $vm.interestMarket, formatter: NumberFormatter())
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                        
+                        Section(header: Text("Cart ID")) {
+                            TextField("Cart ID", value: $vm.cartId, formatter: NumberFormatter())
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                        
+                        Section(header: Text("Store ID")) {
+                            TextField("Store ID", value: $vm.storeId, formatter: NumberFormatter())
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                        
+                        Section(header: Text("Recent Latitude")) {
+                            TextField("Recent Latitude", value: $vm.recentLatitude, formatter: NumberFormatter())
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                        
+                        Section(header: Text("Recent Longitude")) {
+                            TextField("Recent Longitude", value: $vm.recentLongitude, formatter: NumberFormatter())
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
                     }
+                    // Save button
+                    Button(action: {
+                        Task{
+                            vm.updateMemberInfo()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                userModel.currentUser = vm.successMemberInfo
+                                vm.isLoading = false
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                        }
+                    }) {
+                        Text("Save")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }
+                    .disabled(vm.isLoading)
                     
-                    Section(header: Text("Member Name")) {
-                        TextField("Member Name", text: $vm.memberName)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    
-                    Section(header: Text("Interest Market")) {
-                        TextField("Interest Market", value: $vm.interestMarket, formatter: NumberFormatter())
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    
-                    Section(header: Text("Cart ID")) {
-                        TextField("Cart ID", value: $vm.cartId, formatter: NumberFormatter())
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    
-                    Section(header: Text("Store ID")) {
-                        TextField("Store ID", value: $vm.storeId, formatter: NumberFormatter())
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    
-                    Section(header: Text("Recent Latitude")) {
-                        TextField("Recent Latitude", value: $vm.recentLatitude, formatter: NumberFormatter())
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    
-                    Section(header: Text("Recent Longitude")) {
-                        TextField("Recent Longitude", value: $vm.recentLongitude, formatter: NumberFormatter())
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
+                    Spacer()
                 }
                 if vm.isLoading {
                     ProgressView()
@@ -60,19 +82,6 @@ struct MemberProfileEditView: View {
                         .shadow(radius: 10)
                 }
                 
-                // Save button
-                Button(action: {
-                    vm.updateMemberInfo()
-                }) {
-                    Text("Save")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
-                .disabled(vm.isLoading)
-                
-                Spacer()
             }
             .padding()
             .onAppear {
@@ -93,6 +102,7 @@ struct MemberProfileEditView: View {
 
 
 class MemberProfileEditViewModel: ObservableObject {
+    @EnvironmentObject var userModel: UserModel
     @Published var memberPostInfo: MemberPostInfo?
     
     @Published var memberID = 0
@@ -106,6 +116,8 @@ class MemberProfileEditViewModel: ObservableObject {
     
     @Published var isLoading = false
     
+    @Published var successMemberInfo:MemberInfo?
+    
     func updateMemberInfo() {
         
         
@@ -115,37 +127,19 @@ class MemberProfileEditViewModel: ObservableObject {
         
         let url = "http://3.34.33.15:8080/member/\(String(describing: memberID))?memberToken=\(enMemberToken)&memberName=\(enMemberName)&interestMarket=\(String(describing: interestMarket))&cartId=\(cartId)&storeId=\(storeId)&recentLatitude=\(recentLatitude)&recentLongitude=\(recentLongitude)"
         
-        let parameters: [String: Any] = [
-            "memberToken": enMemberToken,
-            "memberName": enMemberName,
-            "interestMarket": interestMarket,
-            "cartId": cartId,
-            "storeId": storeId,
-            "recentLatitude": recentLatitude,
-            "recentLongitude": recentLongitude
-            // Add more parameters as needed...
-        ]
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         AF.request(url, method: .put, headers: headers)
-            .validate()
-            .responseDecodable(of: MemberInfo.self) { response in
-                self.isLoading = false
-                debugPrint(response)
+            .validate(statusCode: 200..<300)
+            .responseDecodable(of: MemberInfo.self) { [self] response in
+                
+                
                 switch response.result {
-                    case .success(let updatedMemberInfo):
-                        // Handle updated member info
-                        print("")
-//                        print("Member info updated:", updatedMemberInfo)
-                        
-                        // Update userModel with the updated member info
-                        //                    userModel.memberPostInfo = memberInfo
-                        //                    userModel.memberInfo = updatedMemberInfo
-                        //
-                        // Pop back to previous view or perform any other necessary actions
+                    case .success(let up):
+                        print("put 메서드 성공",up)
+                        successMemberInfo = up
                         
                     case .failure(let error):
                         print("Error updating member info:", error)
-                        // Display error message or perform any other necessary actions
                 }
             }
     }
