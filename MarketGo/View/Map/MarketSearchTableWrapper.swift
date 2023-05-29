@@ -10,9 +10,8 @@ struct MarketSearchTableWrapper: View {
     var data: [Document]
     @Binding var selected: Document?
     
-    var didSelectRowAt: ((Document) -> Void)?
     @State private var isLoading = false // indicator 추가
-    @State private var isLinkActive = false
+    @State private var isLinkActive = false //버튼위해서사용
     @State var selectedMarket: MarketOne?
     @EnvironmentObject var marketModel: MarketModel
     @EnvironmentObject var userModel: UserModel

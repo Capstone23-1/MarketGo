@@ -13,6 +13,8 @@ struct EatingHouseView: View {
     @ObservedObject var locationManager = LocationManager()
     @State private var selectedEating: Document?
     @State private var isLoading = false // indicator 추가
+    @StateObject var vm = MarketSearchViewModel()
+    @EnvironmentObject var userModel: UserModel
     
     var body: some View {
         VStack {
@@ -28,8 +30,9 @@ struct EatingHouseView: View {
                     
                 } else {
                     
-                    EatingHouseMapView(EatingHouses: $eatingHouses, SelectedEating: $selectedEating)
-                    UITableViewWrapper(data: eatingHouses, selected: $selectedEating)
+                    EatingHouseMapView(EatingHouses: $eatingHouses, SelectedEating: $selectedEating, vm: vm)
+                    EatingHouseList(data: eatingHouses, selected: $selectedEating, vm: vm)
+//                    UITableViewWrapper(data: eatingHouses, selected: $selectedEating)
 
                     
                 }
@@ -38,7 +41,7 @@ struct EatingHouseView: View {
         .onAppear {
             let viewModel = EatingHouseViewModel()
             isLoading = true // 로딩 시작
-            viewModel.searchEatingHouse(location: locationManager.userLocation ?? cauLocation, queryKeyword: "맛집") { result in
+            viewModel.searchEatingHouse(location: CoordinateInfo(lat: (userModel.currentUser?.interestMarket?.marketLatitude)!, lng: (userModel.currentUser?.interestMarket?.marketLongitude)!) , queryKeyword: "맛집") { result in
                 switch result {
                     case .success(let parkingLotData):
                         DispatchQueue.main.async {

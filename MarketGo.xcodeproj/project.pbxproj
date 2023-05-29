@@ -67,6 +67,7 @@
 		218F542F2A25386F00A9A6EF /* MemberProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F542E2A25386F00A9A6EF /* MemberProfileEditViewModel.swift */; };
 		218F54312A253FD300A9A6EF /* MarketTableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54302A253FD300A9A6EF /* MarketTableWrapper.swift */; };
 		218F54332A25409400A9A6EF /* MarketSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54322A25409400A9A6EF /* MarketSearchViewModel.swift */; };
+		218F54352A255ABA00A9A6EF /* EatingHouseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54342A255ABA00A9A6EF /* EatingHouseList.swift */; };
 		21A789B72A1E514700DD9456 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789B62A1E514700DD9456 /* AppState.swift */; };
 		21A789BA2A1E6A3800DD9456 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789B92A1E6A3800DD9456 /* QRCode */; };
 		21A789BD2A1E6AF600DD9456 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789BC2A1E6AF600DD9456 /* PinLayout */; };
@@ -200,6 +201,7 @@
 		218F542E2A25386F00A9A6EF /* MemberProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileEditViewModel.swift; sourceTree = "<group>"; };
 		218F54302A253FD300A9A6EF /* MarketTableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableWrapper.swift; sourceTree = "<group>"; };
 		218F54322A25409400A9A6EF /* MarketSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketSearchViewModel.swift; sourceTree = "<group>"; };
+		218F54342A255ABA00A9A6EF /* EatingHouseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingHouseList.swift; sourceTree = "<group>"; };
 		2198B6DE943CEFFEB56B33D7 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21A789B62A1E514700DD9456 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				218F542A2A2501A500A9A6EF /* OtherMarketSearchView.swift */,
 				218F542C2A25178C00A9A6EF /* MemberProfileEditView.swift */,
 				218F54302A253FD300A9A6EF /* MarketTableWrapper.swift */,
+				218F54342A255ABA00A9A6EF /* EatingHouseList.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				993AF1C529DE474F00031A7B /* StoreView.swift in Sources */,
 				218F542F2A25386F00A9A6EF /* MemberProfileEditViewModel.swift in Sources */,
 				2140BC9929D1D01900B78C6C /* MarketGoApp.swift in Sources */,
+				218F54352A255ABA00A9A6EF /* EatingHouseList.swift in Sources */,
 				210704C12A1D260800643140 /* EditGoodsView.swift in Sources */,
 				21416B7E2A0CF25F008EA3C5 /* MarketSearchTableWrapper.swift in Sources */,
 				21FAE1EC2A0AC2A6006593D9 /* EditProfileView.swift in Sources */,

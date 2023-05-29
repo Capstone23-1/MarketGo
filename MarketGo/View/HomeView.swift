@@ -15,6 +15,7 @@ struct HomeView: View {
             Text("\(userViewModel.currentUser?.memberName ?? "")")
 //            Text(String(userViewModel.currentUser!.memberID!))
             Text("\(userViewModel.currentUser?.memberToken ?? "")")
+            Text("\(userViewModel.currentUser?.interestMarket?.marketName ?? "")")
         }
        
         

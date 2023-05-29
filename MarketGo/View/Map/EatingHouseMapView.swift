@@ -1,27 +1,21 @@
-//
-//  EatingHoustMapView.swift
-//  MarketGo
-//
-//  Created by ram on 2023/04/29.
-//
-
 import SwiftUI
 import NMapsMap
 
 
 struct EatingHouseMapView: UIViewRepresentable {
     
-    @ObservedObject var locationManager = LocationManager()
+    @EnvironmentObject var userModel:UserModel
     @Binding var EatingHouses: [Document]
     @Binding var SelectedEating: Document?
+    @ObservedObject var vm:MarketSearchViewModel
     var cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)
     public let mapView = NMFNaverMapView()
     func makeUIView(context: Context) -> NMFNaverMapView {
         mapView.showLocationButton = true
-        
+        mapView.mapView.zoomLevel = 15
         DispatchQueue.main.async {
-            if let userLocation = locationManager.userLocation {
-                let nmg = NMGLatLng(lat: userLocation.lat , lng: userLocation.lng )
+            if let userLocation = userModel.currentUser {
+                let nmg = NMGLatLng(lat: (userLocation.interestMarket?.marketLatitude)! , lng: (userLocation.interestMarket?.marketLongitude)! )
                 let cameraUpdate = NMFCameraUpdate(scrollTo: nmg)
                 let marketMarker = NMFMarker()
                 marketMarker.iconImage = NMF_MARKER_IMAGE_BLACK
@@ -30,11 +24,11 @@ struct EatingHouseMapView: UIViewRepresentable {
                 marketMarker.mapView = mapView.mapView
                 marketMarker.mapView?.moveCamera(cameraUpdate)
             }
-            for parkingLot in EatingHouses {
+            for eatingLot in EatingHouses {
                 let marker = NMFMarker()
-                marker.position = NMGLatLng(lat: Double(parkingLot.y) ?? 0, lng: Double(parkingLot.x) ?? 0)
+                marker.position = NMGLatLng(lat: Double(eatingLot.y) ?? 0, lng: Double(eatingLot.x) ?? 0)
                 marker.mapView = mapView.mapView
-                if let selectedParkingLot = SelectedEating, let lat = Double(selectedParkingLot.y), let lng = Double(selectedParkingLot.x) {
+                if let selectedEatingLot = SelectedEating, let lat = Double(selectedEatingLot.y), let lng = Double(selectedEatingLot.x) {
                     // 해당 위치로 카메라 이동
                     let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat, lng: lng))
                     mapView.mapView.moveCamera(cameraUpdate)
@@ -43,8 +37,10 @@ struct EatingHouseMapView: UIViewRepresentable {
                     if let marker = overlay as? NMFMarker {
                         let cameraUpdate = NMFCameraUpdate(scrollTo: marker.position)
                         mapView?.mapView.moveCamera(cameraUpdate)
+                        
                         DispatchQueue.main.async {
-                            self.SelectedEating = parkingLot
+                            self.SelectedEating = eatingLot
+                            vm.selectedID=eatingLot.id
                         }
                         
                     }
@@ -57,7 +53,7 @@ struct EatingHouseMapView: UIViewRepresentable {
     
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
         // 선택된 주차장이 있고, 해당 주차장의 위치 정보가 있는 경우
-        if let selectedParkingLot = SelectedEating, let lat = Double(selectedParkingLot.y), let lng = Double(selectedParkingLot.x) {
+        if let selectedEatingLot = SelectedEating, let lat = Double(selectedEatingLot.y), let lng = Double(selectedEatingLot.x) {
             // 해당 위치로 카메라 이동
             let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat, lng: lng))
             mapView.mapView.moveCamera(cameraUpdate)
