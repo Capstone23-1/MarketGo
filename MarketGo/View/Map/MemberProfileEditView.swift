@@ -5,7 +5,7 @@ struct MemberProfileEditView: View {
     @EnvironmentObject var userModel: UserModel
     @StateObject private var vm = MemberProfileEditViewModel()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    @State var isLoading = false
     var body: some View {
         NavigationView{
             ZStack{
@@ -53,26 +53,27 @@ struct MemberProfileEditView: View {
                     }
                     // Save button
                     Button(action: {
+                        isLoading = true
                         Task{
                             vm.updateMemberInfo()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                 userModel.currentUser = vm.successMemberInfo
-                                vm.isLoading = false
+                                isLoading = false
                                 self.presentationMode.wrappedValue.dismiss()
                             }
                         }
                     }) {
-                        Text("Save")
+                        Text("저장")
                             .foregroundColor(.white)
                             .padding()
                             .background(Color.blue)
                             .cornerRadius(10)
                     }
-                    .disabled(vm.isLoading)
+                    .disabled(isLoading)
                     
                     Spacer()
                 }
-                if vm.isLoading {
+                if isLoading {
                     ProgressView()
                         .scaleEffect(2)
                         .progressViewStyle(CircularProgressViewStyle(tint: .blue))
@@ -114,14 +115,14 @@ class MemberProfileEditViewModel: ObservableObject {
     @Published var recentLatitude = 0.0
     @Published var recentLongitude = 0.0
     
-    @Published var isLoading = false
+    
     
     @Published var successMemberInfo:MemberInfo?
     
     func updateMemberInfo() {
         
         
-        isLoading = true
+        
         let enMemberToken = makeStringKoreanEncoded(memberToken)
         let enMemberName = makeStringKoreanEncoded(memberName)
         
