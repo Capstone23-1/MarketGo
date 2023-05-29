@@ -9,10 +9,22 @@ import SwiftUI
 struct MarketInfoView: View {
     @State private var selectedTab = 0
     @Binding var selectedMarket: MarketOne?
-    @EnvironmentObject var marketModel: MarketModel
+    
     @State private var isLinkActive = false
     @EnvironmentObject var userModel: UserModel
-    
+    @StateObject private var vm = MemberProfileEditViewModel()
+    func loadMemeber() {
+       if let memberInfo = userModel.currentUser {
+           vm.memberID = memberInfo.memberID
+           vm.memberToken = memberInfo.memberToken ?? ""
+           vm.memberName = memberInfo.memberName ?? ""
+           vm.interestMarket = memberInfo.interestMarket?.marketID ?? 0
+           vm.cartId = memberInfo.cartID?.cartID ?? 0
+           vm.storeId = memberInfo.storeID?.storeID ?? 0
+           vm.recentLatitude = memberInfo.recentLatitude ?? 0.0
+           vm.recentLongitude = memberInfo.recentLongitude ?? 0.0
+       }
+   }
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -51,9 +63,13 @@ struct MarketInfoView: View {
                         .background(Color.blue)
                         .cornerRadius(10.0)
                         .onTapGesture {
-                            self.marketModel.currentMarket = selectedMarket
+                            
+                            loadMemeber()
+                            vm.interestMarket = selectedMarket!.marketID
+                            vm.updateMemberInfo()
+                            userModel.currentUser?.interestMarket=selectedMarket
                             self.isLinkActive = true
-                            //userModel.interestMarket 수정해야해
+                            
                             
                         }
                     
