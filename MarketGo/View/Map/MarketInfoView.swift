@@ -12,6 +12,8 @@ struct MarketInfoView: View {
     
     @State private var isLinkActive = false
     @EnvironmentObject var userModel: UserModel
+    @EnvironmentObject var marketModel: MarketModel
+
     @StateObject private var vm = MemberProfileEditViewModel()
     func loadMemeber() {
         if let memberInfo = userModel.currentUser {
@@ -71,6 +73,7 @@ struct MarketInfoView: View {
                             vm.interestMarket = selectedMarket!.marketID
                             vm.updateMemberInfo()
                             userModel.currentUser?.interestMarket=selectedMarket
+                            marketModel.currentMarket=selectedMarket
                             self.isLinkActive = true
                             
                             
