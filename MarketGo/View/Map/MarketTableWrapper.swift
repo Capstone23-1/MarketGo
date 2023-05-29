@@ -15,7 +15,7 @@ struct MarketTableWrapper: View {
     @State private var isLinkActive = false
     @State var selectedMarket: MarketOne?
     @EnvironmentObject var marketModel: MarketModel
-
+    
     var body: some View {
         List(data) { market in
             HStack {
@@ -38,12 +38,12 @@ struct MarketTableWrapper: View {
                     NavigationLink(destination: MarketInfoView(selected: $selected, selectedMarket: $selectedMarket), isActive: $isLinkActive) {
                         EmptyView()
                     }
-                    .hidden()
+                        .hidden()
                 )
             }
         }
     }
-
+    
     private func fetchMarketData(marketName: String) {
         let letter = makeStringKoreanEncoded(marketName)
         let url = "http://3.34.33.15:8080/market/marketName/\(letter)"
@@ -51,18 +51,18 @@ struct MarketTableWrapper: View {
             .validate()
             .responseDecodable(of: [MarketOne].self) { response in
                 switch response.result {
-                case .success(let market):
-                    // 이 경우 market은 MarketOneElement의 배열입니다. 첫 번째 요소를 선택하거나 적절하게 처리하세요.
-                    if let firstMarket = market.first {
-                        self.selectedMarket = firstMarket
-                        self.marketModel.currentMarket = firstMarket // fetched market data is saved to currentMarket
-//                        print(firstMarket)
-                    }
-                case .failure(let error):
-//                    print("Error: \(error)")
+                    case .success(let market):
+                        // 이 경우 market은 MarketOneElement의 배열입니다. 첫 번째 요소를 선택하거나 적절하게 처리하세요.
+                        if let firstMarket = market.first {
+                            self.selectedMarket = firstMarket
+                            self.marketModel.currentMarket = firstMarket // fetched market data is saved to currentMarket
+                            //                        print(firstMarket)
+                        }
+                    case .failure(let error):
+                        //                    print("Error: \(error)")
                         print("error")
                 }
-
+                
             }
     }
 }
