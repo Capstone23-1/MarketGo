@@ -14,6 +14,7 @@ struct MarketMapView: UIViewRepresentable {
     @ObservedObject var locationManager = LocationManager()
     @Binding var marketList: [Document]
     @Binding var selectedMarket: Document?
+    @StateObject var vm = MarketSearchViewModel()
     var cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)
     public let mapView = NMFNaverMapView()
     func makeUIView(context: Context) -> NMFNaverMapView {
@@ -39,6 +40,7 @@ struct MarketMapView: UIViewRepresentable {
                     // 해당 위치로 카메라 이동
                     let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat, lng: lng))
                     mapView.mapView.moveCamera(cameraUpdate)
+                    
                 }
                 marker.touchHandler = { [weak mapView] (overlay: NMFOverlay) -> Bool in
                     if let marker = overlay as? NMFMarker {
@@ -46,12 +48,10 @@ struct MarketMapView: UIViewRepresentable {
                         mapView?.mapView.moveCamera(cameraUpdate)
                         DispatchQueue.main.async {
                             self.selectedMarket = market
+                            
+                            
                         }
-                        DispatchQueue.main.async {
-                            if let index = self.marketList.firstIndex(where: { $0.id == market.id }) {
-                                self.selectedMarket = self.marketList[index]
-                            }
-                        }
+                       
                         
                     }
                     return true

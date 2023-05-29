@@ -18,7 +18,7 @@ struct MarketGoApp: App {
             ZStack {
                 if isLoading {
                     ProgressView("Loading...")
-                } else if let storeId = deepLinkStoreId, let store = fetchedStore {
+                } else if let store = fetchedStore {
                     StoreView(store: store)
                 } else {
                     SignInView(cart: cart())

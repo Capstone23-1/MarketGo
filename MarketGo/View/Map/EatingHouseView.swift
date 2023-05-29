@@ -27,15 +27,10 @@ struct EatingHouseView: View {
                         .padding()
                     
                 } else {
+                    
                     EatingHouseMapView(EatingHouses: $eatingHouses, SelectedEating: $selectedEating)
-                    List(eatingHouses, id: \.self) { eatingHouse in
-                        Text("\(eatingHouse.placeName)   \(eatingHouse.distance)m")
-                            .onTapGesture {
-                                selectedEating = eatingHouse
-                            }
-                            .foregroundColor(selectedEating?.id == eatingHouse.id ? .blue : .primary)
-                    }
-                    .id(selectedEating?.id)
+                    UITableViewWrapper(data: eatingHouses, selected: $selectedEating)
+
                     
                 }
             }
