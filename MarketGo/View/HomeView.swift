@@ -121,7 +121,7 @@ struct HomeView: View {
                 .background(Color.white)
                 .cornerRadius(20)
                 .padding(.top, 20)
-                NavigationLink(destination: BannerView()) {
+                NavigationLink(destination: CouponBookView()) {
                     VStack{
                         Text("쿠폰 찾기")
                             .font(.title)
