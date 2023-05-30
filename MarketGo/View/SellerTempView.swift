@@ -58,8 +58,8 @@ struct SellerTempView: View {
                 .sheet(isPresented: $move3) {
                     GoodsListSellerView()
                 }
-                NavigationLink(destination: QRCodeView()) {
-                    Text("QR 생성")
+                NavigationLink(destination: DogamQRGenerateView()) {
+                    Text("도감 QR 생성")
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color.accentColor)

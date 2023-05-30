@@ -76,6 +76,9 @@
 		21A789BD2A1E6AF600DD9456 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789BC2A1E6AF600DD9456 /* PinLayout */; };
 		21A789C32A1E6C2A00DD9456 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */; };
 		21A789C52A1EE02900DD9456 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789C42A1EE02900DD9456 /* QRReaderView.swift */; };
+		21AF15192A265A8F0011A8B5 /* stamp.png in Resources */ = {isa = PBXBuildFile; fileRef = 21AF15182A265A8F0011A8B5 /* stamp.png */; };
+		21AF151B2A265B3A0011A8B5 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF151A2A265B3A0011A8B5 /* CircleView.swift */; };
+		21AF151D2A2660520011A8B5 /* DogamQRGenerateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF151C2A2660520011A8B5 /* DogamQRGenerateView.swift */; };
 		21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */; };
 		21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006912A15047100C404C3 /* UserSignUpView.swift */; };
 		21D006942A15057E00C404C3 /* ImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006932A15057E00C404C3 /* ImageUploadView.swift */; };
@@ -212,6 +215,9 @@
 		21A789B62A1E514700DD9456 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		21A789C42A1EE02900DD9456 /* QRReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderView.swift; sourceTree = "<group>"; };
+		21AF15182A265A8F0011A8B5 /* stamp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stamp.png; path = ../../Desktop/stamp.png; sourceTree = "<group>"; };
+		21AF151A2A265B3A0011A8B5 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		21AF151C2A2660520011A8B5 /* DogamQRGenerateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogamQRGenerateView.swift; sourceTree = "<group>"; };
 		21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpViewModel.swift; sourceTree = "<group>"; };
 		21D006912A15047100C404C3 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		21D006932A15057E00C404C3 /* ImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadView.swift; sourceTree = "<group>"; };
@@ -327,6 +333,7 @@
 				21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */,
 				2140BC9829D1D01900B78C6C /* MarketGoApp.swift */,
 				2140BC5729D1CEBA00B78C6C /* Assets.xcassets */,
+				21AF15182A265A8F0011A8B5 /* stamp.png */,
 				2140BC8129D1CFA900B78C6C /* Model */,
 				2140BC5929D1CEBA00B78C6C /* Preview Content */,
 				21F1C9B929DD68F60022113A /* View */,
@@ -433,6 +440,8 @@
 				218F54362A258EFA00A9A6EF /* SeasonView.swift */,
 				218F54382A263FCA00A9A6EF /* DogamQR.swift */,
 				218F543A2A2645BE00A9A6EF /* CouponBookView.swift */,
+				21AF151A2A265B3A0011A8B5 /* CircleView.swift */,
+				21AF151C2A2660520011A8B5 /* DogamQRGenerateView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -634,6 +643,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2140BC5B29D1CEBA00B78C6C /* Preview Assets.xcassets in Resources */,
+				21AF15192A265A8F0011A8B5 /* stamp.png in Resources */,
 				2140BC5829D1CEBA00B78C6C /* Assets.xcassets in Resources */,
 				21FAE1D52A0AA3F7006593D9 /* GoogleService-Info.plist in Resources */,
 			);
@@ -790,6 +800,7 @@
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
 				99F02DE02A175C6B00D827CD /* MarketReviewJASON.swift in Sources */,
 				210704BF2A1D1FB100643140 /* GoodsListSellerView.swift in Sources */,
+				21AF151D2A2660520011A8B5 /* DogamQRGenerateView.swift in Sources */,
 				998BFBC32A0DCC1F005F4652 /* TestView.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,
 				21FAE1F22A0BB829006593D9 /* UserSignInView.swift in Sources */,
@@ -859,6 +870,7 @@
 				99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */,
 				997BD5632A1B846B00E7A7EE /* StoreReviewPostModel.swift in Sources */,
 				997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */,
+				21AF151B2A265B3A0011A8B5 /* CircleView.swift in Sources */,
 				21A789B72A1E514700DD9456 /* AppState.swift in Sources */,
 				211F53E22A17E6A5003DA011 /* SellerSignInViewModel.swift in Sources */,
 				998910E52A1DD29A0062C1C9 /* StoreReviewPostView.swift in Sources */,
