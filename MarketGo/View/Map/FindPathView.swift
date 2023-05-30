@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct FindPathView: View {
-    @Binding var selectedMarket: MarketOne?
+    @EnvironmentObject var userModel: UserModel
     
     var body: some View {
         VStack {
@@ -35,15 +35,17 @@ struct FindPathView: View {
     }
     
     func openNaverMap() {
-        if let selectedMarketName = selectedMarket?.marketName{
+        if let selectedMarketName = userModel.currentUser?.interestMarket?.marketName{
             let name = makeStringKoreanEncoded(selectedMarketName)
             let encodedBundleID = makeStringKoreanEncoded(Config().bundleID)
             
-            if let naverURL = URL(string: "nmap://place?lat=\(selectedMarket?.marketLatitude! ?? cauLocation.lat)&lng=\(selectedMarket?.marketLongitude! ?? cauLocation.lng)&name=\(name)&appname=\(encodedBundleID)") {
+            if let naverURL = URL(string: "nmap://place?lat=\(userModel.currentUser?.interestMarket?.marketLatitude ?? cauLocation.lat)&lng=\(userModel.currentUser?.interestMarket?.marketLongitude ?? cauLocation.lng)&name=\(name)&appname=\(encodedBundleID)") {
                 if UIApplication.shared.canOpenURL(naverURL) {
                     UIApplication.shared.open(naverURL)
                 } else {
                     
+//                    let webURL = URL(string: "https://map.naver.com/v5/search?query=\(name)")
+//                    UIApplication.shared.open(webURL!)
                     let webURL = URL(string: "https://map.naver.com/v5/search?query=\(name)")
                     UIApplication.shared.open(webURL!)
                 }
@@ -57,11 +59,11 @@ struct FindPathView: View {
     
     func openKakaoMap() {
         
-        if let kakaoURL = URL(string: "kakaomap://route?ep=\(String(describing: selectedMarket?.marketLatitude)),\(String(describing: selectedMarket?.marketLongitude))&by=FOOT") {
+        if let kakaoURL = URL(string: "kakaomap://route?ep=\(String(describing: userModel.currentUser?.interestMarket?.marketLatitude)),\(String(describing: userModel.currentUser?.interestMarket?.marketLongitude))&by=FOOT") {
             if UIApplication.shared.canOpenURL(kakaoURL) {
                 UIApplication.shared.open(kakaoURL)
             } else {
-                let webURL = URL(string: "https://map.kakao.com/link/to/\(String(describing: selectedMarket?.marketLatitude)),\(String(describing: selectedMarket?.marketLongitude))")!
+                let webURL = URL(string: "https://map.kakao.com/link/to/\(String(describing: userModel.currentUser?.interestMarket?.marketLatitude)),\(String(describing: userModel.currentUser?.interestMarket?.marketLongitude))")!
                 UIApplication.shared.open(webURL)
             }
         }
