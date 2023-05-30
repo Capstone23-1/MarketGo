@@ -68,6 +68,7 @@
 		218F54312A253FD300A9A6EF /* MarketTableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54302A253FD300A9A6EF /* MarketTableWrapper.swift */; };
 		218F54332A25409400A9A6EF /* MarketSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54322A25409400A9A6EF /* MarketSearchViewModel.swift */; };
 		218F54352A255ABA00A9A6EF /* EatingHouseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54342A255ABA00A9A6EF /* EatingHouseList.swift */; };
+		218F54372A258EFA00A9A6EF /* SeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54362A258EFA00A9A6EF /* SeasonView.swift */; };
 		21A789B72A1E514700DD9456 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789B62A1E514700DD9456 /* AppState.swift */; };
 		21A789BA2A1E6A3800DD9456 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789B92A1E6A3800DD9456 /* QRCode */; };
 		21A789BD2A1E6AF600DD9456 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789BC2A1E6AF600DD9456 /* PinLayout */; };
@@ -202,6 +203,7 @@
 		218F54302A253FD300A9A6EF /* MarketTableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableWrapper.swift; sourceTree = "<group>"; };
 		218F54322A25409400A9A6EF /* MarketSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketSearchViewModel.swift; sourceTree = "<group>"; };
 		218F54342A255ABA00A9A6EF /* EatingHouseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingHouseList.swift; sourceTree = "<group>"; };
+		218F54362A258EFA00A9A6EF /* SeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonView.swift; sourceTree = "<group>"; };
 		2198B6DE943CEFFEB56B33D7 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21A789B62A1E514700DD9456 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				218F542C2A25178C00A9A6EF /* MemberProfileEditView.swift */,
 				218F54302A253FD300A9A6EF /* MarketTableWrapper.swift */,
 				218F54342A255ABA00A9A6EF /* EatingHouseList.swift */,
+				218F54362A258EFA00A9A6EF /* SeasonView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				2144FE7929DD6B4F008913C4 /* MarketSearchView.swift in Sources */,
 				2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */,
 				21416B8C2A1025F0008EA3C5 /* SellerMarketChoiceView.swift in Sources */,
+				218F54372A258EFA00A9A6EF /* SeasonView.swift in Sources */,
 				2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */,
 				21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */,
 				210704B12A1BBA2A00643140 /* ImageDownloader.swift in Sources */,

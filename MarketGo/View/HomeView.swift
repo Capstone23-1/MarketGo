@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        NavigationView {
+        
             ScrollView {
                 VStack(spacing: 16) {
                     NavigationLink(destination: BannerView()) {
@@ -33,15 +33,20 @@ struct HomeView: View {
                                 .frame(maxHeight: 100)
                         }
                     }
+                    NavigationLink(destination: SeasonView()) {
+                                        Text("배너")
+                                            .font(.title)
+                                            .fontWeight(.bold)
+                                            .padding()
+                                    }
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
                 }
                 .padding()
-            }
-            
-        }
+            }.background(Color.gray.opacity(0.2))
     }
+
 }
 
 struct BannerItemView: View {
@@ -65,6 +70,7 @@ struct BannerItemView: View {
     }
 }
 
+
 struct BannerView: View {
     var body: some View {
         Text("Banner View")
@@ -72,3 +78,4 @@ struct BannerView: View {
             .navigationBarTitle("Banner", displayMode: .inline)
     }
 }
+
