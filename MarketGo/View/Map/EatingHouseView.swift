@@ -31,7 +31,7 @@ struct EatingHouseView: View {
                 } else {
                     
                     EatingHouseMapView(EatingHouses: $eatingHouses, SelectedEating: $selectedEating, vm: vm)
-                    EatingHouseList(data: eatingHouses, selected: $selectedEating, vm: vm)
+                    EatingHouseList(data: eatingHouses, selectedEating: $selectedEating, vm: vm)
 //                    UITableViewWrapper(data: eatingHouses, selected: $selectedEating)
 
                     
