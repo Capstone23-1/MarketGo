@@ -1,11 +1,3 @@
-//
-//  EatingHouseList.swift
-//  MarketGo
-//
-//  Created by ram on 2023/05/30.
-//
-
-
 import SwiftUI
 struct EatingHouseList: View {
     var data: [Document]
@@ -23,16 +15,28 @@ struct EatingHouseList: View {
     }
     
     var body: some View {
-        List(selection: $vm.selectedID) {
-            ForEach(sortedData) { market in
-                HStack {
-                    Text("\(market.placeName)   \(market.distance)m")
-                        .tag(market.id)  // 각 항목에 ID 태그를 추가합니다.
-                        .foregroundColor(vm.selectedID == market.id ? .blue : .black)  // 선택된 아이템을 블루로 표시
-                        .onTapGesture {
+        ScrollViewReader { value in
+            VStack {
+                List {
+                    ForEach(sortedData) { market in
+                        Button(action: {
                             selected = market
                             vm.selectedID = market.id
+                            value.scrollTo(market.id, anchor: .top)
+                            print(selected)
+                        }) {
+                            HStack {
+                                Text("\(market.placeName)   \(market.distance)m")
+                                    .foregroundColor(vm.selectedID == market.id ? .blue : .black)
+                                    .id(market.id)
+                            }
                         }
+                    }
+                }
+                .onChange(of: selected) { newValue in
+                    if let newID = newValue?.id {
+                        value.scrollTo(newID, anchor: .top)
+                    }
                 }
             }
         }

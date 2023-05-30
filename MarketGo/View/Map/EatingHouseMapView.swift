@@ -11,9 +11,11 @@ struct EatingHouseMapView: UIViewRepresentable {
     var cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)
     public let mapView = NMFNaverMapView()
    @State var currentInfoWindow: NMFInfoWindow?
+    
     func makeUIView(context: Context) -> NMFNaverMapView {
         mapView.showLocationButton = true
         mapView.mapView.zoomLevel = 15
+        
         DispatchQueue.main.async {
             if let userLocation = userModel.currentUser {
                 let nmg = NMGLatLng(lat: (userLocation.interestMarket?.marketLatitude)! , lng: (userLocation.interestMarket?.marketLongitude)! )
@@ -25,6 +27,8 @@ struct EatingHouseMapView: UIViewRepresentable {
                 marketMarker.mapView = mapView.mapView
                 marketMarker.mapView?.moveCamera(cameraUpdate)
             }
+            let infoWindow = NMFInfoWindow()
+            let dataSource = NMFInfoWindowDefaultTextSource.data()
             for eatingLot in EatingHouses {
                 let marker = NMFMarker()
                 marker.position = NMGLatLng(lat: Double(eatingLot.y) ?? 0, lng: Double(eatingLot.x) ?? 0)
@@ -33,6 +37,17 @@ struct EatingHouseMapView: UIViewRepresentable {
                     // 해당 위치로 카메라 이동
                     let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat, lng: lng))
                     mapView.mapView.moveCamera(cameraUpdate)
+                    
+                    dataSource.title = selectedEatingLot.placeName
+                    infoWindow.dataSource = dataSource
+                    infoWindow.open(with: marker)
+                    
+                    currentInfoWindow?.close()
+                    currentInfoWindow = infoWindow
+                    
+                    infoWindow.open(with: marker)
+                    self.SelectedEating = selectedEatingLot
+                    vm.selectedID=eatingLot.id
                 }
                 marker.touchHandler = { [weak mapView] (overlay: NMFOverlay) -> Bool in
                     if let marker = overlay as? NMFMarker {
@@ -43,8 +58,7 @@ struct EatingHouseMapView: UIViewRepresentable {
                             self.SelectedEating = eatingLot
                             vm.selectedID=eatingLot.id
                         }
-                        let infoWindow = NMFInfoWindow()
-                        let dataSource = NMFInfoWindowDefaultTextSource.data()
+                        
                         dataSource.title = eatingLot.placeName
                         infoWindow.dataSource = dataSource
                         infoWindow.open(with: marker)
@@ -62,11 +76,31 @@ struct EatingHouseMapView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
-        // 선택된 주차장이 있고, 해당 주차장의 위치 정보가 있는 경우
-        if let selectedEatingLot = SelectedEating, let lat = Double(selectedEatingLot.y), let lng = Double(selectedEatingLot.x) {
-            // 해당 위치로 카메라 이동
-            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat, lng: lng))
-            mapView.mapView.moveCamera(cameraUpdate)
-        }
+//        let infoWindow = NMFInfoWindow()
+//        let dataSource = NMFInfoWindowDefaultTextSource.data()
+//        // 선택된 주차장이 있고, 해당 주차장의 위치 정보가 있는 경우
+//        if let selectedEatingLot = SelectedEating, let lat = Double(selectedEatingLot.y), let lng = Double(selectedEatingLot.x) {
+//            // 해당 위치로 카메라 이동
+//            let marker = NMFMarker()
+//            marker.position = NMGLatLng(lat: Double(selectedEatingLot.y) ?? 0, lng: Double(selectedEatingLot.x) ?? 0)
+//            marker.mapView = mapView.mapView
+//            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat, lng: lng))
+//            mapView.mapView.moveCamera(cameraUpdate)
+//            
+//            
+//            dataSource.title = selectedEatingLot.placeName
+//            infoWindow.dataSource = dataSource
+//            
+//            // 이미 생성된 infoWindow가 있으면 닫고 새로운 내용으로 업데이트
+//            currentInfoWindow?.close()
+//            infoWindow.open(with: marker)
+//            
+//            //            currentInfoWindow = infoWindow
+//            
+//            SelectedEating = selectedEatingLot
+//            //            vm.selectedID = selectedEatingLot.id
+//        }
+        
     }
+
 }
