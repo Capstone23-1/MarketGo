@@ -10,6 +10,7 @@ struct EatingHouseMapView: UIViewRepresentable {
     @ObservedObject var vm:MarketSearchViewModel
     var cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)
     public let mapView = NMFNaverMapView()
+   @State var currentInfoWindow: NMFInfoWindow?
     func makeUIView(context: Context) -> NMFNaverMapView {
         mapView.showLocationButton = true
         mapView.mapView.zoomLevel = 15
@@ -48,6 +49,10 @@ struct EatingHouseMapView: UIViewRepresentable {
                         infoWindow.dataSource = dataSource
                         infoWindow.open(with: marker)
                         
+                        currentInfoWindow?.close()
+                        currentInfoWindow = infoWindow
+                        
+                        infoWindow.open(with: marker)
                     }
                     return true
                 }
