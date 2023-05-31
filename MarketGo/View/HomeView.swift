@@ -101,7 +101,7 @@ struct HomeView: View {
                     .padding(.horizontal,10)
                     
                 }
-                NavigationLink(destination: CouponBookView()) {
+                NavigationLink(destination: DogamBookView()) {
                     VStack{
                         Text("마켓고! 도감 모으기")
                             .font(.title)
@@ -122,7 +122,7 @@ struct HomeView: View {
                 .background(Color.white)
                 .cornerRadius(20)
                 .padding(.top, 20)
-                NavigationLink(destination: CouponBookView()) {
+                NavigationLink(destination: DogamBookView()) {
                     VStack{
                         Text("쿠폰 찾기")
                             .font(.title)

@@ -70,7 +70,7 @@
 		218F54352A255ABA00A9A6EF /* EatingHouseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54342A255ABA00A9A6EF /* EatingHouseList.swift */; };
 		218F54372A258EFA00A9A6EF /* SeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54362A258EFA00A9A6EF /* SeasonView.swift */; };
 		218F54392A263FCA00A9A6EF /* DogamQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54382A263FCA00A9A6EF /* DogamQR.swift */; };
-		218F543B2A2645BE00A9A6EF /* CouponBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F543A2A2645BE00A9A6EF /* CouponBookView.swift */; };
+		218F543B2A2645BE00A9A6EF /* DogamBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F543A2A2645BE00A9A6EF /* DogamBookView.swift */; };
 		21A789B72A1E514700DD9456 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789B62A1E514700DD9456 /* AppState.swift */; };
 		21A789BA2A1E6A3800DD9456 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789B92A1E6A3800DD9456 /* QRCode */; };
 		21A789BD2A1E6AF600DD9456 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 21A789BC2A1E6AF600DD9456 /* PinLayout */; };
@@ -209,7 +209,7 @@
 		218F54342A255ABA00A9A6EF /* EatingHouseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingHouseList.swift; sourceTree = "<group>"; };
 		218F54362A258EFA00A9A6EF /* SeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonView.swift; sourceTree = "<group>"; };
 		218F54382A263FCA00A9A6EF /* DogamQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogamQR.swift; sourceTree = "<group>"; };
-		218F543A2A2645BE00A9A6EF /* CouponBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponBookView.swift; sourceTree = "<group>"; };
+		218F543A2A2645BE00A9A6EF /* DogamBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogamBookView.swift; sourceTree = "<group>"; };
 		2198B6DE943CEFFEB56B33D7 /* Pods-MarketGo-MarketGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21A789B62A1E514700DD9456 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
@@ -436,7 +436,7 @@
 				218F54342A255ABA00A9A6EF /* EatingHouseList.swift */,
 				218F54362A258EFA00A9A6EF /* SeasonView.swift */,
 				218F54382A263FCA00A9A6EF /* DogamQR.swift */,
-				218F543A2A2645BE00A9A6EF /* CouponBookView.swift */,
+				218F543A2A2645BE00A9A6EF /* DogamBookView.swift */,
 				21AF151A2A265B3A0011A8B5 /* CircleView.swift */,
 				21AF151C2A2660520011A8B5 /* DogamQRGenerateView.swift */,
 			);
@@ -820,7 +820,7 @@
 				994979C72A12700E00159828 /* CartJASON.swift in Sources */,
 				21470AAE29FD0F7F00A7CEE7 /* EatingHouseView.swift in Sources */,
 				994979C12A119A5100159828 /* StoreJASON.swift in Sources */,
-				218F543B2A2645BE00A9A6EF /* CouponBookView.swift in Sources */,
+				218F543B2A2645BE00A9A6EF /* DogamBookView.swift in Sources */,
 				99CD749429DD904600D2D782 /* FoodItemCell.swift in Sources */,
 				21D006942A15057E00C404C3 /* ImageUploadView.swift in Sources */,
 				211F53DB2A16A152003DA011 /* ImagePickerModel.swift in Sources */,

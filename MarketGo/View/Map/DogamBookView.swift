@@ -1,17 +1,16 @@
 import SwiftUI
 import Alamofire
 import CoreImage
-struct CouponBookView: View {
-    @State private var imageCate = StoreCategory(categoryID: 3,categoryName: "store")
+struct DogamBookView: View {
     @StateObject private var vm = StoreDogamViewModel()
     @State private var inputImage: UIImage?
-    
+    @State private var showingInvalidQRAlert = false
     
     @State private var showingScanner = false
     @State private var qrCodeString = ""
     var body: some View {
         VStack {
-            Text("쿠폰북")
+            Text("MarketGo 도감")
                 .font(.title)
                 .fontWeight(.bold)
                 .padding()
@@ -45,9 +44,6 @@ struct CouponBookView: View {
             Button(action: {
                 showingScanner = true
                 // 쿠폰 추가하는 동작
-                
-                
-                
             }) {
                 Text("QR을 입력해주세요")
                     .font(.title2)
@@ -60,8 +56,6 @@ struct CouponBookView: View {
                 ImagePicker(image: $inputImage)
                 
             }
-            
-            
         }
         .alert(isPresented: $vm.showingAlert) {
             Alert(
@@ -70,26 +64,40 @@ struct CouponBookView: View {
                 dismissButton: .default(Text("확인"))
             )
         }
+        .alert(isPresented: $showingInvalidQRAlert) {
+            Alert(
+                title: Text("오류"),
+                message: Text("마켓고 도감 이벤트 QR을 입력해주세요"),
+                dismissButton: .default(Text("확인"))
+            )
+        }
+
     }
-        func loadImage() {
-            guard let inputImage = inputImage else { return }
-            let ciImage = CIImage(image: inputImage)
-            
-            // QR code scanning
-            let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
-            let features = detector?.features(in: ciImage!) as? [CIQRCodeFeature]
-            let qrCodeString = features?.first?.messageString
-            
-            if let storeID = qrCodeString {
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        let ciImage = CIImage(image: inputImage)
+        
+        // QR code scanning
+        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+        let features = detector?.features(in: ciImage!) as? [CIQRCodeFeature]
+        let qrCodeString = features?.first?.messageString
+        
+        if let storeID = qrCodeString {
+            // Check if the scanned string is a number
+            if Int(storeID) != nil {
                 // call API to get store details
                 vm.fetchStoreDetails(storeID: storeID)
-                
                 print(storeID)
-                
+            } else {
+                // Show alert if the scanned string is not a number
+                showingInvalidQRAlert = true
             }
-            
-            
+        } else {
+            // Show alert if no QR code is found
+            showingInvalidQRAlert = true
         }
+    }
+
     }
     class StoreDogamViewModel: ObservableObject {
         @Published var arr: [String] = Array(repeating: "", count: 11)
@@ -103,7 +111,6 @@ struct CouponBookView: View {
                 switch response.result {
                     case .success(let storeElement):
                         self.storeElement = storeElement
-                        print(self.storeElement)
                         if self.filledCoupons < 10 {
                             if self.arr.contains(storeElement.storeName!) {
                                 self.showingAlert = true
@@ -119,11 +126,6 @@ struct CouponBookView: View {
         }
     }
 
-struct CouponBookView_Previews: PreviewProvider {
-    static var previews: some View {
-        CouponBookView()
-    }
-}
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
 
@@ -153,5 +155,11 @@ struct ImagePicker: UIViewControllerRepresentable {
 
             picker.dismiss(animated: true)
         }
+    }
+}
+
+struct CouponBookView_Previews: PreviewProvider {
+    static var previews: some View {
+        DogamBookView()
     }
 }
