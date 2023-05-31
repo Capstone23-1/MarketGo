@@ -11,9 +11,10 @@ import NMapsMap
 struct ParkingLotView: View {
     @State private var parkingLots: [Document] = []
     @State private var errorMessage: String?
-    @ObservedObject var locationManager = LocationManager()
     @State private var selectedParkingLot: Document?
     @State private var isLoading = false // indicator 추가
+    @EnvironmentObject var userModel: UserModel
+    @StateObject var vm = MarketSearchViewModel()
     
     var body: some View {
         VStack {
@@ -26,8 +27,8 @@ struct ParkingLotView: View {
                         .progressViewStyle(CircularProgressViewStyle(tint: .purple))
                         .padding()
                 } else {
-                    ParkingLotMapView(parkingLots: $parkingLots, selectedParkingLot: $selectedParkingLot)
-                    UITableViewWrapper(data: parkingLots, selected: $selectedParkingLot)
+                    ParkingLotMapView(ParkingLot: $parkingLots, SelectedParking: $selectedParkingLot, vm: vm)
+                    EatingHouseList(data: parkingLots, selectedEating: $selectedParkingLot, vm: vm)
                 }
                 
             }
@@ -35,7 +36,8 @@ struct ParkingLotView: View {
         .onAppear {
             let viewModel = ParkingLotViewModel()
             isLoading = true // 로딩 시작
-            viewModel.searchParkingLot(location: locationManager.userLocation ?? cauLocation, queryKeyword: "주차장") { result in
+       
+            viewModel.searchParkingLot(location: CoordinateInfo(lat: (userModel.currentUser?.interestMarket?.marketLatitude)!, lng: (userModel.currentUser?.interestMarket?.marketLongitude)!) , queryKeyword: "주차장") { result in
                 switch result {
                     case .success(let parkingLotData):
                         DispatchQueue.main.async {

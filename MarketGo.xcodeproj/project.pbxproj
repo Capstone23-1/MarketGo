@@ -78,6 +78,7 @@
 		21A789C52A1EE02900DD9456 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A789C42A1EE02900DD9456 /* QRReaderView.swift */; };
 		21AF151B2A265B3A0011A8B5 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF151A2A265B3A0011A8B5 /* CircleView.swift */; };
 		21AF151D2A2660520011A8B5 /* DogamQRGenerateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF151C2A2660520011A8B5 /* DogamQRGenerateView.swift */; };
+		21C910DD2A27688C005BC545 /* IndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C910DC2A27688C005BC545 /* IndexModel.swift */; };
 		21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */; };
 		21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006912A15047100C404C3 /* UserSignUpView.swift */; };
 		21D006942A15057E00C404C3 /* ImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006932A15057E00C404C3 /* ImageUploadView.swift */; };
@@ -216,6 +217,7 @@
 		21A789C42A1EE02900DD9456 /* QRReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderView.swift; sourceTree = "<group>"; };
 		21AF151A2A265B3A0011A8B5 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		21AF151C2A2660520011A8B5 /* DogamQRGenerateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogamQRGenerateView.swift; sourceTree = "<group>"; };
+		21C910DC2A27688C005BC545 /* IndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexModel.swift; sourceTree = "<group>"; };
 		21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpViewModel.swift; sourceTree = "<group>"; };
 		21D006912A15047100C404C3 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		21D006932A15057E00C404C3 /* ImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadView.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				211F53EB2A1A9611003DA011 /* APIService.swift */,
 				210704B02A1BBA2A00643140 /* ImageDownloader.swift */,
 				21A789B62A1E514700DD9456 /* AppState.swift */,
+				21C910DC2A27688C005BC545 /* IndexModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				21416B8C2A1025F0008EA3C5 /* SellerMarketChoiceView.swift in Sources */,
 				218F54372A258EFA00A9A6EF /* SeasonView.swift in Sources */,
 				2140BC9729D1CFD900B78C6C /* SearchViewModel.swift in Sources */,
+				21C910DD2A27688C005BC545 /* IndexModel.swift in Sources */,
 				21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */,
 				210704B12A1BBA2A00643140 /* ImageDownloader.swift in Sources */,
 				998843C02A04DE8700132079 /* UserMypageView.swift in Sources */,

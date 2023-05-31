@@ -29,10 +29,11 @@ struct MarketReviewView: View {
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.blue)
-                    .cornerRadius(20)
+                    .cornerRadius(30)
                     
             })
-            .padding()
+            .padding([.leading, .bottom, .trailing],10)
+            
         }
         .sheet(isPresented: $isWritingReview, content: {
             // Present the view for writing a review
@@ -90,3 +91,5 @@ struct MarketReviewRow: View {
         .shadow(radius: 2, y: 1)
     }
 }
+
+

@@ -52,9 +52,6 @@ struct SignInView: View {
                         }
                         
                       
-                        NavigationLink(destination:EditProfileView().background(Color.gray.opacity(0.2))){
-                            Text("회원정보수정")
-                        }
                         
                         
                     }

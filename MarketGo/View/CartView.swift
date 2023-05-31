@@ -6,19 +6,39 @@ struct CartView: View {
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var cart: cart
 
-   var body: some View {
-       
-       List($cart.cartItems) { $cartItem in
-           NavigationLink(destination: FoodItemDetailView(goods: $cartItem.product.wrappedValue)) {
-             CartItemRow(cartItem:  $cartItem)}
-       }
-       .onAppear{
-           cart.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
-       }
-       .navigationTitle("장바구니")
-       
-       TotalPriceView()
-}}
+    var groupedCartItems: [String: [CartItem]] {
+        let initial: [String: [CartItem]] = [:]
+        return Dictionary(grouping: cart.cartItems, by: { $0.product.goodsMarket?.marketName ?? ""})
+    }
+
+    var body: some View {
+        List {
+            ForEach(groupedCartItems.keys.sorted(), id: \.self) { key in
+                Section(header: Text(key)) {
+                    ForEach(groupedCartItems[key] ?? [], id: \.product.goodsID) { cartItem in
+                        NavigationLink(destination: FoodItemDetailView(goods: cartItem.product)) {
+                            CartItemRow(cartItem:  .constant(cartItem))
+                        }
+                    }
+                    Text("시장 내 총액: \(calculateTotalPrice(items: groupedCartItems[key] ?? []))원")
+                        .font(.footnote)
+                        .multilineTextAlignment(.trailing)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+            }
+        }
+        .onAppear{
+            cart.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
+        }
+        .navigationTitle("장바구니")
+        TotalPriceView()
+    }
+
+    private func calculateTotalPrice(items: [CartItem]) -> Int {
+        items.reduce(0) { $0 + ($1.product.goodsPrice ?? 0) * $1.count }
+    }
+}
+
 
 
 
@@ -40,13 +60,14 @@ struct CartItemRow: View {
             
             VStack(alignment: .leading) {
                 Spacer()
+                Text("\((cartItem.product.goodsStore?.storeName)! ?? "")")
+                    .foregroundColor(.gray)
+                    .font(.footnote)
                 Text(cartItem.product.goodsName ?? "")
                     .fontWeight(.semibold)
                     .font(.footnote)
                 Text("\(totalPrice)원").font(.footnote)
-                Text("\(cartItem.product.goodsMarket?.marketName ?? "")")
-                    .foregroundColor(.gray)
-                    .font(.footnote)
+                
                 Spacer()
             }
             
@@ -72,7 +93,7 @@ struct CartItemRow: View {
                 Image(systemName: "trash")
                     .foregroundColor(.red)
             }
-            .buttonStyle(PlainButtonStyle()) // Disable button styling
+//            .buttonStyle(PlainButtonStyle()) // Disable button styling
             .alert(isPresented: $showingConfirmationAlert) {
                 Alert(
                     title: Text("삭제 확인"),
@@ -85,6 +106,7 @@ struct CartItemRow: View {
             }
 
         }
+        .frame(minHeight: 70)
     }
 }
 
@@ -94,18 +116,30 @@ struct CartItemRow: View {
 
 struct TotalPriceView: View {
     @EnvironmentObject var cart: cart
-    
+    @State var move1 = false
     var totalPrice: Int {
         cart.cartItems.reduce(0) { $0 + ($1.product.goodsPrice ?? 0) * $1.count }
     }
     
     var body: some View {
-        HStack {
-            Text("총 가격: ")
-            Text("\(totalPrice)원")
-        }
+        Button(action: {
+            move1 = true
+        }, label: {
+            Text("총 가격 \(totalPrice)원")
+                .fontWeight(.bold)
+                .foregroundColor(.blue)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.white)
+                
+                
+        })
+        .padding([.leading, .bottom, .trailing],10)
+        
+        
     }
 }
+
 
 
 struct CartItemDetail: View {

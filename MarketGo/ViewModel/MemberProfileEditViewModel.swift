@@ -42,7 +42,6 @@ class MemberProfileEditViewModel: ObservableObject {
                 
                 switch response.result {
                     case .success(let up):
-                        print("put 메서드 성공",up)
                         successMemberInfo = up
                         
                     case .failure(let error):

@@ -11,6 +11,7 @@ struct UserSignUpView: View {
     @StateObject private var viewModel = UserSignUpViewModel()
     @State private var moveToSignInView = false
     @State private var isLoading: Bool = false
+    @StateObject private var vm = StoreDogamViewModel()
     var body: some View {
         VStack {
             Text("일반회원 회원가입")

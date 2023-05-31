@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var userModel: UserModel
+    @StateObject private var vm = StoreDogamViewModel()
     var body: some View {
         
         ScrollView {
