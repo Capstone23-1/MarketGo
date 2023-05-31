@@ -27,7 +27,7 @@ struct MainView: View {
                             }
                             .tag(1)
                         
-                            HomeView()
+                            UserHomeView()
                             .tabItem {
                                 Image(systemName: "house")
                                 Text("Home")

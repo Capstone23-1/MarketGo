@@ -65,7 +65,7 @@ struct SellerSignInView: View {
                 }
                 .disabled(viewModel.isLoading) // 로딩 중일 때는 버튼 비활성화
                 .fullScreenCover(isPresented: $moveToMarketSearchView){
-                    SellerTempView()
+                    SellerHomeView()
                 }
 
                 

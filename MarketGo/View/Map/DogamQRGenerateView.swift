@@ -39,7 +39,7 @@ struct DogamQRGenerateView: View {
             print("Failed to create QR code image: \(error)")
         }
         
-        let texthigh = "가게 도감을 모으기 위한 QR입니다."
+        let texthigh = "마켓고 도감 QR"
         // Create texthigh image
         let texthighFont = UIFont(name: "Helvetica", size: 20)!
         let texthighAttributes: [NSAttributedString.Key: Any] = [.font: texthighFont]

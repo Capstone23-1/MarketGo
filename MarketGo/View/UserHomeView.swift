@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct HomeView: View {
+struct UserHomeView: View {
     @EnvironmentObject var userModel: UserModel
     @StateObject private var vm = StoreDogamViewModel()
     var body: some View {
@@ -185,6 +185,6 @@ struct BannerView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        UserHomeView()
     }
 }
