@@ -41,10 +41,7 @@ struct HomeView: View {
                             Text("QR로 \n가게정보")
                                 .font(.title)
                                 .fontWeight(.bold)
-                            //                        Text("가까운 찾기")
-                            //                            .font(.subheadline)
-                            //                            .foregroundColor(.secondary)
-                      
+                   
                         }
                     }
                     .frame(maxWidth: .infinity, maxHeight: 200)
@@ -65,6 +62,7 @@ struct HomeView: View {
 //                                .foregroundColor(.secondary)
                             Image(systemName: "bus.fill")
                                 .resizable()
+                                .foregroundColor(.gray)
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50, height: 50)
                             
@@ -79,6 +77,7 @@ struct HomeView: View {
                         NavigationLink(destination: ParkingLotView()) {
                             Text("주차장 찾기")
                                 .font(.title)
+                                .foregroundColor(.gray)
                                 .fontWeight(.bold)
 //                            Text("가까운 찾기")
 //                                .font(.subheadline)
@@ -87,6 +86,7 @@ struct HomeView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 40)
+                                .foregroundColor(.gray)
                                 
                             
                         }
@@ -110,10 +110,11 @@ struct HomeView: View {
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
-                    Image(systemName: "point.3.connected.trianglepath.dotted")
+                    Image(systemName: "flag.checkered.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
+                        .foregroundColor(.gray)
                         .padding(.bottom, 8)
                 }
                 .frame(maxWidth: .infinity)
@@ -130,11 +131,12 @@ struct HomeView: View {
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
-                    Image(systemName: "flag.checkered.circle")
+                    Image(systemName: "point.3.connected.trianglepath.dotted")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
                         .padding(.bottom, 8)
+                        .foregroundColor(.gray)
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 100)

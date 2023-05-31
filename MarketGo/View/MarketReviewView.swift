@@ -24,11 +24,13 @@ struct MarketReviewView: View {
                 isWritingReview = true
             }, label: {
                 Text("\(marketModel.currentMarket?.marketName ?? "") 리뷰 작성")
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.blue)
-                    .cornerRadius(10)
+                    .cornerRadius(20)
+                    
             })
             .padding()
         }
