@@ -101,7 +101,7 @@ struct HomeView: View {
                     .padding(.horizontal,10)
                     
                 }
-                NavigationLink(destination: BannerView()) {
+                NavigationLink(destination: CouponBookView()) {
                     VStack{
                         Text("마켓고! 도감 모으기")
                             .font(.title)
@@ -171,29 +171,6 @@ struct HomeView: View {
         
     }
 }
-
-struct BannerItemView: View {
-    var body: some View {
-        NavigationLink(destination: BannerView()) {
-            VStack(spacing: 8) {
-                Text("배너")
-                    .font(.title)
-                    .fontWeight(.bold)
-                Text("가까운 찾기")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                Image(systemName: "market")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 50, height: 50)
-                    .padding(.bottom, 8)
-            }
-        }
-        .padding()
-    }
-    
-}
-
 
 struct BannerView: View {
     var body: some View {
