@@ -46,8 +46,8 @@ struct CouponBookView: View {
                 showingScanner = true
                 // 쿠폰 추가하는 동작
                 
-                      
-                        
+                
+                
             }) {
                 Text("QR을 입력해주세요")
                     .font(.title2)
@@ -58,21 +58,28 @@ struct CouponBookView: View {
             }
             .sheet(isPresented: $showingScanner, onDismiss: loadImage) {
                 ImagePicker(image: $inputImage)
-             
+                
             }
             
             
         }
+        .alert(isPresented: $vm.showingAlert) {
+            Alert(
+                title: Text("오류"),
+                message: Text("이미 스탬프를 받은 매장입니다."),
+                dismissButton: .default(Text("확인"))
+            )
+        }
     }
-    func loadImage() {
+        func loadImage() {
             guard let inputImage = inputImage else { return }
             let ciImage = CIImage(image: inputImage)
-
+            
             // QR code scanning
             let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
             let features = detector?.features(in: ciImage!) as? [CIQRCodeFeature]
             let qrCodeString = features?.first?.messageString
-
+            
             if let storeID = qrCodeString {
                 // call API to get store details
                 vm.fetchStoreDetails(storeID: storeID)
@@ -80,9 +87,42 @@ struct CouponBookView: View {
                 print(storeID)
                 
             }
-       
-        
+            
+            
         }
+    }
+    class StoreDogamViewModel: ObservableObject {
+        @Published var arr: [String] = Array(repeating: "", count: 11)
+        @Published var filledCoupons: Int = 0
+        @Published var storeElement: StoreElement?
+        @Published var showingAlert = false // 새로운 알림 상태 변수
+        
+        func fetchStoreDetails(storeID: String) {
+            let url = "http://3.34.33.15:8080/store/\(storeID)"
+            AF.request(url).responseDecodable(of: StoreElement.self) { response in
+                switch response.result {
+                    case .success(let storeElement):
+                        self.storeElement = storeElement
+                        print(self.storeElement)
+                        if self.filledCoupons < 10 {
+                            if self.arr.contains(storeElement.storeName!) {
+                                self.showingAlert = true
+                            } else {
+                                self.filledCoupons += 1
+                                self.arr[self.filledCoupons] = storeElement.storeName!
+                            }
+                        }
+                    case .failure(let error):
+                        print("Error: \(error)")
+                }
+            }
+        }
+    }
+
+struct CouponBookView_Previews: PreviewProvider {
+    static var previews: some View {
+        CouponBookView()
+    }
 }
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
@@ -113,32 +153,5 @@ struct ImagePicker: UIViewControllerRepresentable {
 
             picker.dismiss(animated: true)
         }
-    }
-}
-class StoreDogamViewModel: ObservableObject {
-    @Published var arr: [String] = Array(repeating: "", count: 11)
-    @Published var filledCoupons: Int = 0
-    @Published var storeElement: StoreElement?
-
-    func fetchStoreDetails(storeID: String) {
-        let url = "http://3.34.33.15:8080/store/\(storeID)"
-        AF.request(url).responseDecodable(of: StoreElement.self) { response in
-            switch response.result {
-            case .success(let storeElement):
-                self.storeElement = storeElement
-                    print(self.storeElement)
-                    if self.filledCoupons < 10 {
-                        self.filledCoupons += 1
-                        self.arr[self.filledCoupons]=(storeElement.storeName!)
-                    }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
-    }
-}
-struct CouponBookView_Previews: PreviewProvider {
-    static var previews: some View {
-        CouponBookView()
     }
 }
