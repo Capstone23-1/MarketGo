@@ -16,20 +16,20 @@ struct DogamBookView: View {
                 .padding()
             
             HStack {
-                CircleView(storeName: vm.arr[1], isFilled: vm.filledCoupons >= 1)
-                CircleView(storeName: vm.arr[2], isFilled: vm.filledCoupons >= 2)
-                CircleView(storeName: vm.arr[3], isFilled: vm.filledCoupons >= 3)
-                CircleView(storeName: vm.arr[4], isFilled: vm.filledCoupons >= 4)
-                CircleView(storeName: vm.arr[5], isFilled: vm.filledCoupons >= 5)
+                CircleView(storeName: vm.arr[0], isFilled: vm.filledCoupons >= 1)
+                CircleView(storeName: vm.arr[1], isFilled: vm.filledCoupons >= 2)
+                CircleView(storeName: vm.arr[2], isFilled: vm.filledCoupons >= 3)
+                CircleView(storeName: vm.arr[3], isFilled: vm.filledCoupons >= 4)
+                CircleView(storeName: vm.arr[4], isFilled: vm.filledCoupons >= 5)
             }
             .padding()
             
             HStack {
-                CircleView(storeName: vm.arr[6], isFilled: vm.filledCoupons >= 6)
-                CircleView(storeName: vm.arr[7], isFilled: vm.filledCoupons >= 7)
-                CircleView(storeName: vm.arr[8], isFilled: vm.filledCoupons >= 8)
-                CircleView(storeName: vm.arr[9], isFilled: vm.filledCoupons >= 9)
-                CircleView(storeName: vm.arr[10], isFilled: vm.filledCoupons >= 10)
+                CircleView(storeName: vm.arr[5], isFilled: vm.filledCoupons >= 6)
+                CircleView(storeName: vm.arr[6], isFilled: vm.filledCoupons >= 7)
+                CircleView(storeName: vm.arr[7], isFilled: vm.filledCoupons >= 8)
+                CircleView(storeName: vm.arr[8], isFilled: vm.filledCoupons >= 9)
+                CircleView(storeName: vm.arr[9], isFilled: vm.filledCoupons >= 10)
             }
             .padding()
             
@@ -59,6 +59,7 @@ struct DogamBookView: View {
             }
         }
         .onAppear {
+            vm.storeIDs[0]=""
             vm.getMemberIndexById(memberID:String(describing: (userModel.currentUser?.memberID)!))
         }
         .alert(isPresented: $vm.showingAlert) {
@@ -108,6 +109,7 @@ struct DogamBookView: View {
 class StoreDogamViewModel: ObservableObject {
     @Published var arr: [String] = Array(repeating: "", count: 11)
     @Published var storeIDs: [String] = Array(repeating: "", count: 11)   // 스캔한 QR 코드를 저장할 배열
+    
     @Published var filledCoupons: Int = 0
     @Published var storeElement: StoreElement?
     @Published var showingAlert = false // 새로운 알림 상태 변수
@@ -119,26 +121,39 @@ class StoreDogamViewModel: ObservableObject {
         let first10IDs = Array(self.storeIDs.prefix(11))
         
         // baseURL
-        var url = "http://3.34.33.15:8080/marketIndex?indexId=\(self.indexID)"
+        var url = "http://3.34.33.15:8080/marketIndex/\(self.indexID)?memberId=\(self.memberID)"
         
         // 각 스토어ID를 쿼리 문자열에 추가
-        for i in 1...10 {
-            var storeId = "0" // Default to "0"
-            if i <= first10IDs.count {
-                storeId = (first10IDs[i].isEmpty) ? "0" : first10IDs[i]
+        for i in 0...9 {
+            
+            var storeId = "1"// Default to "0"
+            if i < 10 {
+                if first10IDs[i].count >= 1 {
+                    storeId = first10IDs[i]
+                }
+                else {
+                    storeId = "0"
+                    
+                }
+                
+                print(String(describing:first10IDs[i].count)+"이것은 \(i)번째 count"+storeId)
+                url += "&storeId\(i+1)=\(storeId)"
             }
-            url += "&storeId\(i)=\(storeId)"
+            
         }
         
         
         // PUT 요청
         AF.request(url, method: .put).response { response in
             debugPrint(response)
+            print("put 메서드")
         }
+        
+        print(first10IDs)
     }
     
     func getMemberIndexById(memberID: String) {
-        let url = "http://3.34.33.15:8080/marketIndex/memberId/\(memberID)"
+        let url =  "http://3.34.33.15:8080/marketIndex/memberId/\(memberID)"
         print(url)
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
@@ -152,26 +167,33 @@ class StoreDogamViewModel: ObservableObject {
                         if let indexInfo = try? JSONDecoder().decode(IndexInfo.self, from: data) {
                             print("IndexInfo: \(indexInfo)")
                             self.indexID=String(describing: (indexInfo.indexID)!)
+                            print(indexInfo)
                             let storeIds = [indexInfo.storeId1, indexInfo.storeId2, indexInfo.storeId3, indexInfo.storeId4, indexInfo.storeId5, indexInfo.storeId6, indexInfo.storeId7, indexInfo.storeId8, indexInfo.storeId9, indexInfo.storeId10]
                             self.indexID = String(describing: (indexInfo.indexID)!)
-                            
-                            for i in 0..<storeIds.count {
+                            print("indexID 들어오고 있니?"+self.indexID)
+                                
+                            for i in 0..<10 {
                                 if storeIds[i]?.storeID == 0 {
-                                    self.arr[i+1] = ""
-                                    self.storeIDs[i+1] = "0"
+                                    self.arr[i] = ""
+                                    self.storeIDs[i] = "0"
                                 } else {
-                                    self.arr[i+1] = storeIds[i]?.storeName ?? ""
-                                    self.storeIDs[i+1] = String(describing: (storeIds[i]?.storeID)) ?? ""
+                                    self.arr[i] = storeIds[i]?.storeName ?? ""
+                                    self.storeIDs[i] = String(describing: ((storeIds[i]?.storeID)!))
+                                    self.filledCoupons+=1
+                                    
                                 }
+                                print("i=\(String(describing:i)) arr[i]"+self.arr[i]+"storeIDS[i]="+self.storeIDs[i])
                             }
                         }
+                        print(self.arr)
+                        print(self.storeIDs)
                     }
                 case .failure(let error):
                     print("Error: \(error)")
                 }
             }
     }
-
+//쿠폰에 가져올 store 인포 가져오기
     func getStoreInfoById(storeID: String) {
         let url = "http://3.34.33.15:8080/store/\(storeID)"
         AF.request(url).responseDecodable(of: StoreElement.self) { response in
@@ -182,10 +204,13 @@ class StoreDogamViewModel: ObservableObject {
                         if self.arr.contains(storeElement.storeName!) {
                             self.showingAlert = true
                         } else {
-                            self.filledCoupons += 1
+                            
+                            print("storeId=",storeElement.storeID)
+                            
                             self.arr[self.filledCoupons] = storeElement.storeName!
-                            self.storeIDs.append(storeID)   // 스캔한 QR 코드를 배열에 추가
+                            self.storeIDs[self.filledCoupons]=String(describing: (storeElement.storeID)!)   // 스캔한 QR 코드를 배열에 추가
                             self.putMemeberIndex()
+                            self.filledCoupons += 1
                         }
                     }
                 case .failure(let error):
