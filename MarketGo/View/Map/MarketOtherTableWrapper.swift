@@ -9,20 +9,20 @@ struct MarketOtherTableWrapper: View {
     @EnvironmentObject var marketModel: MarketModel
     @EnvironmentObject var userModel: UserModel
     @Binding var searchText:String
-    
+    var filteredData: [MarketOne] {
+        if searchText.isEmpty {
+            return data
+        } else {
+            return data.filter { market in
+                market.marketName?.lowercased().contains(searchText.lowercased()) ?? false
+            }
+        }
+    }
   
 
     var body: some View {
         VStack {
-            var filteredData: [MarketOne] {
-                if searchText.isEmpty {
-                    return data
-                } else {
-                    return data.filter { market in
-                        market.marketName?.lowercased().contains(searchText.lowercased()) ?? false
-                    }
-                }
-            }
+           
             List(filteredData, id: \.marketName) { market in
                 HStack {
                     Text(market.marketName ?? "")
