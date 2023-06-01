@@ -5,7 +5,7 @@
 	<key></key>
 	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>사진접근 좀 할께 ㅋ</string>
+	<string>QR 사진 저장을 위한 사진접근을 허용해주세요.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
