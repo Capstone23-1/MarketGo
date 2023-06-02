@@ -20,10 +20,10 @@ struct SellerHomeView: View {
                                         Text("상점\n정보\n수정")
                                             .font(.title)
                                             .fontWeight(.bold)
-                                        Image(systemName: "person.fill")
+                                        Image(systemName: "person")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-                                            .frame(width: 50, height: 50)
+                                            .frame(width: 40, height: 40)
                                             .padding(.bottom, 8)
                                     }
                                 }
@@ -57,8 +57,8 @@ struct SellerHomeView: View {
                                 .padding(.all,10)
                                 
                             }
-                            NavigationLink(destination: SignInView()) {
-                                Text("로그아웃")
+                            NavigationLink(destination: SignInView(cart:cart())) {
+                                Text("로그\n아웃")
                                     .font(.title)
                                     .fontWeight(.bold)
                                 Image(systemName: "escape")
