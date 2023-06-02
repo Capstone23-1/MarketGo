@@ -16,7 +16,7 @@ struct SellerHomeView: View {
                             if let storeID = storeID {
                                 NavigationLink(destination: EditStoreView(obse: ObservableStoreElement(storeElement: storeID))) {
                                     HStack{
-                                       
+                                        
                                         Text("회원\n정보\n수정")
                                             .font(.title)
                                             .fontWeight(.bold)
@@ -38,7 +38,7 @@ struct SellerHomeView: View {
                                 
                                 NavigationLink(destination: EmptyView()) {
                                     HStack{
-                                       
+                                        
                                         Text("회원\n정보\n수정")
                                             .font(.title)
                                             .fontWeight(.bold)
@@ -115,7 +115,7 @@ struct SellerHomeView: View {
                         
                         HStack {
                             
-                        
+                            
                             NavigationLink(destination: QRCodeView()) {
                                 Text("가게\nQR\n생성")
                                     .font(.title)
@@ -160,7 +160,7 @@ struct SellerHomeView: View {
                             .shadow(radius: 10)
                     }
                 }
-                }
+            }
             .padding()
             .background(Color.gray.opacity(0.2))
             .onAppear {
