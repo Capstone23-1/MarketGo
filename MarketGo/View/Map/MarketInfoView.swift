@@ -33,20 +33,9 @@ struct MarketInfoView: View {
                     MarketListView(marketData: $selectedMarket)
                     
                     Button(action: {
-                        Task {
-                            isLoading = true
-                            loadMemeber()
-                            vm.interestMarket = selectedMarket!.marketID
-                            do {
-                                try await vm.updateMemberInfo()
-                                userModel.currentUser?.interestMarket=selectedMarket
-                                marketModel.currentMarket=selectedMarket
-                                navigate = true
-                            } catch {
-                                print("Error while updating member info: \(error)")
-                            }
-                            isLoading = false
-                        }
+                        isLoading = true
+                        navigate = true
+                        isLoading = false
                     }) {
                         Text("시장 선택")
                             .font(.headline)
@@ -76,5 +65,21 @@ struct MarketInfoView: View {
             
         }
         .navigationTitle((selectedMarket?.marketName ?? "시장정보"))
+        .onAppear {
+                    Task {
+                        isLoading = true
+                        loadMemeber()
+                        vm.interestMarket = selectedMarket!.marketID
+                        do {
+                            try await vm.updateMemberInfo()
+                            userModel.currentUser?.interestMarket=selectedMarket
+                            marketModel.currentMarket=selectedMarket
+                            
+                        } catch {
+                            print("Error while updating member info: \(error)")
+                        }
+                        isLoading = false
+                    }
+                }
     }
 }
