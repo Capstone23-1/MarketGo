@@ -11,6 +11,7 @@ import SwiftUI
 struct UserMyPageView: View {
     @EnvironmentObject var userModel: UserModel
     @State var isLinkActive = false
+    @State var isLogoutActive = false
     var body: some View {
         VStack(spacing: 20) {
             Spacer().frame(height: 20)
@@ -44,7 +45,7 @@ struct UserMyPageView: View {
                     .font(.footnote)
                     .foregroundColor(.gray)
             }
-           
+            
             HStack {
                 Text("cart id")
                 Spacer()
@@ -52,23 +53,30 @@ struct UserMyPageView: View {
                     .font(.footnote)
                     .foregroundColor(.gray)
             }
-            Spacer()
             
-            NavigationLink(destination: MemberProfileEditView(), isActive: $isLinkActive) {
-                Text("회원정보 수정")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10.0)
-                    .onTapGesture {
-//                        self.marketModel.currentMarket = selectedMarket
-                        self.isLinkActive = true
-                        
-                    }
+            Button(action: {
                 
-            }}
+                self.isLogoutActive = true
+            }) {
+                Text("로그아웃")
+                    .foregroundColor(.blue)
+            }
+            .fullScreenCover(isPresented: $isLogoutActive) {
+                SignInView(cart: cart())
+            }
+            Button(action: {
+                
+                self.isLinkActive = true
+            }) {
+                Text("회원정보수정")
+                    .foregroundColor(.blue)
+            }
+            .sheet(isPresented: $isLinkActive) {
+                MemberProfileEditView()
+            }
+            
+            
+           }
         .padding()
         .navigationBarTitle("My Page", displayMode: .inline)
     }
