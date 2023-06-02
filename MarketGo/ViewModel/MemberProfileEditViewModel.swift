@@ -1,12 +1,6 @@
-//
-//  MemberProfileEditViewModel.swift
-//  MarketGo
-//
-//  Created by ram on 2023/05/30.
-//
-
 import SwiftUI
 import Alamofire
+import Combine
 
 class MemberProfileEditViewModel: ObservableObject {
     @EnvironmentObject var userModel: UserModel
@@ -20,33 +14,34 @@ class MemberProfileEditViewModel: ObservableObject {
     @Published var storeId = 0
     @Published var recentLatitude = 0.0
     @Published var recentLongitude = 0.0
+    @Published var successMemberInfo: MemberInfo?
     
+    func makeStringKoreanEncoded(_ str: String) -> String {
+        // Assuming this is your method to encode Korean strings.
+        return str
+    }
     
-    
-    @Published var successMemberInfo:MemberInfo?
-    
-    func updateMemberInfo() {
-        
-        
-        
+    func updateMemberInfo() async throws {
         let enMemberToken = makeStringKoreanEncoded(memberToken)
         let enMemberName = makeStringKoreanEncoded(memberName)
         
         let url = "http://3.34.33.15:8080/member/\(String(describing: memberID))?memberToken=\(enMemberToken)&memberName=\(enMemberName)&interestMarket=\(String(describing: interestMarket))&cartId=\(cartId)&storeId=\(storeId)&recentLatitude=\(recentLatitude)&recentLongitude=\(recentLongitude)"
         
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
-        AF.request(url, method: .put, headers: headers)
-            .validate(statusCode: 200..<300)
-            .responseDecodable(of: MemberInfo.self) { [self] response in
-                
-                
-                switch response.result {
+        
+        try await withCheckedThrowingContinuation { continuation in
+            AF.request(url, method: .put, headers: headers)
+                .validate(statusCode: 200..<300)
+                .responseDecodable(of: MemberInfo.self) { [self] response in
+                    switch response.result {
                     case .success(let up):
                         successMemberInfo = up
-                        
+                        continuation.resume(returning: ())
                     case .failure(let error):
                         print("Error updating member info:", error)
+                        continuation.resume(throwing: error)
+                    }
                 }
-            }
+        }
     }
 }

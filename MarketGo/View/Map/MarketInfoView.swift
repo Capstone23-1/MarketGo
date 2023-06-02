@@ -1,9 +1,3 @@
-//
-//  MarketInfoView.swift
-//  MarketGo
-//
-//  Created by ram on 2023/05/06.
-//
 import SwiftUI
 
 struct MarketInfoView: View {
@@ -11,9 +5,11 @@ struct MarketInfoView: View {
     @Binding var selectedMarket: MarketOne?
     
     @State private var isLinkActive = false
+    @State private var isLoading = false
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
-
+    @State private var navigate = false
+    
     @StateObject private var vm = MemberProfileEditViewModel()
     func loadMemeber() {
         if let memberInfo = userModel.currentUser {
@@ -29,59 +25,53 @@ struct MarketInfoView: View {
     }
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                
-//                Image("상도시장메인")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//
-                MarketOneMapView(selectedMarket: $selectedMarket)
-                    .frame(height: 200)
-                MarketListView(marketData: $selectedMarket)
-//                Picker(selection: $selectedTab, label: Text("탭")) {
-//                    Text("시장정보").tag(0)
-//                    Text("지도보기").tag(1)
-//                    Text("가는길 찾기").tag(2)
-//                }
-//                .pickerStyle(SegmentedPickerStyle())
-//                .padding()
-//
-//                switch selectedTab {
-//                    case 0:
-//                        MarketListView(marketData: $selectedMarket)
-//                    case 1:
-//                        Image("상도시장지도")
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fill)
-//                        Spacer().frame(width:20)
-//                    case 2:
-//                        FindPathView(selectedMarket: $selectedMarket)
-//                    default:
-//                        Text("잘못된 선택")
-//                }
-                NavigationLink(destination: MainView(), isActive: $isLinkActive) {
-                    Text("시장 선택")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10.0)
-                        .onTapGesture {
-                            
+            ZStack{
+                VStack {
+                    
+                    MarketOneMapView(selectedMarket: $selectedMarket)
+                        .frame(height: 200)
+                    MarketListView(marketData: $selectedMarket)
+                    
+                    Button(action: {
+                        Task {
+                            isLoading = true
                             loadMemeber()
                             vm.interestMarket = selectedMarket!.marketID
-                            vm.updateMemberInfo()
-                            userModel.currentUser?.interestMarket=selectedMarket
-                            marketModel.currentMarket=selectedMarket
-                            self.isLinkActive = true
-                            
-                            
+                            do {
+                                try await vm.updateMemberInfo()
+                                userModel.currentUser?.interestMarket=selectedMarket
+                                marketModel.currentMarket=selectedMarket
+                                navigate = true
+                            } catch {
+                                print("Error while updating member info: \(error)")
+                            }
+                            isLoading = false
                         }
+                    }) {
+                        Text("시장 선택")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(10.0)
+                    }
+                    
+                    NavigationLink(destination: MainView(), isActive: $navigate) {
+                        EmptyView()
+                    }
+                    .hidden()
                     
                 }
-                
-                
+                if isLoading {
+                    ProgressView()
+                        .scaleEffect(2)
+                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                        .frame(width: 100, height: 100)
+                        .background(Color.white.opacity(0.8))
+                        .cornerRadius(20)
+                        .shadow(radius: 10)
+                }
             }
             
         }

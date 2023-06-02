@@ -68,14 +68,20 @@ struct MemberProfileEditView: View {
                     Button(action: {
                         isLoading = true
                         Task{
-                            vm.updateMemberInfo()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                userModel.currentUser = vm.successMemberInfo
+                            do {
+                                try await vm.updateMemberInfo()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    userModel.currentUser = vm.successMemberInfo
+                                    isLoading = false
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
+                            } catch {
+                                print("Error updating member info: \(error)")
                                 isLoading = false
-                                self.presentationMode.wrappedValue.dismiss()
                             }
                         }
-                    }) {
+                    })
+ {
                         Text("저장")
                             .foregroundColor(.white)
                             .padding()

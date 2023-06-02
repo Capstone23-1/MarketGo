@@ -16,22 +16,19 @@ struct DogamBookView: View {
                 .padding()
             
             HStack {
-                CircleView(storeName: vm.arr[0], isFilled: vm.filledCoupons >= 1)
-                CircleView(storeName: vm.arr[1], isFilled: vm.filledCoupons >= 2)
-                CircleView(storeName: vm.arr[2], isFilled: vm.filledCoupons >= 3)
-                CircleView(storeName: vm.arr[3], isFilled: vm.filledCoupons >= 4)
-                CircleView(storeName: vm.arr[4], isFilled: vm.filledCoupons >= 5)
+                ForEach(0..<5) { index in
+                    CircleView(storeName: vm.arr[index], isFilled: vm.filledCoupons >= index+1)
+                }
             }
             .padding()
-            
+
             HStack {
-                CircleView(storeName: vm.arr[5], isFilled: vm.filledCoupons >= 6)
-                CircleView(storeName: vm.arr[6], isFilled: vm.filledCoupons >= 7)
-                CircleView(storeName: vm.arr[7], isFilled: vm.filledCoupons >= 8)
-                CircleView(storeName: vm.arr[8], isFilled: vm.filledCoupons >= 9)
-                CircleView(storeName: vm.arr[9], isFilled: vm.filledCoupons >= 10)
+                ForEach(5..<10) { index in
+                    CircleView(storeName: vm.arr[index], isFilled: vm.filledCoupons >= index+1)
+                }
             }
             .padding()
+
             
             if vm.filledCoupons == 10 {
                 Text("축하합니다! 쿠폰을 다 모았습니다.")
