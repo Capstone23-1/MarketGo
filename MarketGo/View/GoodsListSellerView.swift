@@ -22,28 +22,28 @@ struct GoodsListSellerView: View {
     var body: some View {
         VStack {
             HStack {
-                TextField("\(placeHolder)", text: $searchText)  // 검색창
-                    .foregroundColor(.black)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(15)
-                Image(systemName: "magnifyingglass")  // 검색 아이콘
-                    .foregroundColor(.gray)
+                TextField("\(placeHolder)", text: $searchText)
+                    .foregroundColor(.primary)
+                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10))
+                    .background(Color.white.opacity(0.5))  // 텍스트 필드의 배경을 반투명하게
+                    .cornerRadius(10)  // 둥근 모서리 추가
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.primary)
+                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10))
             }
-            .padding([.leading, .trailing])
+            .padding()
 
             ScrollView {
-                LazyVStack(alignment: .leading, spacing: 10) {
-                    ForEach(filteredGoodsList, id: \.goodsID) { goods in  // 필터링된 상품 리스트 표시
+                LazyVStack(alignment: .leading, spacing: 20) {  // 각 아이템 간격 늘리기
+                    ForEach(filteredGoodsList, id: \.goodsID) { goods in
                         HStack {
                             Image(systemName:
-                                selectedGoods.contains(where: { $0.goodsID == goods.goodsID }) ?
-                                    "checkmark.circle.fill" :
-                                    (goods.isAvail == 0 ? "xmark.circle.fill" : "circle"))  // 선택한 상품 표시 또는 판매 불가능한 상품 표시
+                                    selectedGoods.contains(where: { $0.goodsID == goods.goodsID }) ?
+                                  "checkmark.circle.fill" :
+                                    (goods.isAvail == 0 ? "xmark.circle" : "circle"))  // 아이콘 변경
                             .resizable()
                             .frame(width: 24, height: 24)
                             .foregroundColor(goods.isAvail == 0 ? .gray : .blue)
-                            .padding()
                             .onTapGesture {
                                 if let index = selectedGoods.firstIndex(where: { $0.goodsID == goods.goodsID }) {
                                     selectedGoods.remove(at: index)  // 선택된 상품이면 제거
@@ -51,12 +51,18 @@ struct GoodsListSellerView: View {
                                     selectedGoods.append(goods)  // 선택되지 않은 상품이면 추가
                                 }
                             }
-                            VStack(alignment: .leading, spacing: 10) {
+                            
+                            HStack {
                                 if let fileData = goods.goodsFile, let uploadFileURL = fileData.uploadFileURL, let url = URL(string: uploadFileURL) {
                                     URLImage(url: url)  // 상품 이미지
                                 } else {
                                     Text("Loading...")
                                 }
+                            }
+                            .background(Color.white.opacity(0.5))  // 이미지 배경을 반투명하게
+                            .cornerRadius(10)  // 둥근 모서리 추가
+                            
+                            VStack(alignment: .leading, spacing: 10) {
                                 // 상품 이름
                                 Text(goods.goodsName ?? "")
                                     .font(.headline)
@@ -64,25 +70,24 @@ struct GoodsListSellerView: View {
                                 // 상품 가격
                                 Text( "\(goods.goodsUnit!) \(String(describing: goods.goodsPrice!)) 원")
                                     .font(.footnote)
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.gray)  // 색상 변경
                             }
                             Spacer()
                             // 상품 수정 링크
                             NavigationLink(destination: EditGoodsView(viewModel: EditGoodsViewModel(goods: goods))) {
                                 Text("Edit")
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
+                                    .foregroundColor(.white)  // 글자 색상 변경
+                                    .padding(.all, 10)
+                                    .background(Color.blue)  // 배경색 추가
+                                    .cornerRadius(10)  // 둥근 모서리
                             }
                         }
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(15)
-                        .shadow(color: .gray, radius: 2, x: 0, y: 2) // 카드형식의 그림자 추가
+                        .padding(.horizontal)
+                        .background(Color.white.opacity(0.1))  // 배경에 반투명 색상 추가
+                        .cornerRadius(10)  // 둥근 모서리
                     }
-                    .padding([.leading, .trailing])
                 }
+                .padding(.top)
             }
 
             // 판매중인 상품에서 제거하는 버튼
@@ -97,23 +102,18 @@ struct GoodsListSellerView: View {
             }) {
                 Text("판매중인 물품에서 제거하기")
                     .foregroundColor(.white)
-                    .padding()
-                    .background(Color.red)
-                    .cornerRadius(10)
+                    .padding(.all, 10)
+                    .background(Color.red)  // 배경색 변경
+                    .cornerRadius(10)  // 둥근 모서리 추가
             }
-            .padding([.top, .bottom])
         }
         .onAppear {
-            storeID = (userViewModel.currentUser?.storeID?.storeID)!  // 현재 사용자의 스토어 ID 가져오기
+            storeID = (userViewModel.currentUser?.storeID?.storeID)!
             Task {
-                await fetchGoodsData()  // 상품 데이터 가져오기
+                await fetchGoodsData()
             }
         }
-        .background(Color.gray.opacity(0.1))  // 전체 배경 색상 변경
     }
-
-
-
 
     // 상품 데이터를 비동기로 가져오는 함수
     func fetchGoodsData() async {
