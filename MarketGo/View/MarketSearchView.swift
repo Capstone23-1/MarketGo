@@ -32,62 +32,55 @@ struct MarketSearchView: View {
     
     var body: some View {
         NavigationView{
-            VStack {
-//                SearchBar(searchText: $searchText,placeHolder: $placeHolder)
-                HStack {
-                    TextField("\(placeHolder)", text: $searchText)
-                        .foregroundColor(.primary)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+            ZStack{
+                VStack {
                     
-                    NavigationLink(destination: OtherMarketSearchView(searchText: $searchText, placeHoldr: $placeHolder)) {
-                        Image(systemName: "magnifyingglass")
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
+                    HStack {
+                        TextField("\(placeHolder)", text: $searchText)
+                            .foregroundColor(.primary)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                        
+                        NavigationLink(destination: OtherMarketSearchView(searchText: $searchText, placeHoldr: $placeHolder)) {
+                            Image(systemName: "magnifyingglass")
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
+                        }
                     }
-                }
-
-
-
-                
-//                HStack{
-//                    Spacer()
-//                    Picker(selection: $sortOption, label: Text("정렬 기준")) {
-//                        Text("거리 가까운 순").tag(0)
-//                        Text("평점 높은순").tag(1)
-//                        Text("이름순").tag(2)
-//                    }
-//                    .padding(.horizontal)
-//                    .foregroundColor(.gray)
-//                }
-                if let errorMessage = errorMessage {
-                    Text(errorMessage)
-                } else {
-                    if isLoading {
-                        ProgressView()
-                            .scaleEffect(3.0)
-                            .progressViewStyle(CircularProgressViewStyle(tint: .purple))
-                            .padding()
+                    
+                    
+                    if let errorMessage = errorMessage {
+                        Text(errorMessage)
                     } else {
-                        
-                        MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket, vm: vm)
-                        MarketSearchTableWrapper(data: MarketList, selected: $selectedMarket, vm: vm)
+                       
+                            MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket, vm: vm)
+                            MarketSearchTableWrapper(data: MarketList, selected: $selectedMarket, isLoading: $isLoading, vm: vm)
+                            
+                            
                         
                         
                     }
                     
+                    
+                    
+                    NavigationLink(destination: MainView()) {
+                        Text("화면 넘기기")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(10.0)
+                    }
+                    
                 }
-                
-                
-                
-                NavigationLink(destination: MainView()) {
-                    Text("화면 넘기기")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10.0)
+                if isLoading {
+                    ProgressView()
+                        .scaleEffect(2)
+                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                        .frame(width: 100, height: 100)
+                        .background(Color.white.opacity(0.8))
+                        .cornerRadius(20)
+                        .shadow(radius: 10)
                 }
-                
             }
             .onAppear {
                 

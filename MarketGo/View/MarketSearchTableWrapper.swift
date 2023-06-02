@@ -10,7 +10,7 @@ struct MarketSearchTableWrapper: View {
     var data: [Document]
     @Binding var selected: Document?
     
-    @State private var isLoading = false // indicator 추가
+    @Binding var isLoading :Bool
     @State private var isLinkActive = false //버튼위해서사용
     @State var selectedMarket: MarketOne?
     @EnvironmentObject var marketModel: MarketModel
@@ -30,9 +30,14 @@ struct MarketSearchTableWrapper: View {
                     Spacer()
                     Button(action: {
                         userModel.NMap = market
+                        isLoading = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         vm.fetchMarketData(marketName: market.placeName)
                         selected = market
                         isLinkActive = true
+                            isLoading = false
+                        }
+                     
                         
                         
                         
