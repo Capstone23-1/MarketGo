@@ -15,16 +15,16 @@ struct SellerHomeView: View {
                         HStack {
                             if let storeID = storeID {
                                 NavigationLink(destination: EditStoreView(obse: ObservableStoreElement(storeElement: storeID))) {
-                                    VStack{
-                                        Image(systemName: "")
+                                    HStack{
+                                       
+                                        Text("회원\n정보\n수정")
+                                            .font(.title)
+                                            .fontWeight(.bold)
+                                        Image(systemName: "person.fill")
                                             .resizable()
-                                            .foregroundColor(.gray)
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 50, height: 50)
                                             .padding(.bottom, 8)
-                                        Text("회원정보수정창")
-                                            .font(.title)
-                                            .fontWeight(.bold)
                                     }
                                 }
                                 .frame(maxWidth: .infinity, maxHeight: 200)
@@ -37,16 +37,16 @@ struct SellerHomeView: View {
                             else{
                                 
                                 NavigationLink(destination: EmptyView()) {
-                                    VStack{
-                                        Image(systemName: "")
+                                    HStack{
+                                       
+                                        Text("회원\n정보\n수정")
+                                            .font(.title)
+                                            .fontWeight(.bold)
+                                        Image(systemName: "person.fill")
                                             .resizable()
-                                            .foregroundColor(.gray)
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 50, height: 50)
                                             .padding(.bottom, 8)
-                                        Text("회원정보수정창")
-                                            .font(.title)
-                                            .fontWeight(.bold)
                                     }
                                 }
                                 .frame(maxWidth: .infinity, maxHeight: 200)
@@ -58,10 +58,10 @@ struct SellerHomeView: View {
                                 
                             }
                             NavigationLink(destination: PostGoodsView()) {
-                                Text("상품\n등록창")
+                                Text("가게\n정보\n수정")
                                     .font(.title)
                                     .fontWeight(.bold)
-                                Image(systemName: "cursorarrow.rays")
+                                Image(systemName: "plus.square.on.square")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
@@ -79,10 +79,10 @@ struct SellerHomeView: View {
                         
                         HStack {
                             NavigationLink(destination: PostGoodsView()) {
-                                Text("상품\n등록창")
+                                Text("상품\n등록")
                                     .font(.title)
                                     .fontWeight(.bold)
-                                Image(systemName: "cursorarrow.rays")
+                                Image(systemName: "doc.text.viewfinder")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
@@ -94,10 +94,10 @@ struct SellerHomeView: View {
                             .frame(maxWidth: .infinity)
                             .padding(.all,10)
                             NavigationLink(destination: GoodsListSellerView()) {
-                                Text("상품 리스트 창")
+                                Text("상품 관리")
                                     .font(.title)
                                     .fontWeight(.bold)
-                                Image(systemName: "cursorarrow.rays")
+                                Image(systemName: "list.bullet.rectangle")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
@@ -115,11 +115,12 @@ struct SellerHomeView: View {
                         
                         HStack {
                             
-                            NavigationLink(destination: DogamQRGenerateView()) {
-                                Text("도감\nQR\n생성")
+                        
+                            NavigationLink(destination: QRCodeView()) {
+                                Text("가게\nQR\n생성")
                                     .font(.title)
                                     .fontWeight(.bold)
-                                Image(systemName: "cursorarrow.rays")
+                                Image(systemName: "qrcode.viewfinder")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
@@ -130,11 +131,11 @@ struct SellerHomeView: View {
                             .cornerRadius(rad)
                             .frame(maxWidth: .infinity)
                             .padding(.all,10)
-                            NavigationLink(destination: QRCodeView()) {
-                                Text("가게\n안내\nQR")
+                            NavigationLink(destination: DogamQRGenerateView()) {
+                                Text("도감\nQR\n생성")
                                     .font(.title)
                                     .fontWeight(.bold)
-                                Image(systemName: "cursorarrow.rays")
+                                Image(systemName: "qrcode.viewfinder")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
@@ -164,7 +165,7 @@ struct SellerHomeView: View {
             .background(Color.gray.opacity(0.2))
             .onAppear {
                 isLoading = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     storeID = userModel.currentUser?.storeID
                     isLoading=false
                 }
