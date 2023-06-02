@@ -17,7 +17,7 @@ struct SellerHomeView: View {
                                 NavigationLink(destination: EditStoreView(obse: ObservableStoreElement(storeElement: storeID))) {
                                     HStack{
                                         
-                                        Text("회원\n정보\n수정")
+                                        Text("상점\n정보\n수정")
                                             .font(.title)
                                             .fontWeight(.bold)
                                         Image(systemName: "person.fill")
@@ -39,7 +39,7 @@ struct SellerHomeView: View {
                                 NavigationLink(destination: EmptyView()) {
                                     HStack{
                                         
-                                        Text("회원\n정보\n수정")
+                                        Text("상점\n정보\n수정")
                                             .font(.title)
                                             .fontWeight(.bold)
                                         Image(systemName: "person.fill")
@@ -57,11 +57,11 @@ struct SellerHomeView: View {
                                 .padding(.all,10)
                                 
                             }
-                            NavigationLink(destination: PostGoodsView()) {
-                                Text("가게\n정보\n수정")
+                            NavigationLink(destination: SignInView()) {
+                                Text("로그아웃")
                                     .font(.title)
                                     .fontWeight(.bold)
-                                Image(systemName: "plus.square.on.square")
+                                Image(systemName: "escape")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
