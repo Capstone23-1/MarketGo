@@ -45,7 +45,8 @@ struct MarketInfoView: View {
                 .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
                 .padding()
                 .background(Color.blue)
-                .cornerRadius(10.0)
+                .cornerRadius(20.0)
+                .frame(minWidth: .infinity-10)
         }
     }
     
