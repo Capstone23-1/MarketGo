@@ -422,7 +422,6 @@
 		2144FE7C29DD6BC0008913C4 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				21AF151A2A265B3A0011A8B5 /* CircleView.swift */,
 				218F543A2A2645BE00A9A6EF /* DogamBookView.swift */,
 				218F54382A263FCA00A9A6EF /* DogamQR.swift */,
 				21AF151C2A2660520011A8B5 /* DogamQRGenerateView.swift */,
@@ -446,6 +445,7 @@
 				2144FE7C29DD6BC0008913C4 /* Map */,
 				2144FE7229DD6AAA008913C4 /* CartView.swift */,
 				998BFBC42A0DD01C005F4652 /* CategoryView.swift */,
+				21AF151A2A265B3A0011A8B5 /* CircleView.swift */,
 				993AD3A42A0A72500069A27F /* ContentView.swift */,
 				210704C02A1D260800643140 /* EditGoodsView.swift */,
 				21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */,

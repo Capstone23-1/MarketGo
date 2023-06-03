@@ -34,9 +34,11 @@ struct ParkingLotMapView: UIViewRepresentable {
                 marketMarker.mapView = mapView.mapView
                 marketMarker.mapView?.moveCamera(cameraUpdate)
             }
+            
            
             
         }
+        
         return mapView
     }
     

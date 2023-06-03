@@ -23,28 +23,41 @@ struct MarketInfoView: View {
             vm.recentLongitude = memberInfo.recentLongitude ?? 0.0
         }
     }
+    
+    var LoadingView: some View {
+        ProgressView()
+            .scaleEffect(2)
+            .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+            .frame(width: 100, height: 100)
+            .background(Color.white.opacity(0.8))
+            .cornerRadius(20)
+            .shadow(radius: 10)
+    }
+    
+    var NavigationButton: some View {
+        Button(action: {
+            isLoading = true
+            navigate = true
+        }) {
+            Text("시장 선택")
+                .font(.headline)
+                .foregroundColor(.white)
+                .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(10.0)
+        }
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack{
                 VStack {
-                    
                     MarketOneMapView(selectedMarket: $selectedMarket)
                         .frame(height: 200)
                     MarketListView(marketData: $selectedMarket)
                     
-                    Button(action: {
-                        isLoading = true
-                        navigate = true
-                        isLoading = false
-                    }) {
-                        Text("시장 선택")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(10.0)
-                    }
+                    NavigationButton
                     
                     NavigationLink(destination: UserMainView(), isActive: $navigate) {
                         EmptyView()
@@ -53,33 +66,25 @@ struct MarketInfoView: View {
                     
                 }
                 if isLoading {
-                    ProgressView()
-                        .scaleEffect(2)
-                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                        .frame(width: 100, height: 100)
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(20)
-                        .shadow(radius: 10)
+                    LoadingView
                 }
             }
             
         }
         .navigationTitle((selectedMarket?.marketName ?? "시장정보"))
         .onAppear {
-                    Task {
-                        isLoading = true
-                        loadMemeber()
-//                        vm.interestMarket = selectedMarket!.marketID
-                        do {
-                            try await vm.updateMemberInfo()
-                            userModel.currentUser?.interestMarket=selectedMarket
-                            marketModel.currentMarket=selectedMarket
-                            
-                        } catch {
-                            print("Error while updating member info: \(error)")
-                        }
-                        isLoading = false
-                    }
+            Task {
+                isLoading = true
+                loadMemeber()
+                do {
+                    try await vm.updateMemberInfo()
+                    userModel.currentUser?.interestMarket=selectedMarket
+                    marketModel.currentMarket=selectedMarket
+                } catch {
+                    print("Error while updating member info: \(error)")
                 }
+                isLoading = false
+            }
+        }
     }
 }
