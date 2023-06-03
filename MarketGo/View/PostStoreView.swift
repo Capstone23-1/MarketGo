@@ -6,7 +6,8 @@ struct PostStoreView: View {
     @State private var localAvail = false
     @State private var storeCategory = 0
     @Binding var storeName :String
-
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         Form {
             Section(header: Text("가게 정보")) {
@@ -19,15 +20,15 @@ struct PostStoreView: View {
                 }.onChange(of:storeCategory) { _ in
                     storePost.storeCategory=storeCategory
                     storePost.storeName=storeName
-
+                    
                 }
                 TextField("전화번호 ex: 010-1234-1234", text: $storePost.storePhonenum)
             }
-
+            
             Section(header: Text("가게 상세 정보")) {
                 TextField("가게 정보", text: $storePost.storeInfo)
             }
-
+            
             Section(header: Text("가능 여부")) {
                 Toggle("카드 이용 가능 여부", isOn: $cardAvail)
                     .onChange(of: cardAvail) { newValue in
@@ -36,7 +37,7 @@ struct PostStoreView: View {
                     .onAppear {
                         cardAvail = storePost.cardAvail == "가능"
                     }
-
+                
                 Toggle("지역 화폐 가능 여부", isOn: $localAvail)
                     .onChange(of: localAvail) { newValue in
                         storePost.localAvail = newValue ? "가능" : "이용불가"
@@ -46,7 +47,17 @@ struct PostStoreView: View {
                         storePost.storeName=storeName
                     }
             }
-
+            
+            HStack {
+                Spacer()
+                Button(action: {
+                    // 등록 버튼을 누를 때의 동작
+                    // 필요한 동작을 수행하고 시트를 닫음
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("등록")
+                }
+            }
         }
     }
 }

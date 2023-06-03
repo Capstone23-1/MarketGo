@@ -158,6 +158,13 @@ struct SellerSignUpView: View {
             }
             .onAppear {
                 isLoading2 = false
+                storePost.storeAddress1 = ""
+                storePost.storeAddress2 = ""
+                storePost.cardAvail = "가능"
+                storePost.localAvail = "가능"
+                storePost.storeInfo = ""
+                storePost.storePhonenum = ""
+                storePost.storeCategory = 0
             }
         }
         

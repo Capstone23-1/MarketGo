@@ -100,7 +100,7 @@ struct SellerHomeView: View {
                             .cornerRadius(rad)
                             .frame(maxWidth: .infinity)
                             .padding(.all,10)
-                            NavigationLink(destination: GoodsListSellerView()) {
+                            NavigationLink(destination: SellerGoodsListView()) {
                                 Text("상품 관리")
                                     .font(.title)
                                     .fontWeight(.bold)

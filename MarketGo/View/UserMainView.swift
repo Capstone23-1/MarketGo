@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-struct MainView: View {
+struct UserMainView: View {
     @State private var selectedTab = 0
     @State public var topTitle = "시장"
 
@@ -53,7 +53,8 @@ struct MainView: View {
         . navigationBarItems(trailing:NavigationLink(destination: CartView()) {
             Image(systemName: "cart")
                 .resizable()
-        })
+        }
+        )
         
         
 

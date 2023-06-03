@@ -46,7 +46,7 @@ struct MarketInfoView: View {
                             .cornerRadius(10.0)
                     }
                     
-                    NavigationLink(destination: MainView(), isActive: $navigate) {
+                    NavigationLink(destination: UserMainView(), isActive: $navigate) {
                         EmptyView()
                     }
                     .hidden()

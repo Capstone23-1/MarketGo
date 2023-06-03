@@ -12,7 +12,7 @@ struct MarketGoApp: App {
     @State private var deepLinkStoreId: String?
     @State private var fetchedStore: StoreElement?
     @State private var isLoading = false
-    @State private var isStoreViewActive = false // Add this line
+    
     
     var body: some Scene {
         WindowGroup {
@@ -21,8 +21,8 @@ struct MarketGoApp: App {
                     if isLoading {
                         ProgressView("Loading...")
                     } else if let store = fetchedStore {
-                        NavigationLink(destination: StoreView(store: store), isActive: $isStoreViewActive) {
-                            MainView()
+                        NavigationLink(destination: StoreView(store: store), isActive: $userModel.isStoreViewActive) {
+                            UserMainView()
                                 .environmentObject(userModel)
                                 .environmentObject(storePost)
                                 .environmentObject(cart)
@@ -43,9 +43,11 @@ struct MarketGoApp: App {
                         fetchedStore = try? await Config().fetchStoreById(deepLinkStoreId!)
                         isLoading = false
                         if fetchedStore != nil {
-                            isStoreViewActive = true // Add this line
+                            userModel.isStoreViewActive=true// Add this line
                         }
+                        
                     }
+                    
                 }
             }
         }
