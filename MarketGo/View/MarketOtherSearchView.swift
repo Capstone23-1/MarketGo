@@ -53,18 +53,7 @@ struct MarketOtherSearchView: View {
                     }
                     
                 }
-                
-                
-                
-                NavigationLink(destination: MainView()) {
-                    Text("화면 넘기기")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10.0)
-                }
-                
+          
             }
             .onAppear {
                 

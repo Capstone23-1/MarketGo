@@ -5,6 +5,7 @@ struct SellerHomeView: View {
     @EnvironmentObject var userModel: UserModel
     @State var storeID:StoreElement?
     @State var isLoading = false
+    @State var isLoggingOut = false
     let rad = CGFloat(30)
     var body: some View {
         NavigationView(){
@@ -57,7 +58,9 @@ struct SellerHomeView: View {
                                 .padding(.all,10)
                                 
                             }
-                            NavigationLink(destination: SignInView(cart:cart())) {
+                            Button(action: {
+                                isLoggingOut = true
+                            }) {
                                 Text("로그\n아웃")
                                     .font(.title)
                                     .fontWeight(.bold)
@@ -66,6 +69,9 @@ struct SellerHomeView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
                             }
+                            .fullScreenCover(isPresented: $isLoggingOut, content: {
+                                SignInView(cart:cart())
+                            })
                             .frame(maxWidth: .infinity, maxHeight: 200)
                             .frame(height: 200)
                             .background(Color.white)

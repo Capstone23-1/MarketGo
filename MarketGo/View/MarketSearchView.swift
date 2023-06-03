@@ -54,22 +54,9 @@ struct MarketSearchView: View {
                        
                             MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket, vm: vm)
                             MarketSearchTableWrapper(data: MarketList, selected: $selectedMarket, isLoading: $isLoading, vm: vm)
-                            
-                            
-                        
-                        
+   
                     }
-                    
-                    
-                    
-                    NavigationLink(destination: MainView()) {
-                        Text("화면 넘기기")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(10.0)
-                    }
+                  
                     
                 }
                 if isLoading {

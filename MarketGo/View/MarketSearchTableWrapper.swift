@@ -31,16 +31,12 @@ struct MarketSearchTableWrapper: View {
                     Button(action: {
                         userModel.NMap = market
                         isLoading = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        vm.fetchMarketData(marketName: market.placeName)
-                        selected = market
-                        isLinkActive = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            vm.fetchMarketData(marketName: market.placeName)
+                            selected = market
+                            isLinkActive = true
                             isLoading = false
                         }
-                     
-                        
-                        
-                        
                     }) {
                         Image(systemName: "arrowtriangle.forward")
                             .foregroundColor(.black)
@@ -49,12 +45,12 @@ struct MarketSearchTableWrapper: View {
                         NavigationLink(destination: MarketInfoView(selectedMarket: $vm.selectedMarket), isActive: $isLinkActive) {
                             EmptyView()
                         }
-                        .hidden()
+                            .hidden()
                     )
                 }
             }
         }
-
-
+        
+        
     }
 }
