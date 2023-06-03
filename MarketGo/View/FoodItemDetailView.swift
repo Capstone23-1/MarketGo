@@ -26,16 +26,20 @@ struct FoodItemDetailView: View {
                 
                 Spacer().frame(height: 10)
                 
-                Text("가격: \(goods.goodsPrice ?? 0)원")
+                Text("\((goods.goodsUnit)!) \(goods.goodsPrice ?? 0)원")
                     .font(.system(size: 20))
                     .padding(.leading, 10)
-                
+               
                 Spacer().frame(height: 10)
                 
-                Text("\(goods.goodsStore?.storeName ?? "") 둘러보기 >")
-                    .font(.system(size: 20))
-                    .padding(.leading, 10)
                 
+            
+                NavigationLink(destination: StoreView(store: goods.goodsStore!)) {
+                    Text("\(goods.goodsStore?.storeName ?? "") 둘러보기 >")
+                        .font(.system(size: 20))
+                        .padding(.leading, 10)
+                }
+
                 Spacer().frame(height: 20)
             }
         }

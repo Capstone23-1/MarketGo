@@ -46,7 +46,7 @@ struct MarketInfoView: View {
                 .padding()
                 .background(Color.blue)
                 .cornerRadius(20.0)
-                .frame(minWidth: .infinity-10)
+                .frame(minWidth: 200)
         }
     }
     
