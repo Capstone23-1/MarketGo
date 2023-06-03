@@ -3,6 +3,7 @@ import SwiftUI
 
 struct SellerHomeView: View {
     @EnvironmentObject var userModel: UserModel
+    @EnvironmentObject var cart: CartModel
     @State var storeID:StoreElement?
     @State var isLoading = false
     @State var isLoggingOut = false
@@ -70,7 +71,7 @@ struct SellerHomeView: View {
                                     .frame(width: 40)
                             }
                             .fullScreenCover(isPresented: $isLoggingOut, content: {
-                                SignInView(cart:cart())
+                                SignInView()
                             })
                             .frame(maxWidth: .infinity, maxHeight: 200)
                             .frame(height: 200)

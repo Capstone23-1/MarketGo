@@ -44,7 +44,7 @@ struct CartItem: Identifiable {
     }
 }
 
-class cart: ObservableObject {
+class CartModel: ObservableObject {
     @Published var cart: Cart?
     @Published var cartItems: [CartItem] = []
     

@@ -11,7 +11,7 @@ struct FoodItemDetailView: View {
     var goods: GoodsOne
     @State private var quantity: Int = 1
     @State private var showNotification: Bool = false
-    @EnvironmentObject var cart: cart // CartviewModel
+    @EnvironmentObject var cartModel: CartModel // CartviewModel
     @EnvironmentObject var userModel: UserModel
     @State private var showCartNotification: Bool = false
     
@@ -41,9 +41,9 @@ struct FoodItemDetailView: View {
         }
         VStack(alignment: .center){
             Button(action: {
-                cart.addProduct(product: goods)
-                print(cart.cartItems)
-                cart.updateCartItemsOnServer(cartId: userModel.currentUser?.cartID?.cartID ?? 0)
+                cartModel.addProduct(product: goods)
+                print(cartModel.cartItems)
+                cartModel.updateCartItemsOnServer(cartId: userModel.currentUser?.cartID?.cartID ?? 0)
                 showCartNotification = true
             }){
                RoundedButton(imageName: "cart.badge.plus", text: "장바구니에 담기")

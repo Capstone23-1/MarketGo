@@ -11,7 +11,7 @@ struct UserSignInView: View {
     @State var currentUser: MemberInfo? = nil
     @EnvironmentObject var userViewModel: UserModel
     @StateObject var marketModel = MarketModel()
-    @EnvironmentObject var cart: cart
+    
     
     
     var body: some View {

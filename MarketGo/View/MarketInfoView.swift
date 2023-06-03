@@ -69,7 +69,7 @@ struct MarketInfoView: View {
                     Task {
                         isLoading = true
                         loadMemeber()
-                        vm.interestMarket = selectedMarket!.marketID
+//                        vm.interestMarket = selectedMarket!.marketID
                         do {
                             try await vm.updateMemberInfo()
                             userModel.currentUser?.interestMarket=selectedMarket

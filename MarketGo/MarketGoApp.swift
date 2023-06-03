@@ -8,7 +8,7 @@ struct MarketGoApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) var scenePhase
-    
+    @StateObject var cart = CartModel()
     @State private var deepLinkStoreId: String?
     @State private var fetchedStore: StoreElement?
     @State private var isLoading = false
@@ -22,12 +22,17 @@ struct MarketGoApp: App {
                         ProgressView("Loading...")
                     } else if let store = fetchedStore {
                         NavigationLink(destination: StoreView(store: store), isActive: $isStoreViewActive) {
-                            EmptyView() // Replace 'Text("Go to Store")' with 'EmptyView()'
+                            MainView()
+                                .environmentObject(userModel)
+                                .environmentObject(storePost)
+                                .environmentObject(cart)
+                        
                         }
                     } else {
-                        SignInView(cart: cart())
+                        SignInView()
                             .environmentObject(userModel)
                             .environmentObject(storePost)
+                            .environmentObject(cart)
                     }
                 }
                 .onOpenURL { url in

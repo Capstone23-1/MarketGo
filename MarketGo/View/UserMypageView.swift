@@ -62,7 +62,7 @@ struct UserMyPageView: View {
                     .foregroundColor(.blue)
             }
             .fullScreenCover(isPresented: $isLogoutActive) {
-                SignInView(cart: cart())
+                SignInView()
             }
             Button(action: {
                 

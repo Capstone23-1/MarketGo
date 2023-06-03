@@ -4,7 +4,7 @@ import Alamofire
 
 struct CartView: View {
     @EnvironmentObject var userModel: UserModel
-    @EnvironmentObject var cart: cart
+    @EnvironmentObject var cart: CartModel
 
     var groupedCartItems: [String: [CartItem]] {
         let initial: [String: [CartItem]] = [:]
@@ -44,7 +44,7 @@ struct CartView: View {
 
 struct CartItemRow: View {
     @Binding var cartItem: CartItem
-    @EnvironmentObject var cart: cart
+    @EnvironmentObject var cart: CartModel
     @EnvironmentObject var userModel: UserModel
     
     @State private var showingConfirmationAlert = false
@@ -115,7 +115,7 @@ struct CartItemRow: View {
 
 
 struct TotalPriceView: View {
-    @EnvironmentObject var cart: cart
+    @EnvironmentObject var cart: CartModel
     @State var move1 = false
     var totalPrice: Int {
         cart.cartItems.reduce(0) { $0 + ($1.product.goodsPrice ?? 0) * $1.count }

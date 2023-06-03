@@ -21,7 +21,7 @@ struct SignInView: View {
     @State private var selectedRole = 0
     // 소비자와 상인을 선택할 수 있는 Picker에 사용할 데이터
     @State var tempUser: MemberInfo?
-    @ObservedObject var cart: cart
+    
     
     
     var body: some View {
@@ -42,7 +42,7 @@ struct SignInView: View {
                         switch selectedTab {
                             case 0:
                                 UserSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)
-                                .environmentObject(cart)
+                                
                                 
                             case 1:
                                 SellerSignInView(moveToProfileView: $moveToProfileView, showSignUpView: $showSignUpView)

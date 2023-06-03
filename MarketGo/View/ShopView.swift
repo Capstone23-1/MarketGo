@@ -12,7 +12,7 @@ struct ShopView: View {
     @ObservedObject var storeModel = StoreViewModel()
     @ObservedObject var goodsModel = GoodsViewModel()
     
-    @EnvironmentObject var cart: cart
+    @EnvironmentObject var cartModel: CartModel
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
 
@@ -106,9 +106,9 @@ struct ShopView: View {
                         }
                         
                     }.onAppear {
-                        storeModel.fetchStores(forMarketId: marketModel.currentMarket?.marketID ?? 0)
-                        cart.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
-                        cart.updateCartItems()
+                        storeModel.fetchStores(forMarketId: userModel.currentUser?.interestMarket?.marketID ?? 0)
+                        cartModel.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
+                        cartModel.updateCartItems()
                     }
                     
                     VStack(alignment: .leading) {
@@ -117,7 +117,7 @@ struct ShopView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.horizontal)
                             Spacer()
-                            NavigationLink(destination: FoodItemListView(marketId: marketModel.currentMarket?.marketID ?? 0)) {
+                            NavigationLink(destination: FoodItemListView(marketId: userModel.currentUser?.interestMarket?.marketID ?? 0)) {
                                 Text("상품 더보기 >")
                                     .foregroundColor(.black)
                                     .padding(.horizontal)
@@ -135,7 +135,7 @@ struct ShopView: View {
                         .padding([.top, .leading, .trailing], 16.0)
                     }
                     .onAppear {
-                        goodsModel.fetchGoods(forStoreMarketID: marketModel.currentMarket?.marketID ?? 0)
+                        goodsModel.fetchGoods(forStoreMarketID: userModel.currentUser?.interestMarket?.marketID ?? 0)
                     }
                     
                 }
