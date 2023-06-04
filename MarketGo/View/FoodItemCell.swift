@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-import SwiftUI
+import SwiftU
 
 struct FoodItemCell: View {
     var goods: GoodsOne
@@ -15,6 +15,7 @@ struct FoodItemCell: View {
     var body: some View {
         VStack {
             GoodsImage(url: URL(string: goods.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
+                .frame(height: 110)
             
             Text(goods.goodsName ?? "")
                 .font(.system(size: 16, weight: .bold))
