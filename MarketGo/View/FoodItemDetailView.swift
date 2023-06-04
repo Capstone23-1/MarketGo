@@ -36,11 +36,25 @@ struct FoodItemDetailView: View {
             
                 NavigationLink(destination: StoreView(store: goods.goodsStore!)) {
                     Text("\(goods.goodsStore?.storeName ?? "") 둘러보기 >")
-                        .font(.system(size: 20))
+                        .font(.system(size: 18))
                         .padding(.leading, 10)
                 }
 
                 Spacer().frame(height: 20)
+                
+                VStack(alignment: .leading){
+                    
+                    Text("\(goods.goodsInfo ?? "")")
+                        .font(.system(size: 15))
+                        .padding(.leading, 10)
+                    
+                    Divider()
+                    
+                    Text("\(goods.updateTime ?? "")")
+                        .font(.system(size: 15))
+                        .padding(.leading, 10)
+                    
+                }
                 
                 VStack(alignment: .leading) {
                     Text("\(goods.goodsName ?? "") 가격 변동 추이 그래프")
