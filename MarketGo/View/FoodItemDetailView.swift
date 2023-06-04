@@ -42,8 +42,12 @@ struct FoodItemDetailView: View {
 
                 Spacer().frame(height: 20)
                 
-                VStack(){
-                    PriceGraphView();
+                VStack(alignment: .leading) {
+                    Text("Day + Location with Most Sales")
+                        .foregroundStyle(.secondary)
+                    Text("Sundays in San Francisco")
+                        .font(.title2.bold())
+                    PriceGraphView(goods.id ?? 0)
                 }
                 
                 

@@ -24,7 +24,7 @@ typealias GoodsData = [GoodsDatum]
 
 struct PriceGraphView: View {
     @State private var goodsData: GoodsData = []
-    @State private var goodsId: Int = 26
+    @State var goodsId: Int
     
     var body: some View {
         VStack {
