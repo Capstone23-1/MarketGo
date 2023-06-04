@@ -26,7 +26,7 @@ struct StoreListView: View {
             Divider()
 
             LazyVStack {
-                ForEach(storeModel.stores.sorted { $0.storeRatings ?? 0 > $1.storeRatings ?? 0 }.filter {
+                ForEach(storeModel.stores.sorted { $0.reviewCount ?? 0 > $1.reviewCount ?? 0 }.filter {
                     searchText.isEmpty ? true : $0.storeName?.contains(searchText) ?? false
                 }) { store in
                     NavigationLink(destination: StoreView(store: store)) {
