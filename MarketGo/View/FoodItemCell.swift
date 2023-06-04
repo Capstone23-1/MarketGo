@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-import SwiftU
+import SwiftUI
 
 struct FoodItemCell: View {
     var goods: GoodsOne
