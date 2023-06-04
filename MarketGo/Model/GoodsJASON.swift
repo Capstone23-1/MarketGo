@@ -85,8 +85,10 @@ class GoodsViewModel: ObservableObject {
                 do {
                     let decoder = JSONDecoder()
                     var allGoods = try decoder.decode(Goods.self, from: data)
-                    // Filter goods based on storeMarketID
-                    allGoods = allGoods.filter { $0.goodsMarket?.marketID == storeMarketID }
+                    
+                    // Filter goods based on storeMarketID and isAvail != 0
+                    allGoods = allGoods.filter { $0.goodsMarket?.marketID == storeMarketID && $0.isAvail != 0 }
+                    
                     DispatchQueue.main.async {
                         self.goods = allGoods
                     }
@@ -98,6 +100,7 @@ class GoodsViewModel: ObservableObject {
             }
         }
     }
+
 }
 
 
