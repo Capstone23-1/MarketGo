@@ -16,7 +16,7 @@ struct StoreListView: View {
     var body: some View {
         ScrollView {
             HStack {
-                TextField("시장 이름으로 검색", text: $searchText)
+                TextField("가게 이름으로 검색", text: $searchText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Image(systemName: "magnifyingglass")
             }

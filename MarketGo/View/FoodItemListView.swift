@@ -10,7 +10,7 @@ import SwiftUI
 struct FoodItemListView: View {
     @StateObject private var goodsViewModel = GoodsViewModel()
     @State private var searchText = ""
-    @State private var placeHolder: String = "시장 또는 물품 검색"
+    @State private var placeHolder: String = "상품 이름으로 검색"
     
     let layout: [GridItem] = [
         GridItem(.flexible()),
