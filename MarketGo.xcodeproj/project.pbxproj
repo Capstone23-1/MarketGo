@@ -79,6 +79,7 @@
 		21AF151B2A265B3A0011A8B5 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF151A2A265B3A0011A8B5 /* CircleView.swift */; };
 		21AF151D2A2660520011A8B5 /* DogamQRGenerateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF151C2A2660520011A8B5 /* DogamQRGenerateView.swift */; };
 		21C910DD2A27688C005BC545 /* IndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C910DC2A27688C005BC545 /* IndexModel.swift */; };
+		21CBC0DE2A2D045C007DC2E4 /* QuickPostGoodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC0DD2A2D045C007DC2E4 /* QuickPostGoodsView.swift */; };
 		21D0068A2A13BBDC00C404C3 /* SellerSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */; };
 		21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006912A15047100C404C3 /* UserSignUpView.swift */; };
 		21D006942A15057E00C404C3 /* ImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D006932A15057E00C404C3 /* ImageUploadView.swift */; };
@@ -219,6 +220,7 @@
 		21AF151A2A265B3A0011A8B5 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		21AF151C2A2660520011A8B5 /* DogamQRGenerateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogamQRGenerateView.swift; sourceTree = "<group>"; };
 		21C910DC2A27688C005BC545 /* IndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexModel.swift; sourceTree = "<group>"; };
+		21CBC0DD2A2D045C007DC2E4 /* QuickPostGoodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickPostGoodsView.swift; sourceTree = "<group>"; };
 		21D006892A13BBDC00C404C3 /* SellerSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignUpViewModel.swift; sourceTree = "<group>"; };
 		21D006912A15047100C404C3 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		21D006932A15057E00C404C3 /* ImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadView.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				218F54362A258EFA00A9A6EF /* SeasonView.swift */,
+				21CBC0DD2A2D045C007DC2E4 /* QuickPostGoodsView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -838,6 +841,7 @@
 				99F02DDE2A17522200D827CD /* RemoteImage.swift in Sources */,
 				21FAE1E62A0AA787006593D9 /* SignInView.swift in Sources */,
 				2144FE6F29DD6A58008913C4 /* LocationModel.swift in Sources */,
+				21CBC0DE2A2D045C007DC2E4 /* QuickPostGoodsView.swift in Sources */,
 				2144FE7929DD6B4F008913C4 /* MarketSearchView.swift in Sources */,
 				2144FE6B29DD69B5008913C4 /* ProfileImageView.swift in Sources */,
 				21416B8C2A1025F0008EA3C5 /* SellerMarketChoiceView.swift in Sources */,

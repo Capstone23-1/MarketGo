@@ -50,8 +50,13 @@ struct PostGoodsView: View {
         }
     }
     func loadView() {
-        viewModel.storeId = (userViewModel.currentUser?.storeID?.storeID)!
-        viewModel.marketId = (userViewModel.currentUser?.storeID?.storeMarketID!.marketID)!
+        if let storeid = userViewModel.currentUser?.storeID?.storeID {
+            viewModel.storeId = storeid
+        }
+        if let marketid = userViewModel.currentUser?.storeID?.storeMarketID!.marketID {
+            viewModel.marketId = marketid
+        }
+        
         
     }
 }
