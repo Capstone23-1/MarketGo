@@ -13,6 +13,18 @@ struct StoreView: View {
     @State private var isWritingReview = false
     @EnvironmentObject var userModel: UserModel
     
+    func convertDate(from string: String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        if let date = inputFormatter.date(from: string) {
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = "yyyy.MM.dd"
+            return outputFormatter.string(from: date)
+        } else {
+            return "Invalid date"
+        }
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             ScrollView{
@@ -21,6 +33,40 @@ struct StoreView: View {
                     GoodsImage(url: URL(string: store.storeFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
                     
                 }
+                
+                if let storeData = store {
+
+                        VStack {
+                            Section(header: Text("데이터 기준 일자: \(convertDate(from: storeData.storeMarketID?.updateTime ?? ""))").font(.footnote)) {
+
+                                CardView(title: "시장 이름", value: storeData.storeMarketID?.marketName ?? "", iconName: "house")
+
+                                CardView(title: "주소", value: storeData.storeMarketID?.marketAddress1 ?? "", iconName: "mappin.and.ellipse")
+
+                                CardView(title: "가게 평점", value: String(format:"%.1f", storeData.storeRatings ?? 0.0), iconName: "star")
+
+                                CardView(title: "가게 정보", value: storeData.storeInfo ?? "", iconName: "info.circle")
+
+                                CardView(title: "시장 주차장 보유여부", value: storeData.storeMarketID?.parking ?? "", iconName: "car")
+
+                                CardView(title: "화장실", value: storeData.storeMarketID?.toilet ?? "", iconName: "person.crop.square")
+
+                                CardView(title: "가게 연락처", value: storeData.storePhonenum ?? "", iconName: "phone")
+
+                                CardView(title: "지역화페", value:storeData.storeMarketID?.marketGiftcard ?? "", iconName: "creditcard")
+                            }
+                        }
+                    
+                    .padding() // Adding padding for better spacing
+                    .background(Color.white)
+                } else {
+                    Text("데이터를 불러오는 데 실패했습니다.")
+                        .foregroundColor(.red)
+                        .font(.headline)
+                }
+            
+
+            
                 
                 VStack(){
                     
@@ -103,7 +149,9 @@ struct StoreView: View {
                     
                 }
                 
+            
             }
+        
                         
             Button(action: {
                 isWritingReview = true
@@ -125,6 +173,5 @@ struct StoreView: View {
         
     }
 }
-
 
 
