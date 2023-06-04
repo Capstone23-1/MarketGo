@@ -18,7 +18,8 @@ struct MarketReviewPostView: View {
     
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
-    
+    @Environment(\.presentationMode) var presentationMode
+
     var marketID: Int{
         marketModel.currentMarket?.marketID ?? 0
     }
@@ -171,6 +172,7 @@ struct MarketReviewPostView: View {
     func showAlert(message: String) {
         alertMessage = message
         showAlert = true
+        presentationMode.wrappedValue.dismiss()
     }
     
 }
