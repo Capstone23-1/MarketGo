@@ -148,7 +148,7 @@ struct LineChartView: View {
     
     private func formatDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy\nMM/dd"
+        dateFormatter.dateFormat = "MM/dd"
         return dateFormatter.string(from: date)
     }
     
