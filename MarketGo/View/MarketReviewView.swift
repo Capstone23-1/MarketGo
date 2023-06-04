@@ -55,8 +55,9 @@ struct MarketReviewRow: View {
             HStack(alignment: .top) {
                 Text("\(review.ratings ?? 0)점")
                     .foregroundColor(.white)
-                    .padding(.horizontal, 5)
-                    .padding(.vertical, 5)
+                    .padding(5)
+//                    .padding(.horizontal, 5)
+//                    .padding(.vertical, 5)
                     .background(Color.yellow)
                     .cornerRadius(10)
                 
@@ -72,16 +73,19 @@ struct MarketReviewRow: View {
                     .font(.headline)
                     .fontWeight(.bold)
             }
+            .padding(.leading,5)
             
             Text(review.reviewContent ?? "")
                 .font(.body)
-                .padding(.horizontal, 1)
-                .padding(.vertical, 7)
+                .padding(.leading,5)
+                //.padding(.horizontal, 1)
+                //.padding(.vertical, 7)
             
             VStack(alignment: .leading) {
                 RemoteImage2(url: URL(string: review.marketReviewFile?.uploadFileURL ?? ""))
                            // .frame(width: 100, height: 100)
                 }
+            .padding(.leading,5)
             
         }
         .padding()
