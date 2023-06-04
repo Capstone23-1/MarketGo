@@ -35,13 +35,14 @@ struct StoreView: View {
                 }
                 
                 if let storeData = store {
+                    
 
                         VStack {
                             Section(header: Text("데이터 기준 일자: \(convertDate(from: storeData.storeMarketID?.updateTime ?? ""))").font(.footnote)) {
 
-                                CardView(title: "시장 이름", value: storeData.storeMarketID?.marketName ?? "", iconName: "house")
+                                CardView(title: "가게 이름", value: storeData.storeName ?? "", iconName: "house")
 
-                                CardView(title: "주소", value: storeData.storeMarketID?.marketAddress1 ?? "", iconName: "mappin.and.ellipse")
+                                CardView(title: "가게 주소", value: storeData.storeAddress1 ?? "", iconName: "mappin.and.ellipse")
 
                                 CardView(title: "가게 평점", value: String(format:"%.1f", storeData.storeRatings ?? 0.0), iconName: "star")
 
