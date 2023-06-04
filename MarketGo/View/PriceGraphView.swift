@@ -30,7 +30,7 @@ struct PriceGraphView: View {
         VStack {
             if !goodsData.isEmpty {
                 LineChartView(data: goodsData)
-                    .frame(height: 100)
+                    .frame(height: 70)
                     .padding(50)
             } else {
                 ProgressView() // Show a loading indicator while data is being fetched
