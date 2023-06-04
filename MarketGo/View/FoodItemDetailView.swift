@@ -20,45 +20,74 @@ struct FoodItemDetailView: View {
             VStack(alignment: .leading) {
                 GoodsImage(url: URL(string: goods.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
                 
-                Text(goods.goodsName ?? "")
-                    .font(.system(size: 18, weight: .bold))
-                    .padding(.leading, 10)
-                
-                Spacer().frame(height: 10)
-                
-                Text("\((goods.goodsUnit)!) \(goods.goodsPrice ?? 0)원")
-                    .font(.system(size: 15))
-                    .padding(.leading, 10)
-               
-                Spacer().frame(height: 10)
-                
-                
-            
-                NavigationLink(destination: StoreView(store: goods.goodsStore!)) {
-                    Text("\(goods.goodsStore?.storeName ?? "") 둘러보기 >")
-                        .font(.system(size: 18))
+                HStack{
+                    Text(goods.goodsName ?? "")
+                        .font(.system(size: 20, weight: .bold))
                         .padding(.leading, 10)
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: StoreView(store: goods.goodsStore!)) {
+                        Text("\(goods.goodsStore?.storeName ?? "") 둘러보기 ")
+                            .font(.system(size: 16))
+                            .padding(15)
+                        
+                    }
                 }
-
-                Spacer().frame(height: 20)
+                
+                Spacer().frame(height: 25)
                 
                 VStack(alignment: .leading){
                     
-                    Text("\(goods.goodsInfo ?? "")")
-                        .font(.system(size: 15))
+                    Text("가격 : \(goods.goodsPrice ?? 0)원")
+                        .font(.system(size: 16))
+                        .padding(.leading, 10)
+                   
+
+                    Divider()
+                    
+                    Text("단위 : \((goods.goodsUnit)!)")
+                        .font(.system(size: 16))
+                        .padding(.leading, 10)
+                    Divider()
+                }
+                
+                
+                VStack(alignment: .leading){
+                    
+                    Text("상품 정보 : \(goods.goodsInfo ?? "")")
+                        .font(.system(size: 16))
                         .padding(.leading, 10)
                     
                     Divider()
                     
-                    Text("\(goods.updateTime ?? "")")
-                        .font(.system(size: 15))
+//                    Text("\(goods.updateTime ?? "")")
+//                        .font(.system(size: 15))
+//                        .padding(.leading, 10)
+                    
+                    Text("원산지 : \(goods.goodsOrigin ?? "")")
+                        .font(.system(size: 16))
                         .padding(.leading, 10)
+                    Divider()
+                
+                    
+                    if let dateString = goods.updateTime,
+                       let date = extractDate(from: dateString) {
+                        let formattedDate = formatDate(date)
+                        Text("데이터 기준 일자 : \(formattedDate)")
+                            .font(.system(size: 16))
+                            .padding(.leading, 10)
+                    }
+                    
+                    Divider()
                     
                 }
+                Spacer().frame(height: 20)
                 
                 VStack(alignment: .leading) {
                     Text("\(goods.goodsName ?? "") 가격 변동 추이 그래프")
                         .foregroundStyle(.secondary)
+                        .font(.system(size: 16))
                         .padding(.leading, 10)
                     PriceGraphView(goodsId: goods.goodsID ?? 0)
                 }
@@ -89,6 +118,21 @@ struct FoodItemDetailView: View {
                     .imageScale(.large)
             }
         )
+    }
+    
+    private func extractDate(from dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        if let date = dateFormatter.date(from: dateString) {
+            return Calendar.current.startOfDay(for: date)
+        }
+        return nil
+    }
+    
+    private func formatDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        return dateFormatter.string(from: date)
     }
 }
 
