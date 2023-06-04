@@ -16,7 +16,7 @@ struct FoodItemDetailView: View {
     @State private var showCartNotification: Bool = false
     
     var body: some View {
-        ScrollView {
+        ScrollView(.vertical) {
             VStack(alignment: .leading) {
                 GoodsImage(url: URL(string: goods.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
                 
@@ -41,7 +41,14 @@ struct FoodItemDetailView: View {
                 }
 
                 Spacer().frame(height: 20)
+                
+                VStack(){
+                    PriceGraphView();
+                }
+                
+                
             }
+            
         }
         VStack(alignment: .center){
             Button(action: {

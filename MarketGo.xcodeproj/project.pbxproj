@@ -96,7 +96,6 @@
 		21FAE1EE2A0B65EC006593D9 /* SellerSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1ED2A0B65EC006593D9 /* SellerSignUpView.swift */; };
 		21FAE1F22A0BB829006593D9 /* UserSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FAE1F12A0BB829006593D9 /* UserSignInView.swift */; };
 		990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990D2C9629E23678002ED379 /* MenuItemRow.swift */; };
-		9927F0AA2A2C315900CBFCBE /* LocationsOverviewChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9927F0A92A2C315900CBFCBE /* LocationsOverviewChart.swift */; };
 		993AD3A52A0A72500069A27F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AD3A42A0A72500069A27F /* ContentView.swift */; };
 		993AF1C529DE474F00031A7B /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF1C429DE474F00031A7B /* StoreView.swift */; };
 		994979BF2A11999D00159828 /* GoodsJASON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994979BE2A11999D00159828 /* GoodsJASON.swift */; };
@@ -241,7 +240,6 @@
 		5F46EB407DB4F30F4ABA9195 /* Pods-MarketGo-MarketGoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGo-MarketGoUITests.release.xcconfig"; path = "Target Support Files/Pods-MarketGo-MarketGoUITests/Pods-MarketGo-MarketGoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		725C5ED25F851D0B3E94785A /* libPods-MarketGo-MarketGoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MarketGo-MarketGoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		990D2C9629E23678002ED379 /* MenuItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemRow.swift; sourceTree = "<group>"; };
-		9927F0A92A2C315900CBFCBE /* LocationsOverviewChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsOverviewChart.swift; sourceTree = "<group>"; };
 		993AD3A42A0A72500069A27F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		993AF1C429DE474F00031A7B /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		994979BE2A11999D00159828 /* GoodsJASON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsJASON.swift; sourceTree = "<group>"; };
@@ -501,7 +499,6 @@
 				998843BF2A04DE8700132079 /* UserMypageView.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
-				9927F0A92A2C315900CBFCBE /* LocationsOverviewChart.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -821,7 +818,6 @@
 				211F53E02A17B3CB003DA011 /* StorePostViewModel.swift in Sources */,
 				994B17C52A023653009B77E8 /* ReviewView.swift in Sources */,
 				998BFBC52A0DD01C005F4652 /* CategoryView.swift in Sources */,
-				9927F0AA2A2C315900CBFCBE /* LocationsOverviewChart.swift in Sources */,
 				21A789C52A1EE02900DD9456 /* QRReaderView.swift in Sources */,
 				998843C22A04F76800132079 /* StoreListView.swift in Sources */,
 				21FAE1DC2A0AA468006593D9 /* AppDelegateAdaptor.swift in Sources */,
