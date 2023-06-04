@@ -35,13 +35,6 @@ struct MenuItemRow: View {
             
             Spacer()
             
-            Image(systemName: "heart.fill")
-                .resizable()
-                .renderingMode(.template)
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 20, height: 20)
-                .foregroundColor(.gray)
-                
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)

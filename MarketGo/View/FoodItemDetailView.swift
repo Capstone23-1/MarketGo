@@ -21,13 +21,13 @@ struct FoodItemDetailView: View {
                 GoodsImage(url: URL(string: goods.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
                 
                 Text(goods.goodsName ?? "")
-                    .font(.system(size: 26, weight: .bold))
+                    .font(.system(size: 18, weight: .bold))
                     .padding(.leading, 10)
                 
                 Spacer().frame(height: 10)
                 
                 Text("\((goods.goodsUnit)!) \(goods.goodsPrice ?? 0)원")
-                    .font(.system(size: 20))
+                    .font(.system(size: 15))
                     .padding(.leading, 10)
                
                 Spacer().frame(height: 10)
@@ -43,17 +43,18 @@ struct FoodItemDetailView: View {
                 Spacer().frame(height: 20)
                 
                 VStack(alignment: .leading) {
-                    Text("Day + Location with Most Sales")
+                    Text("\(goods.goodsName ?? "") 가격 변동 추이 그래프")
                         .foregroundStyle(.secondary)
-                    Text("Sundays in San Francisco")
-                        .font(.title2.bold())
+                        .padding(.leading, 10)
                     PriceGraphView(goodsId: goods.goodsID ?? 0)
                 }
                 
+                Spacer().frame(height: 40)
                 
             }
             
         }
+
         VStack(alignment: .center){
             Button(action: {
                 cartModel.addProduct(product: goods)

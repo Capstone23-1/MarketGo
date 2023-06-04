@@ -30,7 +30,7 @@ struct StoreView: View {
                             Text("작성된 리뷰 \(store.reviewCount ?? 0) 개>")
                         }
                         
-                        NavigationLink(destination: MenuView(storeID: store.storeID ?? 0)) {
+                        NavigationLink(destination: MenuView(storeID: store.storeID ?? 0, storeName: store.storeName ?? "")) {
                             Text("메뉴판")
                                 .font(.headline)
                                 .foregroundColor(.white)

@@ -31,9 +31,12 @@ struct PriceGraphView: View {
             if !goodsData.isEmpty {
                 LineChartView(data: goodsData)
                     .frame(height: 70)
-                    .padding(50)
+                    .padding(.top, 30)
+                    .padding(.leading, 50)
+                    .padding(.trailing, 50)
             } else {
-                ProgressView() // Show a loading indicator while data is being fetched
+                //ProgressView() // Show a loading indicator while data is being fetched
+                Text("데이터 없음")
             }
         }
         .onAppear {
@@ -149,13 +152,5 @@ struct LineChartView: View {
         return dateFormatter.string(from: date)
     }
     
-    // Other helper methods...
 }
 
-
-
-struct PriceGraphView_Previews: PreviewProvider {
-    static var previews: some View {
-        PriceGraphView()
-    }
-}
