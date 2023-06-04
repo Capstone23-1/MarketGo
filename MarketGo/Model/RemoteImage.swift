@@ -26,14 +26,14 @@ struct RemoteImage: View {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 80, height: 80)
-                    .cornerRadius(1)
+                    .frame(width: 85, height: 85)
+                    .cornerRadius(3)
             } else {
                 placeholder
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 80, height: 80)
-                    .cornerRadius(1)
+                    .frame(width: 85, height: 85)
+                    .cornerRadius(3)
             }
         }
         .onAppear {

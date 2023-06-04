@@ -72,7 +72,7 @@ struct ShopView: View {
                                            
                                             if let fileData = store.storeFile {
                                                 RemoteImage(url: URL(string: fileData.uploadFileURL ?? ""))
-                                                            .frame(width: 80, height: 80)
+                                        
                                             } else {
                                                 Text("Loading...")
                                             }
