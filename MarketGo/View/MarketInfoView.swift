@@ -23,16 +23,7 @@ struct MarketInfoView: View {
             vm.recentLongitude = memberInfo.recentLongitude ?? 0.0
         }
     }
-    
-    var LoadingView: some View {
-        ProgressView()
-            .scaleEffect(2)
-            .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-            .frame(width: 100, height: 100)
-            .background(Color.white.opacity(0.8))
-            .cornerRadius(20)
-            .shadow(radius: 10)
-    }
+
     
     var NavigationButton: some View {
         Button(action: {
@@ -67,23 +58,48 @@ struct MarketInfoView: View {
                     
                 }
                 if isLoading {
-                    LoadingView
+                    ProgressView()
+                        .scaleEffect(2)
+                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                        .frame(width: 100, height: 100)
+                        .background(Color.white.opacity(0.8))
+                        .cornerRadius(20)
+                        .shadow(radius: 10)
                 }
             }
             
         }
         .navigationTitle((selectedMarket?.marketName ?? "시장정보"))
         .onAppear {
+            
             Task {
                 isLoading = true
                 loadMemeber()
-                do {
-                    try await vm.updateMemberInfo()
-                    userModel.currentUser?.interestMarket=selectedMarket
-                    marketModel.currentMarket=selectedMarket
-                } catch {
-                    print("Error while updating member info: \(error)")
+                if let marketid = selectedMarket?.marketID{
+                    vm.interestMarket = marketid
                 }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    Task{
+                        do {
+                            try await vm.updateMemberInfo()
+                            if let market = selectedMarket{
+                                userModel.currentUser?.interestMarket = selectedMarket
+                                marketModel.currentMarket=market
+                            }
+                            if let market = vm.successMemberInfo?.interestMarket{
+                                userModel.currentUser?.interestMarket = market
+                                marketModel.currentMarket=market
+                            }
+                            
+                            
+                        } catch {
+                            print("Error while updating member info: \(error)")
+                        }
+                        
+                    }
+                    
+                }
+                
                 isLoading = false
             }
         }

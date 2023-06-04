@@ -41,7 +41,7 @@ struct EatingHouseView: View {
         .onAppear {
             let viewModel = EatingHouseViewModel()
             isLoading = true // 로딩 시작
-            viewModel.searchEatingHouse(location: CoordinateInfo(lat: (userModel.currentUser?.interestMarket?.marketLatitude)!, lng: (userModel.currentUser?.interestMarket?.marketLongitude)!) , queryKeyword: "맛집") { result in
+            viewModel.searchEatingHouse(location: CoordinateInfo(lat: (userModel.currentUser?.interestMarket?.marketLatitude) ?? cauLocation.lat, lng: (userModel.currentUser?.interestMarket?.marketLongitude) ?? cauLocation.lng) , queryKeyword: "맛집") { result in
                 switch result {
                     case .success(let parkingLotData):
                         DispatchQueue.main.async {

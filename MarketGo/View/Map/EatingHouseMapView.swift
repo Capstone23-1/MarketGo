@@ -18,7 +18,7 @@ struct EatingHouseMapView: UIViewRepresentable {
         
         DispatchQueue.main.async {
             if let userLocation = userModel.currentUser {
-                let nmg = NMGLatLng(lat: (userLocation.interestMarket?.marketLatitude)! , lng: (userLocation.interestMarket?.marketLongitude)! )
+                let nmg = NMGLatLng(lat: (userLocation.interestMarket?.marketLatitude) ?? cauLocation.lat , lng: (userLocation.interestMarket?.marketLongitude) ?? cauLocation.lng )
                 let cameraUpdate = NMFCameraUpdate(scrollTo: nmg)
                 let marketMarker = NMFMarker()
                 marketMarker.iconImage = NMF_MARKER_IMAGE_BLACK

@@ -55,6 +55,7 @@ struct MarketReviewRow: View {
             HStack(alignment: .top) {
                 Text("\(review.ratings ?? 0)점")
                     .foregroundColor(.white)
+                    .multilineTextAlignment(.leading)
                     .padding(5)
 //                    .padding(.horizontal, 5)
 //                    .padding(.vertical, 5)
@@ -72,6 +73,7 @@ struct MarketReviewRow: View {
                 Text(review.mrMemberID?.memberName ?? "")
                     .font(.headline)
                     .fontWeight(.bold)
+                Spacer()
             }
             .padding(.leading,5)
             

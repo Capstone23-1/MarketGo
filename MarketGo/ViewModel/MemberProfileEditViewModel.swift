@@ -15,17 +15,15 @@ class MemberProfileEditViewModel: ObservableObject {
     @Published var recentLatitude = 0.0
     @Published var recentLongitude = 0.0
     @Published var successMemberInfo: MemberInfo?
+   
     
-    func makeStringKoreanEncoded(_ str: String) -> String {
-        // Assuming this is your method to encode Korean strings.
-        return str
-    }
     
     func updateMemberInfo() async throws {
         let enMemberToken = makeStringKoreanEncoded(memberToken)
         let enMemberName = makeStringKoreanEncoded(memberName)
         
-        let url = "http://3.34.33.15:8080/member/\(String(describing: memberID))?memberToken=\(enMemberToken)&memberName=\(enMemberName)&interestMarket=\(String(describing: interestMarket))&cartId=\(cartId)&storeId=\(storeId)&recentLatitude=\(recentLatitude)&recentLongitude=\(recentLongitude)"
+        let url = "http://3.34.33.15:8080/member/\(String(describing: memberID))?memberToken=\(enMemberToken)&memberName=\(enMemberName)&interestMarket=\(String(describing: interestMarket))&cartId=\(String(describing: cartId))&storeId=\(String(describing: storeId))&recentLatitude=0&recentLongitude=0"
+        
         
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
