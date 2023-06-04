@@ -71,8 +71,8 @@ struct ReviewRow: View {
                 .padding(.vertical, 7)
             
             VStack(alignment: .leading) {
-                RemoteImage(url: URL(string: review.storeReviewFile?.uploadFileURL ?? ""))
-                            .frame(width: 80, height: 80)
+                RemoteImage2(url: URL(string: review.storeReviewFile?.uploadFileURL ?? ""))
+                           // .frame(width: 100, height: 100)
                 }
         }
         .frame(maxWidth: .infinity)
