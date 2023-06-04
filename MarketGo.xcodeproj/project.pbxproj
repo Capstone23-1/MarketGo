@@ -51,7 +51,7 @@
 		21470AB629FE588000A7CEE7 /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB529FE588000A7CEE7 /* MarketViewModel.swift */; };
 		21470AB829FE620100A7CEE7 /* MarketAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21470AB729FE620100A7CEE7 /* MarketAPIModel.swift */; };
 		214871D22A055EDB00C6FD1D /* MarketOneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871D12A055EDB00C6FD1D /* MarketOneModel.swift */; };
-		214871D82A0685C300C6FD1D /* MarketListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871D72A0685C300C6FD1D /* MarketListView.swift */; };
+		214871D82A0685C300C6FD1D /* MarketInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871D72A0685C300C6FD1D /* MarketInfoList.swift */; };
 		214871DA2A06894700C6FD1D /* MarketOneMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214871D92A06894700C6FD1D /* MarketOneMapView.swift */; };
 		2150934129DEF1A40001C788 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2150934029DEF1A40001C788 /* Alamofire */; };
 		215A3D1129E9B31D00DCD0B0 /* MarketMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */; };
@@ -193,7 +193,7 @@
 		21470AB529FE588000A7CEE7 /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
 		21470AB729FE620100A7CEE7 /* MarketAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketAPIModel.swift; sourceTree = "<group>"; };
 		214871D12A055EDB00C6FD1D /* MarketOneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketOneModel.swift; sourceTree = "<group>"; };
-		214871D72A0685C300C6FD1D /* MarketListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListView.swift; sourceTree = "<group>"; };
+		214871D72A0685C300C6FD1D /* MarketInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfoList.swift; sourceTree = "<group>"; };
 		214871D92A06894700C6FD1D /* MarketOneMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketOneMapView.swift; sourceTree = "<group>"; };
 		215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketMapView.swift; sourceTree = "<group>"; };
 		217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChoicePickerView.swift; sourceTree = "<group>"; };
@@ -455,7 +455,7 @@
 				210862012A06D67900EC3A60 /* MapLinkView.swift */,
 				217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */,
 				21F1C9BC29DD69870022113A /* MarketInfoView.swift */,
-				214871D72A0685C300C6FD1D /* MarketListView.swift */,
+				214871D72A0685C300C6FD1D /* MarketInfoList.swift */,
 				218F54282A24F8EF00A9A6EF /* MarketOtherSearchView.swift */,
 				218F54262A24F7E100A9A6EF /* MarketOtherTableWrapper.swift */,
 				997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */,
@@ -820,7 +820,7 @@
 				21FAE1DC2A0AA468006593D9 /* AppDelegateAdaptor.swift in Sources */,
 				2181EDD82A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift in Sources */,
 				2144FE7B29DD6B88008913C4 /* ShopView.swift in Sources */,
-				214871D82A0685C300C6FD1D /* MarketListView.swift in Sources */,
+				214871D82A0685C300C6FD1D /* MarketInfoList.swift in Sources */,
 				21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */,
 				210862002A06AF8F00EC3A60 /* FindPathView.swift in Sources */,
 				994979C72A12700E00159828 /* CartJASON.swift in Sources */,

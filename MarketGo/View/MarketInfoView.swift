@@ -56,7 +56,7 @@ struct MarketInfoView: View {
                 VStack {
                     MarketOneMapView(selectedMarket: $selectedMarket)
                         .frame(height: 200)
-                    MarketListView(marketData: $selectedMarket)
+                    MarketInfoList(marketData: $selectedMarket)
                     
                     NavigationButton
                     
