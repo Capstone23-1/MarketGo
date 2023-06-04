@@ -46,7 +46,7 @@ struct CartItemRow: View {
                 Text("\(totalPrice)원").font(.footnote)
                 Text("\(cartItem.product.goodsMarket?.marketName ?? "")")
                     .foregroundColor(.gray)
-                    .font(.footnote)
+                    .font(.system(size: 9))
                 Spacer()
             }
             
@@ -56,7 +56,7 @@ struct CartItemRow: View {
                 Stepper(value: $cartItem.count, in: 1...Int.max, label: {
                     HStack {
                         Spacer()
-                        Text("\(cartItem.count)").font(.system(size: 15))
+                        Text("\(cartItem.count)").font(.system(size: 13))
                     }
                 })
                 .onChange(of: cartItem.count) { newValue in
