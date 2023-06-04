@@ -168,3 +168,60 @@ struct SellerGoodsListView: View {
     }
     
 }
+
+class SellerGoodsListViewModel: ObservableObject {
+    @Published var goodsList: [GoodsOne] = []
+    @Published var storeID = 0
+    @Published var searchText = ""
+    @Published var selectedGoods: [GoodsOne] = []
+    @Published var offAvail = 0
+    @Published var isLoading = false
+    @Published var selectedGoodsIDs: [Int] = []
+    @Published var meneName = ""
+    
+    
+    var placeHolder = "상품명으로 검색하세요"
+    func fetchGoodsData() async {
+            let url = "http://3.34.33.15:8080/goods/all"
+            let request = AF.request(url)
+            
+            do {
+                // 서버로부터 데이터 받아오기
+                let data = try await withCheckedThrowingContinuation { continuation in
+                    request.responseData { response in
+                        switch response.result {
+                            case .success(let data):
+                                continuation.resume(returning: data)
+                            case .failure(let error):
+                                continuation.resume(throwing: error)
+                        }
+                    }
+                }
+                // 데이터를 GoodsOne 형식으로 디코딩
+                let goodsList = try JSONDecoder().decode([GoodsOne].self, from: data)
+                DispatchQueue.main.async {
+                    // isAvail에 따라 상품 리스트를 정렬. isAvail이 0인 것들이 리스트의 하단에 위치하도록.
+                    self.goodsList = goodsList.sorted { $0.isAvail ?? 0 > $1.isAvail ?? 0}
+                    print("goods 리스트 get 성공")
+                }
+            } catch {
+                print("Failed to decode JSON: \(error)")
+            }
+        }
+
+    func postMenu() {
+        let enName = makeStringKoreanEncoded(meneName)
+        var url = "http://3.34.33.15:8080/menu?menuName=\(enName)=&storeId=\(self.storeID ?? 0)"
+        
+        let maxGoodsCount = 10
+        for index in 0..<maxGoodsCount {
+            let goodsId = index < selectedGoodsIDs.count ? selectedGoodsIDs[index] : 0
+            url += "&goodsId\(index+1)=\(String(describing: goodsId))"
+        }
+        print(url)
+        
+        // Now you can use Alamofire to make the request
+        
+    }
+    
+}

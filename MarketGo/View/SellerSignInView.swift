@@ -1,7 +1,5 @@
-
 import SwiftUI
 
-// TODO: 로그인 성공시 현위치를 받음
 struct SellerSignInView: View {
     
     @Binding var moveToProfileView: Bool
