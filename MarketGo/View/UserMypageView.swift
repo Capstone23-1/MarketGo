@@ -33,26 +33,26 @@ struct UserMyPageView: View {
                 Spacer()
                 Text("\(userModel.currentUser?.interestMarket?.marketName ?? "")")
             }
-            HStack {
-                Text("장바구니")
-                Spacer()
-                //Text("\(userModel.currentUser?.cartID ?? 0)")
-            }
-            HStack {
-                Text("member id")
-                Spacer()
-                Text("\(userModel.currentUser?.memberID ?? 0)")
-                    .font(.footnote)
-                    .foregroundColor(.gray)
-            }
+//            HStack {
+//                Text("장바구니")
+//                Spacer()
+//                //Text("\(userModel.currentUser?.cartID ?? 0)")
+//            }
+//            HStack {
+//                Text("member id")
+//                Spacer()
+//                Text("\(userModel.currentUser?.memberID ?? 0)")
+//                    .font(.footnote)
+//                    .foregroundColor(.gray)
+//            }
             
-            HStack {
-                Text("cart id")
-                Spacer()
-                Text("\(userModel.currentUser?.cartID?.cartID ?? 0)")
-                    .font(.footnote)
-                    .foregroundColor(.gray)
-            }
+//            HStack {
+//                Text("cart id")
+//                Spacer()
+//                Text("\(userModel.currentUser?.cartID?.cartID ?? 0)")
+//                    .font(.footnote)
+//                    .foregroundColor(.gray)
+//            }
             
             Button(action: {
                 

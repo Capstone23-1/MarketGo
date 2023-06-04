@@ -5,6 +5,22 @@
 //  Created by 김주현 on 2023/06/01.
 //
 import SwiftUI
+import Foundation
+
+// MARK: - GoodsDatum
+struct GoodsDatum: Codable {
+    var goodsDataID: Int?
+    var goodsID, price: Int?
+    var updatedDate: String?
+
+    enum CodingKeys: String, CodingKey {
+        case goodsDataID = "goodsDataId"
+        case goodsID = "goodsId"
+        case price, updatedDate
+    }
+}
+
+typealias GoodsData = [GoodsDatum]
 
 struct PriceGraphView: View {
     @State private var goodsData: GoodsData = []
@@ -73,6 +89,11 @@ struct LineChartView: View {
                     } else {
                         path.addLine(to: CGPoint(x: x, y: y))
                     }
+                    
+                    // Display price at each data point
+                    Text("\(datum.price ?? 0)")
+                        .font(.caption)
+                        .position(x: x, y: y - 20) // Adjust the position based on your preference
                 }
             }
             .stroke(Color.blue, lineWidth: 2)
@@ -88,6 +109,7 @@ struct LineChartView: View {
         }
     }
 }
+
 
 
 
