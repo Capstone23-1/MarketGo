@@ -23,7 +23,7 @@ class MarketSearchViewModel: ObservableObject {
                         // 이 경우 market은 MarketOneElement의 배열입니다. 첫 번째 요소를 선택하거나 적절하게 처리하세요.
                         if let firstMarket = market.first {
                             self.selectedMarket = firstMarket
-                   
+                            
                         }
                     case .failure(let error):
                         //                    print("Error: \(error)")

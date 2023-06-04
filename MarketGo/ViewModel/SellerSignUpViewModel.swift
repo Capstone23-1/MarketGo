@@ -20,7 +20,7 @@ class SellerSignUpViewModel: ObservableObject {
     @Published var nickName = ""
     @Published var storeId=0
     @Published var storeMarketId = 0
-
+    
     
     func signUp(completion: @escaping (Bool, Error?) -> Void) {
         isLoading = true
@@ -62,7 +62,7 @@ class SellerSignUpViewModel: ObservableObject {
             }
         }
     }
-
+    
 }
 
 class StoreVM: ObservableObject{

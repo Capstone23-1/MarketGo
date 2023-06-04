@@ -37,9 +37,9 @@ class ParkingLotViewModel{
                        method: .get,
                        encoding: URLEncoding.default,
                        headers: headers)
-                .validate(statusCode: 200..<300)
-                .responseJSON { response in
-                    switch response.result {
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                switch response.result {
                     case .success(_):
                         if let data = response.data {
                             do {
@@ -62,9 +62,9 @@ class ParkingLotViewModel{
                     case .failure(let error):
                         // completionHandler를 통해 에러 반환
                         completionHandler(.failure(error))
-                    }
-                    
                 }
+                
+            }
         }
         
         fetchData() // 함수 호출

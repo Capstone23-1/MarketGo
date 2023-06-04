@@ -11,7 +11,7 @@ struct SeasonView: View {
     @State private var currentIndex = 0
     
     let images: [String] = [
-        "5월제철음식",
+        
         "6월제철음식",
         "7월제철음식",
         "8월제철음식",
@@ -20,6 +20,7 @@ struct SeasonView: View {
         "11월제철음식",
         "12월제철음식",
         "1월제철음식",
+        "5월제철음식",
     ]
     
     var body: some View {
@@ -28,10 +29,10 @@ struct SeasonView: View {
                 Image(images[currentIndex])
                     .resizable()
                     .scaledToFit()
-                    
                 
                 
-                .padding()
+                
+                    .padding()
             }
             HStack {
                 Button(action: {

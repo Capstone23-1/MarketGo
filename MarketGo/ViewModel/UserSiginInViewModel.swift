@@ -42,7 +42,7 @@ class UserSignInViewModel: ObservableObject {
                                 // 받아온 데이터를 사용하여 UI 구성 등 필요한 작업을 수행
                                 userViewModel.currentUser = memberInfo
                                 
-//                                print(memberInfo)
+                                //                                print(memberInfo)
                             case .failure(let error):
                                 print(error)
                         }

@@ -2,42 +2,44 @@ import SwiftUI
 import Alamofire
 import UIKit
 
+
 struct PostGoodsView: View {
-    @State private var imageUploader = ImageUploader()
+    @StateObject private var viewModel = PostGoodsViewModel()
+    
     @EnvironmentObject var userViewModel: UserModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State var newImage = FileInfo()
-    @State var imageCate = StoreCategory(categoryID: 0,categoryName: "goods")
-    @State var selectedImage: UIImage? = nil
-    @State var isLoading = false
-    @State var goodsName = ""
-    @State var goodsUnit = ""
-    @State var goodsInfo = ""
-    @State var goodsOrigin = ""
-    @State var fileId = 0
-    @State var goodsPrice = ""
-    @State var storeId = 0
-    @State var marketId = 0
-    @State var isAvail = 1 // 추가: 게시여부 토글 상태
+    
     
     var body: some View {
         VStack {
             Form {
-                ImageUploadView(category: $imageCate.categoryName, selectedImage: $selectedImage, newImage: $newImage)
-                TextField("상품명", text: $goodsName)
-                TextField("가격", text: $goodsPrice)
-                TextField("단위", text: $goodsUnit)
-                TextField("원산지", text: $goodsOrigin)
-                TextField("물품 설명", text: $goodsInfo)
+                ImageUploadView(category: $viewModel.imageCate.categoryName, selectedImage: $viewModel.selectedImage, newImage: $viewModel.newImage)
+                TextField("상품명", text: $viewModel.goodsName)
+                TextField("가격", text: $viewModel.goodsPrice)
+                TextField("단위", text: $viewModel.goodsUnit)
+                TextField("원산지", text: $viewModel.goodsOrigin)
+                TextField("물품 설명", text: $viewModel.goodsInfo)
                 
             }
         }
         .navigationTitle("물품 등록")
         .onAppear(perform: loadView)
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(
+                title: alertItem.title,
+                message: alertItem.message,
+                dismissButton: alertItem.dismissButton
+            )
+        }
+        .onChange(of: viewModel.alertDismissed) { dismissed in
+            if dismissed {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
         
         Button(action: {
             Task {
-                await postGoods()
+                await viewModel.postGoods()
             }
         }) {
             Text("Update")
@@ -47,12 +49,33 @@ struct PostGoodsView: View {
                 .cornerRadius(10)
         }
     }
-    
     func loadView() {
-        storeId = (userViewModel.currentUser?.storeID?.storeID)!
-        marketId = (userViewModel.currentUser?.storeID?.storeMarketID!.marketID)!
+        viewModel.storeId = (userViewModel.currentUser?.storeID?.storeID)!
+        viewModel.marketId = (userViewModel.currentUser?.storeID?.storeMarketID!.marketID)!
         
     }
+}
+import Combine
+
+class PostGoodsViewModel: ObservableObject {
+    @Published var newImage = FileInfo()
+    @Published var imageCate = StoreCategory(categoryID: 0,categoryName: "goods")
+    @Published var selectedImage: UIImage? = nil
+    @Published var isLoading = false
+    @Published var goodsName = ""
+    @Published var goodsUnit = ""
+    @Published var goodsInfo = ""
+    @Published var goodsOrigin = ""
+    @Published var fileId = 0
+    @Published var goodsPrice = ""
+    @Published var storeId = 0
+    @Published var marketId = 0
+    @Published var isAvail = 1 // 추가: 게시여부 토글 상태
+    @Published var alertItem: AlertItem?
+    @Published var alertDismissed = false
+    var imageUploader = ImageUploader()
+    
+    
     
     
     func postGoods() async {
@@ -62,7 +85,7 @@ struct PostGoodsView: View {
                 print("이미지업로드성공:\(String(describing: result.uploadFileName!))")
                 
                 if let id = result.fileID {
-                    fileId = id
+                    self.fileId = id
                     //                    print("file id get : \(storePost.storeFile) id: \(id)")
                     
                 }
@@ -80,20 +103,39 @@ struct PostGoodsView: View {
         let enUnit = makeStringKoreanEncoded(goodsUnit)
         let enGoodsInfo = makeStringKoreanEncoded(goodsInfo)
         let enOrigin = makeStringKoreanEncoded(goodsOrigin)
-        
-        let url = "http://3.34.33.15:8080/goods?goodsName=\(enGoodsName)&marketId=\(String(describing: marketId))&storeId=\(String(describing: storeId))&goodsFile=\(String(describing: fileId))&goodsPrice=\(goodsPrice)&goodsUnit=\(enUnit)&goodsInfo=\(enGoodsInfo)&goodsOrigin=\(enOrigin)&isAvail=1"
+        let enPrice = makeStringKoreanEncoded(goodsPrice)
+        let url = "http://3.34.33.15:8080/goods?goodsName=\(enGoodsName)&marketId=\(String(describing: marketId))&storeId=\(String(describing: storeId))&goodsFile=\(String(describing: fileId))&goodsPrice=\(enPrice)&goodsUnit=\(enUnit)&goodsInfo=\(enGoodsInfo)&goodsOrigin=\(enOrigin)&isAvail=1"
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
         
         AF.request(url, method: .post, headers: headers)
-            .responseJSON{ response in
+            .response { response in
                 debugPrint(response)
+                switch response.result {
+                    case .success(let data):
+                        // Check response or status code to ensure the request was successful
+                        // Here I'm just assuming a status code of 200 means success
+                        if response.response?.statusCode == 200 {
+                            self.alertItem = AlertItem(
+                                title: Text("성공"),
+                                message: Text("상품등록에 성공하였습니다"),
+                                dismissButton: .default(Text("OK")) {
+                                    self.alertDismissed = true
+                                }
+                            )
+                        }
+                    case .failure(let error):
+                        print("Error: \(error)")
+                        // Optionally set the alert item to show an error message
+                }
             }
         
+        
     }
-    
-    
-    
-    
-    
+}
+struct AlertItem: Identifiable {
+    let id = UUID()
+    let title: Text
+    let message: Text
+    let dismissButton: Alert.Button
 }

@@ -15,12 +15,12 @@ class EditGoodsViewModel: ObservableObject {
     @Published var fileId = 0
     @Published var goodsPrice = ""
     @Published var isAvail = 1
-
+    
     init(goods: GoodsOne) {
         self.goods = goods
         loadViewModel()
     }
-
+    
     func loadViewModel() {
         goodsName = goods.goodsName!
         goodsPrice = String(describing: goods.goodsPrice!)
@@ -29,7 +29,7 @@ class EditGoodsViewModel: ObservableObject {
         goodsInfo = goods.goodsInfo!
         isAvail = goods.isAvail!
         fileId = (goods.goodsFile?.fileID)!
-
+        
         async {
             do {
                 let fileInfo = try await ImageDownloader().fetchImageFileInfo(url: "http://3.34.33.15:8080/file/\(fileId)")
@@ -40,9 +40,9 @@ class EditGoodsViewModel: ObservableObject {
                 print("Failed to fetch image: \(error)")
             }
         }
-
+        
     }
-   
+    
     
     func updateGoods(isAvail: Binding<Int>) async {
         let enGoodsName = makeStringKoreanEncoded(goodsName)
@@ -52,18 +52,18 @@ class EditGoodsViewModel: ObservableObject {
         let realAvail = String(describing: goods.isAvail!)
         let url = "http://3.34.33.15:8080/goods/\(String(describing: goods.goodsID!))?goodsName=\(enGoodsName)&marketId=\(String(describing: (goods.goodsMarket?.marketID)!))&storeId=\(String(describing: (goods.goodsStore?.storeID)!))&goodsFile=\(String(describing: (goods.goodsFile?.fileID)!))&goodsPrice=\(goodsPrice)&goodsUnit=\(enUnit)&goodsInfo=\(enGoodsInfo)&goodsOrigin=\(enOrigin)&isAvail=\(String(describing: goods.isAvail!))"
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
-
+        
         AF.request(url, method: .put, headers: headers)
             .responseJSON { response in
                 switch response.result {
-                case .success:
-                    print("굿즈 put 메서드 성공")
-                case .failure(let error):
-                    print("굿즈 put 메서드 실패: \(error)")
+                    case .success:
+                        print("굿즈 put 메서드 성공")
+                    case .failure(let error):
+                        print("굿즈 put 메서드 실패: \(error)")
                 }
             }
     }
-
+    
 }
 import SwiftUI
 import Alamofire
@@ -71,7 +71,7 @@ import Alamofire
 class OffAvailGoodsViewModel: ObservableObject {
     @Published var isAvail = 0
     @Published var goods: GoodsOne
-
+    
     init(goods: GoodsOne) {
         self.goods = goods
         
@@ -79,7 +79,7 @@ class OffAvailGoodsViewModel: ObservableObject {
     
     
     func updateGoods(isAvail: Binding<Int>) async {
-
+        
         let enGoodsName = makeStringKoreanEncoded(goods.goodsName!)
         let enUnit = makeStringKoreanEncoded(goods.goodsUnit!)
         let enGoodsInfo = makeStringKoreanEncoded(goods.goodsInfo!)
@@ -87,16 +87,16 @@ class OffAvailGoodsViewModel: ObservableObject {
         let realAvail = String(describing: self.isAvail)
         let url = "http://3.34.33.15:8080/goods/\(String(describing: goods.goodsID!))?goodsName=\(enGoodsName)&marketId=\(String(describing: (goods.goodsMarket?.marketID)!))&storeId=\(String(describing: (goods.goodsStore?.storeID)!))&goodsFile=\(String(describing: (goods.goodsFile?.fileID)!))&goodsPrice=\(goods.goodsPrice!)&goodsUnit=\(enUnit)&goodsInfo=\(enGoodsInfo)&goodsOrigin=\(enOrigin)&isAvail=\(String(describing: realAvail))"
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
-
+        
         AF.request(url, method: .put, headers: headers)
             .responseJSON { response in
                 switch response.result {
-                case .success:
-                    print("굿즈 put 메서드 성공")
-                case .failure(let error):
-                    print("굿즈 put 메서드 실패: \(error)")
+                    case .success:
+                        print("굿즈 put 메서드 성공")
+                    case .failure(let error):
+                        print("굿즈 put 메서드 실패: \(error)")
                 }
             }
     }
-
+    
 }

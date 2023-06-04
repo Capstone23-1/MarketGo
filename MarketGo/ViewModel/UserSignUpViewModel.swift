@@ -36,28 +36,28 @@ class UserSignUpViewModel: ObservableObject {
                     let newMemberInfo = MemberPostInfo(memberID: 0, memberToken: strongSelf.uid!, memberName: self!.nickName, interestMarket: 0, cartID: self!.cartId, storeID: nil, recentLatitude: 0.0, recentLongitude: 0.0)
                     Config().postUserMemberInfo(memberPostInfo: newMemberInfo) { result in
                         switch result {
-                        case .success(let data):
-                            // 요청 성공
-                            // 데이터를 처리하는 코드 작성
-                            do {
-                                let decoder = JSONDecoder()
-                                let memberInfo = try decoder.decode(MemberInfo.self, from: data)
-//                                self?.memberId=String(describing:memberInfo.memberID)
-//                                StoreDogamViewModel().memberID=String(describing:memberInfo.memberID)
-                                StoreDogamViewModel().postMemeberIndex(memberID: String(describing:memberInfo.memberID))
-                                print(memberInfo)
-                                
-                                // memberInfo를 활용하여 추가적인 작업 수행
-                            } catch {
-                                print("Error decoding MemberInfo:", error)
-                            }
-                        case .failure(let error):
-                            // 요청 실패
-                            // 에러를 처리하는 코드 작성
-                            print(error)
+                            case .success(let data):
+                                // 요청 성공
+                                // 데이터를 처리하는 코드 작성
+                                do {
+                                    let decoder = JSONDecoder()
+                                    let memberInfo = try decoder.decode(MemberInfo.self, from: data)
+                                    //                                self?.memberId=String(describing:memberInfo.memberID)
+                                    //                                StoreDogamViewModel().memberID=String(describing:memberInfo.memberID)
+                                    StoreDogamViewModel().postMemeberIndex(memberID: String(describing:memberInfo.memberID))
+                                    print(memberInfo)
+                                    
+                                    // memberInfo를 활용하여 추가적인 작업 수행
+                                } catch {
+                                    print("Error decoding MemberInfo:", error)
+                                }
+                            case .failure(let error):
+                                // 요청 실패
+                                // 에러를 처리하는 코드 작성
+                                print(error)
                         }
                     }
-
+                    
                     
                     
                     completion(true)

@@ -15,7 +15,7 @@ class MemberProfileEditViewModel: ObservableObject {
     @Published var recentLatitude = 0.0
     @Published var recentLongitude = 0.0
     @Published var successMemberInfo: MemberInfo?
-   
+    
     
     
     func updateMemberInfo() async throws {
@@ -32,12 +32,12 @@ class MemberProfileEditViewModel: ObservableObject {
                 .validate(statusCode: 200..<300)
                 .responseDecodable(of: MemberInfo.self) { [self] response in
                     switch response.result {
-                    case .success(let up):
-                        successMemberInfo = up
-                        continuation.resume(returning: ())
-                    case .failure(let error):
-                        print("Error updating member info:", error)
-                        continuation.resume(throwing: error)
+                        case .success(let up):
+                            successMemberInfo = up
+                            continuation.resume(returning: ())
+                        case .failure(let error):
+                            print("Error updating member info:", error)
+                            continuation.resume(throwing: error)
                     }
                 }
         }
