@@ -47,7 +47,7 @@ struct FoodItemDetailView: View {
                         .foregroundStyle(.secondary)
                     Text("Sundays in San Francisco")
                         .font(.title2.bold())
-                    PriceGraphView(goods.id ?? 0)
+                    PriceGraphView(goodsId: goods.goodsID ?? 0)
                 }
                 
                 
