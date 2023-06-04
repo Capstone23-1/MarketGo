@@ -26,7 +26,7 @@ struct ShopView: View {
     ]
     
     var topStores: [StoreElement] {
-        Array(storeModel.stores.sorted { $0.storeRatings ?? 0 > $1.storeRatings ?? 0 }.prefix(3))
+        Array(storeModel.stores.sorted { $0.reviewCount ?? 0 > $1.reviewCount ?? 0 }.prefix(3))
     }
     
     var filteredStores: [StoreElement] {

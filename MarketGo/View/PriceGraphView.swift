@@ -31,7 +31,7 @@ struct PriceGraphView: View {
             if !goodsData.isEmpty {
                 LineChartView(data: goodsData)
                     .frame(height: 100)
-                    .padding()
+                    .padding(50)
             } else {
                 ProgressView() // Show a loading indicator while data is being fetched
             }
@@ -74,24 +74,11 @@ struct LineChartView: View {
         Double(data.map { $0.price ?? 0 }.max() ?? 0)
     }
     
-    // Compute the offset for adjusting the x-coordinate values
-    var xOffset: CGFloat {
-        let spacing: CGFloat = 20 // Adjust the spacing value based on your preference
-        let screenWidth = UIScreen.main.bounds.width
-        let contentWidth = CGFloat(data.count - 1) * xScale
-        let remainingSpace = screenWidth - contentWidth
-        return remainingSpace > spacing ? remainingSpace / 2 : spacing
-    }
-    
-    // Compute the x-scale based on the geometry size and data count
-    var xScale: CGFloat {
-        let screenWidth = UIScreen.main.bounds.width
-        return screenWidth / CGFloat(data.count - 1)
-    }
-
     var body: some View {
         GeometryReader { geometry in
-            let yScale = geometry.size.height / CGFloat(maxPrice)
+            let xScale = getXScale(for: geometry)
+            let xOffset = getXOffset(for: geometry, xScale: xScale)
+            let yScale = getYScale(for: geometry)
             
             Path { path in
                 for (index, datum) in data.enumerated() {
@@ -126,7 +113,25 @@ struct LineChartView: View {
                 }
             }
         }
-        .frame(width: UIScreen.main.bounds.width)
+        .frame(maxWidth: .infinity)
+    }
+    
+    private func getXScale(for geometry: GeometryProxy) -> CGFloat {
+        let contentWidth = CGFloat(data.count - 1)
+        let availableWidth = geometry.size.width
+        return availableWidth / contentWidth
+    }
+    
+    private func getXOffset(for geometry: GeometryProxy, xScale: CGFloat) -> CGFloat {
+        let screenWidth = geometry.size.width
+        let contentWidth = CGFloat(data.count - 1) * xScale
+        let remainingSpace = screenWidth - contentWidth
+        return remainingSpace / 2
+    }
+    
+    private func getYScale(for geometry: GeometryProxy) -> CGFloat {
+        let maxPrice = CGFloat(self.maxPrice)
+        return geometry.size.height / maxPrice
     }
     
     private func extractDate(from dateString: String) -> Date? {
@@ -143,7 +148,10 @@ struct LineChartView: View {
         dateFormatter.dateFormat = "yyyy\nMM/dd"
         return dateFormatter.string(from: date)
     }
+    
+    // Other helper methods...
 }
+
 
 
 struct PriceGraphView_Previews: PreviewProvider {
