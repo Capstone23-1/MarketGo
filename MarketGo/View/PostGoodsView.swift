@@ -92,8 +92,7 @@ class PostGoodsViewModel: ObservableObject {
                     debugPrint(response)
                     switch response.result {
                         case .success(let data):
-                            // Check response or status code to ensure the request was successful
-                            // Here I'm just assuming a status code of 200 means success
+ 
                             if response.response?.statusCode == 200 {
                                 self.alertItem = AlertItem(
                                     title: Text("성공"),

@@ -96,7 +96,7 @@ struct SellerHomeView: View {
                             .cornerRadius(rad)
                             .frame(maxWidth: .infinity)
                             .padding(.all,10)
-                            NavigationLink(destination: QuickPostGoodsView()) {
+                            NavigationLink(destination: QuickView()) {
                                 Text("빠른\n상품\n등록")
                                     .font(.title)
                                     .fontWeight(.bold)
