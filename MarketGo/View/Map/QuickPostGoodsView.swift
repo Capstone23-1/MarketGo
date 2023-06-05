@@ -3,7 +3,7 @@ import Alamofire
 import UIKit
 
 struct QuickPostGoodsView: View {
-    @StateObject private var viewModel = PostGoodsViewModel()
+    @ObservedObject var viewModel:PostGoodsViewModel
     
     @EnvironmentObject var userViewModel: UserModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -65,39 +65,84 @@ struct QuickPostGoodsView: View {
     }
 }
 struct QuickView: View {
+    @StateObject private var vm = PostGoodsViewModel()
     @State private var isShowingImagePicker = false
     @State private var isShowingQuickPostGoodsView = false
     @State private var selectedImage: UIImage?
     
     var body: some View {
         
-        VStack {
-            NavigationLink(
-                destination: QuickPostGoodsView(),
-                isActive: $isShowingQuickPostGoodsView,
-                label: {
-                    EmptyView()
+        ZStack{
+            VStack {
+                NavigationLink(
+                    destination: QuickPostGoodsView(viewModel: vm),
+                    isActive: $isShowingQuickPostGoodsView,
+                    label: {
+                        EmptyView()
+                    }
+                )
+                
+                Button(action: {
+                    isShowingImagePicker = true
+                }) {
+                    Text("오늘의 가판대를 찍어서 빠르게 상품을 등록해주세요")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
-            )
-            
-            Button(action: {
-                isShowingImagePicker = true
-            }) {
-                Text("이미지 선택")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+                .sheet(isPresented: $isShowingImagePicker, onDismiss: {
+                    if selectedImage != nil {
+                        vm.isLoading = true
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            
+                            Task{
+                                if let image = selectedImage?.size.width, image == 275.0 {
+                                                               vm.text = "1"
+                                                           } else {
+                                                               vm.text = "2"
+                                                              
+                                                           }
+                                print("size",selectedImage?.size)
+//                                print("scale",selectedImage?.scale)
+                                vm.fetchImageData()
+                                
+                                isShowingQuickPostGoodsView = true
+                                vm.isLoading = false
+                            }
+                             
+                            
+                        }
+                    }
+                }) {
+                    ImagePicker(image: $selectedImage)
+                }
+                
             }
-            .sheet(isPresented: $isShowingImagePicker, onDismiss: {
-                if selectedImage != nil {
-                    isShowingQuickPostGoodsView = true
-                }
-            }) {
-                ImagePicker(image: $selectedImage)
+            if vm.isLoading {
+                ProgressView()
+                    .scaleEffect(2)
+                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                    .frame(width: 100, height: 100)
+                    .background(Color.white.opacity(0.8))
+                    .cornerRadius(20)
+                    .shadow(radius: 10)
             }
         }
-        .navigationTitle("Quick View")
+        .navigationTitle("빠른 상품 등록")
         
     }
+}
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let nerModel = try? JSONDecoder().decode(NerModel.self, from: jsonData)
+
+import Foundation
+
+// MARK: - NerModel
+struct NerModel: Codable {
+    var id: Int?
+    var imageName, text1, text2, text3: String?
 }
