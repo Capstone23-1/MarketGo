@@ -14,6 +14,7 @@ struct PostGoodsView: View {
         VStack {
             Form {
                 ImageUploadView(category: $viewModel.imageCate.categoryName, selectedImage: $viewModel.selectedImage, newImage: $viewModel.newImage)
+                    .padding(.bottom)
                 TextField("상품명", text: $viewModel.goodsName)
                 TextField("가격", text: $viewModel.goodsPrice)
                 TextField("단위", text: $viewModel.goodsUnit)

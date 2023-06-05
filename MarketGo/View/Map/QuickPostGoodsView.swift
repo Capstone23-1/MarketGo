@@ -14,6 +14,7 @@ struct QuickPostGoodsView: View {
         VStack {
             Form {
                 ImageUploadView(category: $viewModel.imageCate.categoryName, selectedImage: $viewModel.selectedImage, newImage: $viewModel.newImage)
+                    .padding(.bottom)
                 TextField("상품명", text: $viewModel.goodsName)
                 TextField("가격", text: $viewModel.goodsPrice)
                 TextField("단위", text: $viewModel.goodsUnit)
@@ -99,19 +100,19 @@ struct QuickView: View {
                             
                             Task{
                                 if let image = selectedImage?.size.width, image == 4032.0 {
-                                                               vm.text = "1"
-                                                           } else {
-                                                               vm.text = "2"
-                                                              
-                                                           }
+                                    vm.text = "1"
+                                } else {
+                                    vm.text = "2"
+                                    
+                                }
                                 print("size",selectedImage?.size)
-//                                print("scale",selectedImage?.scale)
+                                //                                print("scale",selectedImage?.scale)
                                 vm.fetchImageData()
                                 
                                 isShowingQuickPostGoodsView = true
                                 vm.isLoading = false
                             }
-                             
+                            
                             
                         }
                     }
