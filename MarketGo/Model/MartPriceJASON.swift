@@ -20,11 +20,13 @@ struct MartPriceElement: Codable, Identifiable {
 
 typealias MartPrice = [MartPriceElement]
 
+
 class MartPriceViewModel: ObservableObject {
     @Published var martPrice: MartPrice = []
     
     func fetchMartPrice(goodsName: String) {
-        let urlString = "http://3.34.33.15:8080/martPrice/\(goodsName)"
+        let letter = makeStringKoreanEncoded(goodsName)
+        let urlString = "http://3.34.33.15:8080/martPrice/\(letter)"
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
             return
@@ -59,6 +61,7 @@ class MartPriceViewModel2: ObservableObject {
             case .success(let martPrice):
                 DispatchQueue.main.async {
                     self.martPrice = martPrice
+                    
                 }
             case .failure(let error):
                 print("Error: \(error)")
@@ -66,3 +69,4 @@ class MartPriceViewModel2: ObservableObject {
         }
     }
 }
+

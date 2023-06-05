@@ -4,6 +4,22 @@
    <FileRef
       location = "group:MarketGo.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:"
+      name = "Frameworks">
+      <FileRef
+         location = "build:libPods-MarketGo.a"
+         assignedFileDataType = "com.apple.mach-o-binary">
+      </FileRef>
+      <FileRef
+         location = "build:libPods-MarketGo-MarketGoUITests.a"
+         assignedFileDataType = "com.apple.mach-o-binary">
+      </FileRef>
+      <FileRef
+         location = "build:libPods-MarketGoTests.a"
+         assignedFileDataType = "com.apple.mach-o-binary">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
