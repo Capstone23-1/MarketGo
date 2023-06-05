@@ -11,7 +11,7 @@ struct EatingHouseList: View {
     @ObservedObject var vm: MarketSearchViewModel
     
     var sortedData: [Document] {
-        data.sorted { $0.distance < $1.distance }
+        data.sorted { Int($0.distance)! < Int($1.distance)! }
     }
     
     var body: some View {

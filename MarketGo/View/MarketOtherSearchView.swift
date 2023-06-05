@@ -24,7 +24,7 @@ struct MarketOtherSearchView: View {
     
     var sortedClasses: [Document] {
         switch sortOption {
-            case 0: return MarketList.sorted(by: { $0.distance < $1.distance })
+            case 0: return MarketList.sorted(by: { Int($0.distance)! < Int($1.distance)! })
                 //                case 1: return MarketList.sorted(by: { $0.rating > $1.rating })
             case 2: return MarketList.sorted(by: { $0.placeName < $1.placeName })
             default: return MarketList
