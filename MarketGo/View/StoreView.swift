@@ -37,15 +37,16 @@ struct StoreView: View {
                 VStack(){
                     
                     HStack {
-                        
+                        Spacer()
                         NavigationLink(destination: StoreReviewListView(store: store)){
-                            MiniCardView(title: "리뷰", iconName: "house")
+                            MiniCardView(title: "리뷰", iconName: "ellipsis.message.fill")
                         }
                         Spacer()
                         
                         NavigationLink(destination: MenuView(storeID: store.storeID ?? 0, storeName: store.storeName ?? "")) {
-                            MiniCardView(title: "메뉴판" , iconName: "house")
+                            MiniCardView(title: "메뉴판" , iconName: "menucard.fill")
                         }
+                        Spacer()
                     }
                  
                 }
@@ -109,32 +110,36 @@ struct MiniCardView: View {
     var iconName: String
 
     var body: some View {
-        VStack(alignment: .center) {
-            
-            Image(systemName: iconName)
-                .foregroundColor(.blue)
-                .imageScale(.large)
-                .padding(.horizontal)
-            
+        
+        VStack{
             Spacer()
             
-            VStack(alignment: .center) {
-                Text(title)
-                    .font(.footnote)
-                    .foregroundColor(Color.gray)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding(.horizontal)
-                    
+            HStack(alignment: .center) {
+                Spacer()
                 
+                Image(systemName: iconName)
+                    .foregroundColor(.blue)
+                    .imageScale(.large)
+                    .padding(.horizontal)
+                
+                
+                VStack(alignment: .center) {
+                    Text(title)
+                        .font(.system(size: 15, weight: .bold))
+                    
+                }
+                Spacer()
             }
             Spacer()
         }
-        .frame(minHeight: 60)
+        .frame(height: 50)
         .background(Color.white)
         .cornerRadius(20)
         .shadow(color: .gray, radius: 2, x: 0, y: 2)
         .padding(.leading, 3)
-        .padding(.leading, 3)
+        .padding(.trailing, 3)
         .padding(.bottom, 2)
+        
+        
     }
 }
