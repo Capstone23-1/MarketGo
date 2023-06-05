@@ -55,19 +55,15 @@ struct FoodItemDetailView: View {
                 
                 VStack(alignment: .leading){
                     
+                    Text("원산지 : \(goods.goodsOrigin ?? "")")
+                        .font(.system(size: 16))
+                        .padding(.leading, 10)
+                    Divider()
+                    
                     Text("상품 정보 : \(goods.goodsInfo ?? "")")
                         .font(.system(size: 16))
                         .padding(.leading, 10)
                     
-                    Divider()
-                    
-//                    Text("\(goods.updateTime ?? "")")
-//                        .font(.system(size: 15))
-//                        .padding(.leading, 10)
-                    
-                    Text("원산지 : \(goods.goodsOrigin ?? "")")
-                        .font(.system(size: 16))
-                        .padding(.leading, 10)
                     Divider()
                 
                     

@@ -34,10 +34,8 @@ struct StoreView: View {
                     
                 }
                 
-                
                 let storeData = store
-                
-                
+                    
                 
                 VStack {
                     Section(header: Text("데이터 기준 일자: \(convertDate(from: storeData.storeMarketID?.updateTime ?? ""))").font(.footnote)) {
@@ -62,9 +60,7 @@ struct StoreView: View {
                 
                 .padding() // Adding padding for better spacing
                 .background(Color.white)
-                
-                
-                
+  
                 
                 VStack(){
                     
@@ -114,38 +110,8 @@ struct StoreView: View {
                         
                     }
                     
-                    
-                    
                 }
                 Divider()
-                
-                
-                if let market = store.storeMarketID {
-                    Text("\(market.marketName ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Text("시장 주소 : \(market.marketAddress1 ?? "") \(market.marketAddress2 ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Text("시장 위치: \(market.marketLocation ?? "")")
-                        .foregroundColor(.black)
-                    Divider()
-                    
-                    Text("주차 가능 여부 : \(market.parking ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Text("화장실 유무: \(market.toilet ?? "")")
-                        .foregroundColor(.black)
-                    Divider()
-                    
-                    Text("시장 전화번호 : \(market.marketPhonenum ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Text("Market Giftcard: \(market.marketGiftcard ?? "")")
-                        .foregroundColor(.black)
-                    
-                    
-                }
                 
                 
             }
@@ -170,6 +136,7 @@ struct StoreView: View {
         )
         
     }
+        
 }
 
 

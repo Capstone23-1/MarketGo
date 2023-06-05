@@ -114,7 +114,6 @@
 		998843C42A05035D00132079 /* FoodItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998843C32A05035D00132079 /* FoodItemListView.swift */; };
 		998910E32A1DAFC70062C1C9 /* ReviewImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998910E22A1DAFC70062C1C9 /* ReviewImageUploadView.swift */; };
 		998910E52A1DD29A0062C1C9 /* StoreReviewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998910E42A1DD29A0062C1C9 /* StoreReviewPostView.swift */; };
-		998BFBC32A0DCC1F005F4652 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998BFBC22A0DCC1F005F4652 /* TestView.swift */; };
 		998BFBC52A0DD01C005F4652 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998BFBC42A0DD01C005F4652 /* CategoryView.swift */; };
 		99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99926D082A03419F00071E3C /* StoreReviewListView.swift */; };
 		99AFA2552A28413700123896 /* PriceGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFA2542A28413700123896 /* PriceGraphView.swift */; };
@@ -258,7 +257,6 @@
 		998843C32A05035D00132079 /* FoodItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemListView.swift; sourceTree = "<group>"; };
 		998910E22A1DAFC70062C1C9 /* ReviewImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewImageUploadView.swift; sourceTree = "<group>"; };
 		998910E42A1DD29A0062C1C9 /* StoreReviewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewPostView.swift; sourceTree = "<group>"; };
-		998BFBC22A0DCC1F005F4652 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		998BFBC42A0DD01C005F4652 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		99926D082A03419F00071E3C /* StoreReviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewListView.swift; sourceTree = "<group>"; };
 		99AFA2542A28413700123896 /* PriceGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceGraphView.swift; sourceTree = "<group>"; };
@@ -491,7 +489,6 @@
 				99926D082A03419F00071E3C /* StoreReviewListView.swift */,
 				998910E42A1DD29A0062C1C9 /* StoreReviewPostView.swift */,
 				993AF1C429DE474F00031A7B /* StoreView.swift */,
-				998BFBC22A0DCC1F005F4652 /* TestView.swift */,
 				2144FE7029DD6A79008913C4 /* TopView.swift */,
 				21470AB329FD87E400A7CEE7 /* UITableViewWrapper.swift */,
 				2181EDD92A127E8300B879B2 /* UserHomeView.swift */,
@@ -806,7 +803,6 @@
 				99F02DE02A175C6B00D827CD /* MarketReviewJASON.swift in Sources */,
 				210704BF2A1D1FB100643140 /* SellerGoodsListView.swift in Sources */,
 				21AF151D2A2660520011A8B5 /* DogamQRGenerateView.swift in Sources */,
-				998BFBC32A0DCC1F005F4652 /* TestView.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,
 				21FAE1F22A0BB829006593D9 /* UserSignInView.swift in Sources */,
 				218F54292A24F8EF00A9A6EF /* MarketOtherSearchView.swift in Sources */,
