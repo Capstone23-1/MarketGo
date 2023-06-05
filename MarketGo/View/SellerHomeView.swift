@@ -59,26 +59,22 @@ struct SellerHomeView: View {
                                 .padding(.all,10)
                                 
                             }
-                            Button(action: {
-                                isLoggingOut = true
-                            }) {
-                                Text("로그\n아웃")
+                            NavigationLink(destination: SellerGoodsListView()) {
+                                Text("상품 관리")
                                     .font(.title)
                                     .fontWeight(.bold)
-                                Image(systemName: "escape")
+                                Image(systemName: "list.bullet.rectangle")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
                             }
-                            .fullScreenCover(isPresented: $isLoggingOut, content: {
-                                SignInView()
-                            })
                             .frame(maxWidth: .infinity, maxHeight: 200)
                             .frame(height: 200)
                             .background(Color.white)
                             .cornerRadius(rad)
                             .frame(maxWidth: .infinity)
                             .padding(.all,10)
+                            
                             
                         }
                         .frame(maxWidth: .infinity)
@@ -100,11 +96,11 @@ struct SellerHomeView: View {
                             .cornerRadius(rad)
                             .frame(maxWidth: .infinity)
                             .padding(.all,10)
-                            NavigationLink(destination: SellerGoodsListView()) {
-                                Text("상품 관리")
+                            NavigationLink(destination: QuickPostGoodsView()) {
+                                Text("빠른\n상품\n등록")
                                     .font(.title)
                                     .fontWeight(.bold)
-                                Image(systemName: "list.bullet.rectangle")
+                                Image(systemName: "doc.text.viewfinder")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
@@ -115,6 +111,7 @@ struct SellerHomeView: View {
                             .cornerRadius(rad)
                             .frame(maxWidth: .infinity)
                             .padding(.all,10)
+                            
                             
                         }
                         .frame(maxWidth: .infinity)
@@ -156,6 +153,39 @@ struct SellerHomeView: View {
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.horizontal,10)
+                        
+                        HStack{
+                            
+                            NavigationLink(destination: EmptyView()) {
+                                Text("상품 관리")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                Image(systemName: "list.bullet.rectangle")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 40)
+                            }
+                            .frame(maxWidth: .infinity/2, maxHeight: 100)
+                            .background(Color.white)
+                            .cornerRadius(rad)
+                            .padding(.all,10)
+                            Button(action: {
+                                isLoggingOut = true
+                            }) {
+                                Text("로그아웃")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                
+                            }
+                            .fullScreenCover(isPresented: $isLoggingOut, content: {
+                                SignInView()
+                            })
+                            .frame(maxWidth: .infinity/2, maxHeight: 100)
+                            .frame(height:50)
+                            .background(Color.white)
+                            .cornerRadius(rad)
+                            .padding(.all,10)
+                        }
                     }
                     if isLoading {
                         ProgressView()

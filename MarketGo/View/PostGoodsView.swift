@@ -78,11 +78,40 @@ class PostGoodsViewModel: ObservableObject {
     @Published var isAvail = 1 // 추가: 게시여부 토글 상태
     @Published var alertItem: AlertItem?
     @Published var alertDismissed = false
+    var successGoods:GoodsOne?
     var imageUploader = ImageUploader()
     
+        func postGoodsData(){
+    
+            let url = "http://3.34.33.15:8080/goodsData?goodsId=\((successGoods?.goodsID)!)&price=\(goodsPrice)"
+            let headers: HTTPHeaders = ["Content-Type": "application/json"]
     
     
+            AF.request(url, method: .post, headers: headers)
+                .response { response in
+                    debugPrint(response)
+                    switch response.result {
+                        case .success(let data):
+                            // Check response or status code to ensure the request was successful
+                            // Here I'm just assuming a status code of 200 means success
+                            if response.response?.statusCode == 200 {
+                                self.alertItem = AlertItem(
+                                    title: Text("성공"),
+                                    message: Text("상품등록에 성공하였습니다"),
+                                    dismissButton: .default(Text("OK")) {
+                                        self.alertDismissed = true
+                                    }
+                                )
+                            }
+                        case .failure(let error):
+                            print("Error: \(error)")
+                            // Optionally set the alert item to show an error message
+                    }
+                }
     
+    
+        }
+
     func postGoods() async {
         do {
             if let image = self.selectedImage {
@@ -114,26 +143,20 @@ class PostGoodsViewModel: ObservableObject {
         
         
         AF.request(url, method: .post, headers: headers)
-            .response { response in
-                debugPrint(response)
-                switch response.result {
-                    case .success(let data):
-                        // Check response or status code to ensure the request was successful
-                        // Here I'm just assuming a status code of 200 means success
-                        if response.response?.statusCode == 200 {
-                            self.alertItem = AlertItem(
-                                title: Text("성공"),
-                                message: Text("상품등록에 성공하였습니다"),
-                                dismissButton: .default(Text("OK")) {
-                                    self.alertDismissed = true
+                    .responseDecodable(of: GoodsOne.self) { response in
+                        
+                        switch response.result {
+                            case .success(let goods):
+                                if response.response?.statusCode == 200 {
+                                    self.successGoods = goods
+                                    self.postGoodsData()
+                                   
                                 }
-                            )
+                            case .failure(let error):
+                                print("Error: \(error)")
+                                // Optionally set the alert item to show an error message
                         }
-                    case .failure(let error):
-                        print("Error: \(error)")
-                        // Optionally set the alert item to show an error message
-                }
-            }
+                    }
         
         
     }
@@ -144,3 +167,6 @@ struct AlertItem: Identifiable {
     let message: Text
     let dismissButton: Alert.Button
 }
+
+
+

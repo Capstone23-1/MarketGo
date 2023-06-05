@@ -69,14 +69,15 @@ struct MarketReviewRow: View {
                     }
                 }
                 .padding(.leading, 5)
-                
+                .padding(.trailing,2)
+                Text(review.mrMemberID?.memberName ?? "")
+                    .font(.headline)
+                    .fontWeight(.bold)
                 
                 Spacer()
             }
             .padding(.leading,5)
-            Text(review.mrMemberID?.memberName ?? "")
-                .font(.headline)
-                .fontWeight(.bold)
+            
             Text(review.reviewContent ?? "")
                 .font(.body)
                 .padding(.leading,5)
