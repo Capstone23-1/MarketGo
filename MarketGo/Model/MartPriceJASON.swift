@@ -1,12 +1,8 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let martPrice = try? JSONDecoder().decode(MartPrice.self, from: jsonData)
-
 import Foundation
+import Alamofire
 
 // MARK: - MartPriceElement
-struct MartPriceElement: Codable {
+struct MartPriceElement: Codable, Identifiable {
     var martPriceID: Int?
     var goodsName: String?
     var price: Int?
@@ -16,37 +12,57 @@ struct MartPriceElement: Codable {
         case martPriceID = "martPriceId"
         case goodsName, price, source, updateTime
     }
+    
+    var id: Int? {
+        return martPriceID
+    }
 }
 
 typealias MartPrice = [MartPriceElement]
 
-func fetchMartPrice(goodsName: String) {
-    let urlString = "http://3.34.33.15:8080/martPrice/\(goodsName)"
-    guard let url = URL(string: urlString) else {
-        print("Invalid URL")
-        return
-    }
-
-    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-        if let error = error {
-            print("Error: \(error)")
+class MartPriceViewModel: ObservableObject {
+    @Published var martPrice: MartPrice = []
+    
+    func fetchMartPrice(goodsName: String) {
+        let urlString = "http://3.34.33.15:8080/martPrice/\(goodsName)"
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL")
             return
         }
-
-        guard let data = data else {
-            print("Data not found")
-            return
-        }
-
-        do {
-            let decoder = JSONDecoder()
-            let martPrice = try decoder.decode(MartPrice.self, from: data)
-            // Process the fetched martPrice data
-            print(martPrice)
-        } catch {
-            print("Error decoding JSON: \(error)")
+        
+        AF.request(url).validate().responseDecodable(of: MartPrice.self) { response in
+            switch response.result {
+            case .success(let martPrice):
+                DispatchQueue.main.async {
+                    self.martPrice = martPrice
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
         }
     }
+}
 
-    task.resume()
+
+class MartPriceViewModel2: ObservableObject {
+    @Published var martPrice: MartPrice = []
+    
+    func fetchMartPrice() {
+        let urlString = "http://3.34.33.15:8080/martPrice/all"
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL")
+            return
+        }
+        
+        AF.request(url).validate().responseDecodable(of: MartPrice.self) { response in
+            switch response.result {
+            case .success(let martPrice):
+                DispatchQueue.main.async {
+                    self.martPrice = martPrice
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
 }
