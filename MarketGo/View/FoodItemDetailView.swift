@@ -92,27 +92,44 @@ struct FoodItemDetailView: View {
             }
             
         }
+        
+        HStack(alignment: .center){
+            
+            
+            VStack(alignment: .center){
+                Button(action: {
+                    cartModel.addProduct(product: goods)
+                    print(cartModel.cartItems)
+                    cartModel.updateCartItemsOnServer(cartId: userModel.currentUser?.cartID?.cartID ?? 0)
+                    showCartNotification = true
+                }){
+                   RoundedButton(imageName: "cart.badge.plus", text: "장바구니에 담기")
+                }
+            }.frame(maxWidth: .infinity)
+            .alert(isPresented: $showCartNotification, content: {
+                Alert(title: Text("장바구니에 담겼습니다."), message: nil, dismissButton: .default(Text("닫기")))
+            })
+            .navigationBarItems(trailing:
+                NavigationLink(destination: CartView()) {
+                    Image(systemName: "cart")
+                        .padding(.horizontal)
+                        .imageScale(.large)
+                }
+            )
+            
+            VStack(alignment: .center){
+                NavigationLink(destination: MartPriceListView(goodsName: goods.goodsName ?? "")){
+                    RoundedButton(imageName: "dollarsign", text: "마트 가격 비교")
+                }
+            }.frame(maxWidth: .infinity)
+            
+            
+            Spacer()
+        }
 
-        VStack(alignment: .center){
-            Button(action: {
-                cartModel.addProduct(product: goods)
-                print(cartModel.cartItems)
-                cartModel.updateCartItemsOnServer(cartId: userModel.currentUser?.cartID?.cartID ?? 0)
-                showCartNotification = true
-            }){
-               RoundedButton(imageName: "cart.badge.plus", text: "장바구니에 담기")
-            }
-        }.frame(maxWidth: .infinity)
-        .alert(isPresented: $showCartNotification, content: {
-            Alert(title: Text("장바구니에 담겼습니다."), message: nil, dismissButton: .default(Text("닫기")))
-        })
-        .navigationBarItems(trailing:
-            NavigationLink(destination: CartView()) {
-                Image(systemName: "cart")
-                    .padding(.horizontal)
-                    .imageScale(.large)
-            }
-        )
+        
+        
+        
     }
     
     private func extractDate(from dateString: String) -> Date? {
@@ -136,8 +153,13 @@ struct RoundedButton: View {
    var text: String
    var body: some View {
    HStack {
-      Image(systemName: imageName).font(.title)
-      Text(text).fontWeight(.semibold).font(.title3)
-   }.padding().foregroundColor(.white).background(Color.orange)
-.cornerRadius(40)
+       Image(systemName: imageName).font(.title2)
+       Text(text).font(.system(size: 16, weight: .bold))
+    }.padding()
+           .frame(width: 170, height: 60)
+    .foregroundColor(.white)
+    .background(Color.orange)
+    .cornerRadius(20)
+ 
 }}
+
