@@ -31,7 +31,6 @@ struct FoodItemDetailView: View {
                         Text("\(goods.goodsStore?.storeName ?? "") 둘러보기 ")
                             .font(.system(size: 16))
                             .padding(15)
-                        
                     }
                 }
                 

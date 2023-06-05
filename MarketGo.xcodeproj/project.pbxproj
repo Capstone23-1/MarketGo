@@ -105,6 +105,7 @@
 		994979C52A12681A00159828 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994979C42A12681A00159828 /* MenuView.swift */; };
 		994979C72A12700E00159828 /* CartJASON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994979C62A12700E00159828 /* CartJASON.swift */; };
 		994B17C52A023653009B77E8 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B17C42A023653009B77E8 /* ReviewView.swift */; };
+		9979D5D42A2DE6A40000E200 /* MartPriceJASON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9979D5D32A2DE6A40000E200 /* MartPriceJASON.swift */; };
 		997BD55F2A1B30C400E7A7EE /* MarketReviewPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD55E2A1B30C400E7A7EE /* MarketReviewPostModel.swift */; };
 		997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */; };
 		997BD5632A1B846B00E7A7EE /* StoreReviewPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD5622A1B846B00E7A7EE /* StoreReviewPostModel.swift */; };
@@ -248,6 +249,7 @@
 		994979C42A12681A00159828 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		994979C62A12700E00159828 /* CartJASON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartJASON.swift; sourceTree = "<group>"; };
 		994B17C42A023653009B77E8 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		9979D5D32A2DE6A40000E200 /* MartPriceJASON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartPriceJASON.swift; sourceTree = "<group>"; };
 		997BD55E2A1B30C400E7A7EE /* MarketReviewPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewPostModel.swift; sourceTree = "<group>"; };
 		997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewPostView.swift; sourceTree = "<group>"; };
 		997BD5622A1B846B00E7A7EE /* StoreReviewPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewPostModel.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				994979BE2A11999D00159828 /* GoodsJASON.swift */,
 				994979C02A119A5100159828 /* StoreJASON.swift */,
 				994979C62A12700E00159828 /* CartJASON.swift */,
+				9979D5D32A2DE6A40000E200 /* MartPriceJASON.swift */,
 				99B1697E2A14D651007FC25F /* StoreReviewJASON.swift */,
 				99F02DDF2A175C6B00D827CD /* MarketReviewJASON.swift */,
 				2144FE6E29DD6A58008913C4 /* LocationModel.swift */,
@@ -784,6 +787,7 @@
 				211F53EE2A1AA91D003DA011 /* EditStoreSellerView.swift in Sources */,
 				218F54392A263FCA00A9A6EF /* DogamQR.swift in Sources */,
 				2144FE8029DD6BEC008913C4 /* ParkingLotMapView.swift in Sources */,
+				9979D5D42A2DE6A40000E200 /* MartPriceJASON.swift in Sources */,
 				210704BD2A1D1F9800643140 /* PostGoodsView.swift in Sources */,
 				2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */,
 				99B1697F2A14D651007FC25F /* StoreReviewJASON.swift in Sources */,

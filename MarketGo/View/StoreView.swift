@@ -34,9 +34,24 @@ struct StoreView: View {
                     
                 }
                 
-                let storeData = store
+                VStack(){
                     
+                    HStack {
+                        
+                        NavigationLink(destination: StoreReviewListView(store: store)){
+                            MiniCardView(title: "리뷰", iconName: "house")
+                        }
+                        Spacer()
+                        
+                        NavigationLink(destination: MenuView(storeID: store.storeID ?? 0, storeName: store.storeName ?? "")) {
+                            MiniCardView(title: "메뉴판" , iconName: "house")
+                        }
+                    }
+                 
+                }
                 
+                let storeData = store
+
                 VStack {
                     Section(header: Text("데이터 기준 일자: \(convertDate(from: storeData.storeMarketID?.updateTime ?? ""))").font(.footnote)) {
                         
@@ -54,66 +69,15 @@ struct StoreView: View {
                         
                         CardView(title: "가게 연락처", value: storeData.storePhonenum ?? "", iconName: "phone")
                         
-                        CardView(title: "지역화페", value:storeData.storeMarketID?.marketGiftcard ?? "", iconName: "creditcard")
+                        CardView(title: "카드 결제", value:store.cardAvail ?? "", iconName: "creditcard")
+                        
+                        CardView(title: "지역 화폐 ", value:store.cardAvail ?? "", iconName: "creditcard")
                     }
                 }
                 
                 .padding() // Adding padding for better spacing
                 .background(Color.white)
   
-                
-                VStack(){
-                    
-                    HStack {
-                        
-                        NavigationLink(destination: StoreReviewListView(store: store)){
-                            Text("작성된 리뷰 \(store.reviewCount ?? 0) 개>")
-                        }
-                        
-                        NavigationLink(destination: MenuView(storeID: store.storeID ?? 0, storeName: store.storeName ?? "")) {
-                            Text("메뉴판")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(Color.blue)
-                                .cornerRadius(5)
-                        }
-                    }
-                    Divider()
-                    
-                    Text(store.storeName ?? "")
-                        .font(.headline)
-                        .foregroundColor(.black)
-                    
-                    Text("가게 주소: \(store.storeAddress1 ?? "")")
-                        .foregroundColor(.black)
-                    Divider()
-                    
-                    Text("가게 유형: \(store.storeCategory?.categoryName ?? "")")
-                        .foregroundColor(.black)
-                    
-                    
-                    Text("전화번호 : \(store.storePhonenum ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Text("가게 소개 : \(store.storeInfo ?? "")")
-                        .foregroundColor(.black)
-                    
-                    Divider()
-                    
-                    VStack{
-                        Text("카드 사용 가능 여부 : \(store.cardAvail ?? "")")
-                            .foregroundColor(.black)
-                        
-                        Text("지역 화폐 사용 가능 여부 : \(store.localAvail ?? "")")
-                            .foregroundColor(.black)
-                        
-                    }
-                    
-                }
-                Divider()
-                
-                
             }
             
             
@@ -140,3 +104,37 @@ struct StoreView: View {
 }
 
 
+struct MiniCardView: View {
+    var title: String
+    var iconName: String
+
+    var body: some View {
+        VStack(alignment: .center) {
+            
+            Image(systemName: iconName)
+                .foregroundColor(.blue)
+                .imageScale(.large)
+                .padding(.horizontal)
+            
+            Spacer()
+            
+            VStack(alignment: .center) {
+                Text(title)
+                    .font(.footnote)
+                    .foregroundColor(Color.gray)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.horizontal)
+                    
+                
+            }
+            Spacer()
+        }
+        .frame(minHeight: 60)
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(color: .gray, radius: 2, x: 0, y: 2)
+        .padding(.leading, 3)
+        .padding(.leading, 3)
+        .padding(.bottom, 2)
+    }
+}
