@@ -154,7 +154,7 @@ struct RoundedButton: View {
    var body: some View {
    HStack {
        Image(systemName: imageName).font(.title2)
-       Text(text).font(.system(size: 16, weight: .bold))
+       Text(text).font(.system(size: 13, weight: .bold))
     }.padding()
            .frame(width: 170, height: 60)
     .foregroundColor(.white)

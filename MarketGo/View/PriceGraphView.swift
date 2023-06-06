@@ -28,15 +28,14 @@ struct PriceGraphView: View {
     
     var body: some View {
         VStack {
-            if !goodsData.isEmpty {
+            if goodsData.count > 1 {
                 LineChartView(data: goodsData)
                     .frame(height: 70)
                     .padding(.top, 30)
                     .padding(.leading, 50)
                     .padding(.trailing, 50)
             } else {
-                //ProgressView() // Show a loading indicator while data is being fetched
-                Text("데이터 없음")
+                Text(" ")
             }
         }
         .onAppear {
@@ -68,6 +67,8 @@ struct PriceGraphView: View {
         task.resume()
     }
 }
+
+
 
 struct LineChartView: View {
     let data: GoodsData

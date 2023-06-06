@@ -85,7 +85,7 @@ struct MarketReviewPostView: View {
                     
                     
                 }, label: {
-                    Text("Submit")
+                    Text("작성 완료")
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding()
