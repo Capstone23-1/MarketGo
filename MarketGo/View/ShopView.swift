@@ -113,7 +113,7 @@ struct ShopView: View {
                     
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("상품 >")
+                            Text("상품")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.horizontal)
                             Spacer()
