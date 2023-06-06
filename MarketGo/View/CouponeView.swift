@@ -18,7 +18,7 @@ import SwiftUI
 struct CouponUseView: View {
     var coupon: CouponElement
     @State private var isAlertPresented = false
-    
+    @State var isCouponUsed = false
     @EnvironmentObject var userModel : UserModel
     
     var body: some View {
@@ -49,24 +49,28 @@ struct CouponUseView: View {
             
             Button(action: {
                 isAlertPresented = true
+                userModel.cState[coupon.couponID ?? 0] = true
             }) {
                 Text("사용하기")
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(userModel.isCouponUsed ? Color.gray : Color.blue)
+                    .background(isCouponUsed ? Color.gray : Color.blue)
                     .cornerRadius(10)
             }
-            .disabled(userModel.isCouponUsed)
+            .disabled(isCouponUsed)
             .alert(isPresented: $isAlertPresented) {
                 Alert(
                     title: Text("쿠폰 사용"),
                     message: Text("쿠폰을 사용하시겠습니까?"),
                     primaryButton: .default(Text("OK"), action: {
-                        userModel.isCouponUsed = true
+                        isCouponUsed = true
                     }),
                     secondaryButton: .cancel()
                 )
+            }
+            .onAppear{
+                isCouponUsed = userModel.cState[coupon.couponID ?? 0] ?? false
             }
         }
         .padding()
@@ -79,23 +83,50 @@ struct CouponUseView: View {
 struct CouponView: View {
     @StateObject var viewModel = CouponViewModel()
     @State private var selectedCoupon: CouponElement? = nil
+    @EnvironmentObject var userModel : UserModel
+    @State var isLoading = false
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
-                ForEach(viewModel.coupons, id: \.couponID) { coupon in
-                    CouponRow(coupon: coupon)
-                        .frame(height: 200)
-                        .onTapGesture {
-                            selectedCoupon = coupon
-                        }
+        ZStack{
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
+                    ForEach(viewModel.coupons, id: \.couponID) { coupon in
+                        CouponRow(coupon: coupon)
+                            .frame(height: 200)
+                            .onTapGesture {
+                                selectedCoupon = coupon
+                            }
+                    }
                 }
+                .padding()
             }
-            .padding()
+            if isLoading {
+                ProgressView()
+                    .scaleEffect(2)
+                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                    .frame(width: 100, height: 100)
+                    .background(Color.white.opacity(0.8))
+                    .cornerRadius(20)
+                    .shadow(radius: 10)
+            }
         }
         .navigationTitle("쿠폰")
         .onAppear {
-            viewModel.fetchCoupons()
+            isLoading = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                
+                Task{
+                    if let marketId = userModel.currentUser?.interestMarket?.marketID{
+                        viewModel.marketId = marketId
+                    }
+                    
+                    viewModel.fetchCoupons()
+                    isLoading=false
+                }
+                
+                
+            }
+            
         }
     }
 }
@@ -135,10 +166,16 @@ struct CouponRow: View {
 
 class CouponViewModel: ObservableObject {
     @Published var coupons: [CouponElement] = []
+    @Published var marketId : Int?
     
     func fetchCoupons() {
-        let url = "http://3.34.33.15:8080/coupon/all"
-        
+        var url = ""
+        if let marketId = marketId {
+            url = "http://3.34.33.15:8080/coupon/marketId/\(marketId)"
+        }
+        else{
+            url = "http://3.34.33.15:8080/coupon/all"
+        }
         AF.request(url)
             .validate()
             .responseDecodable(of: [CouponElement].self) { response in
