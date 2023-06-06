@@ -100,6 +100,29 @@ class GoodsViewModel: ObservableObject {
             }
         }
     }
+    
+    func fetchGoodsCompare(goodsName: String, marketId: Int) {
+            let goods_name = makeStringKoreanEncoded(goodsName)
+            let url = "http://3.34.33.15:8080/goods/goodsCompare/\(goods_name)?marketId=\(marketId)"
+            
+            AF.request(url).responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let decoder = JSONDecoder()
+                        let goods = try decoder.decode(Goods.self, from: data)
+                        
+                        DispatchQueue.main.async {
+                            self.goods = goods
+                        }
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
 
 }
 
