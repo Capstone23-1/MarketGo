@@ -124,8 +124,9 @@ struct ShopView: View {
                             }
                         }
                         
+                        
                         LazyVGrid(columns: layout) {
-                            ForEach(goodsModel.goods) { item in
+                            ForEach(goodsModel.goods.prefix(12)) { item in
                                 NavigationLink(destination: FoodItemDetailView(goods: item)) {
                                     FoodItemCell(goods: item)
                                         .foregroundColor(.black)
@@ -133,6 +134,7 @@ struct ShopView: View {
                             }
                         }
                         .padding([.top, .leading, .trailing], 16.0)
+
                     }
                     .onAppear {
                         goodsModel.fetchGoods(forStoreMarketID: userModel.currentUser?.interestMarket?.marketID ?? 0)
