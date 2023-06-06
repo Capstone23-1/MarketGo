@@ -8,6 +8,7 @@ struct SellerHomeView: View {
     @State var isLoading = false
     @State var isLoggingOut = false
     let rad = CGFloat(30)
+    let number = CGFloat(150)
     var body: some View {
         NavigationView(){
             ScrollView {
@@ -29,8 +30,8 @@ struct SellerHomeView: View {
                                             .padding(.bottom, 8)
                                     }
                                 }
-                                .frame(maxWidth: .infinity, maxHeight: 200)
-                                .frame(height: 200)
+                                .frame(maxWidth: .infinity, maxHeight: number)
+                                .frame(height: number)
                                 .background(Color.white)
                                 .cornerRadius(rad)
                                 .frame(maxWidth: .infinity)
@@ -51,8 +52,8 @@ struct SellerHomeView: View {
                                             .padding(.bottom, 8)
                                     }
                                 }
-                                .frame(maxWidth: .infinity, maxHeight: 200)
-                                .frame(height: 200)
+                                .frame(maxWidth: .infinity, maxHeight: number)
+                                .frame(height: number)
                                 .background(Color.white)
                                 .cornerRadius(rad)
                                 .frame(maxWidth: .infinity)
@@ -68,8 +69,8 @@ struct SellerHomeView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
                             }
-                            .frame(maxWidth: .infinity, maxHeight: 200)
-                            .frame(height: 200)
+                            .frame(maxWidth: .infinity, maxHeight: number)
+                            .frame(height: number)
                             .background(Color.white)
                             .cornerRadius(rad)
                             .frame(maxWidth: .infinity)
@@ -90,8 +91,8 @@ struct SellerHomeView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
                             }
-                            .frame(maxWidth: .infinity, maxHeight: 200)
-                            .frame(height: 200)
+                            .frame(maxWidth: .infinity, maxHeight: number)
+                            .frame(height: number)
                             .background(Color.white)
                             .cornerRadius(rad)
                             .frame(maxWidth: .infinity)
@@ -105,8 +106,8 @@ struct SellerHomeView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
                             }
-                            .frame(maxWidth: .infinity, maxHeight: 200)
-                            .frame(height: 200)
+                            .frame(maxWidth: .infinity, maxHeight: number)
+                            .frame(height: number)
                             .background(Color.white)
                             .cornerRadius(rad)
                             .frame(maxWidth: .infinity)
@@ -129,8 +130,8 @@ struct SellerHomeView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
                             }
-                            .frame(maxWidth: .infinity, maxHeight: 200)
-                            .frame(height: 200)
+                            .frame(maxWidth: .infinity, maxHeight: number)
+                            .frame(height: number)
                             .background(Color.white)
                             .cornerRadius(rad)
                             .frame(maxWidth: .infinity)
@@ -144,8 +145,8 @@ struct SellerHomeView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
                             }
-                            .frame(maxWidth: .infinity, maxHeight: 200)
-                            .frame(height: 200)
+                            .frame(maxWidth: .infinity, maxHeight: number)
+                            .frame(height: number)
                             .background(Color.white)
                             .cornerRadius(rad)
                             .frame(maxWidth: .infinity)
@@ -157,16 +158,14 @@ struct SellerHomeView: View {
                         HStack{
                             
                             NavigationLink(destination: EmptyView()) {
-                                Text("상품 관리")
-                                    .font(.title)
-                                    .fontWeight(.bold)
-                                Image(systemName: "list.bullet.rectangle")
+                                
+                                Image(systemName: "")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40)
                             }
                             .frame(maxWidth: .infinity/2, maxHeight: 100)
-                            .background(Color.white)
+                            .background(Color.clear)
                             .cornerRadius(rad)
                             .padding(.all,10)
                             Button(action: {
