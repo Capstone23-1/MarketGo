@@ -9,8 +9,10 @@ struct CartView: View {
    var body: some View {
        
        List($cart.cartItems) { $cartItem in
-           NavigationLink(destination: FoodItemDetailView(goods: $cartItem.product.wrappedValue)) {
-             CartItemRow(cartItem:  $cartItem)}
+           NavigationLink(destination: GoodsCompareView(goodsName: $cartItem.product.goodsName.wrappedValue ?? "")) {
+             CartItemRow(cartItem:  $cartItem)
+               
+           }
        }
        .onAppear{
            cart.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)

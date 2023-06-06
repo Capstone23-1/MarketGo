@@ -12,7 +12,6 @@ struct GoodsCompareView: View {
     @EnvironmentObject var marketModel: MarketModel
     
     let goodsName: String
-    let marketId: Int
     
     var body: some View {
         VStack {
@@ -60,16 +59,7 @@ struct GoodsCompareView: View {
             }
         }
         .onAppear {
-            viewModel.fetchGoodsCompare(goodsName: goodsName, marketId: marketId)
+            viewModel.fetchGoodsCompare(goodsName: goodsName, marketId: marketModel.currentMarket?.marketID ?? 0)
         }
-    }
-}
-
-
-
-
-struct GoodsCompareView_Previews: PreviewProvider {
-    static var previews: some View {
-        GoodsCompareView(goodsName: "등심", marketId: 18)
     }
 }

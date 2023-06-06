@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StoreView: View {
     let store: StoreElement
+    
     @ObservedObject var goodsViewModel = GoodsViewModel2()
     @State private var isWritingReview = false
     @EnvironmentObject var userModel: UserModel
@@ -94,7 +95,8 @@ struct StoreView: View {
             })
             .padding()
             
-        }.sheet(isPresented: $isWritingReview, content: {
+        }.navigationTitle("\(store.storeName ?? "")")
+            .sheet(isPresented: $isWritingReview, content: {
             // Present the view for writing a review
             StoreReviewPostView(store: store)
         }
