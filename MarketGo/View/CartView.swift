@@ -19,31 +19,46 @@ struct CartView: View {
     }
     
     var body: some View {
-      
-        List {
-            ForEach(Array(marketTotals.keys.sorted()), id: \.self) { marketName in
-                Section(header: Text(marketName)) {
-                    ForEach($cartModel.cartItems) { $cartItem in
-                        if cartItem.product.goodsMarket?.marketName == marketName {
-                            NavigationLink(destination: GoodsCompareView(goodsName: $cartItem.product.goodsName.wrappedValue ?? "")) {
-                                CartItemRow(cartItem:  $cartItem)
-                            }
-                        }
-                        
-                    }
-                    Text("시장 내 총액: \(marketTotals[marketName]!) 원")
-                        .font(.footnote)
-                        .multilineTextAlignment(.trailing)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                }
+        
+        VStack{
+            
+            VStack{
+                Text("물품을 누르면 시장 내 가격비교 페이지로 이동")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor(.gray)
+                    .padding(.top, 10)
+                
             }
             
+            
+            List {
+                ForEach(Array(marketTotals.keys.sorted()), id: \.self) { marketName in
+                    Section(header: Text(marketName)) {
+                        ForEach($cartModel.cartItems) { $cartItem in
+                            if cartItem.product.goodsMarket?.marketName == marketName {
+                                NavigationLink(destination: GoodsCompareView(goodsName: $cartItem.product.goodsName.wrappedValue ?? "")) {
+                                    CartItemRow(cartItem:  $cartItem)
+                                }
+                            }
+                            
+                        }
+                        Text("시장 내 총액: \(marketTotals[marketName]!) 원")
+                            .font(.footnote)
+                            .multilineTextAlignment(.trailing)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
+                }
+                
+            }
+            .onAppear{
+                cartModel.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
+            }
+            .navigationTitle("장바구니")
+            TotalPriceView()
+            
         }
-        .onAppear{
-            cartModel.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
-        }
-        .navigationTitle("장바구니")
-        TotalPriceView()
+      
+        
     }
 }
 
@@ -116,9 +131,6 @@ struct CartItemRow: View {
         }
     }
 }
-
-
-
 
 
 struct TotalPriceView: View {
