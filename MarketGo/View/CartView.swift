@@ -1,32 +1,52 @@
 import SwiftUI
 import Alamofire
 
+import SwiftUI
+import Alamofire
 
 struct CartView: View {
     @EnvironmentObject var userModel: UserModel
-    @EnvironmentObject var cart: CartModel
+    @EnvironmentObject var cartModel: CartModel
+    
+    var marketTotals: [String: Int] {
+        var totals = [String: Int]()
+        for item in cartModel.cartItems {
+            let marketName = item.product.goodsMarket?.marketName ?? "Unknown Market"
+            let itemTotal = (item.product.goodsPrice ?? 0) * item.count
+            totals[marketName, default: 0] += itemTotal
+        }
+        return totals
+    }
+    
+    var body: some View {
+      
+        List {
+            ForEach(Array(marketTotals.keys.sorted()), id: \.self) { marketName in
+                Section(header: Text(marketName)) {
+                    ForEach($cartModel.cartItems) { $cartItem in
+                        if cartItem.product.goodsMarket?.marketName == marketName {
+                            NavigationLink(destination: GoodsCompareView(goodsName: $cartItem.product.goodsName.wrappedValue ?? "")) {
+                                CartItemRow(cartItem:  $cartItem)
+                            }
+                        }
+                        
+                    }
+                    Text("시장 내 총액: \(marketTotals[marketName]!) 원")
+                        .font(.footnote)
+                        .multilineTextAlignment(.trailing)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+            }
+            
+        }
+        .onAppear{
+            cartModel.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
+        }
+        .navigationTitle("장바구니")
+        TotalPriceView()
+    }
+}
 
-   var body: some View {
-//       Text("시장내 가격비교를 원하면 상품을 누르세요")
-//           .font(.system(size: 15))
-//            foregroundColor(.gray)
-//           .padding(.top, 10)
-//       
-//       Spacer()
-//       
-       List($cart.cartItems) { $cartItem in
-           //상품 누르면 시장내 가격비교 화면으로 이동
-           NavigationLink(destination: GoodsCompareView(goodsName: $cartItem.product.goodsName.wrappedValue ?? "")) {
-             CartItemRow(cartItem:  $cartItem)
-           }
-       }
-       .onAppear{
-           cart.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
-       }
-       .navigationTitle("장바구니")
-       
-       TotalPriceView()
-}}
 
 
 
@@ -48,13 +68,14 @@ struct CartItemRow: View {
             
             VStack(alignment: .leading) {
                 Spacer()
+                Text("\((cartItem.product.goodsStore?.storeName)! ?? "")")
+                    .foregroundColor(.gray)
+                    .font(.footnote)
                 Text(cartItem.product.goodsName ?? "")
                     .fontWeight(.semibold)
-                    .font(.system(size: 14))
-                Text("\(totalPrice)원").font(.system(size: 12))
-                Text("\(cartItem.product.goodsMarket?.marketName ?? "")")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 9))
+                    .font(.footnote)
+                Text("\(totalPrice)원").font(.footnote)
+                
                 Spacer()
             }
             
@@ -91,7 +112,7 @@ struct CartItemRow: View {
                     secondaryButton: .cancel(Text("취소"))
                 )
             }
-
+            
         }
     }
 }
@@ -117,19 +138,35 @@ struct TotalPriceView: View {
 
 
 struct CartItemDetail: View {
-   @Binding var cartItem: CartItem
+    @Binding var cartItem: CartItem
     
-   var body: some View {
-       
-   VStack {
-       
-       Text(cartItem.product.goodsName ?? "").font(.largeTitle)
-       
-       GoodsImage(url: URL(string: cartItem.product.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo")).frame(width: 200, height: 200).clipShape(Circle())
-       
-       Text("\(cartItem.product.goodsPrice ?? 0) | \(cartItem.product.goodsMarket?.marketName ?? "")")
-       
-       Text(cartItem.product.goodsInfo ?? "")
-           .multilineTextAlignment(.center).padding(.all, 20.0)
-   }
-}}
+    var body: some View {
+        
+        VStack {
+            
+            Text(cartItem.product.goodsName ?? "").font(.largeTitle)
+            
+            GoodsImage(url: URL(string: cartItem.product.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo")).frame(width: 200, height: 200).clipShape(Circle())
+            
+            Text("\(cartItem.product.goodsPrice ?? 0) | \(cartItem.product.goodsMarket?.marketName ?? "")")
+            
+            Text(cartItem.product.goodsInfo ?? "")
+                .multilineTextAlignment(.center).padding(.all, 20.0)
+        }
+    }}
+//ForEach(Array(marketTotals.keys.sorted()), id: \.self) { marketName in
+//    Section(header: Text(marketName), footer: Text("                                                             합계: \(marketTotals[marketName]!) 원")
+//     .multilineTextAlignment(.trailing)) {
+//        ForEach($cartModel.cartItems) { $cartItem in
+//            if cartItem.product.goodsMarket?.marketName == marketName {
+//                NavigationLink(destination: FoodItemDetailView(goods: $cartItem.product.wrappedValue)) {
+//                    CartItemRow(cartItem:  $cartItem)
+//                }
+//            }
+//            Text("시장 내 총액: \(marketTotals[marketName]!) 원")
+//                .font(.footnote)
+//                .multilineTextAlignment(.trailing)
+//                .frame(maxWidth: .infinity, alignment: .trailing)
+//        }
+//    }
+//        }

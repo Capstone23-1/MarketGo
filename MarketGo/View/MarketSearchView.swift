@@ -49,17 +49,12 @@ struct MarketSearchView: View {
                 
                 HStack{
                     Spacer()
-                    Picker(selection: $sortOption, label: Text("정렬 기준")) {
-                        Text("거리 가까운 순").tag(0)
-                        Text("평점 높은순").tag(1)
-                        Text("이름순").tag(2)
-                    }
-                    .padding(.horizontal)
-                    .foregroundColor(.gray)
+                   
                 }
                 if let errorMessage = errorMessage {
                     Text(errorMessage)
                 } else {
+                    Spacer()
                     if isLoading {
                         
                         ProgressView()
@@ -69,6 +64,7 @@ struct MarketSearchView: View {
                             .background(Color.white.opacity(0.8))
                             .cornerRadius(20)
                             .shadow(radius: 10)
+                        Spacer()
                         
                     } else {
                         

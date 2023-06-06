@@ -78,7 +78,7 @@ struct MarketInfoView: View {
                 if let marketid = selectedMarket?.marketID{
                     vm.interestMarket = marketid
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     Task{
                         do {
                             try await vm.updateMemberInfo()
