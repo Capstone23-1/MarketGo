@@ -149,38 +149,3 @@ struct TotalPriceView: View {
         }
     }
 }
-
-
-struct CartItemDetail: View {
-    @Binding var cartItem: CartItem
-    
-    var body: some View {
-        
-        VStack {
-            
-            Text(cartItem.product.goodsName ?? "").font(.largeTitle)
-            
-            GoodsImage(url: URL(string: cartItem.product.goodsFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo")).frame(width: 200, height: 200).clipShape(Circle())
-            
-            Text("\(cartItem.product.goodsPrice ?? 0) | \(cartItem.product.goodsMarket?.marketName ?? "")")
-            
-            Text(cartItem.product.goodsInfo ?? "")
-                .multilineTextAlignment(.center).padding(.all, 20.0)
-        }
-    }}
-//ForEach(Array(marketTotals.keys.sorted()), id: \.self) { marketName in
-//    Section(header: Text(marketName), footer: Text("                                                             합계: \(marketTotals[marketName]!) 원")
-//     .multilineTextAlignment(.trailing)) {
-//        ForEach($cartModel.cartItems) { $cartItem in
-//            if cartItem.product.goodsMarket?.marketName == marketName {
-//                NavigationLink(destination: FoodItemDetailView(goods: $cartItem.product.wrappedValue)) {
-//                    CartItemRow(cartItem:  $cartItem)
-//                }
-//            }
-//            Text("시장 내 총액: \(marketTotals[marketName]!) 원")
-//                .font(.footnote)
-//                .multilineTextAlignment(.trailing)
-//                .frame(maxWidth: .infinity, alignment: .trailing)
-//        }
-//    }
-//        }
