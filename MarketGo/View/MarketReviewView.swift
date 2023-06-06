@@ -54,9 +54,11 @@ struct MarketReviewRow: View {
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var marketModel: MarketModel
     let viewModel: MarketReviewViewModel // Add viewModel as a parameter
-
+    
     @State private var showAlert = false // Add state for showing the alert
     @State private var deleteReviewId: Int? // Add state for tracking the review to be deleted
+    @State private var editReviewId: Int? // Add state for tracking the review to be edited
+    @State private var isEditingReview = false // Add state for showing/hiding the MarketReviewPutView
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -82,7 +84,34 @@ struct MarketReviewRow: View {
                 
                 Spacer()
                 
-                // Add the delete button
+                // Edit button
+                NavigationLink(destination: MarketReviewPutView(marketReviewId: review.marketReviewID ?? 0, ratings: Double(review.ratings ?? 0),reviewContent: review.reviewContent ?? ""), isActive: $isEditingReview) {
+                    EmptyView()
+                }
+                .hidden()
+                
+                Button(action: {
+                    if let currentUser = userModel.currentUser, let memberID = review.mrMemberID?.memberID, currentUser.memberID == memberID {
+                        editReviewId = review.marketReviewID
+                        isEditingReview = true // Set the state to show the MarketReviewPutView
+                    } else {
+                        // Show permission error alert
+                        // You can customize the alert message here
+                        showAlert = true
+                    }
+                }, label: {
+                    Image(systemName: "pencil")
+                        .foregroundColor(.blue)
+                })
+                .alert(isPresented: $showAlert, content: {
+                    return Alert(
+                        title: Text("권한 오류"),
+                        message: Text("리뷰 수정 권한이 없습니다."),
+                        dismissButton: .default(Text("확인"))
+                    )
+                })
+                
+                // Delete button
                 Button(action: {
                     if let currentUser = userModel.currentUser, let memberID = review.mrMemberID?.memberID, currentUser.memberID == memberID {
                         showAlert = true

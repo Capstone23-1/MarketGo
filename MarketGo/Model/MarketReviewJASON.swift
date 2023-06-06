@@ -100,20 +100,9 @@ class MarketReviewViewModel: ObservableObject {
             self.isLoading = false
         }
     }
-    
-    func deleteMarketReview(with marketReviewId: Int) {
-        let urlString = "http://3.34.33.15:8080/marketReview?marketReviewId=\(marketReviewId)"
-        
-        AF.request(urlString, method: .delete).response { response in
-            switch response.result {
-            case .success:
-                print("Market review deleted successfully.")
-            case .failure(let error):
-                print("Error deleting market review: \(error)")
-            }
-        }
-    }
 }
+
+
 
 
 
