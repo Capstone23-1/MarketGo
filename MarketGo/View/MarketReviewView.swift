@@ -21,6 +21,10 @@ struct MarketReviewView: View {
             }
             .padding()
             
+            NavigationLink(destination: MarketReviewPostView(), isActive: $isWritingReview) {
+                EmptyView()
+            }
+            
             Button(action: {
                 isWritingReview = true
             }, label: {
@@ -33,18 +37,15 @@ struct MarketReviewView: View {
                     .cornerRadius(30)
                     
             })
-            .padding([.leading, .bottom, .trailing], 10)
+            .padding([.leading, .bottom, .trailing],10)
             
         }
-        .sheet(isPresented: $isWritingReview, content: {
-            // Present the view for writing a review
-            MarketReviewPostView()
-        })
         .onAppear {
             viewModel.fetchMarketReviews(for: marketModel.currentMarket?.marketID ?? 0)
         }
     }
 }
+
 
 
 struct MarketReviewRow: View {
