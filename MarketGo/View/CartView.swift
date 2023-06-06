@@ -7,11 +7,17 @@ struct CartView: View {
     @EnvironmentObject var cart: CartModel
 
    var body: some View {
+       Text("시장내 가격비교를 원하면 상품을 누르세요")
+           .font(.system(size: 15))
+            foregroundColor(.gray)
+           .padding(.top, 10)
+       
+       Spacer()
        
        List($cart.cartItems) { $cartItem in
+           //상품 누르면 시장내 가격비교 화면으로 이동
            NavigationLink(destination: GoodsCompareView(goodsName: $cartItem.product.goodsName.wrappedValue ?? "")) {
              CartItemRow(cartItem:  $cartItem)
-               
            }
        }
        .onAppear{
