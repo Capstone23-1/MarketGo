@@ -25,44 +25,20 @@ struct MemberProfileEditView: View {
                 VStack {
                     
                     Form {
-                        Section(header: Text("Member ID")) {
-                            TextField("Member ID", value: $vm.memberID, formatter: NumberFormatter())
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }
-                        Section(header: Text("Member Token")) {
-                            TextField("Member Token", text: $vm.memberToken)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }
+//                        Section(header: Text("Member ID")) {
+//                            TextField("Member ID", value: $vm.memberID, formatter: NumberFormatter())
+//                                .textFieldStyle(RoundedBorderTextFieldStyle())
+//                        }
+//                        Section(header: Text("Member Token")) {
+//                            TextField("Member Token", text: $vm.memberToken)
+//                                .textFieldStyle(RoundedBorderTextFieldStyle())
+//                        }
                         
-                        Section(header: Text("Member Name")) {
-                            TextField("Member Name", text: $vm.memberName)
+                        Section(header: Text("닉네임")) {
+                            TextField("", text: $vm.memberName)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
-                        
-                        Section(header: Text("Interest Market")) {
-                            TextField("Interest Market", value: $vm.interestMarket, formatter: NumberFormatter())
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }
-                        
-                        Section(header: Text("Cart ID")) {
-                            TextField("Cart ID", value: $vm.cartId, formatter: NumberFormatter())
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }
-                        
-                        Section(header: Text("Store ID")) {
-                            TextField("Store ID", value: $vm.storeId, formatter: NumberFormatter())
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }
-                        
-                        Section(header: Text("Recent Latitude")) {
-                            TextField("Recent Latitude", value: $vm.recentLatitude, formatter: NumberFormatter())
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }
-                        
-                        Section(header: Text("Recent Longitude")) {
-                            TextField("Recent Longitude", value: $vm.recentLongitude, formatter: NumberFormatter())
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }
+                      
                     }
                     // Save button
                     Button(action: {

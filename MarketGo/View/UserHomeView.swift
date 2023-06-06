@@ -123,7 +123,7 @@ struct UserHomeView: View {
                 .background(Color.white)
                 .cornerRadius(20)
                 .padding(.top, 20)
-                NavigationLink(destination: DogamBookView()) {
+                NavigationLink(destination: CouponView()) {
                     VStack{
                         Text("쿠폰 찾기")
                             .font(.title)
