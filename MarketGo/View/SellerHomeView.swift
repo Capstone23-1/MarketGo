@@ -157,15 +157,13 @@ struct SellerHomeView: View {
                         
                         HStack{
                             
-                            NavigationLink(destination: EmptyView()) {
-                                
-                                Image(systemName: "")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 40)
+                            NavigationLink(destination: CouponGeneratorView()) {
+                                Text("쿠폰 생성")
+                                    .font(.title)
+                                    .fontWeight(.bold)
                             }
                             .frame(maxWidth: .infinity/2, maxHeight: 100)
-                            .background(Color.clear)
+                            .background(Color.white)
                             .cornerRadius(rad)
                             .padding(.all,10)
                             Button(action: {
