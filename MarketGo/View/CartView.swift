@@ -7,6 +7,8 @@ import Alamofire
 struct CartView: View {
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var cartModel: CartModel
+    @EnvironmentObject var marketModel: MarketModel
+    
     
     var marketTotals: [String: Int] {
         var totals = [String: Int]()
@@ -23,7 +25,7 @@ struct CartView: View {
         VStack{
             
             VStack{
-                Text("물품을 누르면 시장 내 가격비교 페이지로 이동")
+                Text("물품을 누르면 \(marketModel.currentMarket?.marketName ?? "") 상품들과 가격을 비교할 수 있어요")
                     .font(.system(size: 15, weight: .bold))
                     .foregroundColor(.gray)
                     .padding(.top, 10)
