@@ -4,6 +4,7 @@ import Alamofire
 struct MarketReviewView: View {
     @StateObject private var viewModel = MarketReviewViewModel()
     @EnvironmentObject var marketModel: MarketModel
+    @EnvironmentObject var userModel: UserModel
     @State private var isWritingReview = false
 
     var body: some View {
@@ -12,7 +13,9 @@ struct MarketReviewView: View {
                 LazyVStack {
                     if let reviews = viewModel.marketReviews {
                         ForEach(reviews) { review in
-                            MarketReviewRow(review: review)
+                            MarketReviewRow(review: review, viewModel: viewModel) // Pass viewModel as a parameter
+                                .environmentObject(userModel)
+                                .environmentObject(marketModel)
                         }
                     } else {
                         ProgressView()
@@ -37,8 +40,7 @@ struct MarketReviewView: View {
                     .cornerRadius(30)
                     
             })
-            .padding([.leading, .bottom, .trailing],10)
-            
+            .padding([.leading, .bottom, .trailing], 10)
         }
         .onAppear {
             viewModel.fetchMarketReviews(for: marketModel.currentMarket?.marketID ?? 0)
@@ -46,13 +48,13 @@ struct MarketReviewView: View {
     }
 }
 
-
-
 struct MarketReviewRow: View {
     let review: MarketReviewElement
     @State private var image: UIImage? = nil
     @EnvironmentObject var userModel: UserModel
-    
+    @EnvironmentObject var marketModel: MarketModel
+    let viewModel: MarketReviewViewModel // Add viewModel as a parameter
+
     @State private var showAlert = false // Add state for showing the alert
     @State private var deleteReviewId: Int? // Add state for tracking the review to be deleted
     
@@ -100,7 +102,7 @@ struct MarketReviewRow: View {
                             title: Text("확인"),
                             message: Text("리뷰를 삭제하시겠습니까?"),
                             primaryButton: .default(Text("삭제"), action: {
-                                deleteMarketReview(with: deleteReviewId!)
+                                deleteMarketReview(with: deleteReviewId!, viewModel: viewModel) // Pass viewModel as a parameter
                             }),
                             secondaryButton: .cancel(Text("취소"), action: {})
                         )
@@ -131,13 +133,14 @@ struct MarketReviewRow: View {
         .shadow(radius: 2, y: 1)
     }
     
-    func deleteMarketReview(with marketReviewId: Int) {
+    func deleteMarketReview(with marketReviewId: Int, viewModel: MarketReviewViewModel) {
         let urlString = "http://3.34.33.15:8080/marketReview?marketReviewId=\(marketReviewId)"
         
         AF.request(urlString, method: .delete).response { response in
             switch response.result {
             case .success:
                 print("Market review deleted successfully.")
+                viewModel.fetchMarketReviews(for: marketModel.currentMarket?.marketID ?? 0) // Fetch updated reviews
             case .failure(let error):
                 print("Error deleting market review: \(error)")
             }
