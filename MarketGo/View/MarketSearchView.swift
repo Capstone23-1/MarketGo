@@ -20,10 +20,10 @@ struct MarketSearchView: View {
     @ObservedObject var locationManager = LocationManager()
     @State private var selectedMarket: Document?
     @State private var isLoading = false // indicator 추가
-    @StateObject var vm = MarketSearchViewModel()
+    
     var sortedClasses: [Document] {
         switch sortOption {
-            case 0: return MarketList.sorted(by: { Int($0.distance)! < Int($1.distance)! })
+            case 0: return MarketList.sorted(by: { $0.distance < $1.distance })
                 //                case 1: return MarketList.sorted(by: { $0.rating > $1.rating })
             case 2: return MarketList.sorted(by: { $0.placeName < $1.placeName })
             default: return MarketList
@@ -32,49 +32,62 @@ struct MarketSearchView: View {
     
     var body: some View {
         NavigationView{
-            ZStack{
-                VStack {
+            VStack {
+                
+                HStack {
+                    TextField("\(placeHolder)", text: $searchText)
+                        .foregroundColor(.primary)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
                     
-                    HStack {
-                        TextField("\(placeHolder)", text: $searchText)
-                            .foregroundColor(.primary)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                    NavigationLink(destination: OtherMarketSearchView(searchText: $searchText, placeHoldr: $placeHolder)) {
+                        Image(systemName: "magnifyingglass")
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
+                    }
+                }
+                
+                
+                HStack{
+                    Spacer()
+                    Picker(selection: $sortOption, label: Text("정렬 기준")) {
+                        Text("거리 가까운 순").tag(0)
+                        Text("평점 높은순").tag(1)
+                        Text("이름순").tag(2)
+                    }
+                    .padding(.horizontal)
+                    .foregroundColor(.gray)
+                }
+                if let errorMessage = errorMessage {
+                    Text(errorMessage)
+                } else {
+                    if isLoading {
                         
-                        NavigationLink(destination: OtherMarketSearchView(searchText: $searchText, placeHoldr: $placeHolder)) {
-                            Image(systemName: "magnifyingglass")
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
-                        }
-                    }
-                    
-                    
-                    if let errorMessage = errorMessage {
-                        Text(errorMessage)
+                        ProgressView()
+                            .scaleEffect(2)
+                            .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                            .frame(width: 100, height: 100)
+                            .background(Color.white.opacity(0.8))
+                            .cornerRadius(20)
+                            .shadow(radius: 10)
+                        
                     } else {
-                       
-                            MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket, vm: vm)
-                            
-                            MarketSearchTableWrapper(data: MarketList, selected: $selectedMarket, isLoading: $isLoading, vm: vm)
-   
+                        
+                        MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
+                        MarketSearchTableWrapper(data: MarketList, selected: $selectedMarket)
+                        
+                        
                     }
-                  
                     
                 }
-                if isLoading {
-                    ProgressView()
-                        .scaleEffect(2)
-                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                        .frame(width: 100, height: 100)
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(20)
-                        .shadow(radius: 10)
-                }
+                
+                
+                
             }
             .onAppear {
                 
                 let viewModel = MarketViewModel()
                 isLoading = true // 로딩 시작
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     viewModel.searchMarket(location: locationManager.userLocation ?? cauLocation, queryKeyword: "시장") { result in
                         switch result {
                             case .success(let parkingLotData):
@@ -89,7 +102,10 @@ struct MarketSearchView: View {
                                 }
                         }
                     }
+                    
                 }
+                
+                
                 
             }
             

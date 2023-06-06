@@ -14,7 +14,7 @@ struct MarketMapView: UIViewRepresentable {
     @ObservedObject var locationManager = LocationManager()
     @Binding var marketList: [Document]
     @Binding var selectedMarket: Document?
-    @ObservedObject var vm:MarketSearchViewModel
+    @StateObject var vm = MarketSearchViewModel()
     var cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)
     public let mapView = NMFNaverMapView()
     func makeUIView(context: Context) -> NMFNaverMapView {
@@ -48,7 +48,7 @@ struct MarketMapView: UIViewRepresentable {
                         mapView?.mapView.moveCamera(cameraUpdate)
                         DispatchQueue.main.async {
                             self.selectedMarket = market
-                            vm.selectedID=market.id
+                            
                             
                         }
                        
