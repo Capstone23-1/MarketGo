@@ -64,7 +64,6 @@ struct ReviewRow: View {
                     .font(.headline)
                     .fontWeight(.bold)
                 
-                Spacer()
                 
                 // Edit button
                 Button(action: {

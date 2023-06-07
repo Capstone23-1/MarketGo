@@ -37,11 +37,14 @@ struct GoodsCompareView: View {
                             }
                         }
                         Spacer()
-                        VStack(alignment: .leading, spacing: 10) {
+                        VStack(alignment: .leading, spacing: 5) {
                             Text(goods.goodsName ?? "")
                                 .font(.headline)
                                 .foregroundColor(.black)
                             Text("가격: \(goods.goodsPrice ?? 0)")
+                                .font(.subheadline)
+                                .foregroundColor(.black)
+                            Text("단위: \(goods.goodsUnit ?? "")")
                                 .font(.subheadline)
                                 .foregroundColor(.black)
                             Text("\(goods.goodsStore?.storeName ?? "")")
