@@ -55,7 +55,9 @@ struct MarketReviewRow: View {
     @EnvironmentObject var marketModel: MarketModel
     let viewModel: MarketReviewViewModel // Add viewModel as a parameter
     
-    @State private var showAlert = false // Add state for showing the alert
+    @State private var showEditAlert = false // Add separate state for showing the edit alert
+    @State private var showDeleteAlert = false // Add separate state for showing the delete alert
+    
     @State private var deleteReviewId: Int? // Add state for tracking the review to be deleted
     @State private var editReviewId: Int? // Add state for tracking the review to be edited
     @State private var isEditingReview = false // Add state for showing/hiding the MarketReviewPutView
@@ -98,13 +100,13 @@ struct MarketReviewRow: View {
                         } else {
                             // Show permission error alert
                             // You can customize the alert message here
-                            showAlert = true
+                            showEditAlert = true
                         }
                     }, label: {
                         Image(systemName: "pencil")
                             .foregroundColor(.blue)
                     })
-                    .alert(isPresented: $showAlert, content: {
+                    .alert(isPresented: $showEditAlert, content: {
                         return Alert(
                             title: Text("권한 오류"),
                             message: Text("리뷰 수정 권한이 없습니다."),
@@ -117,18 +119,18 @@ struct MarketReviewRow: View {
                     // Delete button
                     Button(action: {
                         if let currentUser = userModel.currentUser, let memberID = review.mrMemberID?.memberID, currentUser.memberID == memberID {
-                            showAlert = true
+                            showDeleteAlert = true
                             deleteReviewId = review.marketReviewID
                         } else {
                             // Show permission error alert
                             // You can customize the alert message here
-                            showAlert = true
+                            showDeleteAlert = true
                         }
                     }, label: {
                         Image(systemName: "trash")
                             .foregroundColor(.red)
                     })
-                    .alert(isPresented: $showAlert, content: {
+                    .alert(isPresented: $showDeleteAlert, content: {
                         if deleteReviewId != nil {
                             return Alert(
                                 title: Text("확인"),
