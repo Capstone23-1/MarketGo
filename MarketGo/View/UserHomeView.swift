@@ -42,7 +42,7 @@ struct UserHomeView: View {
                             Text("QR로 \n가게정보")
                                 .font(.title)
                                 .fontWeight(.bold)
-                   
+                            
                         }
                     }
                     .frame(maxWidth: .infinity, maxHeight: 200)
@@ -58,9 +58,9 @@ struct UserHomeView: View {
                             Text("길찾기")
                                 .font(.title)
                                 .fontWeight(.bold)
-//                            Text("가까운 찾기")
-//                                .font(.subheadline)
-//                                .foregroundColor(.secondary)
+                            //                            Text("가까운 찾기")
+                            //                                .font(.subheadline)
+                            //                                .foregroundColor(.secondary)
                             Image(systemName: "bus.fill")
                                 .resizable()
                                 .foregroundColor(.gray)
@@ -80,15 +80,15 @@ struct UserHomeView: View {
                                 .font(.title)
                                 .foregroundColor(.gray)
                                 .fontWeight(.bold)
-//                            Text("가까운 찾기")
-//                                .font(.subheadline)
-//                                .foregroundColor(.secondary)
+                            //                            Text("가까운 찾기")
+                            //                                .font(.subheadline)
+                            //                                .foregroundColor(.secondary)
                             Image(systemName: "cursorarrow.rays")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 40)
                                 .foregroundColor(.gray)
-                                
+                            
                             
                         }
                         .frame(maxWidth: .infinity,maxHeight: .infinity)
@@ -104,34 +104,26 @@ struct UserHomeView: View {
                 }
                 HStack{
                     NavigationLink(destination: CouponView()) {
-                        VStack{
-                            Text("쿠폰 찾기")
-                                .font(.title)
-                                .fontWeight(.bold)
-                            Text("")
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                        }
-                        Image(systemName: "point.3.connected.trianglepath.dotted")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
-                            .padding(.bottom, 8)
-                            .foregroundColor(.gray)
+                        
+                        Text("쿠폰 찾기")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        
+                        
+                        
                     }
                     .frame(maxWidth: .infinity,maxHeight: .infinity)
                     .background(Color.white)
                     .cornerRadius(20)
                     .padding(.bottom, 10)
+                    .padding(.trailing,10)
                     
                     NavigationLink(destination: MarketMapView()) {
                         VStack{
                             Text("시장 지도")
                                 .font(.title)
                                 .fontWeight(.bold)
-                            Text("")
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
+                            
                         }
                         
                     }
@@ -139,8 +131,10 @@ struct UserHomeView: View {
                     .background(Color.white)
                     .cornerRadius(20)
                     .padding(.bottom, 10)
+                    .padding(.leading,10)
                 }
                 .padding(.top)
+                .frame(height: 120)
                 
                 NavigationLink(destination: DogamBookView()) {
                     VStack{
@@ -181,8 +175,8 @@ struct UserHomeView: View {
                     UIApplication.shared.open(naverURL)
                 } else {
                     
-//                    let webURL = URL(string: "https://map.naver.com/v5/search?query=\(name)")
-//                    UIApplication.shared.open(webURL!)
+                    //                    let webURL = URL(string: "https://map.naver.com/v5/search?query=\(name)")
+                    //                    UIApplication.shared.open(webURL!)
                     let webURL = URL(string: "https://map.naver.com/v5/search?query=\(name)")
                     UIApplication.shared.open(webURL!)
                 }

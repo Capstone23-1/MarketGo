@@ -82,7 +82,7 @@ struct CouponRow: View {
                                 .font(.title2)
                             
                             if let discount = coupon.discount {
-                                Text("\(discount)원 할인")
+                                Text(discount)
                                     .font(.title)
                             }
                             else{
