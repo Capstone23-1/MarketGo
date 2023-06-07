@@ -13,8 +13,7 @@ struct CouponGeneratorView: View {
                 .padding()
 
        
-            TextField("할인가격(숫자만 입력해주세요)", text: $vm.discount)
-                .keyboardType(.decimalPad)
+            TextField("할인가격", text: $vm.discount)
                 .padding()
             TextField("주의사항", text: $vm.couponInfo)
                 .keyboardType(.default)

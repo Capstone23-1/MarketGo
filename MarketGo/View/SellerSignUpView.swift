@@ -91,6 +91,7 @@ struct SellerSignUpView: View {
                             .padding()
                             .disableAutocorrection(true)
                             .background(Color(.systemGray6))
+                            .textContentType(.none)
                             .cornerRadius(8)
                             .onChange(of: viewModel.password) { newValue in
                                 passwordValid = newValue.count >= 6 // 비밀번호가 6자 이상인지 확인
@@ -109,6 +110,7 @@ struct SellerSignUpView: View {
                             .disableAutocorrection(true)
                             .autocapitalization(.none)
                             .background(Color(.systemGray6))
+                            .textContentType(.none)
                             .cornerRadius(8)
                             .onChange(of: viewModel.confirmPassword) { newValue in
                                 confirmPasswordMatch = newValue == viewModel.password // 비밀번호와 비밀번호 확인이 같은지 확인

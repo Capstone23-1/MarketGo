@@ -13,21 +13,14 @@ struct CouponUseView: View {
                     .font(.body)
                     
                 
-                if let discount = (coupon.discount) {
-                    if Int(discount)! >= 100{
-                        Text("\(discount)원\n할인")
+                
+                    
+                Text((coupon.discount)!)
                             .font(.title)
                             .foregroundColor(.black)
-                    }else{
-                        Text("\(discount)%\n할인")
-                            .font(.title)
-                            .foregroundColor(.black)
-                    }
-                }else{
-                    Text("")
-                        .font(.title)
-                        .foregroundColor(.black)
-                }
+                    
+                  
+               
                 
                 
                 if let info = coupon.duration {
