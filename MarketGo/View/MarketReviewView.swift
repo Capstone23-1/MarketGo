@@ -87,7 +87,7 @@ struct MarketReviewRow: View {
                 Spacer()
                 
                 // Edit button
-                NavigationLink(destination: MarketReviewPutView(marketReviewId: review.marketReviewID ?? 0, ratings: Double(review.ratings ?? 0),reviewContent: review.reviewContent ?? "", fileId: review.marketReviewFile?.fileID ?? 0), isActive: $isEditingReview) {
+                NavigationLink(destination: MarketReviewPutView(marketReviewId: review.marketReviewID ?? 0, viewModel: viewModel, ratings: Double(review.ratings ?? 0),reviewContent: review.reviewContent ?? "", fileId: review.marketReviewFile?.fileID ?? 0), isActive: $isEditingReview) {
                     EmptyView()
                 }
                 .hidden()

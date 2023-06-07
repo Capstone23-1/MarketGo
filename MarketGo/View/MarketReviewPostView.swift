@@ -14,6 +14,7 @@ struct MarketReviewPostView: View {
     @State private var imageUploader = ImageUploader()
     @State private var newImage = FileInfo()
     
+    
     @EnvironmentObject private var storePost: StorePostViewModel
     
     @EnvironmentObject var userModel: UserModel

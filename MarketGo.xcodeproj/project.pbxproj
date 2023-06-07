@@ -478,6 +478,7 @@
 				218F54282A24F8EF00A9A6EF /* MarketOtherSearchView.swift */,
 				218F54262A24F7E100A9A6EF /* MarketOtherTableWrapper.swift */,
 				997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */,
+				9940E4D62A2F8D53006439C4 /* MarketReviewPutView.swift */,
 				99F02DE12A176D4100D827CD /* MarketReviewView.swift */,
 				21416B7D2A0CF25F008EA3C5 /* MarketSearchTableWrapper.swift */,
 				2144FE7829DD6B4F008913C4 /* MarketSearchView.swift */,
@@ -519,7 +520,6 @@
 				21E4EC322A2F88B2004AF534 /* CouponeGeneratorView.swift */,
 				21E4EC342A2F8D3E004AF534 /* CouponeView.swift */,
 				21E4EC362A2F90CE004AF534 /* CouponUseView.swift */,
-				9940E4D62A2F8D53006439C4 /* MarketReviewPutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

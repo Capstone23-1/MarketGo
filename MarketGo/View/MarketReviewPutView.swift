@@ -3,6 +3,7 @@ import Alamofire
 
 struct MarketReviewPutView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var marketModel: MarketModel
     
     @State private var imageUploader = ImageUploader()
     @State private var imageCate = StoreCategory(categoryID: 6, categoryName: "m_review")
@@ -11,6 +12,7 @@ struct MarketReviewPutView: View {
     @State private var isLoading: Bool = false
     
     let marketReviewId: Int
+    let viewModel: MarketReviewViewModel
     @State var ratings: Double = 0.0
     @State var reviewContent: String = ""
     @State var fileId: Int = 113
@@ -66,6 +68,7 @@ struct MarketReviewPutView: View {
                 message: Text("리뷰 수정이 완료되었습니다."),
                 dismissButton: .default(Text("확인"), action: {
                     presentationMode.wrappedValue.dismiss()
+                    
                 })
             )
         }
@@ -112,6 +115,7 @@ struct MarketReviewPutView: View {
             .responseDecodable(of: MarketReviewElement.self) { response in
                 switch response.result {
                 case .success(let updatedReview):
+                    viewModel.fetchMarketReviews(for: marketModel.currentMarket?.marketID ?? 0)
                     print("Update successful: \(updatedReview)")
                     showAlert = true
                 case .failure(let error):
