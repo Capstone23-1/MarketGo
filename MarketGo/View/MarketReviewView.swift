@@ -162,6 +162,7 @@ struct MarketReviewRow: View {
                     .font(.footnote)
                     .foregroundColor(.gray)
                     .padding(5)
+                    .padding(.top, 3)
             }
             
             

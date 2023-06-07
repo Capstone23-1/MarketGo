@@ -27,24 +27,6 @@ struct StoreReviewElement: Codable, Identifiable {
 }
 
 
-// MARK: - MemberID
-struct MemberID: Codable {
-    var memberID: Int?
-    var memberToken, memberName: String?
-    var interestMarket: InterestMarket?
-    var cartID: CartID?
-    var storeID: StoreElement?
-    var recentLatitude, recentLongitude: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case memberID = "memberId"
-        case memberToken, memberName, interestMarket
-        case cartID = "cartId"
-        case storeID = "storeId"
-        case recentLatitude, recentLongitude
-    }
-}
-
 // MARK: - InterestMarket
 struct InterestMarket: Codable {
     var marketID: Int?
@@ -72,26 +54,6 @@ struct StoreReviewFile: Codable {
         case fileID = "fileId"
         case originalFileName, uploadFileName, uploadFilePath
         case uploadFileURL = "uploadFileUrl"
-    }
-}
-
-// MARK: - StoreID
-struct srStoreID: Codable {
-    var storeID: Int?
-    var storeName, storeAddress1, storeAddress2: String?
-    var storeCategory: StoreCategory2?
-    var storeRatings: Double?
-    var storePhonenum, storeInfo, cardAvail, localAvail: String?
-    var storeNum: Int?
-    var storeMarketID: InterestMarket?
-    var storeFile: StoreReviewFile?
-    var reviewCount: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case storeID = "storeId"
-        case storeName, storeAddress1, storeAddress2, storeCategory, storeRatings, storePhonenum, storeInfo, cardAvail, localAvail, storeNum
-        case storeMarketID = "storeMarketId"
-        case storeFile, reviewCount
     }
 }
 

@@ -27,7 +27,7 @@ struct MarketReviewPutView: View {
             Form {
                 ReviewImageUploadView(category: $imageCate.categoryName, selectedImage: $selectedImage, newImage: $newImage)
                 
-                Text("\(marketReviewId)")
+                //Text("\(marketReviewId)")
                 
                 Section(header: Text("Review")) {
                     HStack(spacing: 10) {
