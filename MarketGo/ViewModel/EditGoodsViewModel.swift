@@ -46,13 +46,13 @@ class EditGoodsViewModel: ObservableObject {
     }
     func postGoodsData(){
         let enPrice = makeStringKoreanEncoded(goodsPrice.replacingOccurrences(of: "원", with: ""))
-        let url = "http://3.34.33.15:8080/goodsData?goodsId=\(goods)&price=\(enPrice)"
+        let url = "http://3.34.33.15:8080/goodsData?goodsId=\(goodsId)&price=\(enPrice)"
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
 
 
         AF.request(url, method: .post, headers: headers)
             .response { response in
-//                    debugPrint(response)
+                    debugPrint(response)
                 switch response.result {
                     case .success(let data):
 
@@ -89,7 +89,9 @@ class EditGoodsViewModel: ObservableObject {
                 switch response.result {
                     case .success(let goods):
                         if response.response?.statusCode == 200 {
+                            
                             self.goodsId = String(describing: (goods.goodsID)!)
+                            
                             self.postGoodsData()
                            
                         }

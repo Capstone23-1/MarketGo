@@ -103,7 +103,7 @@ struct QuickView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             
                             Task{
-                                if let image = selectedImage?.size.width, image == 4032.0 {
+                                if let image = selectedImage?.size.width, image == 850.0 {
                                     vm.text = "1"
                                 } else {
                                     vm.text = "2"
