@@ -193,6 +193,8 @@ struct StoreReviewRow: View {
         .shadow(radius: 2, y: 1)
     }
     
+    
+    
     func deleteStoreReview(with reviewId: Int, viewModel: TestViewModel, store: StoreElement) {
         let url = "http://3.34.33.15:8080/storeReview?storeReviewId=\(reviewId)"
         
