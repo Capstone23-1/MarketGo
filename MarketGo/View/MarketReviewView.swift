@@ -85,64 +85,70 @@ struct MarketReviewRow: View {
                 Spacer()
                 
                 // Edit button
-                NavigationLink(destination: MarketReviewPutView(marketReviewId: review.marketReviewID ?? 0, ratings: Double(review.ratings ?? 0),reviewContent: review.reviewContent ?? ""), isActive: $isEditingReview) {
+                NavigationLink(destination: MarketReviewPutView(marketReviewId: review.marketReviewID ?? 0, ratings: Double(review.ratings ?? 0),reviewContent: review.reviewContent ?? "", fileId: review.marketReviewFile?.fileID ?? 0), isActive: $isEditingReview) {
                     EmptyView()
                 }
                 .hidden()
                 
-                Button(action: {
-                    if let currentUser = userModel.currentUser, let memberID = review.mrMemberID?.memberID, currentUser.memberID == memberID {
-                        editReviewId = review.marketReviewID
-                        isEditingReview = true // Set the state to show the MarketReviewPutView
-                    } else {
-                        // Show permission error alert
-                        // You can customize the alert message here
-                        showAlert = true
-                    }
-                }, label: {
-                    Image(systemName: "pencil")
-                        .foregroundColor(.blue)
-                })
-                .alert(isPresented: $showAlert, content: {
-                    return Alert(
-                        title: Text("권한 오류"),
-                        message: Text("리뷰 수정 권한이 없습니다."),
-                        dismissButton: .default(Text("확인"))
-                    )
-                })
-                
-                // Delete button
-                Button(action: {
-                    if let currentUser = userModel.currentUser, let memberID = review.mrMemberID?.memberID, currentUser.memberID == memberID {
-                        showAlert = true
-                        deleteReviewId = review.marketReviewID
-                    } else {
-                        // Show permission error alert
-                        // You can customize the alert message here
-                        showAlert = true
-                    }
-                }, label: {
-                    Image(systemName: "trash")
-                        .foregroundColor(.red)
-                })
-                .alert(isPresented: $showAlert, content: {
-                    if deleteReviewId != nil {
-                        return Alert(
-                            title: Text("확인"),
-                            message: Text("리뷰를 삭제하시겠습니까?"),
-                            primaryButton: .default(Text("삭제"), action: {
-                                deleteMarketReview(with: deleteReviewId!, viewModel: viewModel) // Pass viewModel as a parameter
-                            }),
-                            secondaryButton: .cancel(Text("취소"), action: {})
-                        )
-                    } else {
+                VStack{
+                    Button(action: {
+                        if let currentUser = userModel.currentUser, let memberID = review.mrMemberID?.memberID, currentUser.memberID == memberID {
+                            editReviewId = review.marketReviewID
+                            isEditingReview = true // Set the state to show the MarketReviewPutView
+                        } else {
+                            // Show permission error alert
+                            // You can customize the alert message here
+                            showAlert = true
+                        }
+                    }, label: {
+                        Image(systemName: "pencil")
+                            .foregroundColor(.blue)
+                    })
+                    .alert(isPresented: $showAlert, content: {
                         return Alert(
                             title: Text("권한 오류"),
-                            message: Text("리뷰 삭제 권한이 없습니다."),
+                            message: Text("리뷰 수정 권한이 없습니다."),
                             dismissButton: .default(Text("확인"))
                         )
-                    }
-                })
+                    })
+                }
+                Spacer()
+                VStack{
+                    // Delete button
+                    Button(action: {
+                        if let currentUser = userModel.currentUser, let memberID = review.mrMemberID?.memberID, currentUser.memberID == memberID {
+                            showAlert = true
+                            deleteReviewId = review.marketReviewID
+                        } else {
+                            // Show permission error alert
+                            // You can customize the alert message here
+                            showAlert = true
+                        }
+                    }, label: {
+                        Image(systemName: "trash")
+                            .foregroundColor(.red)
+                    })
+                    .alert(isPresented: $showAlert, content: {
+                        if deleteReviewId != nil {
+                            return Alert(
+                                title: Text("확인"),
+                                message: Text("리뷰를 삭제하시겠습니까?"),
+                                primaryButton: .default(Text("삭제"), action: {
+                                    deleteMarketReview(with: deleteReviewId!, viewModel: viewModel) // Pass viewModel as a parameter
+                                }),
+                                secondaryButton: .cancel(Text("취소"), action: {})
+                            )
+                        } else {
+                            return Alert(
+                                title: Text("권한 오류"),
+                                message: Text("리뷰 삭제 권한이 없습니다."),
+                                dismissButton: .default(Text("확인"))
+                            )
+                        }
+                    })
+                }
+                
+              
             }
             .padding(.leading, 5)
             

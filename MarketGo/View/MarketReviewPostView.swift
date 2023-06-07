@@ -49,11 +49,6 @@ struct MarketReviewPostView: View {
                 
                 Section(header: Text("Review")) {
                     
-//                    HStack {
-//                        Text("Ratings")
-//                        Slider(value: $ratings, in: 0...5, step: 0.5)
-//                        Text(String(format: "%.1f", ratings))
-//                    }
                     
                     HStack(spacing: 10) {
 
