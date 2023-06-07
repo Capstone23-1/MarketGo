@@ -55,7 +55,7 @@ struct StoreView: View {
                 let storeData = store
 
                 VStack {
-                    Section(header: Text("데이터 기준 일자: \(convertDate(from: storeData.storeMarketID?.updateTime ?? ""))").font(.footnote)) {
+                    Section(header: Text("업데이트 날짜: \(convertDate(from: storeData.storeMarketID?.updateTime ?? ""))").font(.footnote)) {
                         
                         CardView(title: "가게 이름", value: storeData.storeName ?? "", iconName: "house")
                         CardView(title: "가게 번호", value: String(storeData.id ?? 0), iconName: "number.circle")
