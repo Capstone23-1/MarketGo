@@ -9,7 +9,7 @@ struct QuickPostGoodsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State private var isImagePickerPresented = false
-    
+    @State var isEnroll = false
     var body: some View {
         VStack {
             Form {
@@ -22,7 +22,7 @@ struct QuickPostGoodsView: View {
                 TextField("물품 설명", text: $viewModel.goodsInfo)
             }
         }
-        .navigationTitle("물품 등록")
+        .navigationTitle("빠른 물품 등록")
         .onAppear(perform: loadView)
         .alert(item: $viewModel.alertItem) { alertItem in
             Alert(
@@ -46,9 +46,12 @@ struct QuickPostGoodsView: View {
         }
         
         Button(action: {
-            isImagePickerPresented = true
+            Task{
+                isEnroll = true
+                await viewModel.postGoods()
+            }
         }) {
-            Text("Update")
+            Text("등록")
                 .padding()
                 .background(Color.blue)
                 .foregroundColor(.white)
@@ -86,8 +89,9 @@ struct QuickView: View {
                 Button(action: {
                     isShowingImagePicker = true
                 }) {
-                    Text("오늘의 가판대를 찍어서 빠르게 상품을 등록해주세요")
+                    Text("가판대를 찍어서 \n빠르게 상품을 등록해보세요")
                         .padding()
+                        .font(.subheadline)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
@@ -106,7 +110,7 @@ struct QuickView: View {
                                     
                                 }
                                 print("size",selectedImage?.size)
-                                //                                print("scale",selectedImage?.scale)
+    
                                 vm.fetchImageData()
                                 
                                 isShowingQuickPostGoodsView = true

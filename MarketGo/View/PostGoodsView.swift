@@ -43,7 +43,7 @@ struct PostGoodsView: View {
                 await viewModel.postGoods()
             }
         }) {
-            Text("Update")
+            Text("등록")
                 .padding()
                 .background(Color.blue)
                 .foregroundColor(.white)
