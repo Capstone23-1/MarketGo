@@ -62,5 +62,6 @@ class UserModel: ObservableObject {
     @Published var currentUser: MemberInfo? = nil
     @Published var NMap: Document?
     @Published var isStoreViewActive = false // Add this line
+    @Published var cState: [Int: Bool] = [:]
 }
 

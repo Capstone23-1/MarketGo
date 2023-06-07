@@ -12,27 +12,14 @@ struct UserMyPageView: View {
     @EnvironmentObject var userModel: UserModel
     @State var isLinkActive = false
     @State var isLogoutActive = false
+    
     var body: some View {
         VStack(spacing: 20) {
-            Spacer().frame(height: 20)
-            Image(systemName: "person.crop.circle")
-                .resizable()
-                .frame(width:100, height:100)
+            Spacer().frame(height: 200)
             
-            Spacer().frame(height: 20)
-            
-            HStack {
-                Text("이름")
-                Spacer()
-                Text("\(userModel.currentUser?.memberName ?? "")")
-                
-                
-            }
-            HStack {
-                Text("관심 시장")
-                Spacer()
-                Text("\(userModel.currentUser?.interestMarket?.marketName ?? "")")
-            }
+            CardView(title: "이름", value: userModel.currentUser?.memberName ?? "", iconName: "person")
+            CardView(title: "최근 방문 시장", value: userModel.currentUser?.interestMarket?.marketName ?? "", iconName: "house")
+           
 //            HStack {
 //                Text("장바구니")
 //                Spacer()
@@ -68,13 +55,13 @@ struct UserMyPageView: View {
                 
                 self.isLinkActive = true
             }) {
-                Text("회원정보수정")
+                Text("닉네임 변경")
                     .foregroundColor(.blue)
             }
             .sheet(isPresented: $isLinkActive) {
                 MemberProfileEditView()
             }
-            
+            Spacer()
             
            }
         .padding()
