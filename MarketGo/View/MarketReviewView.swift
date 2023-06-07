@@ -189,7 +189,7 @@ struct MarketReviewRow: View {
             switch response.result {
             case .success:
                 print("Market review deleted successfully.")
-                viewModel.fetchMarketReviews(for: marketModel.currentMarket?.marketID ?? 0) // Fetch updated reviews
+                    viewModel.fetchMarketReviews(for: userModel.currentUser?.interestMarket?.marketID ?? 0) // Fetch updated reviews
             case .failure(let error):
                 print("Error deleting market review: \(error)")
             }
