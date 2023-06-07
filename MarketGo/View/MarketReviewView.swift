@@ -154,6 +154,17 @@ struct MarketReviewRow: View {
             }
             .padding(.leading, 5)
             
+            if let dateString = review.reviewDate,
+               let date = extractDate(from: dateString) {
+                let formattedDate = formatDate(date)
+                
+                Text("작성일: \(formattedDate)")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                    .padding(5)
+            }
+            
+            
             Text(review.reviewContent ?? "")
                 .font(.body)
                 .padding(.leading, 5)
@@ -182,5 +193,20 @@ struct MarketReviewRow: View {
                 print("Error deleting market review: \(error)")
             }
         }
+    }
+    
+    private func extractDate(from dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        if let date = dateFormatter.date(from: dateString) {
+            return Calendar.current.startOfDay(for: date)
+        }
+        return nil
+    }
+    
+    private func formatDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        return dateFormatter.string(from: date)
     }
 }
