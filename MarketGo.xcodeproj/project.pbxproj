@@ -436,47 +436,39 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		2144FE7C29DD6BC0008913C4 /* Map */ = {
+		21F1C9B929DD68F60022113A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2144FE7229DD6AAA008913C4 /* CartView.swift */,
+				998BFBC42A0DD01C005F4652 /* CategoryView.swift */,
+				21AF151A2A265B3A0011A8B5 /* CircleView.swift */,
+				993AD3A42A0A72500069A27F /* ContentView.swift */,
+				21E4EC322A2F88B2004AF534 /* CouponeGeneratorView.swift */,
+				21E4EC342A2F8D3E004AF534 /* CouponeView.swift */,
+				21E4EC362A2F90CE004AF534 /* CouponUseView.swift */,
 				218F543A2A2645BE00A9A6EF /* DogamBookView.swift */,
 				218F54382A263FCA00A9A6EF /* DogamQR.swift */,
 				21AF151C2A2660520011A8B5 /* DogamQRGenerateView.swift */,
 				218F54342A255ABA00A9A6EF /* EatingHouseList.swift */,
 				21470AAF29FD0FFD00A7CEE7 /* EatingHouseMapView.swift */,
 				21470AAD29FD0F7F00A7CEE7 /* EatingHouseView.swift */,
-				210861FF2A06AF8F00EC3A60 /* FindPathView.swift */,
-				2144FE7D29DD6BCF008913C4 /* LocationManager.swift */,
-				215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */,
-				214871D92A06894700C6FD1D /* MarketOneMapView.swift */,
-				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
-				2188126529E972ED00F315EF /* ParkingLotView.swift */,
-				218F54362A258EFA00A9A6EF /* SeasonView.swift */,
-				21CBC0DD2A2D045C007DC2E4 /* QuickPostGoodsView.swift */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
-		21F1C9B929DD68F60022113A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2144FE7C29DD6BC0008913C4 /* Map */,
-				2144FE7229DD6AAA008913C4 /* CartView.swift */,
-				998BFBC42A0DD01C005F4652 /* CategoryView.swift */,
-				21AF151A2A265B3A0011A8B5 /* CircleView.swift */,
-				993AD3A42A0A72500069A27F /* ContentView.swift */,
 				210704C02A1D260800643140 /* EditGoodsView.swift */,
 				21FAE1EB2A0AC2A6006593D9 /* EditProfileView.swift */,
+				99780A1E2A304189000CB0BB /* EditStoreReviewView.swift */,
 				211F53ED2A1AA91D003DA011 /* EditStoreSellerView.swift */,
+				210861FF2A06AF8F00EC3A60 /* FindPathView.swift */,
 				99CD749329DD904600D2D782 /* FoodItemCell.swift */,
 				99CD749729DD97B300D2D782 /* FoodItemDetailView.swift */,
 				998843C32A05035D00132079 /* FoodItemListView.swift */,
-				210704BE2A1D1FB100643140 /* SellerGoodsListView.swift */,
+				9940E4D42A2F30E7006439C4 /* GoodsCompareView.swift */,
 				21D006932A15057E00C404C3 /* ImageUploadView.swift */,
+				2144FE7D29DD6BCF008913C4 /* LocationManager.swift */,
 				210862012A06D67900EC3A60 /* MapLinkView.swift */,
 				217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */,
-				21F1C9BC29DD69870022113A /* MarketInfoView.swift */,
 				214871D72A0685C300C6FD1D /* MarketInfoList.swift */,
+				21F1C9BC29DD69870022113A /* MarketInfoView.swift */,
+				215A3D1029E9B31D00DCD0B0 /* MarketMapView.swift */,
+				214871D92A06894700C6FD1D /* MarketOneMapView.swift */,
 				218F54282A24F8EF00A9A6EF /* MarketOtherSearchView.swift */,
 				218F54262A24F7E100A9A6EF /* MarketOtherTableWrapper.swift */,
 				997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */,
@@ -485,10 +477,13 @@
 				21416B7D2A0CF25F008EA3C5 /* MarketSearchTableWrapper.swift */,
 				2144FE7829DD6B4F008913C4 /* MarketSearchView.swift */,
 				218F54302A253FD300A9A6EF /* MarketTableWrapper.swift */,
+				9940E4D22A2DF007006439C4 /* MartPriceListView.swift */,
 				218F542C2A25178C00A9A6EF /* MemberProfileEditView.swift */,
 				990D2C9629E23678002ED379 /* MenuItemRow.swift */,
 				994979C42A12681A00159828 /* MenuView.swift */,
 				218F542A2A2501A500A9A6EF /* OtherMarketSearchView.swift */,
+				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
+				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				210704BC2A1D1F9800643140 /* PostGoodsView.swift */,
 				21D006972A15DB9200C404C3 /* PostStoreView.swift */,
 				99AFA2542A28413700123896 /* PriceGraphView.swift */,
@@ -497,9 +492,12 @@
 				21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */,
 				21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */,
 				21A789C42A1EE02900DD9456 /* QRReaderView.swift */,
+				21CBC0DD2A2D045C007DC2E4 /* QuickPostGoodsView.swift */,
 				998910E22A1DAFC70062C1C9 /* ReviewImageUploadView.swift */,
 				994B17C42A023653009B77E8 /* ReviewView.swift */,
 				2144FE7429DD6AF6008913C4 /* SearchBar.swift */,
+				218F54362A258EFA00A9A6EF /* SeasonView.swift */,
+				210704BE2A1D1FB100643140 /* SellerGoodsListView.swift */,
 				211F53E52A17F306003DA011 /* SellerHomeView.swift */,
 				21416B8B2A1025F0008EA3C5 /* SellerMarketChoiceView.swift */,
 				21416B752A0BBEF9008EA3C5 /* SellerSignInView.swift */,
@@ -517,12 +515,6 @@
 				998843BF2A04DE8700132079 /* UserMypageView.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
-				9940E4D22A2DF007006439C4 /* MartPriceListView.swift */,
-				9940E4D42A2F30E7006439C4 /* GoodsCompareView.swift */,
-				21E4EC322A2F88B2004AF534 /* CouponeGeneratorView.swift */,
-				21E4EC342A2F8D3E004AF534 /* CouponeView.swift */,
-				21E4EC362A2F90CE004AF534 /* CouponUseView.swift */,
-				99780A1E2A304189000CB0BB /* EditStoreReviewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
