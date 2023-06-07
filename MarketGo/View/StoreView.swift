@@ -79,7 +79,6 @@ struct StoreView: View {
   
             }
             
-            
             Button(action: {
                 isWritingReview = true
             }, label: {

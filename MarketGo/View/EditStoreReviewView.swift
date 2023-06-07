@@ -9,7 +9,6 @@ import Alamofire
 
 struct EditStoreReviewView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var marketModel: MarketModel
     
     @State private var imageUploader = ImageUploader()
     @State private var imageCate = StoreCategory(categoryID: 7, categoryName: "s_review")
