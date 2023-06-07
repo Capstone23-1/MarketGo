@@ -89,7 +89,8 @@ struct QuickView: View {
                 Button(action: {
                     isShowingImagePicker = true
                 }) {
-                    Text("가판대를 찍어서 \n빠르게 상품을 등록해보세요")
+                    Text("가격표를 찍어서 \n빠르게 상품을 등록해보세요")
+                        .font(.system(size: 20))
                         .padding()
                         .font(.subheadline)
                         .background(Color.blue)

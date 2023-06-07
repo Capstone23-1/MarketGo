@@ -43,7 +43,7 @@ struct EditStoreView: View {
                 }
             }
             .onAppear(perform: loadStoreData)
-            .navigationTitle("Update Store")
+            .navigationTitle("상점 정보 수정")
            
             
             Button(action: {
@@ -51,7 +51,7 @@ struct EditStoreView: View {
                     await updateStoreData()
                 }
             }) {
-                Text("Update")
+                Text("수정")
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(.white)

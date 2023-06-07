@@ -42,7 +42,7 @@ struct EditGoodsView: View {
                     }
                     
                 }) {
-                    Text("등록")
+                    Text("수정")
                         .padding()
                         .frame(minWidth: 35)
                         .background(Color.blue)

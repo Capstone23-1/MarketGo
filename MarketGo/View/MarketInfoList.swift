@@ -8,7 +8,7 @@ struct MarketInfoList: View {
         if let marketData = marketData {
             ScrollView {
                 VStack {
-                    Section(header: Text("데이터 기준 일자: \(convertDate(from: marketData.updateTime!))").font(.footnote)) {
+                    Section(header: Text("마지막 업데이트 \(convertDate(from: marketData.updateTime!))").font(.footnote)) {
 
                         CardView(title: "시장 이름", value: marketData.marketName ?? "", iconName: "house")
 
