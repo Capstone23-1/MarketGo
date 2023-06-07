@@ -112,6 +112,7 @@
 		994979C52A12681A00159828 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994979C42A12681A00159828 /* MenuView.swift */; };
 		994979C72A12700E00159828 /* CartJASON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994979C62A12700E00159828 /* CartJASON.swift */; };
 		994B17C52A023653009B77E8 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B17C42A023653009B77E8 /* ReviewView.swift */; };
+		99780A1F2A304189000CB0BB /* EditStoreReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99780A1E2A304189000CB0BB /* EditStoreReviewView.swift */; };
 		9979D5D42A2DE6A40000E200 /* MartPriceJASON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9979D5D32A2DE6A40000E200 /* MartPriceJASON.swift */; };
 		997BD55F2A1B30C400E7A7EE /* MarketReviewPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD55E2A1B30C400E7A7EE /* MarketReviewPostModel.swift */; };
 		997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */; };
@@ -263,6 +264,7 @@
 		994979C42A12681A00159828 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		994979C62A12700E00159828 /* CartJASON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartJASON.swift; sourceTree = "<group>"; };
 		994B17C42A023653009B77E8 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		99780A1E2A304189000CB0BB /* EditStoreReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStoreReviewView.swift; sourceTree = "<group>"; };
 		9979D5D32A2DE6A40000E200 /* MartPriceJASON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartPriceJASON.swift; sourceTree = "<group>"; };
 		997BD55E2A1B30C400E7A7EE /* MarketReviewPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewPostModel.swift; sourceTree = "<group>"; };
 		997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketReviewPostView.swift; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 				21E4EC322A2F88B2004AF534 /* CouponeGeneratorView.swift */,
 				21E4EC342A2F8D3E004AF534 /* CouponeView.swift */,
 				21E4EC362A2F90CE004AF534 /* CouponUseView.swift */,
+				99780A1E2A304189000CB0BB /* EditStoreReviewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				211F53E02A17B3CB003DA011 /* StorePostViewModel.swift in Sources */,
 				994B17C52A023653009B77E8 /* ReviewView.swift in Sources */,
 				998BFBC52A0DD01C005F4652 /* CategoryView.swift in Sources */,
+				99780A1F2A304189000CB0BB /* EditStoreReviewView.swift in Sources */,
 				21A789C52A1EE02900DD9456 /* QRReaderView.swift in Sources */,
 				998843C22A04F76800132079 /* StoreListView.swift in Sources */,
 				21FAE1DC2A0AA468006593D9 /* AppDelegateAdaptor.swift in Sources */,
