@@ -15,7 +15,7 @@ struct MarketReviewView: View {
                         ForEach(reviews) { review in
                             MarketReviewRow(review: review, viewModel: viewModel) // Pass viewModel as a parameter
                                 .environmentObject(userModel)
-                                .environmentObject(marketModel)
+//                                .environmentObject(marketModel)
                         }
                     } else {
                         ProgressView()
