@@ -118,7 +118,7 @@ class StoreDogamViewModel: ObservableObject {
         let first10IDs = Array(self.storeIDs.prefix(11))
         
         // baseURL
-        var url = "http://3.34.33.15:8080/marketIndex/\(self.indexID)?memberId=\(self.memberID)"
+        var url = "http://3.34.33.15:8080/marketIndex/\(indexID)?memberId=\(self.memberID)"
         
         // 각 스토어ID를 쿼리 문자열에 추가
         for i in 0...9 {
