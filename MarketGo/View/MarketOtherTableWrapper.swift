@@ -9,6 +9,13 @@ struct MarketOtherTableWrapper: View {
     @EnvironmentObject var marketModel: MarketModel
     @EnvironmentObject var userModel: UserModel
     @Binding var searchText:String
+    
+    
+    
+    var didSelectRowAt: ((Document) -> Void)?
+    @State private var isLoading = false // indicator 추가
+    
+    @StateObject var vm = MarketSearchViewModel()
     var filteredData: [MarketOne] {
         if searchText.isEmpty {
             return data
@@ -18,34 +25,50 @@ struct MarketOtherTableWrapper: View {
             }
         }
     }
-  
-
+    
+    
     var body: some View {
-        VStack {
-           
-            List(filteredData, id: \.marketName) { market in
-                HStack {
-                    Text(market.marketName ?? "")
-                        .onTapGesture {
+        ZStack{
+            VStack {
+                
+                List(filteredData, id: \.marketName) { market in
+                    HStack {
+                        Text(market.marketName ?? "")
+                            .onTapGesture {
+                                selectedMarket = market
+                            }
+                        Spacer()
+                        Button(action: {
                             selectedMarket = market
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                vm.fetchMarketData(marketName: (selectedMarket?.marketName)!)
+                                
+                                isLinkActive = true
+                            }
+                        }) {
+                            Image(systemName: "arrowtriangle.forward")
+                                .foregroundColor(.black)
                         }
-                    Spacer()
-                    Button(action: {
-                        
-
-                        selectedMarket = market
-                        isLinkActive = true
-                    }) {
-                        Image(systemName: "arrowtriangle.forward")
-                            .foregroundColor(.black)
+                        .background(
+                            NavigationLink(destination: MarketInfoView(selectedMarket: $vm.selectedMarket), isActive: $isLinkActive) {
+                                EmptyView()
+                            }
+                                .hidden()
+                        )
                     }
-                    .background(
-                        NavigationLink(destination: MarketInfoView(selectedMarket: $selectedMarket), isActive: $isLinkActive) {
-                            EmptyView()
-                        }
-                        .hidden()
-                    )
                 }
+            }
+            if isLoading {
+                
+                ProgressView()
+                    .scaleEffect(2)
+                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                    .frame(width: 100, height: 100)
+                    .background(Color.white.opacity(0.8))
+                    .cornerRadius(20)
+                    .shadow(radius: 10)
+                
+                
             }
         }
     }
