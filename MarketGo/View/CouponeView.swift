@@ -4,81 +4,16 @@ import Alamofire
 struct CouponElement: Codable {
     var couponID: Int?
     var storeID: StoreElement?
-    var couponInfo: String?
+    var couponInfo,discount,duration: String?
     
+            
 
     enum CodingKeys: String, CodingKey {
         case couponID = "couponId"
         case storeID = "storeId"
-        case couponInfo
+        case couponInfo,discount,duration
     }
 }
-import SwiftUI
-
-struct CouponUseView: View {
-    var coupon: CouponElement
-    @State private var isAlertPresented = false
-    @State var isCouponUsed = false
-    @EnvironmentObject var userModel : UserModel
-    
-    var body: some View {
-        VStack(spacing: 20) {
-            VStack(spacing: 8) {
-                Text("\(coupon.storeID?.storeName ?? "")")
-                    .font(.title3)
-                
-                Text("10% 할인 쿠폰")
-                    .font(.title)
-                    .foregroundColor(.black)
-                
-                if let info = coupon.couponInfo {
-                    Text(" ~ \(coupon.couponInfo ?? "") 까지")
-                        .font(.body)
-                        .foregroundColor(.gray)
-                }
-                
-                Text("주의 : 만원 이상 구매시 사용 가능")
-                    .font(.footnote)
-                    .foregroundColor(.red)
-            }
-            .padding()
-            .frame(maxWidth: .infinity,maxHeight:300)
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 0, y: 2)
-            
-            Button(action: {
-                isAlertPresented = true
-                userModel.cState[coupon.couponID ?? 0] = true
-            }) {
-                Text("사용하기")
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(isCouponUsed ? Color.gray : Color.blue)
-                    .cornerRadius(10)
-            }
-            .disabled(isCouponUsed)
-            .alert(isPresented: $isAlertPresented) {
-                Alert(
-                    title: Text("쿠폰 사용"),
-                    message: Text("쿠폰을 사용하시겠습니까?"),
-                    primaryButton: .default(Text("OK"), action: {
-                        isCouponUsed = true
-                    }),
-                    secondaryButton: .cancel()
-                )
-            }
-            .onAppear{
-                isCouponUsed = userModel.cState[coupon.couponID ?? 0] ?? false
-            }
-        }
-        .padding()
-        .navigationTitle("쿠폰 사용")
-    }
-}
-
-
 
 struct CouponView: View {
     @StateObject var viewModel = CouponViewModel()
@@ -146,10 +81,17 @@ struct CouponRow: View {
                             Text("\((coupon.storeID?.storeName) ?? "" )")
                                 .font(.title2)
                             
-                            Text("10% 할인")
-                                .font(.title)
+                            if let discount = coupon.discount {
+                                Text("\(discount)원 할인")
+                                    .font(.title)
+                            }
+                            else{
+                                Text("")
+                                    .font(.title)
+                            }
+                            
                                 
-                            Text("유효기간 : ~ \((coupon.couponInfo) ?? "")")
+                            Text(" ~ \((coupon.duration) ?? "")")
                                 .font(.footnote)
                                 .foregroundColor(.gray)
                        

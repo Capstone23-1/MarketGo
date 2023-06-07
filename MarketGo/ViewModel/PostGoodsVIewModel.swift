@@ -30,8 +30,8 @@ class PostGoodsViewModel: ObservableObject {
     var imageUploader = ImageUploader()
     
         func postGoodsData(){
-    
-            let url = "http://3.34.33.15:8080/goodsData?goodsId=\((successGoods?.goodsID)!)&price=\(goodsPrice)"
+            let enPrice = makeStringKoreanEncoded(goodsPrice.replacingOccurrences(of: "원", with: ""))
+            let url = "http://3.34.33.15:8080/goodsData?goodsId=\((successGoods?.goodsID)!)&price=\(enPrice)"
             let headers: HTTPHeaders = ["Content-Type": "application/json"]
     
     
@@ -66,7 +66,7 @@ class PostGoodsViewModel: ObservableObject {
                 print("이미지업로드성공:\(String(describing: result.uploadFileName!))")
                 
                 if let id = result.fileID {
-                    self.fileId = id
+                    fileId = id
                     //                    print("file id get : \(storePost.storeFile) id: \(id)")
                     
                 }
@@ -84,14 +84,14 @@ class PostGoodsViewModel: ObservableObject {
         let enUnit = makeStringKoreanEncoded(goodsUnit)
         let enGoodsInfo = makeStringKoreanEncoded(goodsInfo)
         let enOrigin = makeStringKoreanEncoded(goodsOrigin)
-        let enPrice = makeStringKoreanEncoded(goodsPrice)
+        let enPrice = makeStringKoreanEncoded(goodsPrice.replacingOccurrences(of: "원", with: ""))
         let url = "http://3.34.33.15:8080/goods?goodsName=\(enGoodsName)&marketId=\(String(describing: marketId))&storeId=\(String(describing: storeId))&goodsFile=\(String(describing: fileId))&goodsPrice=\(enPrice)&goodsUnit=\(enUnit)&goodsInfo=\(enGoodsInfo)&goodsOrigin=\(enOrigin)&isAvail=1"
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
         
         AF.request(url, method: .post, headers: headers)
                     .responseDecodable(of: GoodsOne.self) { response in
-                        
+//                        debugPrint(response)
                         switch response.result {
                             case .success(let goods):
                                 if response.response?.statusCode == 200 {

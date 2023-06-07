@@ -15,7 +15,9 @@ class EditGoodsViewModel: ObservableObject {
     @Published var fileId = 0
     @Published var goodsPrice = ""
     @Published var isAvail = 1
-    
+    @Published var goodsId = ""
+    @Published var alertItem: AlertItem?
+    @Published var alertDismissed = false
     init(goods: GoodsOne) {
         self.goods = goods
         loadViewModel()
@@ -42,7 +44,35 @@ class EditGoodsViewModel: ObservableObject {
         }
         
     }
-    
+    func postGoodsData(){
+        let enPrice = makeStringKoreanEncoded(goodsPrice.replacingOccurrences(of: "원", with: ""))
+        let url = "http://3.34.33.15:8080/goodsData?goodsId=\(goods)&price=\(enPrice)"
+        let headers: HTTPHeaders = ["Content-Type": "application/json"]
+
+
+        AF.request(url, method: .post, headers: headers)
+            .response { response in
+//                    debugPrint(response)
+                switch response.result {
+                    case .success(let data):
+
+                        if response.response?.statusCode == 200 {
+                            self.alertItem = AlertItem(
+                                title: Text("성공"),
+                                message: Text("상품등록에 성공하였습니다"),
+                                dismissButton: .default(Text("OK")) {
+                                    self.alertDismissed = true
+                                }
+                            )
+                        }
+                    case .failure(let error):
+                        print("Error: \(error)")
+                        // Optionally set the alert item to show an error message
+                }
+            }
+
+
+    }
     
     func updateGoods(isAvail: Binding<Int>) async {
         let enGoodsName = makeStringKoreanEncoded(goodsName)
@@ -54,10 +84,15 @@ class EditGoodsViewModel: ObservableObject {
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
         AF.request(url, method: .put, headers: headers)
-            .responseJSON { response in
+            .responseDecodable(of: GoodsOne.self) { response in
+//                        debugPrint(response)
                 switch response.result {
-                    case .success:
-                        print("굿즈 put 메서드 성공")
+                    case .success(let goods):
+                        if response.response?.statusCode == 200 {
+                            self.goodsId = String(describing: (goods.goodsID)!)
+                            self.postGoodsData()
+                           
+                        }
                     case .failure(let error):
                         print("굿즈 put 메서드 실패: \(error)")
                 }
