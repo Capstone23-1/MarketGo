@@ -27,6 +27,7 @@ struct PostStoreView: View {
             
             Section(header: Text("가게 상세 정보")) {
                 TextField("가게 정보", text: $storePost.storeInfo)
+                TextField("시장 내 가게 번호", text: $storePost.storeNum)
             }
             
             Section(header: Text("가능 여부")) {

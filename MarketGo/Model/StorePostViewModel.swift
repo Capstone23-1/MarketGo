@@ -12,7 +12,7 @@ class StorePostViewModel: ObservableObject {
     var storeInfo: String = ""
     var cardAvail: String = "가능"
     var localAvail: String = "가능"
-    var storeNum: Int = 0
+    var storeNum: String = ""
     var marketId: Int = 17
     var storeFile: Int = 24
     var storeCategory: Int = 0

@@ -27,15 +27,21 @@ struct StoreEditView: View {
         VStack {
             Form {
                 ImageUploadView(category: $imageCate.categoryName, selectedImage: $selectedImage, newImage: $newImage)
-                TextField("Store Name", text: $storeName)
-                TextField("Store Address 1", text: $storeAddress1)
-                TextField("전화번호 ex: 010-1234-1234", text: $phone)
-                TextField("가게 정보", text: $storeInfo)
-                Picker(selection: $storeCategory, label: Text("가게 분류")) {
-                    ForEach(0..<9) { index in
-                        Text(categories[index].name).tag(index)
-                    }
+                Section(header: Text("가게 정보")) {
+                    TextField("상점명", text: $storeName)
+                    TextField("상점주소", text: $storeAddress1)
+                
+                    TextField("전화번호 ex: 010-1234-1234", text: $phone)
                 }
+                Section(header: Text("가게 정보")) {
+                    TextField("가게 정보", text: $storeInfo)
+                }
+                    Picker(selection: $storeCategory, label: Text("가게 분류")) {
+                        ForEach(0..<9) { index in
+                            Text(categories[index].name).tag(index)
+                        }
+                    }
+                
                 TextField("가게 번호", text: $storeNum)
                 Section(header: Text("가능 여부")) {
                     Toggle("카드 이용 가능 여부", isOn: $cardAvail)
