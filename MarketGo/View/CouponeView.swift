@@ -14,6 +14,7 @@ struct CouponView: View {
                     ForEach(viewModel.coupons, id: \.couponID) { coupon in
                         if coupon.couponID == 0{
                             if userModel.ten == true{
+                                
                                 CouponRow(coupon: coupon)
                                     .frame(height: 200)
                                     .onTapGesture {
