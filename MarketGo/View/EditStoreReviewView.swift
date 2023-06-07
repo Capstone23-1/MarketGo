@@ -12,13 +12,15 @@ struct EditStoreReviewView: View {
     @EnvironmentObject var marketModel: MarketModel
     
     @State private var imageUploader = ImageUploader()
-    @State private var imageCate = StoreCategory(categoryID: 6, categoryName: "m_review")
+    @State private var imageCate = StoreCategory(categoryID: 7, categoryName: "s_review")
     @State private var newImage = FileInfo()
     @State private var selectedImage: UIImage? = nil
     @State private var isLoading: Bool = false
     
-    let marketReviewId: Int
-    let viewModel: MarketReviewViewModel
+    let storeReviewId: Int
+    let storeId: Int
+    let viewModel: TestViewModel
+    
     @State var ratings: Double = 0.0
     @State var reviewContent: String = ""
     @State var fileId: Int = 113
@@ -58,7 +60,7 @@ struct EditStoreReviewView: View {
             
             Button(action: {
                 Task {
-                    await updateMarketReview()
+                    await updateStoreReview()
                 }
             }) {
                 Text("리뷰 수정")
@@ -92,7 +94,7 @@ struct EditStoreReviewView: View {
         }
     }
     
-    func updateMarketReview() async {
+    func updateStoreReview() async {
         do {
             if let image = self.selectedImage {
                 let result = try await imageUploader.uploadImageToServer(image: image, category: imageCate.categoryName, id: String(imageCate.categoryID))
@@ -110,18 +112,17 @@ struct EditStoreReviewView: View {
             isLoading = false
             return
         }
-        
         let enreviewContent = makeStringKoreanEncoded(reviewContent)
-        let urlString = "http://3.34.33.15:8080/marketReview/\(marketReviewId)?ratings=\(ratings)&reviewContent=\(enreviewContent)&marketReviewFile=\(fileId)"
+        let urlString = "http://3.34.33.15:8080/storeReview/\(storeReviewId)?ratings=\(ratings)&reviewContent=\(enreviewContent)&storeReviewFile=\(fileId)"
         
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
         AF.request(urlString, method: .put, headers: headers)
             .validate(statusCode: 200..<300)
-            .responseDecodable(of: MarketReviewElement.self) { response in
+            .responseDecodable(of: StoreReviewElement.self) { response in
                 switch response.result {
                 case .success(let updatedReview):
-                    viewModel.fetchMarketReviews(for: marketModel.currentMarket?.marketID ?? 0)
+                    viewModel.fetchReviews(for: storeId)
                     print("Update successful: \(updatedReview)")
                     showAlert = true
                 case .failure(let error):
