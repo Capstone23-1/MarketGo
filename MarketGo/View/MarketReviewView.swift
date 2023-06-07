@@ -31,7 +31,7 @@ struct MarketReviewView: View {
             Button(action: {
                 isWritingReview = true
             }, label: {
-                Text("\(marketModel.currentMarket?.marketName ?? "") 리뷰 작성")
+                Text("\(userModel.currentUser?.interestMarket?.marketName ?? "") 리뷰 작성")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -43,7 +43,7 @@ struct MarketReviewView: View {
             .padding([.leading, .bottom, .trailing], 10)
         }
         .onAppear {
-            viewModel.fetchMarketReviews(for: marketModel.currentMarket?.marketID ?? 0)
+            viewModel.fetchMarketReviews(for: userModel.currentUser?.interestMarket?.marketID ?? 0)
         }
     }
 }

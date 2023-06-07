@@ -76,7 +76,7 @@ struct QRCodeReaderView: View {
             Button(action: {
                 showingScanner = true
             }) {
-                Text("Open QR Code Scanner")
+                Text("상점 QR 코드를 찍어주세요")
                     .font(.title2)
                     .padding()
                     .background(Color.blue)

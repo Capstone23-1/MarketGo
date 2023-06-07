@@ -9,6 +9,7 @@ import SwiftUI
 struct UserMainView: View {
     @State private var selectedTab = 0
     @State public var topTitle = "시장"
+    @EnvironmentObject var userModel : UserModel
 
     var body: some View {
         VStack {
@@ -54,6 +55,7 @@ struct UserMainView: View {
             Image(systemName: "cart")
                 .resizable()
         }
+          
         )
         
         

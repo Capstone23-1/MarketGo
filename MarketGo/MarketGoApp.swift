@@ -5,7 +5,7 @@ import FirebaseCore
 struct MarketGoApp: App {
     @StateObject var userModel = UserModel()
     @StateObject private var storePost = StorePostViewModel()
-    
+    @Environment(\.presentationMode) var presentationMode
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) var scenePhase
     @StateObject var cart = CartModel()
@@ -21,13 +21,24 @@ struct MarketGoApp: App {
                     if isLoading {
                         ProgressView("Loading...")
                     } else if let store = fetchedStore {
-                        NavigationLink(destination: StoreView(store: store), isActive: $userModel.isStoreViewActive) {
-                            UserMainView()
-                                .environmentObject(userModel)
-                                .environmentObject(storePost)
-                                .environmentObject(cart)
-                        
-                        }
+                        StoreView(store: store)
+                            .environmentObject(userModel)
+                            .environmentObject(storePost)
+                            .environmentObject(cart)
+                            .navigationBarBackButtonHidden(true)
+                            .navigationBarItems(leading: Button(action: {
+                                presentationMode.wrappedValue.dismiss()
+                                if let window = UIApplication.shared.windows.first {
+                                    window.rootViewController = UIHostingController(rootView: UserMainView().environmentObject(userModel).environmentObject(storePost).environmentObject(cart))
+                                    window.makeKeyAndVisible()
+                                }
+                            }) {
+                                Image(systemName: "chevron.left")
+                                Text("뒤로")
+                            })
+
+
+
                     } else {
                         SignInView()
                             .environmentObject(userModel)
@@ -42,9 +53,7 @@ struct MarketGoApp: App {
                     Task {
                         fetchedStore = try? await Config().fetchStoreById(deepLinkStoreId!)
                         isLoading = false
-                        if fetchedStore != nil {
-                            userModel.isStoreViewActive=true// Add this line
-                        }
+                       
                         
                     }
                     
