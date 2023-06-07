@@ -22,7 +22,6 @@ struct QuickPostGoodsView: View {
                 TextField("물품 설명", text: $viewModel.goodsInfo)
             }
         }
-        .navigationTitle("빠른 물품 등록")
         .onAppear(perform: loadView)
         .alert(item: $viewModel.alertItem) { alertItem in
             Alert(

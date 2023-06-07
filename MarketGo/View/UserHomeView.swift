@@ -102,6 +102,46 @@ struct UserHomeView: View {
                     .padding(.horizontal,10)
                     
                 }
+                HStack{
+                    NavigationLink(destination: CouponView()) {
+                        VStack{
+                            Text("쿠폰 찾기")
+                                .font(.title)
+                                .fontWeight(.bold)
+                            Text("")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        Image(systemName: "point.3.connected.trianglepath.dotted")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 50, height: 50)
+                            .padding(.bottom, 8)
+                            .foregroundColor(.gray)
+                    }
+                    .frame(maxWidth: .infinity,maxHeight: .infinity)
+                    .background(Color.white)
+                    .cornerRadius(20)
+                    .padding(.bottom, 10)
+                    
+                    NavigationLink(destination: MarketMapView()) {
+                        VStack{
+                            Text("시장 지도")
+                                .font(.title)
+                                .fontWeight(.bold)
+                            Text("")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                    }
+                    .frame(maxWidth: .infinity,maxHeight: .infinity)
+                    .background(Color.white)
+                    .cornerRadius(20)
+                    .padding(.bottom, 10)
+                }
+                .padding(.top)
+                
                 NavigationLink(destination: DogamBookView()) {
                     VStack{
                         Text("마켓고! 도감 모으기")
@@ -122,28 +162,8 @@ struct UserHomeView: View {
                 .frame(height: 100)
                 .background(Color.white)
                 .cornerRadius(20)
-                .padding(.top, 20)
-                NavigationLink(destination: CouponView()) {
-                    VStack{
-                        Text("쿠폰 찾기")
-                            .font(.title)
-                            .fontWeight(.bold)
-                        Text("")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    Image(systemName: "point.3.connected.trianglepath.dotted")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50)
-                        .padding(.bottom, 8)
-                        .foregroundColor(.gray)
-                }
-                .frame(maxWidth: .infinity)
-                .frame(height: 100)
-                .background(Color.white)
-                .cornerRadius(20)
-                .padding(.top, 20)
+                
+                
                 
                 
             }

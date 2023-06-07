@@ -68,7 +68,7 @@ struct MarketSearchView: View {
                         
                     } else {
                         
-                        MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
+                        MarketNaverMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
                         MarketSearchTableWrapper(data: MarketList, selected: $selectedMarket)
                         
                         

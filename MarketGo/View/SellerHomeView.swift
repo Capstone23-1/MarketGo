@@ -17,7 +17,7 @@ struct SellerHomeView: View {
                         
                         HStack {
                             if let storeID = storeID {
-                                NavigationLink(destination: EditStoreView(obse: ObservableStoreElement(storeElement: storeID))) {
+                                NavigationLink(destination: StoreEditView(obse: ObservableStoreElement(storeElement: storeID))) {
                                     HStack{
                                         
                                         Text("상점\n정보\n수정")
