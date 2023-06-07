@@ -35,14 +35,14 @@ class SellerSignInViewModel: ObservableObject {
                     // 로그인 성공 시 uid 저장
                     strongSelf.uid = Auth.auth().currentUser?.uid
                     Config().getMemberInfo(uid: strongSelf.uid!) { result in
-                        print(result)
+//                        print(result)
                         switch result {
                             case .success(let memberInfo):
                                 // 받아온 데이터를 사용하여 UI 구성 등 필요한 작업을 수행
                                 userViewModel.currentUser = memberInfo
                                 //                                self!.currentMember.currentUser=memberInfo
-                                print("여기는 SellerSignIn")
-                                print(memberInfo)
+//                                print("여기는 SellerSignIn")
+//                                print(memberInfo)
                             case .failure(let error):
                                 print(error)
                         }

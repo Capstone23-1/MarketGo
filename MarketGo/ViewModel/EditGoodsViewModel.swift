@@ -52,7 +52,7 @@ class EditGoodsViewModel: ObservableObject {
 
         AF.request(url, method: .post, headers: headers)
             .response { response in
-                    debugPrint(response)
+                    
                 switch response.result {
                     case .success(let data):
 
@@ -85,7 +85,7 @@ class EditGoodsViewModel: ObservableObject {
         
         AF.request(url, method: .put, headers: headers)
             .responseDecodable(of: GoodsOne.self) { response in
-//                        debugPrint(response)
+
                 switch response.result {
                     case .success(let goods):
                         if response.response?.statusCode == 200 {

@@ -34,13 +34,13 @@ class SellerSignUpViewModel: ObservableObject {
             
             DispatchQueue.main.async { [self] in
                 strongSelf.isLoading = false
-                print("여기는 signUp")
-                print(self?.storeMarketId)
+//                print("여기는 signUp")
+//                print(self?.storeMarketId)
                 if let error = error {
                     strongSelf.error = error.localizedDescription
                     completion(false, error)
                 } else {
-                    print("마지막 storeMarketId:\(String(describing: self?.storeMarketId))")
+//                    print("마지막 storeMarketId:\(String(describing: self?.storeMarketId))")
                     // 회원가입 성공 시 uid 저장
                     strongSelf.uid = Auth.auth().currentUser?.uid
                     let newMemberInfo = MemberPostInfo(memberID: 0, memberToken: strongSelf.uid!, memberName: self!.nickName, interestMarket: self!.storeMarketId, cartID: nil, storeID: self?.storeId, recentLatitude: nil, recentLongitude: nil)
@@ -49,7 +49,7 @@ class SellerSignUpViewModel: ObservableObject {
                             case .success(let data):
                                 // 요청 성공
                                 // 데이터를 처리하는 코드 작성
-                                print(data)
+//                                print(data)
                                 completion(true, nil)
                             case .failure(let error):
                                 // 요청 실패

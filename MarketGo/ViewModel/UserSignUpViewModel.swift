@@ -45,7 +45,7 @@ class UserSignUpViewModel: ObservableObject {
                                     //                                self?.memberId=String(describing:memberInfo.memberID)
                                     //                                StoreDogamViewModel().memberID=String(describing:memberInfo.memberID)
                                     StoreDogamViewModel().postMemeberIndex(memberID: String(describing:memberInfo.memberID))
-                                    print(memberInfo)
+//                                    print(memberInfo)
                                     
                                     // memberInfo를 활용하여 추가적인 작업 수행
                                 } catch {
@@ -71,13 +71,13 @@ class UserSignUpViewModel: ObservableObject {
 // POST 요청을 수행하는 함수
 func postCartData(completion: @escaping (Result<Cart, Error>) -> Void) {
     let url = "http://3.34.33.15:8080/cart"
-    var cartRequest = CartRequest(goodsId1: 0, unit1: 0, goodsId2: 0, unit2: 0, goodsId3: 0, unit3: 0, goodsId4: 0, unit4: 0, goodsId5: 0, unit5: 0, goodsId6: 0, unit6: 0, goodsId7: 0, unit7: 0, goodsId8: 0, unit8: 0, goodsId9: 0, unit9: 0, goodsId10: 0, unit10: 0)
+    let cartRequest = CartRequest(goodsId1: 0, unit1: 0, goodsId2: 0, unit2: 0, goodsId3: 0, unit3: 0, goodsId4: 0, unit4: 0, goodsId5: 0, unit5: 0, goodsId6: 0, unit6: 0, goodsId7: 0, unit7: 0, goodsId8: 0, unit8: 0, goodsId9: 0, unit9: 0, goodsId10: 0, unit10: 0)
     AF.request(url, method: .post, parameters: cartRequest)
         .validate()
         .responseDecodable(of: Cart.self) { (response) in
             switch response.result {
                 case .success(let storeElement):
-                    print(storeElement)
+//                    print(storeElement)
                     
                     DispatchQueue.main.async {
                         

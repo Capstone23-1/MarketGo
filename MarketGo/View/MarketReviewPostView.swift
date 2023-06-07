@@ -149,7 +149,7 @@ struct MarketReviewPostView: View {
             let headers: HTTPHeaders = ["Content-Type": "application/json"]
             AF.request(url, method: .post, headers: headers)
                 .responseJSON { response in
-                    debugPrint(response)
+                    
                     switch response.result {
                     case .success:
                         showAlert(message: "리뷰 작성이 완료되었습니다.")

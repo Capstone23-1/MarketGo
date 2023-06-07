@@ -89,6 +89,8 @@
 		21E4EC352A2F8D3E004AF534 /* CouponeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E4EC342A2F8D3E004AF534 /* CouponeView.swift */; };
 		21E4EC372A2F90CE004AF534 /* CouponUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E4EC362A2F90CE004AF534 /* CouponUseView.swift */; };
 		21E4EC392A30D280004AF534 /* MarketMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E4EC382A30D280004AF534 /* MarketMapView.swift */; };
+		21E4EC3B2A30E795004AF534 /* CouponRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E4EC3A2A30E795004AF534 /* CouponRowView.swift */; };
+		21E4EC3D2A30E7B2004AF534 /* CouponViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E4EC3C2A30E7B2004AF534 /* CouponViewModel.swift */; };
 		21F1C9BD29DD69870022113A /* MarketInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1C9BC29DD69870022113A /* MarketInfoView.swift */; };
 		21FAE1D52A0AA3F7006593D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */; };
 		21FAE1D82A0AA422006593D9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 21FAE1D72A0AA422006593D9 /* FirebaseAnalytics */; };
@@ -237,6 +239,8 @@
 		21E4EC342A2F8D3E004AF534 /* CouponeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponeView.swift; sourceTree = "<group>"; };
 		21E4EC362A2F90CE004AF534 /* CouponUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponUseView.swift; sourceTree = "<group>"; };
 		21E4EC382A30D280004AF534 /* MarketMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketMapView.swift; sourceTree = "<group>"; };
+		21E4EC3A2A30E795004AF534 /* CouponRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponRowView.swift; sourceTree = "<group>"; };
+		21E4EC3C2A30E7B2004AF534 /* CouponViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewModel.swift; sourceTree = "<group>"; };
 		21E7A4B029D6D995009EB220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21F1C9BC29DD69870022113A /* MarketInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfoView.swift; sourceTree = "<group>"; };
 		21FAE1D42A0AA3F7006593D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -430,6 +434,7 @@
 				218F542E2A25386F00A9A6EF /* MemberProfileEditViewModel.swift */,
 				218F54322A25409400A9A6EF /* MarketSearchViewModel.swift */,
 				21E4EC302A2EA6C0004AF534 /* PostGoodsVIewModel.swift */,
+				21E4EC3C2A30E7B2004AF534 /* CouponViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				998843BF2A04DE8700132079 /* UserMypageView.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
+				21E4EC3A2A30E795004AF534 /* CouponRowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -841,6 +847,7 @@
 				9940E4D52A2F30E7006439C4 /* GoodsCompareView.swift in Sources */,
 				2181EDD82A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift in Sources */,
 				2144FE7B29DD6B88008913C4 /* ShopView.swift in Sources */,
+				21E4EC3D2A30E7B2004AF534 /* CouponViewModel.swift in Sources */,
 				214871D82A0685C300C6FD1D /* MarketInfoList.swift in Sources */,
 				21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */,
 				210862002A06AF8F00EC3A60 /* FindPathView.swift in Sources */,
@@ -896,6 +903,7 @@
 				21FAE1EC2A0AC2A6006593D9 /* EditProfileView.swift in Sources */,
 				99926D092A03419F00071E3C /* StoreReviewListView.swift in Sources */,
 				997BD5632A1B846B00E7A7EE /* StoreReviewPostModel.swift in Sources */,
+				21E4EC3B2A30E795004AF534 /* CouponRowView.swift in Sources */,
 				21E4EC392A30D280004AF534 /* MarketMapView.swift in Sources */,
 				997BD5612A1B734E00E7A7EE /* MarketReviewPostView.swift in Sources */,
 				21AF151B2A265B3A0011A8B5 /* CircleView.swift in Sources */,
