@@ -66,6 +66,7 @@ struct CouponUseView: View {
                     message: Text("쿠폰을 사용하시겠습니까?"),
                     primaryButton: .default(Text("OK"), action: {
                         userModel.cState[coupon.couponID ?? 0] = 1
+                        
                         isCouponUsed = true
                     }),
                     secondaryButton: .cancel()

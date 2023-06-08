@@ -100,7 +100,8 @@ struct MarketInfoView: View {
                         vm.interestMarket = market.marketID!
                         userModel.currentUser?.interestMarket = market
                     }
-                    userModel.currentUser?.interestMarket = (vm2.selectedMarket)!
+                    
+                    
                     loadMemeber()
                     DispatchQueue.main.asyncAfter(deadline: .now()+0.4){
                         Task {

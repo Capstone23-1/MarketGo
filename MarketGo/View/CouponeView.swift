@@ -3,7 +3,7 @@ import SwiftUI
 
 struct CouponView: View {
     @StateObject var viewModel = CouponViewModel()
-    @State private var selectedCoupon: CouponElement? = nil
+    
     @EnvironmentObject var userModel : UserModel
     @State var isLoading = false
     
@@ -17,17 +17,13 @@ struct CouponView: View {
                                 
                                 CouponRow(coupon: coupon)
                                     .frame(height: 200)
-                                    .onTapGesture {
-                                        selectedCoupon = coupon
-                                    }
+                                    
                             }
                         }
                         else{
                             CouponRow(coupon: coupon)
                                 .frame(height: 200)
-                                .onTapGesture {
-                                    selectedCoupon = coupon
-                                }
+                                
                         }
                     }
                 }

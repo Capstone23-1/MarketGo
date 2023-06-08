@@ -10,6 +10,7 @@ struct CouponRow: View {
     var coupon: CouponElement
     @EnvironmentObject var userModel:UserModel
     
+    
     var body: some View {
         NavigationLink(destination: CouponUseView(coupon: coupon)) {
             
