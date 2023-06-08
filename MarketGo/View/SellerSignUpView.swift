@@ -183,7 +183,7 @@ struct SellerSignUpView: View {
                 if let id = result.fileID {
                     storePost.storeFile = id
                     print("file id get : \(storePost.storeFile) id: \(id)")
-                    storePost.marketId=selectedMarket!.marketID
+                    storePost.marketId=selectedMarket!.marketID!
                 }
             } else {
                 print("이미지를 선택하지 않았습니다.")
@@ -194,7 +194,7 @@ struct SellerSignUpView: View {
                 switch result {
                     case .success(let storeElement):
                         viewModel.storeId = storeElement.storeID!
-                        viewModel.storeMarketId=selectedMarket!.marketID
+                        viewModel.storeMarketId=selectedMarket!.marketID!
                         print("vm.marketId: \(viewModel.storeMarketId)")
                         viewModel.nickName=storeElement.storeName!
                         

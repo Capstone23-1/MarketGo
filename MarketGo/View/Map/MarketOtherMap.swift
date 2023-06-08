@@ -2,7 +2,7 @@ import SwiftUI
 import NMapsMap
 
 // TODO: 마커에 캡션 추가해야함
-struct MarketOneMapView: UIViewRepresentable {
+struct MarketOtherMap: UIViewRepresentable {
     
     @ObservedObject var locationManager = LocationManager()
     @Binding var selectedMarket: MarketOne?

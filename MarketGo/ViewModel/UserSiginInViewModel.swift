@@ -40,7 +40,7 @@ class UserSignInViewModel: ObservableObject {
                         switch result {
                             case .success(let memberInfo):
                                 // 받아온 데이터를 사용하여 UI 구성 등 필요한 작업을 수행
-                                userViewModel.currentUser = memberInfo
+                                self!.currentUser = memberInfo
                                 
                                 //                                print(memberInfo)
                             case .failure(let error):

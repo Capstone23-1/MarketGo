@@ -55,7 +55,7 @@ struct MarketOtherSearchView: View {
                         } else {
                             
                             //                        MarketMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
-                            MarketSearchTableWrapper(data: MarketList, selected: $selectedMarket,vm:vm, isLoading: $isLoading)
+                            MarketSearchOtherTableWrapper(data: MarketList, selected: $selectedMarket,vm:vm, isLoading: $isLoading)
                             
                             
                         }

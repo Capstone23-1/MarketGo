@@ -1,7 +1,13 @@
+//
+//  MarketTableWrapper.swift
+//  MarketGo
+//
+//  Created by ram on 2023/05/11.
+//
 import SwiftUI
 import Alamofire
 
-struct MarketSearchTableWrapper: View {
+struct MarketSearchOtherTableWrapper: View {
     var data: [Document]
     @Binding var selected: Document?
     @EnvironmentObject var marketModel:MarketModel
@@ -22,14 +28,15 @@ struct MarketSearchTableWrapper: View {
                         selected = market
                         vm.selectedID = market.id
 //                        didSelectRowAt?(selected!)
+                       
                     }
                     
                 Spacer()
                 Button(action: {
                     
                     
-                    vm.fetchMarketData(marketName: market.placeName)
-                    userModel.NMap = market
+                    
+                    
                     userModel.marketName = market.placeName
                     isLinkActive = true
                         isLoading = false

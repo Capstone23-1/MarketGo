@@ -12,12 +12,13 @@ import Alamofire
 class MarketSearchViewModel: ObservableObject {
     @Published var selectedMarket: MarketOne?
     @Published var selectedID: String?
+    
     func fetchMarketData(marketName: String) {
         let letter = makeStringKoreanEncoded(marketName)
         let url = "http://3.34.33.15:8080/market/marketName/\(letter)"
         AF.request(url, method: .get)
             .validate()
-            .responseDecodable(of: [MarketOne].self) { response in
+            .responseDecodable(of: [MarketOne].self) { [self] response in
                 debugPrint(response)
                 switch response.result {
                     case .success(let market):

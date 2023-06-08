@@ -150,38 +150,37 @@ struct ShopView: View {
                             .cornerRadius(20)
                             .shadow(radius: 10)
                     }
-                }
-                
-                
-            }.onAppear{
-                Task {
-                    isLoading = true
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        Task{
-                            storeModel.fetchStores(forMarketId: userModel.currentUser?.interestMarket?.marketID ?? (marketModel.currentMarket?.marketID) ?? 0)
-                            
-                            cartModel.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? (marketModel.currentMarket?.marketID) ?? 0)
-                            cartModel.updateCartItems()
-                            goodsModel.fetchGoods(forStoreMarketID: userModel.currentUser?.interestMarket?.marketID ?? (marketModel.currentMarket?.marketID) ?? 0)
-                        }
+                }.onAppear{
+                    Task {
+                        isLoading = true
                         
-                        isLoading = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            Task{
+                                print("여기는 샵뷰")
+                                print(userModel.currentUser?.interestMarket)
+                                storeModel.fetchStores(forMarketId: userModel.currentUser?.interestMarket?.marketID ?? (marketModel.currentMarket?.marketID) ?? 0)
+                                print(cartModel.cart)
+                                
+                                cartModel.fetchCart(forUserId: cartModel.cart?.cartID ?? 0)
+                                cartModel.updateCartItems()
+                                goodsModel.fetchGoods(forStoreMarketID: userModel.currentUser?.interestMarket?.marketID ?? (marketModel.currentMarket?.marketID) ?? 0)
+                            }
+                            
+                            isLoading = false
+                            
+                        }
                         
                     }
                     
                 }
                 
+                
             }
+            
             
         
     }
     
-    
-    struct ShopView_Previews: PreviewProvider {
-        static var previews: some View {
-            ShopView()
-        }
-    }
-    
+
 }

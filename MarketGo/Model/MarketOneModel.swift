@@ -27,7 +27,7 @@ struct FileInfo: Codable {
 }
 // MARK: - MarketOneElement
 struct MarketOne: Codable {
-    var marketID: Int=0
+    var marketID: Int?
     var marketName, marketAddress1, marketAddress2, marketLocation: String?
     var marketLatitude, marketLongitude: Double?
     var marketRatings: Double?

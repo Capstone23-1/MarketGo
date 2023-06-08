@@ -46,11 +46,11 @@ struct UserSignInView: View {
                     Button(action: {
                         // 버튼 클릭 시 로그인 시도
                         isLoading=true
-                        DispatchQueue.main.asyncAfter(deadline:.now()+0.5){
+                        DispatchQueue.main.asyncAfter(deadline:.now()+2.0){
                             Task{
                                 viewModel.SignIn(userViewModel: userModel) { success in
                                     if success {
-                                        DispatchQueue.main.asyncAfter(deadline:.now()+0.2){
+                                        DispatchQueue.main.asyncAfter(deadline:.now()+1.0){
                                             Task{
                                                 userModel.currentUser = viewModel.currentUser
                                                 isLoading = false

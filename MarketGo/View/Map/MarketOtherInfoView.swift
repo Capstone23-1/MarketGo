@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MarketInfoView: View {
+struct MarketOtherInfoView: View {
     @State private var selectedTab = 0
     @Binding var selectedMarket: MarketOne?
     
@@ -78,38 +78,36 @@ struct MarketInfoView: View {
         .navigationTitle((selectedMarket?.marketName ?? "시장정보"))
         .onAppear {
             isLoading = true
-            DispatchQueue.main.asyncAfter(deadline: .now()+1.0){
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
                 Task {
-                    
                     DispatchQueue.main.asyncAfter(deadline: .now()+0.2){
                         Task {
                             vm2.fetchMarketData(marketName: userModel.marketName)
+                            DispatchQueue.main.asyncAfter(deadline: .now()+0.2){
+                                Task {
+                                    userModel.currentUser?.interestMarket = vm2.selectedMarket
+                                    
+                                    if let market = userModel.currentUser?.interestMarket {
+                                        vm.interestMarket = (market.marketID!)
+                                    } else if let market = marketModel.currentMarket {
+                                        vm.interestMarket = market.marketID!
+                                    }else{
+                                        vm.interestMarket = (selectedMarket?.marketID)!
+                                    }
+                                    
+                                    loadMemeber()
+                                    
+                                    do {
+                                        try await vm.updateMemberInfo()
+                                    } catch {
+                                        print("Error while updating member info: \(error)")
+                                    }
+                                    
+                                    isLoading = false
+                                }}
                         }}
                     
                     
-                    print("userModel.currentUser.interestMarket=")
-                    print(userModel.currentUser?.interestMarket)
-                    print("vm2.선택된마켓")
-                    print(vm2.selectedMarket)
-                    if let market = vm2.selectedMarket {
-                        vm.interestMarket = (market.marketID!)
-                        userModel.currentUser?.interestMarket = market
-                    } else if let market = marketModel.currentMarket {
-                        vm.interestMarket = market.marketID!
-                        userModel.currentUser?.interestMarket = market
-                    }
-                    userModel.currentUser?.interestMarket = (vm2.selectedMarket)!
-                    loadMemeber()
-                    DispatchQueue.main.asyncAfter(deadline: .now()+0.4){
-                        Task {
-                            userModel.currentUser?.interestMarket = (vm2.selectedMarket)!
-                            do {
-                                try await vm.updateMemberInfo()
-                            } catch {
-                                print("Error while updating member info: \(error)")
-                            }
-                        }}
-                    isLoading = false
                 }
             }
         }
