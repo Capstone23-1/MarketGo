@@ -10,6 +10,7 @@ import SwiftUI
 struct GoodsCompareView: View {
     @StateObject var viewModel = GoodsViewModel()
     @EnvironmentObject var marketModel: MarketModel
+    @EnvironmentObject var userModel: UserModel
     
     let goodsName: String
     
@@ -63,7 +64,7 @@ struct GoodsCompareView: View {
             }
         }
         .onAppear {
-            viewModel.fetchGoodsCompare(goodsName: goodsName, marketId: marketModel.currentMarket?.marketID ?? 0)
+            viewModel.fetchGoodsCompare(goodsName: goodsName, marketId: userModel.currentUser?.interestMarket?.marketID ?? (marketModel.currentMarket?.marketID) ?? 0)
         }
     }
 }
