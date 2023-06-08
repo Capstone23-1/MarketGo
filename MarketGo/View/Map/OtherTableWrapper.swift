@@ -1,7 +1,7 @@
 import SwiftUI
 import Alamofire
 
-struct MarketOtherTableWrapper: View {
+struct OtherTableWrapper: View {
     var data: [MarketOne]
     
     @State private var selectedMarket: MarketOne?
@@ -52,7 +52,7 @@ struct MarketOtherTableWrapper: View {
                                 .foregroundColor(.black)
                         }
                         .background(
-                            NavigationLink(destination: MarketInfoView(selectedMarket: $vm.selectedMarket, vm2: vm), isActive: $isLinkActive) {
+                            NavigationLink(destination: OtherInfoView(selectedMarket: $vm.selectedMarket, vm2: vm), isActive: $isLinkActive) {
                                 EmptyView()
                             }
                                 .hidden()

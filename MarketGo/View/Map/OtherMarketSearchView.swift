@@ -28,7 +28,7 @@ struct OtherMarketSearchView: View {
                     }
                 }
             }
-            MarketOtherTableWrapper(data: vm.marketList, searchText: $searchText)
+            OtherTableWrapper(data: vm.marketList, searchText: $searchText)
         }
         .onAppear(perform: vm.loadData)
     }
