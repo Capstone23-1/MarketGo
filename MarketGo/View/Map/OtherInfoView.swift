@@ -47,7 +47,12 @@ struct OtherInfoView: View {
                 VStack {
                     if !isLoading {
                         if let market = userModel.currentUser?.interestMarket{
-                            MarketOneMapContainerView(latitude: Double(market.marketLatitude!), longitude: Double(market.marketLongitude!))
+                            if let lat = market.marketLatitude,let lng=market.marketLongitude{
+                                MarketOneMapContainerView(latitude: Double(lat), longitude: Double(lng))
+                            }
+                            else{
+                                MarketOneMapContainerView(latitude: cauLocation.lat, longitude: cauLocation.lng)
+                            }
                         }
                         else{
                             MarketOneMapContainerView(latitude: cauLocation.lat, longitude: cauLocation.lng)
@@ -87,6 +92,7 @@ struct OtherInfoView: View {
         .navigationTitle((selectedMarket?.marketName ?? "시장정보"))
         .onAppear {
             isLoading = true
+            userModel.marketName=(selectedMarket?.marketName)!
             DispatchQueue.main.asyncAfter(deadline: .now()+1.0){
                 Task {
                     

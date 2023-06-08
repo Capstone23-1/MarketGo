@@ -28,7 +28,7 @@ struct MarketInfoView: View {
     
     var NavigationButton: some View {
         Button(action: {
-            isLoading = true
+            
             navigate = true
         }) {
             Text("시장 선택")
@@ -44,23 +44,23 @@ struct MarketInfoView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack{
-                VStack {
-                    if !isLoading {
+                
+                if !isLoading {
+                    VStack {
                         MarketOneMapView(selectedMarket: $selectedMarket)
                             .frame(height: 200)
-                    }else{
-                        EmptyView()
-                            .frame(height: 200)
+                        MarketInfoList(marketData: $selectedMarket)
+                        
+                        NavigationButton
+                        
+                        NavigationLink(destination: UserMainView(), isActive: $navigate) {
+                            EmptyView()
+                        }
+                        .hidden()
                     }
                     
-                    MarketInfoList(marketData: $selectedMarket)
                     
-                    NavigationButton
                     
-                    NavigationLink(destination: UserMainView(), isActive: $navigate) {
-                        EmptyView()
-                    }
-                    .hidden()
                 }
                 
                 if isLoading {
@@ -71,11 +71,13 @@ struct MarketInfoView: View {
                         .background(Color.white.opacity(0.8))
                         .cornerRadius(20)
                         .shadow(radius: 10)
+                        .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                 }
             }
             
         }
         .navigationTitle((selectedMarket?.marketName ?? "시장정보"))
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             isLoading = true
             DispatchQueue.main.asyncAfter(deadline: .now()+1.0){

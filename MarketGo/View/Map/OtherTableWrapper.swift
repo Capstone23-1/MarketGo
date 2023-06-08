@@ -8,10 +8,10 @@ struct OtherTableWrapper: View {
     @State private var isLinkActive = false
     @EnvironmentObject var marketModel: MarketModel
     @EnvironmentObject var userModel: UserModel
-    @Binding var searchText:String
+    @Binding var searchText: String
     
- 
     @StateObject var vm = MarketSearchViewModel()
+    
     var filteredData: [MarketOne] {
         if searchText.isEmpty {
             return data
@@ -22,42 +22,19 @@ struct OtherTableWrapper: View {
         }
     }
     
-    
     var body: some View {
         
-        ZStack{
-            VStack {
-                
-                List(filteredData, id: \.marketName) { market in
-                    HStack {
-                        Text(market.marketName ?? "")
-                            .onTapGesture {
-                                selectedMarket = market
-                            }
-                        Spacer()
-                        Button(action: {
-                            
-                            selectedMarket = market
-                            userModel.currentUser?.interestMarket=market
-                            marketModel.currentMarket=market
-                            isLinkActive = true
-                            userModel.marketName=market.marketName!
-                               
-                            
-                        }) {
-                            Image(systemName: "arrowtriangle.forward")
-                                .foregroundColor(.black)
-                        }
-                        .background(
-                            NavigationLink(destination: OtherInfoView(selectedMarket: $vm.selectedMarket, vm2: vm), isActive: $isLinkActive) {
-                                EmptyView()
-                            }
-                                .hidden()
-                        )
-                    }
+            List(filteredData, id: \.marketName) { market in
+                NavigationLink(destination: OtherInfoView(selectedMarket: $selectedMarket, vm2: vm)) {
+                    Text(market.marketName ?? "")
+                }
+                .onTapGesture {
+                    selectedMarket = market
+                    userModel.currentUser?.interestMarket = market
+                    marketModel.currentMarket = market
+                    userModel.marketName = market.marketName!
                 }
             }
-
-        }
+        
     }
 }
