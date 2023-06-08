@@ -24,6 +24,7 @@ struct OtherTableWrapper: View {
     
     
     var body: some View {
+        
         ZStack{
             VStack {
                 
@@ -56,18 +57,7 @@ struct OtherTableWrapper: View {
                     }
                 }
             }
-//            if isLoading {
-//                
-//                ProgressView()
-//                    .scaleEffect(2)
-//                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-//                    .frame(width: 100, height: 100)
-//                    .background(Color.white.opacity(0.8))
-//                    .cornerRadius(20)
-//                    .shadow(radius: 10)
-//                
-//                
-//            }
+
         }
     }
 }

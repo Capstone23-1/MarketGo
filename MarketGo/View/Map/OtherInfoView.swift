@@ -28,7 +28,7 @@ struct OtherInfoView: View {
     
     var NavigationButton: some View {
         Button(action: {
-            isLoading = true
+            
             navigate = true
         }) {
             Text("시장 선택")
@@ -46,8 +46,14 @@ struct OtherInfoView: View {
             ZStack{
                 VStack {
                     if !isLoading {
-                        MarketOtherMap(selectedMarket: $selectedMarket)
-                            .frame(height: 200)
+                        if let market = userModel.currentUser?.interestMarket{
+                            MarketOneMapContainerView(latitude: Double(market.marketLatitude!), longitude: Double(market.marketLongitude!))
+                        }
+                        else{
+                            MarketOneMapContainerView(latitude: cauLocation.lat, longitude: cauLocation.lng)
+                        }
+                        
+                        
                         MarketInfoList(marketData: $selectedMarket)
                         
                         NavigationButton
@@ -61,7 +67,7 @@ struct OtherInfoView: View {
                             .frame(height: 200)
                     }
                     
-                   
+                    
                 }
                 
                 if isLoading {
@@ -72,7 +78,9 @@ struct OtherInfoView: View {
                         .background(Color.white.opacity(0.8))
                         .cornerRadius(20)
                         .shadow(radius: 10)
+                        .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                 }
+                
             }
             
         }
@@ -95,22 +103,30 @@ struct OtherInfoView: View {
                     if let market = vm2.selectedMarket {
                         vm.interestMarket = (market.marketID!)
                         userModel.currentUser?.interestMarket = market
-                    } else if let market = marketModel.currentMarket {
+                    } else if let market = vm2.selectedMarket {
                         vm.interestMarket = market.marketID!
                         userModel.currentUser?.interestMarket = market
                     }
-                    userModel.currentUser?.interestMarket = (vm2.selectedMarket)!
+                    
+                    
                     loadMemeber()
                     DispatchQueue.main.asyncAfter(deadline: .now()+0.4){
                         Task {
-                            userModel.currentUser?.interestMarket = (vm2.selectedMarket)!
+                            if let market = vm2.selectedMarket {
+                                vm.interestMarket = (market.marketID!)
+                                userModel.currentUser?.interestMarket = market
+                            } else if let market = vm2.selectedMarket {
+                                vm.interestMarket = market.marketID!
+                                userModel.currentUser?.interestMarket = market
+                            }
                             do {
                                 try await vm.updateMemberInfo()
                             } catch {
                                 print("Error while updating member info: \(error)")
                             }
+                            isLoading = false
                         }}
-                    isLoading = false
+                    
                 }
             }
         }
