@@ -5,12 +5,17 @@ struct MarketMapView: View {
     @State private var scale: CGFloat = 1.0
     @EnvironmentObject var userModel: UserModel
     @State var isLoading = false
+    @State var isUnavailable = false
     
     var body: some View {
         ZStack {
             GeometryReader { geo in
                 ScrollView([.horizontal, .vertical], showsIndicators: false) {
-                    if let image = selectedImage {
+                    if isUnavailable {
+                        Text("지도를 제공하지 않는 시장입니다.")
+                            .font(.title)
+                            .padding()
+                    } else if let image = selectedImage {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
@@ -18,6 +23,7 @@ struct MarketMapView: View {
                             .scaleEffect(scale)
                     }
                 }
+
             }
             
             VStack {
@@ -59,10 +65,14 @@ struct MarketMapView: View {
         isLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             Task {
+                guard let fileId = userModel.currentUser?.interestMarket?.marketMap?.fileID, fileId != 0 else {
+                    isUnavailable = true
+                    isLoading = false
+                    return
+                }
                 do {
-                    let fileId = (userModel.currentUser?.interestMarket?.marketMap?.fileID)!
-                    print("fileId: \(String(describing: fileId))")
-                    let fileInfo = try await ImageDownloader().fetchImageFileInfo(url: "http://3.34.33.15:8080/file/\(String(describing: fileId))")
+                    print("fileId: \(fileId)")
+                    let fileInfo = try await ImageDownloader().fetchImageFileInfo(url: "http://3.34.33.15:8080/file/\(fileId)")
                     selectedImage = try await ImageDownloader().fetchImage(fileInfo: fileInfo)
                 } catch {
                     print("Failed to fetch image: \(error)")
