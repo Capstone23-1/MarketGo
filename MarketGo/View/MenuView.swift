@@ -19,13 +19,14 @@ struct MenuView: View {
                 .fontWeight(.bold)
                 .padding()
             // Menu Board
-            if !goodsViewModel.goods.isEmpty {
+            if !goodsViewModel.goods.isEmpty{
                 List(goodsViewModel.goods) { good in
-                    NavigationLink(destination: FoodItemDetailView(goods: good)) {
-                        MenuItemRow(goods: good, storeID: good.goodsStore?.storeID ?? 0)
-                            .foregroundColor(.black)
+                    if good.isAvail == 1 { // Check if isAvail is 1
+                        NavigationLink(destination: FoodItemDetailView(goods: good)) {
+                            MenuItemRow(goods: good, storeID: good.goodsStore?.storeID ?? 0)
+                                .foregroundColor(.black)
+                        }
                     }
-                    
                 }
             } else {
                 Text("등록된 메뉴 없음")
@@ -37,3 +38,4 @@ struct MenuView: View {
         }
     }
 }
+
