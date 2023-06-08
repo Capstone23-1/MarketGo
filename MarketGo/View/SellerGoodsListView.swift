@@ -66,7 +66,7 @@ struct SellerGoodsListView: View {
                                 Spacer()
                                 // 상품 수정 링크
                                 NavigationLink(destination: EditGoodsView(viewModel: EditGoodsViewModel(goods: goods))) {
-                                    Text("Edit")
+                                    Text("수정")
                                         .foregroundColor(.blue)
                                         .padding(.all, 10)
                                         .overlay(
