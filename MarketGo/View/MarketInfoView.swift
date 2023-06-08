@@ -45,8 +45,11 @@ struct MarketInfoView: View {
         GeometryReader { geometry in
             ZStack{
                 VStack {
-                    MarketOneMapView(selectedMarket: $selectedMarket)
-                        .frame(height: 200)
+                    if !isLoading {
+                        MarketOneMapView(selectedMarket: $selectedMarket)
+                            .frame(height: 200)
+                    }
+                    
                     MarketInfoList(marketData: $selectedMarket)
                     
                     NavigationButton
@@ -55,8 +58,8 @@ struct MarketInfoView: View {
                         EmptyView()
                     }
                     .hidden()
-                    
                 }
+
                 if isLoading {
                     ProgressView()
                         .scaleEffect(2)
@@ -71,52 +74,29 @@ struct MarketInfoView: View {
         }
         .navigationTitle((selectedMarket?.marketName ?? "시장정보"))
         .onAppear {
-            isLoading = true
-   
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ) {
-                print("여기는 마켓인포뷰 :selectedMarket 지도 들어가라 얍")
-                print(selectedMarket)
-                    Task{
-                       
-                        userModel.currentUser?.interestMarket = vm2.selectedMarket
-//                        self.selectedMarket=userModel.currentUser?.interestMarket
-                        print("여기는 마켓인포뷰")
-                        print(userModel.currentUser?.interestMarket)
-                        
-                        if let market = userModel.currentUser?.interestMarket{
-                            vm.interestMarket = (market.marketID)
-                        }else if let market = marketModel.currentMarket{
-                            vm.interestMarket = market.marketID
-                        }
-                        loadMemeber()
-//                        if let market = selectedMarket{
-//                            vm.interestMarket = (market.marketID)
-//                            userModel.currentUser?.interestMarket = market
-//                            marketModel.currentMarket=market
-//                        }
-                        do {
-                            try await vm.updateMemberInfo()
-//                            if let market = selectedMarket{
-//                                userModel.currentUser?.interestMarket = selectedMarket
-//                                marketModel.currentMarket=market
-//                            }
-//                            if let market = vm.successMemberInfo?.interestMarket{
-//                                userModel.currentUser?.interestMarket = market
-//                                marketModel.currentMarket=market
-//                            }
-                            
-                        } catch {
-                            print("Error while updating member info: \(error)")
-                        }
-                        
-                    }
-                    isLoading = false
-                    
+            Task {
+                isLoading = true
                 
+                userModel.currentUser?.interestMarket = vm2.selectedMarket
                 
+                if let market = userModel.currentUser?.interestMarket {
+                    vm.interestMarket = (market.marketID)
+                } else if let market = marketModel.currentMarket {
+                    vm.interestMarket = market.marketID
+                }
                 
+                loadMemeber()
+                
+                do {
+                    try await vm.updateMemberInfo()
+                } catch {
+                    print("Error while updating member info: \(error)")
+                }
+                
+                isLoading = false
             }
         }
+
     }
 }
 
@@ -129,12 +109,14 @@ struct MarketOneMapView: UIViewRepresentable {
     @ObservedObject var locationManager = LocationManager()
     @Binding var selectedMarket: MarketOne?
     
+    
     var cauLocation = CoordinateInfo(lat: 37.505080, lng: 126.9571020)
     public let mapView = NMFNaverMapView()
     func makeUIView(context: Context) -> NMFNaverMapView {
+        
         mapView.showLocationButton = true
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+        DispatchQueue.main.async {
             print("여기는 마켓원맵뷰")
             print(selectedMarket)
             
@@ -151,6 +133,7 @@ struct MarketOneMapView: UIViewRepresentable {
             
             
         }
+        
         
         return mapView
     }

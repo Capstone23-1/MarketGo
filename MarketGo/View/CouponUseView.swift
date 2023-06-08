@@ -9,8 +9,17 @@ struct CouponUseView: View {
     var body: some View {
         VStack(spacing: 20) {
             VStack(spacing: 8) {
-                Text("\(coupon.storeID?.storeName ?? "")")
-                    .font(.body)
+                
+                if coupon.couponID == 0 {
+                    Text("\((userModel.currentUser?.interestMarket?.marketName)!) 내 모든 가게")
+                        .font(.headline)
+                        
+                }
+                else{
+                    Text("상점명 : \(coupon.storeID?.storeName ?? "")")
+                        .font(.headline)
+                }
+                
                     
                 
                 

@@ -32,19 +32,21 @@ struct UserSignUpView: View {
                 .cornerRadius(8)
             
             SecureField("비밀번호", text: $viewModel.password)
+                .textContentType(.newPassword)
                 .padding()
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
-                .textContentType(.none)
+                
             SecureField("비밀번호 확인", text: $viewModel.confirmPassword)
+                .textContentType(.newPassword) 
                 .padding()
                 .background(Color(.systemGray6))
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .cornerRadius(8)
-                .textContentType(.none)
+                
             if let error = viewModel.error {
                 Text(error)
                     .foregroundColor(.red)

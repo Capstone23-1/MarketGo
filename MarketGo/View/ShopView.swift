@@ -38,153 +38,154 @@ struct ShopView: View {
     }
     
     var body: some View {
-        ZStack{
+        
             VStack(alignment: .leading) {
-                
-                VStack(alignment: .leading){
-                    
-                    ScrollView{
+                ZStack{
+                    VStack(alignment: .leading){
                         
-                        VStack { // ScrollView 추가
-                            Spacer()
+                        ScrollView{
                             
-                            HStack{
-                                
-                                Text("가게 랭킹 top3 (리뷰 많은 순) ")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.horizontal)
+                            VStack { // ScrollView 추가
                                 Spacer()
-                                NavigationLink(destination: StoreListView()){
-                                    Text("가게 더보기 > ")
-                                        .foregroundColor(.black)
+                                
+                                HStack{
+                                    
+                                    Text("가게 랭킹 top3 (리뷰 많은 순) ")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                         .padding(.horizontal)
+                                    Spacer()
+                                    NavigationLink(destination: StoreListView()){
+                                        Text("가게 더보기 > ")
+                                            .foregroundColor(.black)
+                                            .padding(.horizontal)
+                                    }
                                 }
-                            }
-                            
-                            
-                            LazyVStack { // LazyVStack 사용
-                                ForEach(filteredStores.indices, id: \.self) { index in
-                                    let store = filteredStores[index]
-                                    NavigationLink(destination: StoreView(store: store)){
-                                        
-                                        HStack {
+                                
+                                
+                                LazyVStack { // LazyVStack 사용
+                                    ForEach(filteredStores.indices, id: \.self) { index in
+                                        let store = filteredStores[index]
+                                        NavigationLink(destination: StoreView(store: store)){
                                             
-                                            VStack {
+                                            HStack {
                                                 
-                                                if let fileData = store.storeFile {
-                                                    RemoteImage(url: URL(string: fileData.uploadFileURL ?? ""))
+                                                VStack {
                                                     
-                                                } else {
-                                                    Text("Loading...")
+                                                    if let fileData = store.storeFile {
+                                                        RemoteImage(url: URL(string: fileData.uploadFileURL ?? ""))
+                                                        
+                                                    } else {
+                                                        Text("Loading...")
+                                                    }
+                                                }
+                                                
+                                                
+                                                VStack(alignment: .leading, spacing: 10) {
+                                                    Text(store.storeName ?? "")
+                                                        .font(.headline)
+                                                        .foregroundColor(.black)
+                                                    
+                                                    Text("작성된 리뷰 \(store.reviewCount ?? 0)개 > ")
+                                                        .font(.subheadline)
+                                                        .foregroundColor(.black)
+                                                    
+                                                }
+                                                Spacer()
+                                                HStack {
+                                                    Image(systemName: "star.fill")
+                                                        .foregroundColor(.yellow)
+                                                    Text(String(format: "%.1f", store.storeRatings ?? 0.0))
+                                                        .font(.subheadline)
+                                                        .foregroundColor(.black)
                                                 }
                                             }
+                                            .padding()
                                             
-                                            
-                                            VStack(alignment: .leading, spacing: 10) {
-                                                Text(store.storeName ?? "")
-                                                    .font(.headline)
-                                                    .foregroundColor(.black)
-                                                
-                                                Text("작성된 리뷰 \(store.reviewCount ?? 0)개 > ")
-                                                    .font(.subheadline)
-                                                    .foregroundColor(.black)
-                                                
-                                            }
-                                            Spacer()
-                                            HStack {
-                                                Image(systemName: "star.fill")
-                                                    .foregroundColor(.yellow)
-                                                Text(String(format: "%.1f", store.storeRatings ?? 0.0))
-                                                    .font(.subheadline)
-                                                    .foregroundColor(.black)
-                                            }
                                         }
-                                        .padding()
-                                        
-                                    }
-                                }
-                                
-                            }
-                            
-                        }.onAppear {
-                            
-                            Task {
-                                isLoading = true
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    Task{
-                                        storeModel.fetchStores(forMarketId: userModel.currentUser?.interestMarket?.marketID ?? 0)
-                                        cartModel.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
-                                        cartModel.updateCartItems()
-                                        }
-                                        
-                                    isLoading = false
                                     }
                                     
                                 }
+                                
+                            }.onAppear {
+                                
+                                Task {
+                                    isLoading = true
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        Task{
+                                            storeModel.fetchStores(forMarketId: userModel.currentUser?.interestMarket?.marketID ?? 0)
+                                            cartModel.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? 0)
+                                            cartModel.updateCartItems()
+                                        }
+                                        
+                                        isLoading = false
+                                    }
+                                    
+                                }
+                            }
+                            
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text("상품")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .padding(.horizontal)
+                                    Spacer()
+                                    NavigationLink(destination: FoodItemListView(marketId: userModel.currentUser?.interestMarket?.marketID ?? 0)) {
+                                        Text("상품 더보기 >")
+                                            .foregroundColor(.black)
+                                            .padding(.horizontal)
+                                    }
+                                }
+                                
+                                
+                                LazyVGrid(columns: layout) {
+                                    ForEach(goodsModel.goods.prefix(12)) { item in
+                                        NavigationLink(destination: FoodItemDetailView(goods: item)) {
+                                            FoodItemCell(goods: item)
+                                                .foregroundColor(.black)
+                                        }
+                                    }
+                                }
+                                .padding([.top, .leading, .trailing], 16.0)
+                                
+                            }
+                            .onAppear {
+                                Task {
+                                    isLoading = true
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                        Task{
+                                            goodsModel.fetchGoods(forStoreMarketID: userModel.currentUser?.interestMarket?.marketID ?? (marketModel.currentMarket?.marketID) ?? 0)
+                                        }
+                                        
+                                        isLoading = false
+                                    }
+                                    
+                                }
+                                
+                                
+                            }
                         }
                         
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text("상품")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.horizontal)
-                                Spacer()
-                                NavigationLink(destination: FoodItemListView(marketId: userModel.currentUser?.interestMarket?.marketID ?? 0)) {
-                                    Text("상품 더보기 >")
-                                        .foregroundColor(.black)
-                                        .padding(.horizontal)
-                                }
-                            }
-                            
-                            
-                            LazyVGrid(columns: layout) {
-                                ForEach(goodsModel.goods.prefix(12)) { item in
-                                    NavigationLink(destination: FoodItemDetailView(goods: item)) {
-                                        FoodItemCell(goods: item)
-                                            .foregroundColor(.black)
-                                    }
-                                }
-                            }
-                            .padding([.top, .leading, .trailing], 16.0)
-                            
-                        }
-                        .onAppear {
-                            Task {
-                                isLoading = true
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                    Task{
-                                        goodsModel.fetchGoods(forStoreMarketID: userModel.currentUser?.interestMarket?.marketID ?? (marketModel.currentMarket?.marketID) ?? 0)
-                                        }
-                                        
-                                    isLoading = false
-                                    }
-                                    
-                                }
-                                
-                                
-                            }
-                        }
-                       
                         
                     }
                     
                     
-                    
+                    if isLoading {
+                        ProgressView()
+                            .scaleEffect(2)
+                            .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                            .frame(width: 100, height: 100)
+                            .background(Color.white.opacity(0.8))
+                            .cornerRadius(20)
+                            .shadow(radius: 10)
+                    }
+                }
                 
                 
             }
-            if isLoading {
-                ProgressView()
-                    .scaleEffect(2)
-                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                    .frame(width: 100, height: 100)
-                    .background(Color.white.opacity(0.8))
-                    .cornerRadius(20)
-                    .shadow(radius: 10)
-            }
-        }
+            
+        
     }
     
     

@@ -19,7 +19,7 @@ struct CouponRow: View {
                             .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 0, y: 2)
                         
                         VStack(alignment: .leading, spacing: 8) {
-                            if userModel.ten == true{
+                            if userModel.ten == true,coupon.couponID == 0{
                                 Text((userModel.currentUser?.interestMarket?.marketName)!)
                                     .font(.title2)
                             }

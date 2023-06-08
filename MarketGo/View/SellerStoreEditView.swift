@@ -26,14 +26,14 @@ struct StoreEditView: View {
     var body: some View {
         VStack {
             Form {
-                ImageUploadView(category: $imageCate.categoryName, selectedImage: $selectedImage, newImage: $newImage)
-                Section(header: Text("가게 정보")) {
+                ImageUploadView2(category: $imageCate.categoryName, selectedImage: $selectedImage, newImage: $newImage)
+                Section(header: Text("가게명,주소,연락처")) {
                     TextField("상점명", text: $storeName)
                     TextField("상점주소", text: $storeAddress1)
                 
                     TextField("전화번호 ex: 010-1234-1234", text: $phone)
                 }
-                Section(header: Text("가게 정보")) {
+                Section(header: Text("가게 정보 설명란")) {
                     TextField("가게 정보", text: $storeInfo)
                 }
                     Picker(selection: $storeCategory, label: Text("가게 분류")) {

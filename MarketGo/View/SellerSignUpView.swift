@@ -24,7 +24,7 @@ struct SellerSignUpView: View {
         NavigationView {
             ZStack{
                 Form {
-                    ImageUploadView(category: $imageCate.categoryName,  selectedImage: $selectedImage, newImage: $newImage)
+                    ImageUploadView2(category: $imageCate.categoryName,  selectedImage: $selectedImage, newImage: $newImage)
                     
                     TextField("가게명", text: $storeName)
                         .autocapitalization(.none)

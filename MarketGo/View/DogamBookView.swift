@@ -137,13 +137,13 @@ class StoreDogamViewModel: ObservableObject {
                     
                 }
                 
-//                print(String(describing:first10IDs[i].count)+"이것은 \(i)번째 count"+storeId)
+                print(String(describing:first10IDs[i].count)+"이것은 \(i)번째 count"+storeId)
                 url += "&storeId\(i+1)=\(storeId)"
             }
             
         }
         
-        
+        print(url)
         // PUT 요청
         AF.request(url, method: .put).response { response in
             
@@ -171,7 +171,7 @@ class StoreDogamViewModel: ObservableObject {
 //                                print(indexInfo)
                                 let storeIds = [indexInfo.storeId1, indexInfo.storeId2, indexInfo.storeId3, indexInfo.storeId4, indexInfo.storeId5, indexInfo.storeId6, indexInfo.storeId7, indexInfo.storeId8, indexInfo.storeId9, indexInfo.storeId10]
                                 self.indexID = String(describing: (indexInfo.indexID)!)
-
+                                print(self.indexID)
                                 for i in 0..<10 {
                                     if storeIds[i]?.storeID == 0 {
                                         self.arr[i] = ""
@@ -182,11 +182,11 @@ class StoreDogamViewModel: ObservableObject {
                                         self.filledCoupons+=1
                                         
                                     }
-//                                    print("i=\(String(describing:i)) arr[i]"+self.arr[i]+"storeIDS[i]="+self.storeIDs[i])
+                                    print("i=\(String(describing:i)) arr[i]"+self.arr[i]+"storeIDS[i]="+self.storeIDs[i])
                                 }
                             }
-//                            print(self.arr)
-//                            print(self.storeIDs)
+                            print(self.arr)
+                            print(self.storeIDs)
                         }
                     case .failure(let error):
                         print("Error: \(error)")

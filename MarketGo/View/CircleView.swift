@@ -21,9 +21,9 @@ struct CircleView: View {
             Text(storeName)
                 .font(.subheadline)
                 .foregroundColor(.black)
-                .frame(width: 70, height: 30)
-                .lineLimit(nil) // 두 줄로 표기되도록 설정
+                .frame(width: 70, height: 40)
                 .multilineTextAlignment(.center) // 가운데 정렬
+                .lineLimit(2) // 최대 2줄로 제한
         }
     }
 }
