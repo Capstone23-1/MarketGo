@@ -10,11 +10,7 @@ struct OtherTableWrapper: View {
     @EnvironmentObject var userModel: UserModel
     @Binding var searchText:String
     
-    
-    
-    var didSelectRowAt: ((Document) -> Void)?
-    @State private var isLoading = false // indicator 추가
-    
+ 
     @StateObject var vm = MarketSearchViewModel()
     var filteredData: [MarketOne] {
         if searchText.isEmpty {
@@ -41,11 +37,11 @@ struct OtherTableWrapper: View {
                         Button(action: {
                             
                             selectedMarket = market
-                            
-                                Task {
-                                    await vm.fetchMarketData(marketName: (selectedMarket?.marketName)!)
-                                    isLinkActive = true
-                                }
+                            userModel.currentUser?.interestMarket=market
+                            marketModel.currentMarket=market
+                            isLinkActive = true
+                            userModel.marketName=market.marketName!
+                               
                             
                         }) {
                             Image(systemName: "arrowtriangle.forward")
@@ -60,18 +56,18 @@ struct OtherTableWrapper: View {
                     }
                 }
             }
-            if isLoading {
-                
-                ProgressView()
-                    .scaleEffect(2)
-                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                    .frame(width: 100, height: 100)
-                    .background(Color.white.opacity(0.8))
-                    .cornerRadius(20)
-                    .shadow(radius: 10)
-                
-                
-            }
+//            if isLoading {
+//                
+//                ProgressView()
+//                    .scaleEffect(2)
+//                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+//                    .frame(width: 100, height: 100)
+//                    .background(Color.white.opacity(0.8))
+//                    .cornerRadius(20)
+//                    .shadow(radius: 10)
+//                
+//                
+//            }
         }
     }
 }

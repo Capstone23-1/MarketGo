@@ -46,21 +46,22 @@ struct OtherInfoView: View {
             ZStack{
                 VStack {
                     if !isLoading {
-                        MarketOneMapView(selectedMarket: $selectedMarket)
+                        MarketOtherMap(selectedMarket: $selectedMarket)
                             .frame(height: 200)
+                        MarketInfoList(marketData: $selectedMarket)
+                        
+                        NavigationButton
+                        
+                        NavigationLink(destination: UserMainView(), isActive: $navigate) {
+                            EmptyView()
+                        }
+                        .hidden()
                     }else{
                         EmptyView()
                             .frame(height: 200)
                     }
                     
-                    MarketInfoList(marketData: $selectedMarket)
-                    
-                    NavigationButton
-                    
-                    NavigationLink(destination: UserMainView(), isActive: $navigate) {
-                        EmptyView()
-                    }
-                    .hidden()
+                   
                 }
                 
                 if isLoading {

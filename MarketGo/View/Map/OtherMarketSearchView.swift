@@ -10,24 +10,7 @@ struct OtherMarketSearchView: View {
     var body: some View {
         VStack {
             SearchBar(searchText: $searchText,placeHolder: $placeHoldr)
-            HStack {
-                Spacer()
-                Picker(selection: $vm.sortOption, label: Text("지역")) {
-                    Text("서울").tag(0)
-                    Text("제주").tag(1)
-                }
-                .padding(.horizontal)
-                .foregroundColor(.gray)
-                .onChange(of: vm.sortOption) { newValue in
-                    if newValue == 1 {
-                        vm.location = "제주"
-                        vm.loadData()
-                    } else {
-                        vm.location = "서울"
-                        vm.loadData()
-                    }
-                }
-            }
+            
             OtherTableWrapper(data: vm.marketList, searchText: $searchText)
         }
         .onAppear(perform: vm.loadData)
