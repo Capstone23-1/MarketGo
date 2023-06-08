@@ -188,17 +188,3 @@ struct UserHomeView: View {
         
     }
 }
-
-struct BannerView: View {
-    var body: some View {
-        Text("Banner View")
-            .font(.title)
-            .navigationBarTitle("Banner", displayMode: .inline)
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserHomeView()
-    }
-}

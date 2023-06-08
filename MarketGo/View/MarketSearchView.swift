@@ -80,7 +80,7 @@ struct MarketSearchView: View {
                 
             }
             .onAppear {
-                
+                searchText = ""
                 let viewModel = MarketViewModel()
                 isLoading = true // 로딩 시작
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -107,6 +107,7 @@ struct MarketSearchView: View {
             
             
         }
+        
         
     }
 }
