@@ -11,7 +11,7 @@ struct CouponUseView: View {
             VStack(spacing: 8) {
                 
                 if coupon.couponID == 0 {
-                    Text("\((userModel.currentUser?.interestMarket?.marketName)!) 내 모든 가게")
+                    Text("도감 이벤트에 참여하는 모든 가게")
                         .font(.headline)
                         
                 }
@@ -50,7 +50,7 @@ struct CouponUseView: View {
             
             Button(action: {
                 isAlertPresented = true
-                userModel.cState[coupon.couponID ?? 0] = true
+                
             }) {
                 Text("사용하기")
                     .foregroundColor(.white)
@@ -65,13 +65,22 @@ struct CouponUseView: View {
                     title: Text("쿠폰 사용"),
                     message: Text("쿠폰을 사용하시겠습니까?"),
                     primaryButton: .default(Text("OK"), action: {
+                        userModel.cState[coupon.couponID ?? 0] = 1
                         isCouponUsed = true
                     }),
                     secondaryButton: .cancel()
                 )
             }
             .onAppear{
-                isCouponUsed = userModel.cState[coupon.couponID ?? 0] ?? false
+                if let tmp = userModel.cState[coupon.couponID ?? 0]{
+                    if tmp == 1{
+                        isCouponUsed = true
+                    }else{
+                        isCouponUsed = false
+                    }
+                    
+                }
+                
             }
         }
         .padding()
