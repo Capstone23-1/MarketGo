@@ -12,6 +12,7 @@ struct UserMyPageView: View {
     @EnvironmentObject var userModel: UserModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var isLogoutActive = false
+    @State var isLinkActive = false
     
     var body: some View {
         VStack(spacing: 20) {
@@ -36,12 +37,12 @@ struct UserMyPageView: View {
             
             // 다른 기능을 위한 버튼 예시
             Button(action: {
-                // ...
+                self.isLinkActive = true
             }) {
                 Text("닉네임 변경")
                     .foregroundColor(.blue)
             }
-            .sheet(isPresented: $isLogoutActive) {
+            .sheet(isPresented: $isLinkActive) {
                 MemberProfileEditView()
             }
             
