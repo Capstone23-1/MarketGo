@@ -69,7 +69,7 @@ struct MarketSearchView: View {
                     } else {
                         
                         MarketNaverMapView(marketList: $MarketList, selectedMarket: $selectedMarket)
-                        MarketSearchTableWrapper(data: MarketList, selected: $selectedMarket)
+                        MarketSearchTableWrapper(data: MarketList, selected: $selectedMarket, isLoading: $isLoading)
                         
                         
                     }
@@ -83,7 +83,7 @@ struct MarketSearchView: View {
                 
                 let viewModel = MarketViewModel()
                 isLoading = true // 로딩 시작
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     viewModel.searchMarket(location: locationManager.userLocation ?? cauLocation, queryKeyword: "시장") { result in
                         switch result {
                             case .success(let parkingLotData):

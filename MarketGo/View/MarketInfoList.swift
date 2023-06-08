@@ -30,10 +30,6 @@ struct MarketInfoList: View {
             }
             .padding() // Adding padding for better spacing
             .background(Color.white)
-        } else {
-            Text("데이터를 불러오는 데 실패했습니다.")
-                .foregroundColor(.red)
-                .font(.headline)
         }
     }
 

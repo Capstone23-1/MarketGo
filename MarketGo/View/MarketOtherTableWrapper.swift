@@ -39,18 +39,20 @@ struct MarketOtherTableWrapper: View {
                             }
                         Spacer()
                         Button(action: {
+                            
                             selectedMarket = market
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                vm.fetchMarketData(marketName: (selectedMarket?.marketName)!)
-                                
-                                isLinkActive = true
-                            }
+                            
+                                Task {
+                                    await vm.fetchMarketData(marketName: (selectedMarket?.marketName)!)
+                                    isLinkActive = true
+                                }
+                            
                         }) {
                             Image(systemName: "arrowtriangle.forward")
                                 .foregroundColor(.black)
                         }
                         .background(
-                            NavigationLink(destination: MarketInfoView(selectedMarket: $vm.selectedMarket), isActive: $isLinkActive) {
+                            NavigationLink(destination: MarketInfoView(selectedMarket: $vm.selectedMarket, vm2: vm), isActive: $isLinkActive) {
                                 EmptyView()
                             }
                                 .hidden()
