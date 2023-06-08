@@ -7,7 +7,7 @@ struct DefaultImageView: View {
     @Environment(\.presentationMode) var presentationMode
     
     // Basic fruit images
-    let fruitImages = ["apple", "banana", "broccoli", "carrot", "grape", "melon", "orange", "pineapple", "potato", "tomato", "watermelon"]
+    let fruitImages = ["apple", "banana", "broccoli", "carrot", "grape", "melon", "orange", "pineapple", "potato", "tomato", "watermelon","beef","pork","fish"]
         .compactMap { UIImage(named: $0) }
     
     var body: some View {

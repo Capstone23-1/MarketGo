@@ -24,7 +24,7 @@ struct MarketInfoView: View {
             vm.recentLongitude = memberInfo.recentLongitude ?? 0.0
         }
     }
-
+    
     
     var NavigationButton: some View {
         Button(action: {
@@ -48,6 +48,9 @@ struct MarketInfoView: View {
                     if !isLoading {
                         MarketOneMapView(selectedMarket: $selectedMarket)
                             .frame(height: 200)
+                    }else{
+                        EmptyView()
+                            .frame(height: 200)
                     }
                     
                     MarketInfoList(marketData: $selectedMarket)
@@ -59,7 +62,7 @@ struct MarketInfoView: View {
                     }
                     .hidden()
                 }
-
+                
                 if isLoading {
                     ProgressView()
                         .scaleEffect(2)
@@ -98,7 +101,7 @@ struct MarketInfoView: View {
                 }
             }
         }
-
+        
     }
 }
 
