@@ -10,7 +10,7 @@ import SwiftUI
 
 struct UserMyPageView: View {
     @EnvironmentObject var userModel: UserModel
-    @State var isLinkActive = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var isLogoutActive = false
     
     var body: some View {
@@ -20,51 +20,43 @@ struct UserMyPageView: View {
             CardView(title: "이름", value: userModel.currentUser?.memberName ?? "", iconName: "person")
             CardView(title: "최근 방문 시장", value: userModel.currentUser?.interestMarket?.marketName ?? "", iconName: "house")
            
-//            HStack {
-//                Text("장바구니")
-//                Spacer()
-//                //Text("\(userModel.currentUser?.cartID ?? 0)")
-//            }
-//            HStack {
-//                Text("member id")
-//                Spacer()
-//                Text("\(userModel.currentUser?.memberID ?? 0)")
-//                    .font(.footnote)
-//                    .foregroundColor(.gray)
-//            }
-            
-//            HStack {
-//                Text("cart id")
-//                Spacer()
-//                Text("\(userModel.currentUser?.cartID?.cartID ?? 0)")
-//                    .font(.footnote)
-//                    .foregroundColor(.gray)
-//            }
-            
+            // 로그아웃 버튼
             Button(action: {
-                
-                self.isLogoutActive = true
+                // 여기서 userModel 초기화와 navigation stack 제거를 처리합니다.
+                userModel.currentUser = nil // userModel 초기화
+                isLogoutActive = true
+                // 모든 네비게이션 스택을 제거하고 root view로 돌아갑니다.
+                self.presentationMode.wrappedValue.dismiss()
             }) {
                 Text("로그아웃")
                     .foregroundColor(.blue)
-            }
-            .fullScreenCover(isPresented: $isLogoutActive) {
+            }.fullScreenCover(isPresented: $isLogoutActive) {
                 SignInView()
             }
+            
+            // 다른 기능을 위한 버튼 예시
             Button(action: {
-                
-                self.isLinkActive = true
+                // ...
             }) {
                 Text("닉네임 변경")
                     .foregroundColor(.blue)
             }
-            .sheet(isPresented: $isLinkActive) {
+            .sheet(isPresented: $isLogoutActive) {
                 MemberProfileEditView()
             }
-            Spacer()
             
-           }
+            Spacer()
+        }
         .padding()
         .navigationBarTitle("My Page", displayMode: .inline)
     }
+}
+
+class UserModel: ObservableObject {
+    @Published var currentUser: MemberInfo? = nil
+    @Published var NMap: Document?
+    @Published var isPresentedUserMainView = false // Add this line
+    @Published var cState: [Int: Bool] = [:]
+    @Published var ten = false
+    @Published var marketName = ""
 }

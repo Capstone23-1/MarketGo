@@ -160,6 +160,7 @@ struct ShopView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                         Task{
                             storeModel.fetchStores(forMarketId: userModel.currentUser?.interestMarket?.marketID ?? (marketModel.currentMarket?.marketID) ?? 0)
+                            
                             cartModel.fetchCart(forUserId: userModel.currentUser?.cartID?.cartID ?? (marketModel.currentMarket?.marketID) ?? 0)
                             cartModel.updateCartItems()
                             goodsModel.fetchGoods(forStoreMarketID: userModel.currentUser?.interestMarket?.marketID ?? (marketModel.currentMarket?.marketID) ?? 0)

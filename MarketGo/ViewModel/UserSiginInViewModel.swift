@@ -58,12 +58,5 @@ class UserSignInViewModel: ObservableObject {
     
 }
 
-class UserModel: ObservableObject {
-    @Published var currentUser: MemberInfo? = nil
-    @Published var NMap: Document?
-    @Published var isPresentedUserMainView = false // Add this line
-    @Published var cState: [Int: Bool] = [:]
-    @Published var ten = false
-    @Published var marketName = ""
-}
+
 

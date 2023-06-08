@@ -74,26 +74,28 @@ struct MarketInfoView: View {
         }
         .navigationTitle((selectedMarket?.marketName ?? "시장정보"))
         .onAppear {
-            Task {
-                isLoading = true
-                
-                userModel.currentUser?.interestMarket = vm2.selectedMarket
-                
-                if let market = userModel.currentUser?.interestMarket {
-                    vm.interestMarket = (market.marketID)
-                } else if let market = marketModel.currentMarket {
-                    vm.interestMarket = market.marketID
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
+                Task {
+                    isLoading = true
+                    
+                    userModel.currentUser?.interestMarket = vm2.selectedMarket
+                    
+                    if let market = userModel.currentUser?.interestMarket {
+                        vm.interestMarket = (market.marketID)
+                    } else if let market = marketModel.currentMarket {
+                        vm.interestMarket = market.marketID
+                    }
+                    
+                    loadMemeber()
+                    
+                    do {
+                        try await vm.updateMemberInfo()
+                    } catch {
+                        print("Error while updating member info: \(error)")
+                    }
+                    
+                    isLoading = false
                 }
-                
-                loadMemeber()
-                
-                do {
-                    try await vm.updateMemberInfo()
-                } catch {
-                    print("Error while updating member info: \(error)")
-                }
-                
-                isLoading = false
             }
         }
 
