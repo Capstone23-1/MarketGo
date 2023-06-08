@@ -7,6 +7,7 @@ struct SellerHomeView: View {
     @State var storeID:StoreElement?
     @State var isLoading = false
     @State var isLoggingOut = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let rad = CGFloat(30)
     let number = CGFloat(150)
     var body: some View {
@@ -167,21 +168,24 @@ struct SellerHomeView: View {
                             .cornerRadius(rad)
                             .padding(.all,10)
                             Button(action: {
+                                // 여기서 userModel 초기화와 navigation stack 제거를 처리합니다.
+                                userModel.currentUser = nil // userModel 초기화
                                 isLoggingOut = true
+                                // 모든 네비게이션 스택을 제거하고 root view로 돌아갑니다.
+//                                self.presentationMode.wrappedValue.dismiss()
                             }) {
                                 Text("로그아웃")
                                     .font(.title)
                                     .fontWeight(.bold)
-                                
-                            }
-                            .fullScreenCover(isPresented: $isLoggingOut, content: {
+                            }.fullScreenCover(isPresented: $isLoggingOut) {
                                 SignInView()
-                            })
+                            }
                             .frame(maxWidth: .infinity/2, maxHeight: 100)
                             .frame(height:50)
                             .background(Color.white)
                             .cornerRadius(rad)
                             .padding(.all,10)
+                            
                         }
                     }
                     if isLoading {
