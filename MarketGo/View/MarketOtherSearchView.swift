@@ -64,27 +64,7 @@ struct MarketOtherSearchView: View {
                     
                 }
             }
-            .onAppear {
-                let viewModel = MarketViewModel()
-                isLoading = true // 로딩 시작
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    viewModel.searchMarket(location: locationManager.userLocation ?? cauLocation, queryKeyword: "시장") { result in
-                        switch result {
-                            case .success(let parkingLotData):
-                                DispatchQueue.main.async {
-                                    self.MarketList = parkingLotData.documents
-                                    isLoading = false // 로딩 종료
-                                }
-                            case .failure(let error):
-                                DispatchQueue.main.async {
-                                    self.errorMessage = error.localizedDescription
-                                    isLoading = false // 로딩 종료
-                                }
-                        }
-                    }
-                    
-                }
-            }
+            
             
             
         }

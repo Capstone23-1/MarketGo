@@ -32,7 +32,7 @@ struct UserSignUpView: View {
                 .cornerRadius(8)
             
             SecureField("비밀번호", text: $viewModel.password)
-                .textContentType(.newPassword)
+                .textContentType(.oneTimeCode)
                 .padding()
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
@@ -40,7 +40,7 @@ struct UserSignUpView: View {
                 .cornerRadius(8)
                 
             SecureField("비밀번호 확인", text: $viewModel.confirmPassword)
-                .textContentType(.newPassword) 
+                .textContentType(.oneTimeCode)
                 .padding()
                 .background(Color(.systemGray6))
                 .autocapitalization(.none)

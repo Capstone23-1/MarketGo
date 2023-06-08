@@ -54,7 +54,7 @@ struct UserMyPageView: View {
 }
 
 class UserModel: ObservableObject {
-    @Published var currentUser: MemberInfo? = nil
+    @Published var currentUser: MemberInfo? 
     @Published var NMap: Document?
     @Published var isPresentedUserMainView = false // Add this line
     @Published var cState: [Int: Int] = [:]
