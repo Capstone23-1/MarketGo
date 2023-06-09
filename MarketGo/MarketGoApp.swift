@@ -11,6 +11,7 @@ struct MarketGoApp: App {
     @StateObject var cart = CartModel()
     @State private var deepLinkStoreId: String?
     @State private var fetchedStore: StoreElement?
+    
     @State private var isLoading = false
     
     

@@ -63,7 +63,7 @@ struct DogamBookView: View {
             vm.storeIDs[0]=""
             vm.getMemberIndexById(memberID:String(describing: (userModel.currentUser?.memberID)!))
         }
-        .alert(isPresented: $vm.showingAlert) {
+        .alert(isPresented: $showingInvalidQRAlert) {
             Alert(
                 title: Text("오류"),
                 message: Text("이미 스탬프를 받은 매장입니다."),
@@ -257,11 +257,5 @@ struct ImagePicker: UIViewControllerRepresentable {
             
             picker.dismiss(animated: true)
         }
-    }
-}
-
-struct CouponBookView_Previews: PreviewProvider {
-    static var previews: some View {
-        DogamBookView()
     }
 }

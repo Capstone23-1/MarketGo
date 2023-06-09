@@ -89,6 +89,7 @@ struct SellerSignUpView: View {
                         SecureField("비밀번호", text: $viewModel.password)
                             .autocapitalization(.none)
                             .padding()
+                            .textContentType(.oneTimeCode)
                             .disableAutocorrection(true)
                             .background(Color(.systemGray6))
                             .textContentType(.none)
@@ -107,6 +108,7 @@ struct SellerSignUpView: View {
                         
                         SecureField("비밀번호 확인", text: $viewModel.confirmPassword)
                             .padding()
+                            .textContentType(.oneTimeCode)
                             .disableAutocorrection(true)
                             .autocapitalization(.none)
                             .background(Color(.systemGray6))
