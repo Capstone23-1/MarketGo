@@ -78,7 +78,6 @@ struct UserHomeView: View {
                         NavigationLink(destination: ParkingLotView()) {
                             Text("주차장 찾기")
                                 .font(.title)
-                                .foregroundColor(.gray)
                                 .fontWeight(.bold)
                             //                            Text("가까운 찾기")
                             //                                .font(.subheadline)
