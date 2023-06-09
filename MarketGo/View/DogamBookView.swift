@@ -7,6 +7,7 @@ struct DogamBookView: View {
     @State private var showingInvalidQRAlert = false
     @EnvironmentObject var userModel: UserModel
     @State private var showingScanner = false
+    @State private var showing = false
     @State private var qrCodeString = ""
     var body: some View {
         VStack {
@@ -36,7 +37,7 @@ struct DogamBookView: View {
                     .foregroundColor(.green)
                     .padding()
                     .onAppear {
-                        userModel.ten = true
+                        userModel.ten = 1
                     }
                 
             }
@@ -98,7 +99,7 @@ struct DogamBookView: View {
 //                print(storeID)
             } else {
                 // Show alert if the scanned string is not a number
-                showingInvalidQRAlert = true
+                showing = true
             }
         } else {
             // Show alert if no QR code is found
@@ -113,7 +114,7 @@ class StoreDogamViewModel: ObservableObject {
     
     @Published var filledCoupons: Int = 0
     @Published var storeElement: StoreElement?
-    @Published var showingAlert = false // 새로운 알림 상태 변수
+    
     @Published var memberID = ""
     @Published var indexID = ""
     @Published var dogamIndex: IndexInfo?
@@ -202,7 +203,7 @@ class StoreDogamViewModel: ObservableObject {
                     self.storeElement = storeElement
                     if self.filledCoupons < 10 {
                         if self.arr.contains(storeElement.storeName!) {
-                            self.showingAlert = true
+//                            self.showingAlert = true
                         } else {
                           
                             self.arr[self.filledCoupons] = storeElement.storeName!

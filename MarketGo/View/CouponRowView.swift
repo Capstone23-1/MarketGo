@@ -19,10 +19,11 @@ struct CouponRow: View {
                             .foregroundColor(.white)
                             .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 0, y: 2)
                         
-                        VStack(alignment: .leading, spacing: 8) {
-                            if userModel.ten == true,coupon.couponID == 0{
-                                Text((userModel.currentUser?.interestMarket?.marketName)!)
+                        VStack(alignment: .center, spacing: 8) {
+                            if userModel.ten == 1,coupon.couponID == 0{
+                                Text("도감 채우기 보상")
                                     .font(.title2)
+                                    
                             }
                             else{
                                 Text("\((coupon.storeID?.storeName) ?? "" )")

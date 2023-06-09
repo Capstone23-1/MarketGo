@@ -3,12 +3,12 @@ import Alamofire
 struct CouponUseView: View {
     var coupon: CouponElement
     @State private var isAlertPresented = false
-    @State var isCouponUsed = false
+    @State private var isCouponUsed = false
     @EnvironmentObject var userModel : UserModel
     
     var body: some View {
         VStack(spacing: 20) {
-            VStack(spacing: 8) {
+            VStack(spacing: 15) {
                 
                 if coupon.couponID == 0 {
                     Text("도감 이벤트에 참여하는 모든 가게")
@@ -38,7 +38,7 @@ struct CouponUseView: View {
                         .foregroundColor(.gray)
                 }
                 
-                Text("주의  \((coupon.couponInfo)!)")
+                Text("주의 :  \((coupon.couponInfo)!)")
                     .font(.footnote)
                     .foregroundColor(.red)
             }

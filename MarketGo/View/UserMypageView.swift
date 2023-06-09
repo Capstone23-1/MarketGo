@@ -58,6 +58,6 @@ class UserModel: ObservableObject {
     @Published var NMap: Document?
     @Published var isPresentedUserMainView = false // Add this line
     @Published var cState: [Int: Int] = [:]
-    @Published var ten = false
+    @Published var ten = 0
     @Published var marketName = ""
 }

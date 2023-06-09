@@ -155,7 +155,7 @@ struct ShopView: View {
                     Task {
                         isLoading = true
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                             Task{
                                 print("여기는 샵뷰")
                                 print(userModel.currentUser?.interestMarket)
