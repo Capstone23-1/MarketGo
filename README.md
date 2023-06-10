@@ -45,4 +45,11 @@ MZ세대를 공략하기 위한 전통시장 정보 제공 어플
 <img src="https://github.com/Capstone23-1/MarketGo/assets/62399318/86132257-8ed8-45db-9f2e-4a7e1ddd0a9c">
 </p>
 
+### 상품 관리창
+- 이 창에서 현재 판매하는 상품들을 볼 수 있다.
+- 수정버튼을 각각 눌러서 편집할 수도 있고, 품절 등의 문제로 여러 상품을 한꺼번에 게시중단할 수 있다.
 
+
+<p align="left">
+<img src="https://github.com/Capstone23-1/MarketGo/assets/62399318/7a49a5b3-37b5-4c4a-816c-ea9f4397a9f7">
+</p>
