@@ -12,9 +12,6 @@ MZ세대를 공략하기 위한 전통시장 정보 제공 어플
 * Spring Boot
 * AWS
 * MySQL
-### 노션 링크
-- [API 명세서 게시](https://www.notion.so/API-f1c0e6cc95e04848ac96c57045b3d566)
-
 
 ### : 권장 사양
 * ios 14.0 이상
@@ -29,7 +26,7 @@ MZ세대를 공략하기 위한 전통시장 정보 제공 어플
 ## :computer: 백엔드 코드 링크
 * [스프링 서버](https://github.com/Capstone23-1/MarketGoSpring)
 * [크롤링](https://github.com/Capstone23-1/MarketGoCrawling)
-
+* [노션 링크](https://www.notion.so/API-f1c0e6cc95e04848ac96c57045b3d566)
 
 
 
