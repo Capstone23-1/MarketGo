@@ -30,7 +30,10 @@ MZ세대를 공략하기 위한 전통시장 정보 제공 어플
 
 
 
-
-
+## 시연연상
+- 회원가입
+<p align="left">
+<img src="https://github.com/Capstone23-1/MarketGo/assets/62399318/d797485a-93aa-4028-8090-9a08fdf6ab4a">
+</p>
 
 
