@@ -17,7 +17,7 @@ MZ세대를 공략하기 위한 전통시장 정보 제공 어플
 * ios 14.0 이상
 
 ### :blush: 개발 참여 인원
-* [김소람](https://github.com/piriram) : Front-End Developer(Swift, API integratior)
+* [김소람](https://github.com/piriram) : Front-End Developer(Swift)
 * [김주현](https://github.com/JooHyeonKim) : Front-End Developer(Swift)
 * [최영찬](https://github.com/ChoiYeongChan) : Back-End Developer(Spring Boot, AWS, MySQL)
 
