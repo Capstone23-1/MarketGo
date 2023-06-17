@@ -26,7 +26,7 @@ struct StoreEditView: View {
     var body: some View {
         VStack {
             Form {
-                ImageUploadView2(category: $imageCate.categoryName, selectedImage: $selectedImage, newImage: $newImage)
+                ProfileImageUploadView(category: $imageCate.categoryName, selectedImage: $selectedImage, newImage: $newImage)
                 Section(header: Text("가게명,주소,연락처")) {
                     TextField("상점명", text: $storeName)
                     TextField("상점주소", text: $storeAddress1)

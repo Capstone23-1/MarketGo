@@ -117,7 +117,7 @@ struct ImagePickerModel: UIViewControllerRepresentable {
         }
     }
 }
-struct ImageUploadView2: View {
+struct ProfileImageUploadView: View {
     @State var image: UIImage?
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var category: String
