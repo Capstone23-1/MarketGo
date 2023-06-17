@@ -8,6 +8,7 @@ struct ImageUploadView: View {
     @Binding var category: String
     @State private var showDefaultImagePicker: Bool = false
     @State private var showImagePicker: Bool = false
+    @State private var showCamera: Bool = false
     
     let imageUploader = ImageUploader()
     @Binding var selectedImage: UIImage? // 선택된 이미지를 저장할 변수
@@ -28,7 +29,6 @@ struct ImageUploadView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: imageSize, height: imageSize)
-//                            .clipShape(Circle())
                             .padding(.top)
                     } else {
                         // 이미지가 선택되지 않았을 경우 기본 이미지 표시
@@ -36,7 +36,6 @@ struct ImageUploadView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: imageSize, height: imageSize)
-//                            .clipShape(Circle())
                             .padding(.top)
                     }
                     Spacer()
@@ -58,6 +57,7 @@ struct ImageUploadView: View {
                     
                     Button("앨범 선택") {
                         showImagePicker = true
+                        sourceType = .photoLibrary
                     }
                     .onTapGesture {
                         showDefaultImagePicker = false
@@ -70,6 +70,24 @@ struct ImageUploadView: View {
                         ImagePickerModel(selectedImage: self.$selectedImage, sourceType: self.sourceType)
                     }
                     .padding(.horizontal)
+                    
+                    // 카메라 촬영 버튼 추가
+                    Button("카메라 촬영") {
+                        showImagePicker = true
+                        sourceType = .camera
+                    }
+                    .onTapGesture {
+                        showDefaultImagePicker = false
+                        showImagePicker = true
+                    }
+                    .sheet(isPresented: $showImagePicker, onDismiss: {
+                        showDefaultImagePicker = false
+                        showImagePicker = false
+                    }) {
+                        ImagePickerModel(selectedImage: self.$selectedImage, sourceType: .camera)
+                    }
+                    .padding(.horizontal)
+                    
                 }
                 
             }
@@ -78,5 +96,3 @@ struct ImageUploadView: View {
         }
     }
 }
-
-

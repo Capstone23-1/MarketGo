@@ -39,7 +39,7 @@ struct QRCodeScannerView: UIViewControllerRepresentable {
                     parent.qrCodeString = qrCodeString
                     openURL(with: qrCodeString)
                 } else {
-                    print("Failed to extract QR code from image")
+                    print("QR 코드 인식에 실패하였습니다.")
                 }
             }
         }
