@@ -39,7 +39,7 @@ struct StoreReviewPostView: View {
             Form {
                 ReviewImageUploadView(category: $imageCate.categoryName, selectedImage: $selectedImage, newImage: $newImage)
                 
-                Section(header: Text("Review")) {
+                Section(header: Text("가게 리뷰 작성")) {
                     HStack(spacing: 10) {
                         Text("별점")
                         Spacer()
@@ -73,9 +73,10 @@ struct StoreReviewPostView: View {
                 }
                 .disabled(isLoading)
             }
-            .navigationBarTitle("\(store.storeName ?? "") Review")
+            .navigationBarTitle("\(store.storeName ?? "") 리뷰")
+            .navigationBarTitleDisplayMode(.inline)
             .alert(isPresented: $showAlert) {
-                Alert(title: Text("Notification"), message: Text(alertMessage), dismissButton: .default(Text("OK")) {
+                Alert(title: Text("알림"), message: Text(alertMessage), dismissButton: .default(Text("OK")) {
                     if reviewSubmitted {
                         navigateToReviewList()
                     }

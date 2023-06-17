@@ -15,25 +15,28 @@ struct MarketSearchTableWrapper: View {
     @Binding var isLoading: Bool
     
     var body: some View {
-        List(data,selection: $vm.selectedID) { market in
+        let sortedData = data.sorted { (market1, market2) -> Bool in
+            guard let distance1 = Int(market1.distance), let distance2 = Int(market2.distance) else {
+                return false
+            }
+            return distance1 < distance2
+        }
+        
+        List(sortedData, selection: $vm.selectedID) { market in
             HStack {
                 Text("\(market.placeName)   \(market.distance)m")
                     .onTapGesture {
                         selected = market
                         vm.selectedID = market.id
-//                        didSelectRowAt?(selected!)
                     }
                     
                 Spacer()
                 Button(action: {
-                    
-                    
                     vm.fetchMarketData(marketName: market.placeName)
                     userModel.NMap = market
                     userModel.marketName = market.placeName
                     isLinkActive = true
-                        isLoading = false
-                    
+                    isLoading = false
                 }) {
                     Image(systemName: "arrowtriangle.forward")
                         .foregroundColor(.black)
@@ -45,9 +48,6 @@ struct MarketSearchTableWrapper: View {
                         .hidden()
                 )
             }
-                       
         }
     }
-    
-    
 }

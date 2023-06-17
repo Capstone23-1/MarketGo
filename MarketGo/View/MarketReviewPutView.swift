@@ -29,7 +29,7 @@ struct MarketReviewPutView: View {
                 
                 //Text("\(marketReviewId)")
                 
-                Section(header: Text("Review")) {
+                Section(header: Text("시장 리뷰 수정")) {
                     HStack(spacing: 10) {
                         Text("별점")
                         Spacer()

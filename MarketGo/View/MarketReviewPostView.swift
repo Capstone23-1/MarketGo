@@ -22,7 +22,7 @@ struct MarketReviewPostView: View {
     @Environment(\.presentationMode) var presentationMode
 
     var marketID: Int{
-        marketModel.currentMarket?.marketID ?? 0
+        userModel.currentUser?.interestMarket?.marketID ?? 0
     }
     
     var memberID: Int{
@@ -48,7 +48,7 @@ struct MarketReviewPostView: View {
                 
                 ReviewImageUploadView(category: $imageCate.categoryName,  selectedImage: $selectedImage, newImage: $newImage)
                 
-                Section(header: Text("Review")) {
+                Section(header: Text("시장 리뷰 작성")) {
                     
                     
                     HStack(spacing: 10) {
@@ -90,7 +90,8 @@ struct MarketReviewPostView: View {
                 })
                 .disabled(isLoading)
             }
-            .navigationBarTitle("Market Review")
+            .navigationBarTitle("시장 리뷰 작성")
+            .navigationBarTitleDisplayMode(.inline)
             .alert(isPresented: $showAlert, content: {
                 Alert(title: Text("Notification"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             })
