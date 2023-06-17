@@ -2,10 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIUserInterfaceS</key>
+	<string></string>
 	<key>NSCameraUsageDescription</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string></string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>QR 사진 저장을 위한 사진접근을 허용해주세요.</string>
 	<key>CFBundleURLTypes</key>
