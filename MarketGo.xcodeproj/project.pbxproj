@@ -61,6 +61,7 @@
 		217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */; };
 		2181EDD82A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */; };
 		2181EDDA2A127E8300B879B2 /* UserHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD92A127E8300B879B2 /* UserHomeView.swift */; };
+		2188115B2A3E29ED00492698 /* DefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188115A2A3E29ED00492698 /* DefaultImageView.swift */; };
 		2188126429E96F4700F315EF /* ParkingLotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126329E96F4700F315EF /* ParkingLotViewModel.swift */; };
 		2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126529E972ED00F315EF /* ParkingLotView.swift */; };
 		218F54272A24F7E100A9A6EF /* OtherTableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54262A24F7E100A9A6EF /* OtherTableWrapper.swift */; };
@@ -214,6 +215,7 @@
 		217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChoicePickerView.swift; sourceTree = "<group>"; };
 		2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerMarketChoiceViewModel.swift; sourceTree = "<group>"; };
 		2181EDD92A127E8300B879B2 /* UserHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeView.swift; sourceTree = "<group>"; };
+		2188115A2A3E29ED00492698 /* DefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageView.swift; sourceTree = "<group>"; };
 		2188126329E96F4700F315EF /* ParkingLotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotViewModel.swift; sourceTree = "<group>"; };
 		2188126529E972ED00F315EF /* ParkingLotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotView.swift; sourceTree = "<group>"; };
 		218F54262A24F7E100A9A6EF /* OtherTableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTableWrapper.swift; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
 				21E4EC3A2A30E795004AF534 /* CouponRowView.swift */,
 				2173314A2A324A2A005B5E80 /* CardView.swift */,
+				2188115A2A3E29ED00492698 /* DefaultImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				99F02DE02A175C6B00D827CD /* MarketReviewJASON.swift in Sources */,
 				210704BF2A1D1FB100643140 /* SellerGoodsListView.swift in Sources */,
 				21AF151D2A2660520011A8B5 /* DogamQRGenerateView.swift in Sources */,
+				2188115B2A3E29ED00492698 /* DefaultImageView.swift in Sources */,
 				990D2C9729E23678002ED379 /* MenuItemRow.swift in Sources */,
 				21FAE1F22A0BB829006593D9 /* UserSignInView.swift in Sources */,
 				21E4EC352A2F8D3E004AF534 /* CouponeView.swift in Sources */,
@@ -1109,7 +1113,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1147,7 +1151,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
