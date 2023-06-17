@@ -447,26 +447,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		217331432A3246C8005B5E80 /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				217331442A32474D005B5E80 /* MarketOtherMap.swift */,
-				217331462A324781005B5E80 /* OtherInfoView.swift */,
-				218F542A2A2501A500A9A6EF /* OtherMarketSearchView.swift */,
-				218F54262A24F7E100A9A6EF /* OtherTableWrapper.swift */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
 		21F1C9B929DD68F60022113A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				217331432A3246C8005B5E80 /* Map */,
+				2173314A2A324A2A005B5E80 /* CardView.swift */,
 				2144FE7229DD6AAA008913C4 /* CartView.swift */,
 				21AF151A2A265B3A0011A8B5 /* CircleView.swift */,
 				21E4EC322A2F88B2004AF534 /* CouponeGeneratorView.swift */,
 				21E4EC342A2F8D3E004AF534 /* CouponeView.swift */,
+				21E4EC3A2A30E795004AF534 /* CouponRowView.swift */,
 				21E4EC362A2F90CE004AF534 /* CouponUseView.swift */,
+				2188115A2A3E29ED00492698 /* DefaultImageView.swift */,
 				218F543A2A2645BE00A9A6EF /* DogamBookView.swift */,
 				218F54382A263FCA00A9A6EF /* DogamQR.swift */,
 				21AF151C2A2660520011A8B5 /* DogamQRGenerateView.swift */,
@@ -490,6 +481,7 @@
 				21E4EC382A30D280004AF534 /* MarketMapView.swift */,
 				215A3D1029E9B31D00DCD0B0 /* MarketNaverMapView.swift */,
 				214871D92A06894700C6FD1D /* MarketOneMapView.swift */,
+				217331442A32474D005B5E80 /* MarketOtherMap.swift */,
 				997BD5602A1B734E00E7A7EE /* MarketReviewPostView.swift */,
 				9940E4D62A2F8D53006439C4 /* MarketReviewPutView.swift */,
 				99F02DE12A176D4100D827CD /* MarketReviewView.swift */,
@@ -500,12 +492,16 @@
 				218F542C2A25178C00A9A6EF /* MemberProfileEditView.swift */,
 				990D2C9629E23678002ED379 /* MenuItemRow.swift */,
 				994979C42A12681A00159828 /* MenuView.swift */,
+				217331462A324781005B5E80 /* OtherInfoView.swift */,
+				218F542A2A2501A500A9A6EF /* OtherMarketSearchView.swift */,
+				218F54262A24F7E100A9A6EF /* OtherTableWrapper.swift */,
 				2144FE7F29DD6BEC008913C4 /* ParkingLotMapView.swift */,
 				2188126529E972ED00F315EF /* ParkingLotView.swift */,
 				210704BC2A1D1F9800643140 /* PostGoodsView.swift */,
 				21D006972A15DB9200C404C3 /* PostStoreView.swift */,
 				99AFA2542A28413700123896 /* PriceGraphView.swift */,
 				99CD749529DD95D100D2D782 /* ProductTopView.swift */,
+				2188115C2A3E2A6800492698 /* ProfileImageUploadView.swift */,
 				2144FE6A29DD69B5008913C4 /* ProfileImageView.swift */,
 				21FAE1E92A0AC0AF006593D9 /* ProfileView.swift */,
 				21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */,
@@ -534,10 +530,6 @@
 				998843BF2A04DE8700132079 /* UserMypageView.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
-				21E4EC3A2A30E795004AF534 /* CouponRowView.swift */,
-				2173314A2A324A2A005B5E80 /* CardView.swift */,
-				2188115A2A3E29ED00492698 /* DefaultImageView.swift */,
-				2188115C2A3E2A6800492698 /* ProfileImageUploadView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
