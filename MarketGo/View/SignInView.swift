@@ -61,8 +61,6 @@ struct SignInView: View {
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
             }
-        }.onAppear{
-            self.selectedTab = 0
         }
     }
 }

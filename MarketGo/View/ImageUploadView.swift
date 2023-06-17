@@ -174,8 +174,9 @@ struct ImageUploadView2: View {
                     if let image = selectedImage {
                         Image(uiImage: image)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                             .frame(width: imageSize, height: imageSize)
+                            .clipShape(Circle())
                             .padding(.top)
                     } else {
                         // 이미지가 선택되지 않았을 경우 기본 이미지 표시
