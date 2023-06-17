@@ -128,6 +128,7 @@ struct ShopView: View {
                                             NavigationLink(destination: FoodItemDetailView(goods: item)) {
                                                 FoodItemCell(goods: item)
                                                     .foregroundColor(.black)
+                                                    .padding()
                                             }
                                         }
                                     }

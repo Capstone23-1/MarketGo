@@ -133,8 +133,9 @@ struct MarketReviewPostView: View {
                     marketReviewFile = id // Update the marketReviewFile property
                 }
             } else {
+                marketReviewFile = 0
                 print("이미지를 선택하지 않았습니다.")
-                return
+                
             }
             
             let reviewPost = MarketReviewPost(

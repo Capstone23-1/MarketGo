@@ -30,8 +30,6 @@ struct GoodsOne: Codable, Identifiable {
        }
 }
 
-
-
 struct GoodsImage: View {
     let url: URL?
     let placeholder: Image
@@ -49,10 +47,12 @@ struct GoodsImage: View {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    
+                    
             } else {
                 placeholder
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
             }
         }
         .onAppear {
@@ -66,6 +66,51 @@ struct GoodsImage: View {
         }
     }
 }
+
+struct GoodsImage2: View {
+    let url: URL?
+    let placeholder: Image
+    let imageSize: CGFloat
+    
+    init(url: URL?, placeholder: Image = Image(systemName: "photo"), imageSize: CGFloat = 250.0) {
+        self.url = url
+        self.placeholder = placeholder
+        self.imageSize = imageSize
+    }
+    
+    @State private var imageData: Data?
+    
+    var body: some View {
+        Group {
+            if let imageData = imageData, let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill) // 가로에 맞추고 확대
+                    .frame(maxWidth:.infinity)
+                    .frame(height: imageSize) // 정사각형으로 크기 조절
+                    .clipped() // 뷰의 경계 내에 클리핑
+                    
+            } else {
+                placeholder
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: imageSize, height: imageSize) // 여기서도 정사각형으로 크기 조절
+            }
+        }
+        .onAppear {
+            if let url = url {
+                AF.request(url).responseData { response in
+                    if case .success(let data) = response.result {
+                        self.imageData = data
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
 
 
 typealias Goods = [GoodsOne]

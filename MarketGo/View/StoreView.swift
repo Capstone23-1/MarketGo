@@ -31,7 +31,7 @@ struct StoreView: View {
             ScrollView{
                 VStack(alignment: .leading) {
                     
-                    GoodsImage(url: URL(string: store.storeFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
+                    GoodsImage2(url: URL(string: store.storeFile?.uploadFileURL ?? ""), placeholder: Image(systemName: "photo"))
                     
                 }
                 
@@ -49,6 +49,7 @@ struct StoreView: View {
                         }
                         Spacer()
                     }
+                    .padding(.top,10)
                  
                 }
                 
