@@ -60,8 +60,8 @@ struct ImageUploadView: View {
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: imageSize+50, height: imageSize+50)
-                            .clipShape(Circle())
+                            .frame(width: imageSize, height: imageSize)
+//                            .clipShape(Circle())
                             .padding(.top)
                     } else {
                         // 이미지가 선택되지 않았을 경우 기본 이미지 표시
@@ -69,7 +69,7 @@ struct ImageUploadView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: imageSize, height: imageSize)
-                            .clipShape(Circle())
+//                            .clipShape(Circle())
                             .padding(.top)
                     }
                     Spacer()
@@ -175,8 +175,7 @@ struct ImageUploadView2: View {
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: imageSize+50, height: imageSize+50)
-                            .clipShape(Circle())
+                            .frame(width: imageSize, height: imageSize)
                             .padding(.top)
                     } else {
                         // 이미지가 선택되지 않았을 경우 기본 이미지 표시

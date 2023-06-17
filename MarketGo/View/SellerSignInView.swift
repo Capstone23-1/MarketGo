@@ -102,9 +102,6 @@ struct SellerSignInView: View {
 //
             
             
-        }.onAppear{
-            viewModel2.email = ""
-            viewModel2.password = ""
         }
     }
 }
