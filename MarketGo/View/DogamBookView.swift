@@ -47,7 +47,7 @@ struct DogamBookView: View {
                 showingScanner = true
                 // 쿠폰 추가하는 동작
             }) {
-                Text("QR을 입력해주세요")
+                Text("도감 QR을 찍어주세요")
                     .font(.title2)
                     .fontWeight(.bold)
                     .padding()
@@ -238,8 +238,14 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
-        picker.delegate = context.coordinator
-        return picker
+            picker.delegate = context.coordinator
+            
+            // 카메라 사용 설정
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                picker.sourceType = .camera
+            }
+            
+            return picker
     }
     
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {}
