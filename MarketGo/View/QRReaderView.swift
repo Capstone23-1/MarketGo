@@ -16,7 +16,7 @@ struct QRCodeScannerView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let controller = UIImagePickerController()
         controller.delegate = context.coordinator
-        controller.sourceType = .photoLibrary
+        controller.sourceType = .camera
         return controller
     }
 
