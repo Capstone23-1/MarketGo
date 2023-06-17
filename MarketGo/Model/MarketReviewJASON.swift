@@ -92,7 +92,16 @@ class MarketReviewViewModel: ObservableObject {
         AF.request(urlString).responseDecodable(of: [MarketReviewElement].self) { response in
             switch response.result {
             case .success(let marketReviews):
-                self.marketReviews = marketReviews
+                // Sorting logic
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" // Update this to the actual format of reviewDate string
+                
+                self.marketReviews = marketReviews.sorted {
+                    guard let date1 = dateFormatter.date(from: $0.reviewDate ?? "") else { return false }
+                    guard let date2 = dateFormatter.date(from: $1.reviewDate ?? "") else { return true }
+                    return date1 > date2 // Newest date first
+                }
+                    
             case .failure(let error):
                 print("Error fetching market reviews: \(error)")
             }
@@ -101,6 +110,7 @@ class MarketReviewViewModel: ObservableObject {
         }
     }
 }
+
 
 
 

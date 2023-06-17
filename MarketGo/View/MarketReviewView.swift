@@ -13,6 +13,7 @@ struct MarketReviewView: View {
                 LazyVStack {
                     if let reviews = viewModel.marketReviews {
                         ForEach(reviews) { review in
+                            
                             MarketReviewRow(review: review, viewModel: viewModel) // Pass viewModel as a parameter
                                 .environmentObject(userModel)
 //                                .environmentObject(marketModel)
