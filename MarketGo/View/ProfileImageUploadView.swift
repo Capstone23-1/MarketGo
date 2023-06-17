@@ -1,8 +1,15 @@
+//
+//  ProfileImageUploadView.swift
+//  MarketGo
+//
+//  Created by ram on 2023/06/18.
+//
 import SwiftUI
 import Alamofire
 import UIKit
+import Foundation
 
-struct ImageUploadView: View {
+struct ProfileImageUploadView: View {
     @State var image: UIImage?
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var category: String
@@ -26,9 +33,9 @@ struct ImageUploadView: View {
                     if let image = selectedImage {
                         Image(uiImage: image)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                             .frame(width: imageSize, height: imageSize)
-//                            .clipShape(Circle())
+                            .clipShape(Circle())
                             .padding(.top)
                     } else {
                         // 이미지가 선택되지 않았을 경우 기본 이미지 표시
@@ -36,25 +43,13 @@ struct ImageUploadView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: imageSize, height: imageSize)
-//                            .clipShape(Circle())
+                            .clipShape(Circle())
                             .padding(.top)
                     }
                     Spacer()
                 }
                 HStack{
                     
-                    // ImageUploadView
-                    Button("기본 이미지") {
-                        showDefaultImagePicker = true
-                    }
-                    .onTapGesture {
-                        showDefaultImagePicker = true
-                        showImagePicker = false
-                    }
-                    .sheet(isPresented: $showDefaultImagePicker) {
-                        DefaultImageView(selectedImage: self.$selectedImage)
-                    }
-                    .padding(.horizontal)
                     
                     Button("앨범 선택") {
                         showImagePicker = true
@@ -78,43 +73,3 @@ struct ImageUploadView: View {
         }
     }
 }
-struct ImagePickerModel: UIViewControllerRepresentable {
-    @Environment(\.presentationMode) var presentationMode
-    @Binding var selectedImage: UIImage?
-    var sourceType: UIImagePickerController.SourceType
-    
-    func makeUIViewController(context: Context) -> UIImagePickerController {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = context.coordinator
-        imagePickerController.sourceType = sourceType
-        return imagePickerController
-    }
-    
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-    }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        var parent: ImagePickerModel
-        
-        init(_ parent: ImagePickerModel) {
-            self.parent = parent
-        }
-        
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                parent.selectedImage = image
-            }
-            
-            parent.presentationMode.wrappedValue.dismiss()
-        }
-        
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            parent.presentationMode.wrappedValue.dismiss()
-        }
-    }
-}
-

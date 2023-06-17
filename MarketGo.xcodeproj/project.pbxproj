@@ -62,6 +62,7 @@
 		2181EDD82A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */; };
 		2181EDDA2A127E8300B879B2 /* UserHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD92A127E8300B879B2 /* UserHomeView.swift */; };
 		2188115B2A3E29ED00492698 /* DefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188115A2A3E29ED00492698 /* DefaultImageView.swift */; };
+		2188115D2A3E2A6800492698 /* ProfileImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188115C2A3E2A6800492698 /* ProfileImageUploadView.swift */; };
 		2188126429E96F4700F315EF /* ParkingLotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126329E96F4700F315EF /* ParkingLotViewModel.swift */; };
 		2188126629E972ED00F315EF /* ParkingLotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188126529E972ED00F315EF /* ParkingLotView.swift */; };
 		218F54272A24F7E100A9A6EF /* OtherTableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F54262A24F7E100A9A6EF /* OtherTableWrapper.swift */; };
@@ -216,6 +217,7 @@
 		2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerMarketChoiceViewModel.swift; sourceTree = "<group>"; };
 		2181EDD92A127E8300B879B2 /* UserHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeView.swift; sourceTree = "<group>"; };
 		2188115A2A3E29ED00492698 /* DefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageView.swift; sourceTree = "<group>"; };
+		2188115C2A3E2A6800492698 /* ProfileImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageUploadView.swift; sourceTree = "<group>"; };
 		2188126329E96F4700F315EF /* ParkingLotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotViewModel.swift; sourceTree = "<group>"; };
 		2188126529E972ED00F315EF /* ParkingLotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotView.swift; sourceTree = "<group>"; };
 		218F54262A24F7E100A9A6EF /* OtherTableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTableWrapper.swift; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				21E4EC3A2A30E795004AF534 /* CouponRowView.swift */,
 				2173314A2A324A2A005B5E80 /* CardView.swift */,
 				2188115A2A3E29ED00492698 /* DefaultImageView.swift */,
+				2188115C2A3E2A6800492698 /* ProfileImageUploadView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -821,6 +824,7 @@
 				9940E4D72A2F8D53006439C4 /* MarketReviewPutView.swift in Sources */,
 				998843C42A05035D00132079 /* FoodItemListView.swift in Sources */,
 				211F53DE2A17A57D003DA011 /* ImageUploader.swift in Sources */,
+				2188115D2A3E2A6800492698 /* ProfileImageUploadView.swift in Sources */,
 				211F53EE2A1AA91D003DA011 /* SellerStoreEditView.swift in Sources */,
 				218F54392A263FCA00A9A6EF /* DogamQR.swift in Sources */,
 				2144FE8029DD6BEC008913C4 /* ParkingLotMapView.swift in Sources */,
