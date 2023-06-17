@@ -28,9 +28,9 @@ struct ReviewImageUploadView: View {
                 if let image = selectedImage {
                     Image(uiImage: image)
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: imageSize + 50, height: imageSize + 50)
-                        .clipShape(Circle())
+                        
                         .padding(.top)
                 }
 

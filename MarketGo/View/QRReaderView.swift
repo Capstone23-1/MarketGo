@@ -66,7 +66,6 @@ struct QRCodeScannerView: UIViewControllerRepresentable {
         //        }
     }
 }
-
 struct QRCodeReaderView: View {
     @State private var showingScanner = false
     @State private var qrCodeString = ""
@@ -75,6 +74,7 @@ struct QRCodeReaderView: View {
     @StateObject var userModel = UserModel()
     @StateObject private var storePost = StorePostViewModel()
     @State private var moveStoreView = false
+    @State private var showingInvalidQRCodeAlert = false // 추가: 알림을 표시하는 상태
     
     var body: some View {
         
@@ -83,11 +83,9 @@ struct QRCodeReaderView: View {
                 ProgressView("Loading...")
             } else if let store = fetchedStore {
                 StoreView(store: store)
-                // .environmentObject(userModel)
-                // .environmentObject(storePost)
             }
         }
-        else{
+        else {
             Button(action: {
                 showingScanner = true
             }) {
@@ -106,8 +104,12 @@ struct QRCodeReaderView: View {
                     // When the QR code string changes, handle the URL
                     handleQRCodeString(newValue)
                 }
+                .alert(isPresented: $showingInvalidQRCodeAlert) { // 추가: 알림을 표시
+                    Alert(title: Text("오류"),
+                          message: Text("올바른 QR 코드를 입력해주세요."),
+                          dismissButton: .default(Text("확인")))
+                }
             }
-            
         }
     }
     
@@ -116,6 +118,7 @@ struct QRCodeReaderView: View {
         guard !qrCodeString.isEmpty,
               let url = URL(string: qrCodeString),
               let host = url.host else {
+            showingInvalidQRCodeAlert = true // 추가: 알림 상태를 true로 설정
             return
         }
         
@@ -137,5 +140,6 @@ struct QRCodeReaderView: View {
         }
     }
 }
+
 
 

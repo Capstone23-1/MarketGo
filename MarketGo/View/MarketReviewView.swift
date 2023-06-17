@@ -115,6 +115,7 @@ struct MarketReviewRow: View {
                                 dismissButton: .default(Text("확인"))
                             )
                         })
+                        .padding(.trailing,2)
                         
                         
                         
@@ -150,6 +151,7 @@ struct MarketReviewRow: View {
                                 )
                             }
                         })
+                        .padding(.trailing,10)
                     }
                 }
                 
