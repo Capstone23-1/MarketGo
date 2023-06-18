@@ -20,7 +20,7 @@ struct CouponRow: View {
                             .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 0, y: 2)
                         
                         VStack(alignment: .center, spacing: 8) {
-                            if userModel.ten == 1,coupon.couponID == 0{
+                            if ten == 1,coupon.couponID == 0{
                                 Text("도감 채우기 보상")
                                     .font(.title2)
                                     

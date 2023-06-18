@@ -37,7 +37,7 @@ struct DogamBookView: View {
                     .foregroundColor(.green)
                     .padding()
                     .onAppear {
-                        userModel.ten = 1
+                       ten = 1
                     }
                 
             }

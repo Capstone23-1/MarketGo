@@ -13,7 +13,7 @@ struct CouponView: View {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
                     ForEach(viewModel.coupons, id: \.couponID) { coupon in
                         if coupon.couponID == 0{
-                            if userModel.ten == 1{
+                            if ten == 1{
                                 
                                 CouponRow(coupon: coupon)
                                     .frame(height: 200)

@@ -8,10 +8,11 @@
 import Foundation
 import Alamofire
 
-
+public var ten = 0
+public var cState: [Int: Int] = [:]
 class Config{
     public let bundleID: String="com.capstone.MarketGo"
-    
+  
 
     func postSellerMemberInfo(memberPostInfo :MemberPostInfo, completion: @escaping (Result<Data, AFError>) -> Void) {
         let url = "http://3.34.33.15:8080/member"

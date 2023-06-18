@@ -65,7 +65,7 @@ struct CouponUseView: View {
                     title: Text("쿠폰 사용"),
                     message: Text("쿠폰을 사용하시겠습니까?"),
                     primaryButton: .default(Text("OK"), action: {
-                        userModel.cState[coupon.couponID ?? 0] = 1
+                        cState[coupon.couponID ?? 0] = 1
                         
                         isCouponUsed = true
                     }),
@@ -73,7 +73,7 @@ struct CouponUseView: View {
                 )
             }
             .onAppear{
-                if let tmp = userModel.cState[coupon.couponID ?? 0]{
+                if let tmp = cState[coupon.couponID ?? 0]{
                     if tmp == 1{
                         isCouponUsed = true
                     }else{
