@@ -12,7 +12,7 @@ struct MarketMapView: View {
             GeometryReader { geo in
                 ScrollView([.horizontal, .vertical], showsIndicators: false) {
                     if isUnavailable {
-                        Text("지도를 제공하지 않는 시장입니다.")
+                        Text("지도를 제공하지 \n않는 시장입니다.")
                             .font(.title)
                             .padding()
                     } else if let image = selectedImage {

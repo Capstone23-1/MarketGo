@@ -11,6 +11,7 @@ struct CouponGeneratorView: View {
         VStack {
             DatePicker("쿠폰 만료일 지정", selection: $vm.expirationDate, displayedComponents: [.date])
                 .padding()
+                .environment(\.locale, Locale(identifier: "ko_KR"))
 
        
             TextField("할인가격", text: $vm.discount)
