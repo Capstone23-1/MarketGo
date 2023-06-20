@@ -17,13 +17,13 @@ struct CouponView: View {
                                 
                                 CouponRow(coupon: coupon)
                                     .frame(height: 200)
-                                    
+                                
                             }
                         }
                         else{
                             CouponRow(coupon: coupon)
                                 .frame(height: 200)
-                                
+                            
                         }
                     }
                 }

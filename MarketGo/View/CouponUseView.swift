@@ -13,23 +13,23 @@ struct CouponUseView: View {
                 if coupon.couponID == 0 {
                     Text("도감 이벤트에 참여하는 모든 가게")
                         .font(.headline)
-                        
+                    
                 }
                 else{
                     Text("상점명 : \(coupon.storeID?.storeName ?? "")")
                         .font(.headline)
                 }
                 
-                    
                 
                 
-                    
+                
+                
                 Text((coupon.discount)!)
-                            .font(.title)
-                            .foregroundColor(.black)
-                    
-                  
-               
+                    .font(.title)
+                    .foregroundColor(.black)
+                
+                
+                
                 
                 
                 if let info = coupon.duration {

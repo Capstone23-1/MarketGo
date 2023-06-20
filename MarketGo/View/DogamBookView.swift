@@ -37,7 +37,7 @@ struct DogamBookView: View {
                     .foregroundColor(.green)
                     .padding()
                     .onAppear {
-                       ten = 1
+                        ten = 1
                     }
                 
             }
@@ -96,7 +96,7 @@ struct DogamBookView: View {
             if Int(storeID) != nil {
                 // call API to get store details
                 vm.getStoreInfoById(storeID: storeID)
-//                print(storeID)
+                //                print(storeID)
             } else {
                 // Show alert if the scanned string is not a number
                 showing = true
@@ -151,12 +151,12 @@ class StoreDogamViewModel: ObservableObject {
             print("put 메서드")
         }
         
-//        print(first10IDs)
+        //        print(first10IDs)
     }
     
     func getMemberIndexById(memberID: String) {
         let url =  "http://3.34.33.15:8080/marketIndex/memberId/\(memberID)"
-//        print(url)
+        //        print(url)
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
         AF.request(url, method: .get, headers: headers)
@@ -164,12 +164,12 @@ class StoreDogamViewModel: ObservableObject {
             .response { response in
                 switch response.result {
                     case .success(let data):
-//                        print(data)
+                        //                        print(data)
                         if let data = data {
                             if let indexInfo = try? JSONDecoder().decode(IndexInfo.self, from: data) {
-//                                print("IndexInfo: \(indexInfo)")
+                                //                                print("IndexInfo: \(indexInfo)")
                                 self.indexID=String(describing: (indexInfo.indexID)!)
-//                                print(indexInfo)
+                                //                                print(indexInfo)
                                 let storeIds = [indexInfo.storeId1, indexInfo.storeId2, indexInfo.storeId3, indexInfo.storeId4, indexInfo.storeId5, indexInfo.storeId6, indexInfo.storeId7, indexInfo.storeId8, indexInfo.storeId9, indexInfo.storeId10]
                                 self.indexID = String(describing: (indexInfo.indexID)!)
                                 print(self.indexID)
@@ -203,9 +203,9 @@ class StoreDogamViewModel: ObservableObject {
                     self.storeElement = storeElement
                     if self.filledCoupons < 10 {
                         if self.arr.contains(storeElement.storeName!) {
-//                            self.showingAlert = true
+                            //                            self.showingAlert = true
                         } else {
-                          
+                            
                             self.arr[self.filledCoupons] = storeElement.storeName!
                             self.storeIDs[self.filledCoupons]=String(describing: (storeElement.storeID)!)   // 스캔한 QR 코드를 배열에 추가
                             self.putMemeberIndex()
@@ -238,14 +238,14 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
-            picker.delegate = context.coordinator
-            
-            // 카메라 사용 설정
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                picker.sourceType = .camera
-            }
-            
-            return picker
+        picker.delegate = context.coordinator
+        
+        // 카메라 사용 설정
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.sourceType = .camera
+        }
+        
+        return picker
     }
     
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {}

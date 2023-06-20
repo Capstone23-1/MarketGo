@@ -12,8 +12,8 @@ public var ten = 0
 public var cState: [Int: Int] = [:]
 class Config{
     public let bundleID: String="com.capstone.MarketGo"
-  
-
+    
+    
     func postSellerMemberInfo(memberPostInfo :MemberPostInfo, completion: @escaping (Result<Data, AFError>) -> Void) {
         let url = "http://3.34.33.15:8080/member"
         let parameters: [String: Any] = [
@@ -25,19 +25,19 @@ class Config{
             "recentLatitude": 0,
             "recentLongitude": 0,
         ]
-
+        
         AF.request(url, method: .post, parameters: parameters)
             .validate()
             .response { response in
                 switch response.result {
-                case .success(let data):
-                    completion(.success(data ?? Data()))
-                case .failure(let error):
-                    completion(.failure(error))
+                    case .success(let data):
+                        completion(.success(data ?? Data()))
+                    case .failure(let error):
+                        completion(.failure(error))
                 }
             }
     }
-
+    
     func postUserMemberInfo(memberPostInfo :MemberPostInfo, completion: @escaping (Result<Data, AFError>) -> Void) {
         let url = "http://3.34.33.15:8080/member"
         let parameters: [String: Any] = [
@@ -49,15 +49,15 @@ class Config{
             "recentLatitude": 0,
             "recentLongitude": 0,
         ]
-
+        
         AF.request(url, method: .post, parameters: parameters)
             .validate()
             .response { response in
                 switch response.result {
-                case .success(let data):
-                    completion(.success(data ?? Data()))
-                case .failure(let error):
-                    completion(.failure(error))
+                    case .success(let data):
+                        completion(.success(data ?? Data()))
+                    case .failure(let error):
+                        completion(.failure(error))
                 }
             }
     }
@@ -74,28 +74,28 @@ class Config{
             }
         }
     }
-
     
-
+    
+    
     func fetchStoreById(_ storeId: String) async throws -> StoreElement {
         return try await withCheckedContinuation { continuation in
             let url = "http://3.34.33.15:8080/store/\(storeId)"
             AF.request(url, method: .get)
-              .validate()
-              .responseDecodable(of: StoreElement.self) { response in
-                  switch response.result {
-                  case .success(let storeElement):
-                      continuation.resume(returning: storeElement)
-                  case .failure(let error):
-                          continuation.resume(throwing: error as Error as! Never)
-                  }
-              }
+                .validate()
+                .responseDecodable(of: StoreElement.self) { response in
+                    switch response.result {
+                        case .success(let storeElement):
+                            continuation.resume(returning: storeElement)
+                        case .failure(let error):
+                            continuation.resume(throwing: error as Error as! Never)
+                    }
+                }
         }
     }
-
-
-
-
+    
+    
+    
+    
 }
 func makeStringKoreanEncoded(_ string: String) -> String {
     return string.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? string
