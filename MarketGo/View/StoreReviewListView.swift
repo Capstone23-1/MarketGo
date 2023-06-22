@@ -101,65 +101,72 @@ struct StoreReviewRow: View {
                     EmptyView()
                 }
                 .hidden()
-                
-                VStack{
-                    Button(action: {
-                        if let currentUser = userModel.currentUser, let memberID = review.memberID?.memberID, currentUser.memberID == memberID {
-                            editReviewId = review.storeReviewID
-                            isEditingReview = true // Set the state to show the MarketReviewPutView
-                        } else {
-                            // Show permission error alert
-                            // You can customize the alert message here
-                            showEditAlert = true
+                if let currentUser = userModel.currentUser, let memberID = review.memberID?.memberID, currentUser.memberID == memberID {
+                    
+                    HStack{
+                        Spacer()
+                        VStack{
+                            Button(action: {
+                                if let currentUser = userModel.currentUser, let memberID = review.memberID?.memberID, currentUser.memberID == memberID {
+                                    editReviewId = review.storeReviewID
+                                    isEditingReview = true // Set the state to show the MarketReviewPutView
+                                } else {
+                                    // Show permission error alert
+                                    // You can customize the alert message here
+                                    showEditAlert = true
+                                }
+                            }, label: {
+                                Image(systemName: "pencil")
+                                    .foregroundColor(.blue)
+                            })
+                            .alert(isPresented: $showEditAlert, content: {
+                                return Alert(
+                                    title: Text("권한 오류"),
+                                    message: Text("리뷰 수정 권한이 없습니다."),
+                                    dismissButton: .default(Text("확인"))
+                                )
+                            })
                         }
-                    }, label: {
-                        Image(systemName: "pencil")
-                            .foregroundColor(.blue)
-                    })
-                    .alert(isPresented: $showEditAlert, content: {
-                        return Alert(
-                            title: Text("권한 오류"),
-                            message: Text("리뷰 수정 권한이 없습니다."),
-                            dismissButton: .default(Text("확인"))
-                        )
-                    })
+                        Spacer()
+                        VStack{
+                            // Delete button
+                            Button(action: {
+                                if let currentUser = userModel.currentUser, let memberID = review.memberID?.memberID, currentUser.memberID == memberID {
+                                    showDeleteAlert = true
+                                    deleteReviewId = review.storeReviewID
+                                } else {
+                                    // Show permission error alert
+                                    // You can customize the alert message here
+                                    showDeleteAlert = true
+                                }
+                            }, label: {
+                                Image(systemName: "trash")
+                                    .foregroundColor(.red)
+                            })
+                            .alert(isPresented: $showDeleteAlert, content: {
+                                if deleteReviewId != nil {
+                                    return Alert(
+                                        title: Text("확인"),
+                                        message: Text("리뷰를 삭제하시겠습니까?"),
+                                        primaryButton: .default(Text("삭제"), action: {
+                                            deleteStoreReview(with: deleteReviewId!, viewModel: viewModel, store: store) // Pass viewModel as a parameter
+                                        }),
+                                        secondaryButton: .cancel(Text("취소"), action: {})
+                                    )
+                                } else {
+                                    return Alert(
+                                        title: Text("권한 오류"),
+                                        message: Text("리뷰 삭제 권한이 없습니다."),
+                                        dismissButton: .default(Text("확인"))
+                                    )
+                                }
+                            })
+                        }
+                        Spacer()
+
+                    }
                 }
-                Spacer()
-                VStack{
-                    // Delete button
-                    Button(action: {
-                        if let currentUser = userModel.currentUser, let memberID = review.memberID?.memberID, currentUser.memberID == memberID {
-                            showDeleteAlert = true
-                            deleteReviewId = review.storeReviewID
-                        } else {
-                            // Show permission error alert
-                            // You can customize the alert message here
-                            showDeleteAlert = true
-                        }
-                    }, label: {
-                        Image(systemName: "trash")
-                            .foregroundColor(.red)
-                    })
-                    .alert(isPresented: $showDeleteAlert, content: {
-                        if deleteReviewId != nil {
-                            return Alert(
-                                title: Text("확인"),
-                                message: Text("리뷰를 삭제하시겠습니까?"),
-                                primaryButton: .default(Text("삭제"), action: {
-                                    deleteStoreReview(with: deleteReviewId!, viewModel: viewModel, store: store) // Pass viewModel as a parameter
-                                }),
-                                secondaryButton: .cancel(Text("취소"), action: {})
-                            )
-                        } else {
-                            return Alert(
-                                title: Text("권한 오류"),
-                                message: Text("리뷰 삭제 권한이 없습니다."),
-                                dismissButton: .default(Text("확인"))
-                            )
-                        }
-                    })
-                }
-                
+                                
               
             }
             .padding(.leading, 5)
