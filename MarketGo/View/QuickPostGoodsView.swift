@@ -69,6 +69,7 @@ struct QuickPostGoodsView: View {
 }
 struct QuickView: View {
     @StateObject private var vm = PostGoodsViewModel()
+    @StateObject private var nvm = NaverViewModel()
     @State private var isShowingImagePicker = false
     @State private var isShowingQuickPostGoodsView = false
     @State private var selectedImage: UIImage?
@@ -99,18 +100,20 @@ struct QuickView: View {
                 }
                 .sheet(isPresented: $isShowingImagePicker, onDismiss: {
                     if selectedImage != nil {
+                        nvm.image=selectedImage!
                         vm.isLoading = true
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        nvm.changeImageToText()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             
                             Task{
-                                if let image = selectedImage?.size.width, image == 732.0 {
-                                    vm.text = "1"
-                                } else {
-                                    vm.text = "2"
-                                    
-                                }
-                                print("size",selectedImage?.size)
+//                                if let image = selectedImage?.size.width, image == 732.0 {
+//                                    vm.text = "1"
+//                                } else {
+//                                    vm.text = "2"
+//
+//                                }
+                                vm.text = nvm.stringResult
+//                                print("size",selectedImage?.size)
     
                                 vm.fetchImageData()
                                 

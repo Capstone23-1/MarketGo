@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct NaverView: View {
-    @StateObject private var viewModel = NaverViewModel()
+    @StateObject private var nvm = NaverViewModel()
     
     var body: some View {
         VStack {
@@ -17,21 +17,16 @@ struct NaverView: View {
                 .font(.headline)
                 .padding()
             
-            Image(uiImage: viewModel.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 300)
-                .padding()
-            
+      
             Button(action: {
-                viewModel.changeImageToText()
+                nvm.changeImageToText()
             }, label: {
                 Text("변환")
                     .foregroundColor(.blue)
             })
             .padding()
             
-            Text(viewModel.stringResult)
+            Text(nvm.stringResult)
                 .multilineTextAlignment(.center)
                 .padding()
         }

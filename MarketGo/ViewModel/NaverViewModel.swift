@@ -10,10 +10,10 @@ import Combine
 import SwiftUI
 
 class NaverViewModel: ObservableObject {
-    let secretKey = "bmh6QXBsanJvUWhYRVJKV0t0VUVOdmRkTkNnWkx1TGo="
-    let apiURL = "http://clovaocr-api-kr.ncloud.com/external/v1/23282/04668696fc6bca02a6408cadd868b3107aa7b7c77c14a93bddcc55140044c07d"
+    let secretKey = "cHViVklGVlJ6bUNoVWxPT0hiREliVmVNWEtOYkxlR3Q="
+    let apiURL = "https://rkki68p87d.apigw.ntruss.com/custom/v1/22822/b0c7e90f9af730a1d209f2e8fdf0b9b51036f38fd1de93895f573063a5c83179/general"
     
-    @Published var image: UIImage = UIImage(named: "1월제철음식.png") ?? UIImage()
+    @Published var image: UIImage = UIImage()
     @Published var stringResult: String = ""
     
     var image64: String {
@@ -66,11 +66,12 @@ class NaverViewModel: ObservableObject {
                     let decoder = JSONDecoder()
                     if let json = try? decoder.decode(Response.self, from: data) {
                         // field 갯수만큼 for 문 돌려서 추출
-                        print(json)
+//                        print(json)
                         var result = ""
                         for field in json.images[0].fields {
                             result += field.inferText
                         }
+                        print(result)
                         self?.stringResult = result
                     }
                 }
