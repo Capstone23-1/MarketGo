@@ -241,8 +241,8 @@ struct ImagePicker: UIViewControllerRepresentable {
         picker.delegate = context.coordinator
         
         // 카메라 사용 설정
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            picker.sourceType = .camera
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            picker.sourceType = .photoLibrary
         }
         
         return picker

@@ -10,10 +10,10 @@ import Combine
 import SwiftUI
 
 class NaverViewModel: ObservableObject {
-    let secretKey = "cHViVklGVlJ6bUNoVWxPT0hiREliVmVNWEtOYkxlR3Q="
-    let apiURL = "https://3f1iycdv15.apigw.ntruss.com/custom/v1/19260/d965e0173ed48371cfca72258ce8dc822ede325e69df2196b5a9f3187a375ea0/general"
+    let secretKey = "bmh6QXBsanJvUWhYRVJKV0t0VUVOdmRkTkNnWkx1TGo="
+    let apiURL = "http://clovaocr-api-kr.ncloud.com/external/v1/23282/04668696fc6bca02a6408cadd868b3107aa7b7c77c14a93bddcc55140044c07d"
     
-    @Published var image: UIImage = UIImage(named: "1월제철음식") ?? UIImage()
+    @Published var image: UIImage = UIImage(named: "1월제철음식.png") ?? UIImage()
     @Published var stringResult: String = ""
     
     var image64: String {
@@ -22,6 +22,7 @@ class NaverViewModel: ObservableObject {
     }
     
     func changeImageToText() {
+        
         let naver = Naver(images: [images(format: "png", name: "1", data: image64)], lang: "ko", requestId: "string", timestamp: "0", version: "V2")
         
         let encoder = JSONEncoder()
@@ -60,10 +61,12 @@ class NaverViewModel: ObservableObject {
             
             // data 검증 및 사용
             if let data = data {
+                
                 DispatchQueue.main.async {
                     let decoder = JSONDecoder()
                     if let json = try? decoder.decode(Response.self, from: data) {
                         // field 갯수만큼 for 문 돌려서 추출
+                        print(json)
                         var result = ""
                         for field in json.images[0].fields {
                             result += field.inferText
