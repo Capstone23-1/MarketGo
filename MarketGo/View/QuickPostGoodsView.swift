@@ -78,7 +78,8 @@ struct QuickView: View {
         ZStack{
             VStack {
                 NavigationLink(
-                    destination: QuickPostGoodsView(viewModel: vm),
+//                    destination: QuickPostGoodsView(viewModel: vm),
+                    destination: NaverView(),
                     isActive: $isShowingQuickPostGoodsView,
                     label: {
                         EmptyView()

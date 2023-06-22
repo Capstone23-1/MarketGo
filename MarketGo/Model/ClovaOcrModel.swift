@@ -6,7 +6,22 @@
 //
 
 import Foundation
+//Request Codable
+struct Naver: Codable {
+    let images: [images]
 
+    let lang: String
+    let requestId: String
+    let timestamp: String
+    let version: String
+
+}
+struct images: Codable {
+    let format: String
+    let name: String
+    let data: String
+}
+// Response Codable 
 struct Response: Codable {
     let version, requestID: String
     let timestamp: Int

@@ -61,6 +61,8 @@
 		217354B129DD727D008FDF56 /* MarketChoicePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */; };
 		217DD1502A442D9400031257 /* ClovaOcrModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD14F2A442D9400031257 /* ClovaOcrModel.swift */; };
 		217DD1522A442E3300031257 /* NerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1512A442E3300031257 /* NerModel.swift */; };
+		217DD1542A442EEB00031257 /* NaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1532A442EEB00031257 /* NaverView.swift */; };
+		217DD1582A442F0600031257 /* NaverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1572A442F0600031257 /* NaverViewModel.swift */; };
 		2181EDD82A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */; };
 		2181EDDA2A127E8300B879B2 /* UserHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD92A127E8300B879B2 /* UserHomeView.swift */; };
 		2188115B2A3E29ED00492698 /* DefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188115A2A3E29ED00492698 /* DefaultImageView.swift */; };
@@ -218,6 +220,8 @@
 		217354B029DD727D008FDF56 /* MarketChoicePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChoicePickerView.swift; sourceTree = "<group>"; };
 		217DD14F2A442D9400031257 /* ClovaOcrModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClovaOcrModel.swift; sourceTree = "<group>"; };
 		217DD1512A442E3300031257 /* NerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerModel.swift; sourceTree = "<group>"; };
+		217DD1532A442EEB00031257 /* NaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverView.swift; sourceTree = "<group>"; };
+		217DD1572A442F0600031257 /* NaverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverViewModel.swift; sourceTree = "<group>"; };
 		2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerMarketChoiceViewModel.swift; sourceTree = "<group>"; };
 		2181EDD92A127E8300B879B2 /* UserHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeView.swift; sourceTree = "<group>"; };
 		2188115A2A3E29ED00492698 /* DefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageView.swift; sourceTree = "<group>"; };
@@ -449,6 +453,7 @@
 				218F54322A25409400A9A6EF /* MarketSearchViewModel.swift */,
 				21E4EC302A2EA6C0004AF534 /* PostGoodsVIewModel.swift */,
 				21E4EC3C2A30E7B2004AF534 /* CouponViewModel.swift */,
+				217DD1572A442F0600031257 /* NaverViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -536,6 +541,7 @@
 				998843BF2A04DE8700132079 /* UserMypageView.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
+				217DD1532A442EEB00031257 /* NaverView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -845,6 +851,7 @@
 				2144FE7E29DD6BCF008913C4 /* LocationManager.swift in Sources */,
 				21E4EC372A2F90CE004AF534 /* CouponUseView.swift in Sources */,
 				21E4EC332A2F88B2004AF534 /* CouponeGeneratorView.swift in Sources */,
+				217DD1582A442F0600031257 /* NaverViewModel.swift in Sources */,
 				99F02DE02A175C6B00D827CD /* MarketReviewJASON.swift in Sources */,
 				210704BF2A1D1FB100643140 /* SellerGoodsListView.swift in Sources */,
 				21AF151D2A2660520011A8B5 /* DogamQRGenerateView.swift in Sources */,
@@ -922,6 +929,7 @@
 				218F542F2A25386F00A9A6EF /* MemberProfileEditViewModel.swift in Sources */,
 				2140BC9929D1D01900B78C6C /* MarketGoApp.swift in Sources */,
 				218F54352A255ABA00A9A6EF /* EatingHouseList.swift in Sources */,
+				217DD1542A442EEB00031257 /* NaverView.swift in Sources */,
 				210704C12A1D260800643140 /* EditGoodsView.swift in Sources */,
 				21416B7E2A0CF25F008EA3C5 /* MarketSearchTableWrapper.swift in Sources */,
 				21FAE1EC2A0AC2A6006593D9 /* EditProfileView.swift in Sources */,
