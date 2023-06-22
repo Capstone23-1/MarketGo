@@ -64,6 +64,8 @@
 		217DD1542A442EEB00031257 /* NaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1532A442EEB00031257 /* NaverView.swift */; };
 		217DD1582A442F0600031257 /* NaverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1572A442F0600031257 /* NaverViewModel.swift */; };
 		217DD15A2A44A89400031257 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1592A44A89400031257 /* ImagePicker.swift */; };
+		217DD15D2A44ADA100031257 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 217DD15C2A44ADA100031257 /* Kingfisher */; };
+		217DD1612A44AFE000031257 /* GoodsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1602A44AFE000031257 /* GoodsImage.swift */; };
 		2181EDD82A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */; };
 		2181EDDA2A127E8300B879B2 /* UserHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD92A127E8300B879B2 /* UserHomeView.swift */; };
 		2188115B2A3E29ED00492698 /* DefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188115A2A3E29ED00492698 /* DefaultImageView.swift */; };
@@ -224,6 +226,7 @@
 		217DD1532A442EEB00031257 /* NaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverView.swift; sourceTree = "<group>"; };
 		217DD1572A442F0600031257 /* NaverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverViewModel.swift; sourceTree = "<group>"; };
 		217DD1592A44A89400031257 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		217DD1602A44AFE000031257 /* GoodsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsImage.swift; sourceTree = "<group>"; };
 		2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerMarketChoiceViewModel.swift; sourceTree = "<group>"; };
 		2181EDD92A127E8300B879B2 /* UserHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeView.swift; sourceTree = "<group>"; };
 		2188115A2A3E29ED00492698 /* DefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageView.swift; sourceTree = "<group>"; };
@@ -317,6 +320,7 @@
 			files = (
 				21A789BD2A1E6AF600DD9456 /* PinLayout in Frameworks */,
 				21A789BA2A1E6A3800DD9456 /* QRCode in Frameworks */,
+				217DD15D2A44ADA100031257 /* Kingfisher in Frameworks */,
 				AEC6AFE4A57CD1E7E1E0B310 /* libPods-MarketGo.a in Frameworks */,
 				2150934129DEF1A40001C788 /* Alamofire in Frameworks */,
 				21FAE1D82A0AA422006593D9 /* FirebaseAnalytics in Frameworks */,
@@ -545,6 +549,7 @@
 				998843BF2A04DE8700132079 /* UserMypageView.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
+				217DD1602A44AFE000031257 /* GoodsImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -596,6 +601,7 @@
 				21FAE1D92A0AA422006593D9 /* FirebaseAuth */,
 				21A789B92A1E6A3800DD9456 /* QRCode */,
 				21A789BC2A1E6AF600DD9456 /* PinLayout */,
+				217DD15C2A44ADA100031257 /* Kingfisher */,
 			);
 			productName = MarketGo;
 			productReference = 2140BC5029D1CEB900B78C6C /* MarketGo.app */;
@@ -677,6 +683,7 @@
 				21FAE1D62A0AA422006593D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				21A789B82A1E6A3800DD9456 /* XCRemoteSwiftPackageReference "QRCode" */,
 				21A789BB2A1E6AF600DD9456 /* XCRemoteSwiftPackageReference "PinLayout" */,
+				217DD15B2A44ADA100031257 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 2140BC5129D1CEB900B78C6C /* Products */;
 			projectDirPath = "";
@@ -883,6 +890,7 @@
 				21D006922A15047100C404C3 /* UserSignUpView.swift in Sources */,
 				217331472A324781005B5E80 /* OtherInfoView.swift in Sources */,
 				210862002A06AF8F00EC3A60 /* FindPathView.swift in Sources */,
+				217DD1612A44AFE000031257 /* GoodsImage.swift in Sources */,
 				994979C72A12700E00159828 /* CartJASON.swift in Sources */,
 				21470AAE29FD0F7F00A7CEE7 /* EatingHouseView.swift in Sources */,
 				994979C12A119A5100159828 /* StoreJASON.swift in Sources */,
@@ -1129,7 +1137,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1167,7 +1175,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1306,6 +1314,14 @@
 				kind = branch;
 			};
 		};
+		217DD15B2A44ADA100031257 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		21A789B82A1E6A3800DD9456 /* XCRemoteSwiftPackageReference "QRCode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmrschmidt/QRCode";
@@ -1337,6 +1353,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2150933F29DEF1A40001C788 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		217DD15C2A44ADA100031257 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 217DD15B2A44ADA100031257 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		21A789B92A1E6A3800DD9456 /* QRCode */ = {
 			isa = XCSwiftPackageProductDependency;

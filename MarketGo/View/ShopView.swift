@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import Kingfisher
 
 struct ShopView: View {
     @ObservedObject var storeModel = StoreViewModel()
@@ -71,9 +72,15 @@ struct ShopView: View {
                                                 HStack {
                                                     
                                                     VStack {
-                                                        
+                                                        var num : CGFloat = 80
                                                         if let fileData = store.storeFile {
-                                                            RemoteImage(url: URL(string: fileData.uploadFileURL ?? ""))
+                                                            KFImage(URL(string: fileData.uploadFileURL ?? ""))
+                                                                .resizable()
+                                                                .frame(width: num,height: num)
+                                                                .aspectRatio(contentMode: .fill)
+                                                                .clipShape(Circle())
+                                                           
+                                                            
                                                             
                                                         } else {
                                                             Text("Loading...")
@@ -91,6 +98,7 @@ struct ShopView: View {
                                                             .foregroundColor(.black)
                                                         
                                                     }
+                                                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
                                                     Spacer()
                                                     HStack {
                                                         Image(systemName: "star.fill")

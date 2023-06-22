@@ -6,6 +6,7 @@
 import Foundation
 import Alamofire
 import SwiftUI
+import Kingfisher
 
 // MARK: - Good
 struct GoodsOne: Codable, Identifiable {
@@ -30,42 +31,7 @@ struct GoodsOne: Codable, Identifiable {
        }
 }
 
-struct GoodsImage: View {
-    let url: URL?
-    let placeholder: Image
-    
-    init(url: URL?, placeholder: Image = Image(systemName: "photo")) {
-        self.url = url
-        self.placeholder = placeholder
-    }
-    
-    @State private var imageData: Data?
-    
-    var body: some View {
-        Group {
-            if let imageData = imageData, let uiImage = UIImage(data: imageData) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    
-                    
-            } else {
-                placeholder
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            }
-        }
-        .onAppear {
-            if let url = url {
-                AF.request(url).responseData { response in
-                    if case .success(let data) = response.result {
-                        self.imageData = data
-                    }
-                }
-            }
-        }
-    }
-}
+
 
 struct GoodsImage2: View {
     let url: URL?
