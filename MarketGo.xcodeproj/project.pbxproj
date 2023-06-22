@@ -66,6 +66,7 @@
 		217DD15A2A44A89400031257 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1592A44A89400031257 /* ImagePicker.swift */; };
 		217DD15D2A44ADA100031257 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 217DD15C2A44ADA100031257 /* Kingfisher */; };
 		217DD1612A44AFE000031257 /* GoodsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1602A44AFE000031257 /* GoodsImage.swift */; };
+		217DD1632A44C09000031257 /* QuickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1622A44C09000031257 /* QuickView.swift */; };
 		2181EDD82A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */; };
 		2181EDDA2A127E8300B879B2 /* UserHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD92A127E8300B879B2 /* UserHomeView.swift */; };
 		2188115B2A3E29ED00492698 /* DefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188115A2A3E29ED00492698 /* DefaultImageView.swift */; };
@@ -227,6 +228,7 @@
 		217DD1572A442F0600031257 /* NaverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverViewModel.swift; sourceTree = "<group>"; };
 		217DD1592A44A89400031257 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		217DD1602A44AFE000031257 /* GoodsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsImage.swift; sourceTree = "<group>"; };
+		217DD1622A44C09000031257 /* QuickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickView.swift; sourceTree = "<group>"; };
 		2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerMarketChoiceViewModel.swift; sourceTree = "<group>"; };
 		2181EDD92A127E8300B879B2 /* UserHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeView.swift; sourceTree = "<group>"; };
 		2188115A2A3E29ED00492698 /* DefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageView.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				99CD749729DD97B300D2D782 /* FoodItemDetailView.swift */,
 				998843C32A05035D00132079 /* FoodItemListView.swift */,
 				9940E4D42A2F30E7006439C4 /* GoodsCompareView.swift */,
+				217DD1602A44AFE000031257 /* GoodsImage.swift */,
 				217DD1592A44A89400031257 /* ImagePicker.swift */,
 				21D006932A15057E00C404C3 /* ImageUploadView.swift */,
 				2144FE7D29DD6BCF008913C4 /* LocationManager.swift */,
@@ -526,6 +529,7 @@
 				21A789C22A1E6C2A00DD9456 /* QRCodeView.swift */,
 				21A789C42A1EE02900DD9456 /* QRReaderView.swift */,
 				21CBC0DD2A2D045C007DC2E4 /* QuickPostGoodsView.swift */,
+				217DD1622A44C09000031257 /* QuickView.swift */,
 				998910E22A1DAFC70062C1C9 /* ReviewImageUploadView.swift */,
 				994B17C42A023653009B77E8 /* ReviewView.swift */,
 				2144FE7429DD6AF6008913C4 /* SearchBar.swift */,
@@ -549,7 +553,6 @@
 				998843BF2A04DE8700132079 /* UserMypageView.swift */,
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
-				217DD1602A44AFE000031257 /* GoodsImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -929,6 +932,7 @@
 				210704C32A1D3D3700643140 /* EditGoodsViewModel.swift in Sources */,
 				99AFA2552A28413700123896 /* PriceGraphView.swift in Sources */,
 				21470AB829FE620100A7CEE7 /* MarketAPIModel.swift in Sources */,
+				217DD1632A44C09000031257 /* QuickView.swift in Sources */,
 				214871DA2A06894700C6FD1D /* MarketOneMapView.swift in Sources */,
 				99F02DE22A176D4100D827CD /* MarketReviewView.swift in Sources */,
 				99CD749829DD97B300D2D782 /* FoodItemDetailView.swift in Sources */,
@@ -1137,7 +1141,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1175,7 +1179,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.MarketGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

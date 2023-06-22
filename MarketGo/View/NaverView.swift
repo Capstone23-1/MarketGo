@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct NaverView: View {
-    @StateObject private var nvm = NaverViewModel()
+    @ObservedObject public var nvm : NaverViewModel
     
     var body: some View {
         VStack {

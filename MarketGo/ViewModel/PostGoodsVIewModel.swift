@@ -109,10 +109,13 @@ class PostGoodsViewModel: ObservableObject {
         AF.request("http://3.34.33.15:8080/json/image/\(text)").responseDecodable(of: NerModel.self) { response in
             switch response.result {
                 case .success(let nerModel):
+                    if let text1=nerModel.text1,let text2=nerModel.text2,let text3=nerModel.text3{
+                        self.goodsName = text1
+                        self.goodsUnit = text2
+                        self.goodsPrice = text3
+                    }
 //                    print(nerModel)
-                    self.goodsName = (nerModel.text1)!
-                    self.goodsUnit = (nerModel.text2)!
-                    self.goodsPrice = (nerModel.text3)!
+                    
                 case .failure(let error):
                     print(error)
                     // Handle the error according to your needs
