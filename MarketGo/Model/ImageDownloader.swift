@@ -21,6 +21,7 @@ class ImageDownloader {
         }
     }
     
+    
     func fetchImage(fileInfo: FileInfo) async throws -> UIImage? {
         guard let url = URL(string: fileInfo.uploadFileURL!) else { throw URLError(.badURL) }
         let data = try await withCheckedThrowingContinuation { continuation in
