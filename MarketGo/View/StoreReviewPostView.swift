@@ -127,8 +127,8 @@ struct StoreReviewPostView: View {
                     storeReviewFile = id
                 }
             } else {
+                storeReviewFile = 0
                 print("이미지를 선택하지 않았습니다.")
-                return
             }
             
             let reviewPost = StoreReviewPost(
