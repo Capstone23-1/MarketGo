@@ -63,6 +63,7 @@
 		217DD1522A442E3300031257 /* NerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1512A442E3300031257 /* NerModel.swift */; };
 		217DD1542A442EEB00031257 /* NaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1532A442EEB00031257 /* NaverView.swift */; };
 		217DD1582A442F0600031257 /* NaverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1572A442F0600031257 /* NaverViewModel.swift */; };
+		217DD15A2A44A89400031257 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD1592A44A89400031257 /* ImagePicker.swift */; };
 		2181EDD82A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */; };
 		2181EDDA2A127E8300B879B2 /* UserHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181EDD92A127E8300B879B2 /* UserHomeView.swift */; };
 		2188115B2A3E29ED00492698 /* DefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188115A2A3E29ED00492698 /* DefaultImageView.swift */; };
@@ -222,6 +223,7 @@
 		217DD1512A442E3300031257 /* NerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerModel.swift; sourceTree = "<group>"; };
 		217DD1532A442EEB00031257 /* NaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverView.swift; sourceTree = "<group>"; };
 		217DD1572A442F0600031257 /* NaverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverViewModel.swift; sourceTree = "<group>"; };
+		217DD1592A44A89400031257 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		2181EDD72A125E9F00B879B2 /* SellerMarketChoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerMarketChoiceViewModel.swift; sourceTree = "<group>"; };
 		2181EDD92A127E8300B879B2 /* UserHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeView.swift; sourceTree = "<group>"; };
 		2188115A2A3E29ED00492698 /* DefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageView.swift; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				21FAE1F12A0BB829006593D9 /* UserSignInView.swift */,
 				21D006912A15047100C404C3 /* UserSignUpView.swift */,
 				217DD1532A442EEB00031257 /* NaverView.swift */,
+				217DD1592A44A89400031257 /* ImagePicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -906,6 +909,7 @@
 				217DD1502A442D9400031257 /* ClovaOcrModel.swift in Sources */,
 				210704B12A1BBA2A00643140 /* ImageDownloader.swift in Sources */,
 				998843C02A04DE8700132079 /* UserMypageView.swift in Sources */,
+				217DD15A2A44A89400031257 /* ImagePicker.swift in Sources */,
 				21FAE1EE2A0B65EC006593D9 /* SellerSignUpView.swift in Sources */,
 				2140BC7E29D1CF7D00B78C6C /* Documentation.docc in Sources */,
 				21FAE1DE2A0AA49D006593D9 /* UserSignUpViewModel.swift in Sources */,
