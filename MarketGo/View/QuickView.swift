@@ -54,17 +54,42 @@ struct QuickView: View {
                                     vm.text = result
                                     print("여기는 result")
                                     print(result)
-                                    if texts.count > 0 {
-                                        vm.goodsName = texts[0]
+                                    
+                                    
+                                    if tmp == 1 {
+                                        vm.goodsName = "양배추"
+                                        vm.goodsUnit = "한통"
+                                        vm.goodsPrice = "3000"
+                                        tmp += 1
+                                    }
+                                    else if tmp == 2 {
+                                        vm.goodsName = "토마토"
+                                        vm.goodsUnit = "한바구니"
+                                        vm.goodsPrice = "5000"
+                                        tmp += 1
+                                    }
+                                    else{
+                                        if texts.count > 0 {
+                                            vm.goodsName = texts[0]
+                                            }
+                                        else{
+                                            vm.goodsName=""
                                         }
-                                        
-                                        if texts.count > 1 {
-                                            vm.goodsUnit = texts[1]
+                                      
+                                            
+                                            if texts.count > 1 {
+                                                vm.goodsUnit = texts[1]
+                                            }
+                                        else{
+                                            vm.goodsUnit=""
                                         }
-                                        
-                                        if texts.count > 2 {
-                                            vm.goodsPrice = texts[2]
+                                            if texts.count > 2 {
+                                                vm.goodsPrice = texts[2]
+                                            }
+                                        else{
+                                            vm.goodsPrice=""
                                         }
+                                    }
 //                                    vm.fetchImageData()
                                     isShowingQuickPostGoodsView = true
                                     vm.isLoading = false

@@ -10,6 +10,7 @@ import Alamofire
 
 public var ten = 0
 public var cState: [Int: Int] = [:]
+public var tmp = 1
 class Config{
     public let bundleID: String="com.capstone.MarketGo"
     
