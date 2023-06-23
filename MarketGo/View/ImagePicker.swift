@@ -19,12 +19,12 @@ struct ImagePicker: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
-        
+        picker.sourceType = .camera
         // 카메라 사용 설정
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            picker.sourceType = .camera
-        }
-        
+//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//
+//        }
+//
         return picker
     }
     

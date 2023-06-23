@@ -11,8 +11,6 @@
 
 import Foundation
 
-// MARK: - NerModel
-struct NerModel: Codable {
-    var id: Int?
-    var imageName, text1, text2, text3: String?
-}
+
+
+typealias NerModel = [Int: String]

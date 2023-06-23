@@ -144,12 +144,12 @@ struct StoreReviewRow: View {
                                     .foregroundColor(.red)
                             })
                             .alert(isPresented: $showDeleteAlert, content: {
-                                if deleteReviewId != nil {
+                                if let deleteReviewId = review.storeReviewID{
                                     return Alert(
                                         title: Text("확인"),
                                         message: Text("리뷰를 삭제하시겠습니까?"),
                                         primaryButton: .default(Text("삭제"), action: {
-                                            deleteStoreReview(with: deleteReviewId!, viewModel: viewModel, store: store) // Pass viewModel as a parameter
+                                            deleteStoreReview(with: deleteReviewId, viewModel: viewModel, store: store) // Pass viewModel as a parameter
                                         }),
                                         secondaryButton: .cancel(Text("취소"), action: {})
                                     )

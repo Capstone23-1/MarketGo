@@ -106,14 +106,25 @@ class PostGoodsViewModel: ObservableObject {
         
     }
     func fetchImageData() {
-        AF.request("http://3.34.33.15:8080/json/image/\(text)").responseDecodable(of: NerModel.self) { response in
+        print(text)
+        let entext = makeStringKoreanEncoded(text)
+        AF.request("http://3.34.33.15:8080/json/text/\(entext)").responseDecodable(of: NerModel.self) { response in
             switch response.result {
                 case .success(let nerModel):
-                    if let text1=nerModel.text1,let text2=nerModel.text2,let text3=nerModel.text3{
+                    print(nerModel)
+                    if let text1=nerModel[0]{
                         self.goodsName = text1
+                        
+                    }
+                 
+                    if let text2 = nerModel[1]{
                         self.goodsUnit = text2
+                    }
+                    if let text3 = nerModel[2]{
                         self.goodsPrice = text3
                     }
+                    self.goodsInfo = self.text
+                    
 //                    print(nerModel)
                     
                 case .failure(let error):

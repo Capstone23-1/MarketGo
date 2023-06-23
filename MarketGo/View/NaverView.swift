@@ -10,6 +10,7 @@ import SwiftUI
 
 struct NaverView: View {
     @ObservedObject public var nvm : NaverViewModel
+    @Binding var stringResult:String
     
     var body: some View {
         VStack {
@@ -18,17 +19,11 @@ struct NaverView: View {
                 .padding()
             
       
-            Button(action: {
-                nvm.changeImageToText()
-            }, label: {
-                Text("변환")
-                    .foregroundColor(.blue)
-            })
-            .padding()
             
             Text(nvm.stringResult)
                 .multilineTextAlignment(.center)
                 .padding()
+           
         }
     }
 }
