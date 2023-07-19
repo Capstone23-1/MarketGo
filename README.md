@@ -56,3 +56,5 @@ MZ세대를 공략하기 위한 전통시장 정보 제공 어플
 
 ## 전체 시연영상
 [![Video Label](http://img.youtube.com/vi/jveA3WigiWs/0.jpg)](https://youtu.be/jveA3WigiWs)
+
+**⬆️클릭해서 유튜브에서 확인 가능⬆️**
