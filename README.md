@@ -30,13 +30,7 @@ MZ세대를 공략하기 위한 전통시장 정보 제공 어플
 
 
 
-## 시연연상
-- 회원가입
-
-<p align="left">
-<img src="https://github.com/Capstone23-1/MarketGo/assets/62399318/d797485a-93aa-4028-8090-9a08fdf6ab4a">
-</p>
-
+## 핵심기능 소개
 ### 빠른 상품 등록
 - OCR 인식 후 NLP 모델을 이용해 물건이름/가격/단위를 인식후 자동으로 물품등록창을 채워줍니다.
 - 상인분들이 바쁜 와중에 물건을 손쉽게 등록할 수 있습니다.
@@ -53,3 +47,12 @@ MZ세대를 공략하기 위한 전통시장 정보 제공 어플
 <p align="left">
 <img src="https://github.com/Capstone23-1/MarketGo/assets/62399318/7a49a5b3-37b5-4c4a-816c-ea9f4397a9f7">
 </p>
+
+### 회원가입
+
+<p align="left">
+<img src="https://github.com/Capstone23-1/MarketGo/assets/62399318/d797485a-93aa-4028-8090-9a08fdf6ab4a">
+</p>
+
+## 전체 시연영상
+[![Video Label](http://img.youtube.com/vi/jveA3WigiWs/0.jpg)](https://youtu.be/jveA3WigiWs)
